@@ -27,4 +27,12 @@ public class UserRepositoryTest {
         User user = userRepository.findByNickname("sohee");
         Assertions.assertThat(user.getName()).isEqualTo("sohee");
     }
+
+    @Test
+    @DisplayName("UserRepository delete 확인")
+    void userRepositoryDeleteCheck(){
+        User user = userRepository.findByNickname("sohee2 nickname");
+        userRepository.delete(user);
+    }
+
 }

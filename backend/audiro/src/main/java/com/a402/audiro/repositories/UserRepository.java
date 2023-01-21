@@ -12,4 +12,5 @@ public interface UserRepository extends Repository<User, Long> {
 
     @Transactional
     void save(User user);
+    void delete(User user);
 }
