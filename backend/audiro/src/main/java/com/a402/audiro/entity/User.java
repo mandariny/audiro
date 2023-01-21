@@ -1,5 +1,7 @@
 package com.a402.audiro.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Entity
 @DynamicInsert
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 
     @Id
@@ -21,14 +25,9 @@ public class User {
 
     @Column(name = "profile_message")
     private String msg;
+
     @Column(name = "profile_img")
     private String img;
-
-    public User(String name, String token, String nickname) {
-        this.name = name;
-        this.token = token;
-        this.nickname = nickname;
-    }
 
     @Override
     public String toString(){

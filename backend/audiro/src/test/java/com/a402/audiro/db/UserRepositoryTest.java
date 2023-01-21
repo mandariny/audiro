@@ -17,7 +17,7 @@ public class UserRepositoryTest {
     @Test
     @DisplayName("User 테이블 정보 저장 확인")
     void userTableSaveCheck(){
-        User user = new User("sohee3", "123456567889", "sohee3 닉네임");
+        User user = User.builder().name("sohee2").token("1029312347890132").nickname("sohee2 nickname").build();
         userRepository.save(user);
     }
 
