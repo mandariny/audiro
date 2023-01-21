@@ -57,4 +57,16 @@ public class User {
     public String getImg() {
         return img;
     }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }

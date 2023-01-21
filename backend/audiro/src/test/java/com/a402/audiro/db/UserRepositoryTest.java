@@ -35,4 +35,11 @@ public class UserRepositoryTest {
         userRepository.delete(user);
     }
 
+    @Test
+    @DisplayName("UserRepository update 확인")
+    void userRepositoryUpdateCheck(){
+        User user = userRepository.findByNickname("sohee");
+        user.setMsg("안녕??");
+        userRepository.save(user);
+    }
 }
