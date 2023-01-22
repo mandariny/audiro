@@ -3,7 +3,6 @@ package com.a402.audiro.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
@@ -18,7 +17,7 @@ public class User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
+    private long id;
     private String name;
     private String token;
     private String nickname;
@@ -31,11 +30,11 @@ public class User {
 
     @Override
     public String toString(){
-        return String.format("User[id=%d, name='%s', token='%s', nickname='%s']", userId, name, token, nickname);
+        return String.format("User[id=%d, name='%s', token='%s', nickname='%s']", id, name, token, nickname);
     }
 
     public long getUserId() {
-        return userId;
+        return id;
     }
 
     public String getName() {
