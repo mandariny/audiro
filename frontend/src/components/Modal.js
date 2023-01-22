@@ -7,11 +7,7 @@ function Modal({ setOpenModal }) {
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-          >
+          <button onClick={() => { setOpenModal(false) }}>
             <GrFormClose/>
           </button>
         </div>
