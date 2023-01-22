@@ -29,8 +29,14 @@ code {
   src: url(./assets/fonts/NanumSquare_acR.ttf);
 }
 
+@font-face {
+  font-family: "nanumSquareL";
+  src: url(./assets/fonts/NanumSquare_acL.ttf);
+}
+
 :root {
   --font-nanumSquareEB: "nanumSquareEB";
   --font-nanumSquareR: "nanumSquareR";
   --font-nanumSquareB: "nanumSquareB";
+  --font-nanumSquareL: "nanumSquareL";
 }

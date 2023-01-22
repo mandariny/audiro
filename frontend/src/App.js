@@ -5,10 +5,12 @@ import MyGift from './pages/MyGift';
 import Messenger from './pages/Messenger';
 import Nav from './components/Nav';
 import './App.css';
+import Logo from './components/Logo';
 
 function App() {
   return (
     <div>
+      <Logo/>
       <BrowserRouter>
       <Nav/>
       <Routes>

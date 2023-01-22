@@ -1,0 +1,39 @@
+.logo-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.sub-logo{
+    font-size: 16px;
+    font-family: var(--font-nanumSquareL);
+}
+
+.logo{
+    font-size: 40px;
+    font-family: var(--font-nanumSquareEB);
+}
+
+.logo-circle-left{
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    z-index: -99;
+    width: 27px;
+    height: 27px;
+    background-color: rgba(101, 34, 242, 0.56);
+    border-radius: 100%;
+}
+
+.logo-circle-right{
+    position:absolute;
+    top: 20px;
+    left: 110px;
+    z-index: -99;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(101, 34, 242, 0.56);
+    border-radius: 100%;
+}
