@@ -1,16 +1,19 @@
-import React from "react";
-import Nav from "../components/Nav";
-import '../styles/MyGift.css'
+import React, {useState, useRef} from "react";
+import '../styles/MyGift.css';
+import Modal from "../components/Modal";
 
-class MyGift extends React.Component {
-  render () {
-    return (
-        <div>
-            <h1>MyGift</h1>
-        </div>
-      
-    )
-  }
+const MyGift = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const outside = useRef();
+
+  return (
+    <div ref={outside} onClick={(e)=>{if(e.target==outside.current) setModalOpen(false)}}>
+      <h1>MyGift</h1>
+      <button onClick={()=>{ setModalOpen(true) }}> Open </button>
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+    </div>  
+  );
 }
+
 
 export default MyGift;

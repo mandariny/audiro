@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../components/Nav";
 import '../styles/Messenger.css'
 
 class Messenger extends React.Component {
