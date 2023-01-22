@@ -1,9 +1,14 @@
 import React from "react";
+import Nav from "../components/Nav";
+import '../styles/Messenger.css'
 
 class Messenger extends React.Component {
   render () {
     return (
-      <h1>Messenger</h1>
+        <div>
+            <h1>Messenger</h1>
+        </div>
+       
     )
   }
 }

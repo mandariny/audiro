@@ -1,17 +1,23 @@
 import React from "react";
-import {Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './pages/Home';
 import MyGift from './pages/MyGift';
 import Messenger from './pages/Messenger';
+import Nav from './components/Nav';
+import './App.css';
 
 function App() {
   return (
-    <div className="app">
+    <div>
+      <BrowserRouter>
+      <Nav/>
       <Routes>
-        <Route exact path="/" component={Home}/>
-        <Route path="/mygift" component={MyGift}/>
-        <Route path="/messenger" component={Messenger}/>
-      </Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route path="/mygift" element={<MyGift/>}/>
+          <Route path="/messenger" element={<Messenger/>}/>
+        </Routes>
+      </BrowserRouter>
+      
     </div>
   );
 }

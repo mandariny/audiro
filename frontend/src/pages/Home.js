@@ -1,11 +1,14 @@
 import React from "react";
+import Nav from "../components/Nav";
+import '../styles/Home.css'
 
-class Home extends React.Component {
-  render () {
+const Home = () =>{
     return (
-      <h1>Home</h1>
-    )
-  }
-}
-
+        <div>
+            <h1> Home</h1>
+        
+        </div>
+      )
+};
+   
 export default Home;

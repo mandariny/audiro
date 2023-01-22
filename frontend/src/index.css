@@ -5,9 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  height: 1000px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: "nanumSquareEB";
+  src: url(./assets/fonts/NanumSquare_acEB.ttf);
+}
+
+@font-face {
+  font-family: "nanumSquareB";
+  src: url(./assets/fonts/NanumSquare_acB.ttf);
+}
+
+@font-face {
+  font-family: "nanumSquareR";
+  src: url(./assets/fonts/NanumSquare_acR.ttf);
+}
+
+:root {
+  --font-nanumSquareEB: "nanumSquareEB";
+  --font-nanumSquareR: "nanumSquareR";
+  --font-nanumSquareB: "nanumSquareB";
 }

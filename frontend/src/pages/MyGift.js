@@ -1,9 +1,14 @@
 import React from "react";
+import Nav from "../components/Nav";
+import '../styles/MyGift.css'
 
 class MyGift extends React.Component {
   render () {
     return (
-      <h1>MyGift</h1>
+        <div>
+            <h1>MyGift</h1>
+        </div>
+      
     )
   }
 }
