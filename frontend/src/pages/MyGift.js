@@ -4,6 +4,10 @@ import Modal from "../components/Modal";
 import {BsHeadphones} from "react-icons/bs"
 import {HiMusicNote} from "react-icons/hi";
 import {FaHeart} from "react-icons/fa"
+import fun from '../assets/images/fun.png';
+import love from '../assets/images/love.png';
+import sad from '../assets/images/sad.png';
+import wow from '../assets/images/wow.png';
 
 const MyGift = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -51,12 +55,22 @@ const MyGift = () => {
         </div>
 
         <div className="mygift-detail-reaction-wrapper">
-          <div className="mygift-detail-reaction-1">
-            
+          <div className="mygift-detail-reaction">
+            <img src={love} height="35px" width="35px"/>
+            <div className="mygift-detail-reaction-number">2301</div>
           </div>
-          <div className="mygift-detail-reaction-1"></div>
-          <div className="mygift-detail-reaction-1"></div>
-          <div className="mygift-detail-reaction-1"></div>
+          <div className="mygift-detail-reaction">
+            <img src={sad} height="35px" width="35px"/>
+            <div className="mygift-detail-reaction-number">12</div>
+          </div>
+          <div className="mygift-detail-reaction">
+            <img src={wow} height="35px" width="35px"/>
+            <div className="mygift-detail-reaction-number">3</div>
+          </div>
+          <div className="mygift-detail-reaction">
+            <img src={fun} height="35px" width="35px"/>
+            <div className="mygift-detail-reaction-number">200</div>
+          </div>
         </div>
       </div>
       {modalOpen && <Modal className="gift-modal" setOpenModal={setModalOpen} />}
