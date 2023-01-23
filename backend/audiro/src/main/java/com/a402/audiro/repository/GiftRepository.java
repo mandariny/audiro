@@ -15,6 +15,11 @@ public interface GiftRepository extends Repository<Gift, Long> {
     @Query(value = "select * from gift join user on gift.user_id = user.user_id where user.nickname = :nickname",
             nativeQuery = true)
     List<Gift> findByNickname(@Param("nickname") String nickname);
+
+    @Query(value = "select * from gift where gift.is_manito = TRUE",
+            nativeQuery = true)
+    List<Gift> findManitos();
+
     void save(Gift gift);
     void deleteById(long id);
 }
