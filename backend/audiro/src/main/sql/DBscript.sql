@@ -69,6 +69,7 @@ CREATE TABLE GIFT(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO GIFT (GIFT_IMG, USER_ID, SPOT_ID, SONG_ID) VALUES ('https://www.naver.com/gift1', 2, 1, 1);
+INSERT INTO GIFT (GIFT_IMG, USER_ID, SPOT_ID, SONG_ID, GIFT_TAG) VALUES ('https://www.naver.com/gift1', 2, 1, 1, "SUNNY");
 
 
 /* Postcard */

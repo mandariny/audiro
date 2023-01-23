@@ -97,6 +97,8 @@ public class Gift {
         return giftTag;
     }
 
+    public void setGiftTag(GiftTag giftTag) { this.giftTag = giftTag; }
+
     public LocalDate getRegTime() {
         return regTime;
     }

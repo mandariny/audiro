@@ -1,9 +1,6 @@
 package com.a402.audiro.db;
 
-import com.a402.audiro.entity.Gift;
-import com.a402.audiro.entity.Song;
-import com.a402.audiro.entity.Spot;
-import com.a402.audiro.entity.User;
+import com.a402.audiro.entity.*;
 import com.a402.audiro.repositories.GiftRepository;
 import com.a402.audiro.repositories.SongRepository;
 import com.a402.audiro.repositories.SpotRepository;
@@ -13,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 
 @SpringBootTest
 public class GiftRepositoryTest {
@@ -51,5 +49,30 @@ public class GiftRepositoryTest {
     void giftRepositoryFindByGiftIdCheck(){
         Gift gift = giftRepository.findById(1);
         Assertions.assertThat(gift.getUser().getName()).isEqualTo("gaok");
+    }
+
+    @Test
+    @DisplayName("GiftFeedback 확인")
+    void giftFeedbackCheck(){
+        Gift gift = giftRepository.findById(1);
+        Assertions.assertThat(gift.getGiftFeedback().getFeed1()).isEqualTo(0);
+
+        gift.getGiftFeedback().setFeed1(1);
+        giftRepository.save(gift);
+    }
+
+    @Test
+    @DisplayName("GfitTag 정확한 값 넣기")
+    void giftTagCheck(){
+        Gift gift = giftRepository.findById(14);
+        Assertions.assertThat(gift.getGiftTag()).isEqualTo(GiftTag.SUNNY);
+    }
+
+    @Test
+    @DisplayName("GiftTag 이상한 값 넣기")
+    void giftTagExceptionCheck(){
+        org.junit.jupiter.api.Assertions.assertThrows(InvalidDataAccessApiUsageException.class, () -> {
+            giftRepository.findById(15);
+        });
     }
 }
