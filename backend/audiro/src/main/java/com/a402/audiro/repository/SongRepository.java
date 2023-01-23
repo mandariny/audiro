@@ -1,4 +1,4 @@
-package com.a402.audiro.repositories;
+package com.a402.audiro.repository;
 
 import com.a402.audiro.entity.Song;
 import org.springframework.data.repository.Repository;

@@ -1,16 +1,18 @@
 package com.a402.audiro.db;
 
 import com.a402.audiro.entity.*;
-import com.a402.audiro.repositories.GiftRepository;
-import com.a402.audiro.repositories.SongRepository;
-import com.a402.audiro.repositories.SpotRepository;
-import com.a402.audiro.repositories.UserRepository;
+import com.a402.audiro.repository.GiftRepository;
+import com.a402.audiro.repository.SongRepository;
+import com.a402.audiro.repository.SpotRepository;
+import com.a402.audiro.repository.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
+
+import java.util.List;
 
 @SpringBootTest
 public class GiftRepositoryTest {
@@ -74,5 +76,18 @@ public class GiftRepositoryTest {
         org.junit.jupiter.api.Assertions.assertThrows(InvalidDataAccessApiUsageException.class, () -> {
             giftRepository.findById(15);
         });
+    }
+
+    @Test
+    @DisplayName("FindByNickname 확인")
+    void giftFindByNicknameCheck(){
+        List<Gift> gift = giftRepository.findByNickname("gaok");
+        Assertions.assertThat(gift.size()).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("delete 확인")
+    void giftDeleteById(){
+        giftRepository.deleteById(13);
     }
 }

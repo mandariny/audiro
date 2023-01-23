@@ -1,7 +1,7 @@
 package com.a402.audiro.db;
 
 import com.a402.audiro.entity.User;
-import com.a402.audiro.repositories.UserRepository;
+import com.a402.audiro.repository.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
