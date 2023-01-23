@@ -57,4 +57,10 @@ public class SongRepositoryTest {
         Song song = songRepository.findById(11);
         songRepository.delete(song);
     }
+
+    @Test
+    @DisplayName("null 반환 확인")
+    void nullExceptionCheci(){
+        Song song = songRepository.findById(111);
+    }
 }

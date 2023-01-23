@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -18,6 +18,6 @@ public class GiftDTO {
     private String song;
     private String singer;
     private String songUrl;
-    private LocalDate regDate;
+    private LocalDateTime regDate;
     private GiftEmojiDTO emoji;
 }

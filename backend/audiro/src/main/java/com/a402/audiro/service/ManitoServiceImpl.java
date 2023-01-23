@@ -2,18 +2,13 @@ package com.a402.audiro.service;
 
 import com.a402.audiro.dto.GiftDTO;
 import com.a402.audiro.dto.ManitoDTO;
-import com.a402.audiro.entity.Gift;
-import com.a402.audiro.entity.Song;
-import com.a402.audiro.entity.Spot;
-import com.a402.audiro.entity.User;
-import com.a402.audiro.repository.GiftRepository;
-import com.a402.audiro.repository.SongRepository;
-import com.a402.audiro.repository.SpotRepository;
-import com.a402.audiro.repository.UserRepository;
+import com.a402.audiro.entity.*;
+import com.a402.audiro.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +21,7 @@ public class ManitoServiceImpl implements ManitoService{
     private final UserRepository userRepository;
     private final SongRepository songRepository;
     private final SpotRepository spotRepository;
+    private final SongMetaRepository songMetaRepository;
 
     @Override
     public List<GiftDTO> getManitoList() {
@@ -69,6 +65,30 @@ public class ManitoServiceImpl implements ManitoService{
                     .isManito(Boolean.TRUE)
                     .build();
             giftRepository.save(manito);
+
+            // 노래 추천 횟수 수정
+            SongMeta beforeManitoMeta = songMetaRepository.findBySongAndSpot(beforeManito.getSong(), beforeManito.getSpot());
+            SongMeta manitoMeta = songMetaRepository.findBySongAndSpot(manito.getSong(), manito.getSpot());
+
+            if(manitoMeta == null){
+                manitoMeta = SongMeta.builder()
+                        .song(song)
+                        .spot(spot)
+                        .updateTime(LocalDateTime.now())
+                        .liked(0)
+                        .build();
+            }
+
+            if(beforeManito.getId() != manito.getId()){
+                beforeManitoMeta.minusCnt();
+                manitoMeta.plusCnt();
+                songMetaRepository.save(beforeManitoMeta);
+            }
+
+            manitoMeta.setUpdateTime();
+
+            songMetaRepository.save(manitoMeta);
+
         }catch (Exception e){
             log.error(e.getMessage());
             throw e;

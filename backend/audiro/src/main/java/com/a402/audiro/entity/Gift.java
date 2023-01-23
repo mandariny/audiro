@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @DynamicInsert
@@ -38,7 +38,7 @@ public class Gift {
     @Enumerated(EnumType.STRING)
     private GiftTag giftTag;
 
-    private LocalDate regTime;
+    private LocalDateTime regTime;
 
     @Embedded
     private GiftFeedback giftFeedback;
@@ -99,7 +99,7 @@ public class Gift {
 
     public void setGiftTag(GiftTag giftTag) { this.giftTag = giftTag; }
 
-    public LocalDate getRegTime() {
+    public LocalDateTime getRegTime() {
         return regTime;
     }
 
