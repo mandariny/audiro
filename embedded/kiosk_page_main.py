@@ -4,7 +4,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap, QIcon, QColor
 
-from main_page import Ui_MainWindow
+from main_page0 import Ui_MainWindow
 
 
 # 사용자 모듈 - painter 추가
@@ -36,7 +36,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.stackedPages.setCurrentIndex(0)
         self.menu_toolBox.setCurrentIndex(0)
-        self.stackedPages2.setCurrentIndex(1)
+
+        self.stackedWidget_4.setCurrentIndex(0)
+        self.stackedPages2.setCurrentIndex(2)
         ##스택페이지2 index(
         # 0: 그림판 text,
         # 1: 음악검색 text,
@@ -134,35 +136,85 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # 플레이어 추가코드
         self.new_music(self.music_list[self.stackedCharts.currentIndex()])
 
+
+    # nextMemos, prevMemos -> hard coding
+    def nextMemos(self):
+        currentPage = self.stackedWidget.currentIndex()
+        countPage = self.stackedWidget.count()
+        if currentPage + 1 >= countPage:
+            self.stackedWidget.setCurrentIndex(0)
+        else:
+            self.stackedWidget.setCurrentIndex(currentPage + 1)
+
+        currentPage = self.stackedWidget_2.currentIndex()
+        countPage = self.stackedWidget_2.count()
+        if currentPage + 1 >= countPage:
+            self.stackedWidget_2.setCurrentIndex(0)
+        else:
+            self.stackedWidget_2.setCurrentIndex(currentPage + 1)
+
+        currentPage = self.stackedWidget_3.currentIndex()
+        countPage = self.stackedWidget_3.count()
+        if currentPage + 1 >= countPage:
+            self.stackedWidget_3.setCurrentIndex(0)
+        else:
+            self.stackedWidget_3.setCurrentIndex(currentPage + 1)
+
+    def prevMemos(self):
+        currentPage = self.stackedWidget.currentIndex()
+        countPage = self.stackedWidget.count()
+        if currentPage - 1 < 0:
+            self.stackedWidget.setCurrentIndex(countPage - 1)
+        else:
+            self.stackedWidget.setCurrentIndex(currentPage - 1)
+
+        currentPage = self.stackedWidget_2.currentIndex()
+        countPage = self.stackedWidget_2.count()
+        if currentPage - 1 < 0:
+            self.stackedWidget_2.setCurrentIndex(countPage - 1)
+        else:
+            self.stackedWidget_2.setCurrentIndex(currentPage - 1)
+
+        currentPage = self.stackedWidget_3.currentIndex()
+        countPage = self.stackedWidget_3.count()
+        if currentPage - 1 < 0:
+            self.stackedWidget_3.setCurrentIndex(countPage - 1)
+        else:
+            self.stackedWidget_3.setCurrentIndex(currentPage - 1)
+
     def playMusic1_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedMemoPages.setCurrentIndex(0)
-        self.stackedPages2.setCurrentIndex(4)
+        self.stackedPages2.setCurrentIndex(0)
 
     def playMusic2_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedMemoPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(4)
+        self.stackedPages2.setCurrentIndex(0)
 
     def playMusic3_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedMemoPages.setCurrentIndex(2)
-        self.stackedPages2.setCurrentIndex(4)
+        self.stackedPages2.setCurrentIndex(0)
 
     def playMusic1_post(self):
         self.stackedPages.setCurrentIndex(3)
+        self.stackedPages2.setCurrentIndex(3)
         self.stackedMusicPosts.setCurrentIndex(0)
 
     def playMusic2_post(self):
         self.stackedPages.setCurrentIndex(3)
+        self.stackedPages2.setCurrentIndex(3)
         self.stackedMusicPosts.setCurrentIndex(1)
 
     def playMusic3_post(self):
         self.stackedPages.setCurrentIndex(3)
+        self.stackedPages2.setCurrentIndex(3)
         self.stackedMusicPosts.setCurrentIndex(2)
 
     def backToChart(self):
         self.stackedPages.setCurrentIndex(0)
+        self.stackedPages2.setCurrentIndex(2)
 
     def backToPosts(self):
         self.stackedPages.setCurrentIndex(2)
@@ -189,8 +241,17 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def reply(self):
         self.stackedPages2.setCurrentIndex(3)
 
+    def draw(self):
+        self.stackedPages2.setCurrentIndex(0)
+
+    def login(self):
+        self.stackedPages2.setCurrentIndex(4)
+
     def postMusic(self):
         self.stackedPages2.setCurrentIndex(3)
+
+    def volumeChange(self):
+        pass
 
 app = QApplication(sys.argv)
 window = MyWindow()
