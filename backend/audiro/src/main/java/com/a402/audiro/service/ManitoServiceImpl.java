@@ -1,6 +1,6 @@
 package com.a402.audiro.service;
 
-import com.a402.audiro.dto.GiftDTO;
+import com.a402.audiro.dto.GiftThumbnailDTO;
 import com.a402.audiro.dto.ManitoDTO;
 import com.a402.audiro.entity.*;
 import com.a402.audiro.repository.*;
@@ -25,14 +25,14 @@ public class ManitoServiceImpl implements ManitoService{
     private final SongMetaRepository songMetaRepository;
 
     @Override
-    public List<GiftDTO> getManitoList() {
+    public List<GiftThumbnailDTO> getManitoList() {
         List<Gift> manito;
-        List<GiftDTO> manitoList;
+        List<GiftThumbnailDTO> manitoList;
 
         try{
             manito = giftRepository.findManitos();
             manitoList = manito.stream()
-                    .map(m -> GiftDTO.builder()
+                    .map(m -> GiftThumbnailDTO.builder()
                             .id(m.getId())
                             .giftImg(m.getGiftImg())
                             .build())
