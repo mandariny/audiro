@@ -3,8 +3,8 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap, QIcon, QColor
-
-from main_page0 import Ui_MainWindow
+from PyQt5 import QtCore
+from main_page1 import Ui_MainWindow
 
 
 # 사용자 모듈 - painter 추가
@@ -50,8 +50,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         #self.painter_widget.set_color(QColor(rgb(255,255,255)))
 
         #그림판 선언
-        self.painter_widget = PainterWidget()
-        self.stackedPages2.addWidget(self.painter_widget)
+        #self.painter_widget = PainterWidget()
+        #self.stackedPages2.addWidget(self.painter_widget)
         #self.stackedPages2.setCurrentIndex(4) # 내가 원하는 위젯 뿌리기 - 다음에는 ui 파일도 올려줘...
 
         #키보드 선언
@@ -252,6 +252,36 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def volumeChange(self):
         pass
+
+    def colorChange1(self):
+        self.painter_widget.pen.setColor(QColor(0, 0, 0))
+
+    def colorChange2(self):
+        self.painter_widget.pen.setColor(QColor(245, 51, 51))
+
+    def colorChange3(self):
+        self.painter_widget.pen.setColor(QColor(238, 106, 31))
+
+    def colorChange4(self):
+        self.painter_widget.pen.setColor(QColor(231, 234, 91))
+
+    def colorChange5(self):
+        self.painter_widget.pen.setColor(QColor(26, 203, 22))
+
+    def colorChange6(self):
+        self.painter_widget.pen.setColor(QColor(76, 37, 232))
+
+    def colorChange7(self):
+        self.painter_widget.pen.setColor(QColor(181, 37, 232))
+
+    def colorChange8(self):
+        self.painter_widget.pen.setColor(QColor(232, 37, 142))
+
+    def colorChange9(self):
+        self.painter_widget.pen.setColor(QColor(255,255,255))
+
+    def painterClear(self):
+        self.painter_widget.clear()
 
 app = QApplication(sys.argv)
 window = MyWindow()
