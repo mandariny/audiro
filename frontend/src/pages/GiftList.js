@@ -3,12 +3,13 @@ import {BrowserRouter, Route, Routes,Link} from "react-router-dom";
 import Home from './Home';
 import MyGift from './MyGift';
 import Messenger from './Messenger';
+import "../styles/GiftList.css"
 
 const GiftList = () =>{
     return (
         <div>
             <h1> Home</h1>
-            
+            <div className="gift-list">
             <Link to="/gifts/:giftid"><img src='https://media.discordapp.net/attachments/1056882470429138968/1068086212054745118/love1.jpg' height={105} width={170} /></Link>
             <Link to="/gifts/:giftid"><img src='https://cdn.discordapp.com/attachments/1056882470429138968/1068086212272861245/love2.jpg' height={105} width={170} /></Link>
             <Link to="/gifts/:giftid"><img src='https://media.discordapp.net/attachments/1056882470429138968/1068086212444819486/love3.jpg' height={105} width={170} /></Link>
@@ -29,6 +30,7 @@ const GiftList = () =>{
                 <Route path="/messenger" element={<Messenger/>}/>
               </Routes>
             </BrowserRouter> */}
+            </div>
         </div>
       )
 };
