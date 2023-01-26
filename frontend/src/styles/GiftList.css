@@ -1,0 +1,7 @@
+.gift-list{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border-color: blueviolet;
+    flex-wrap: wrap;
+}
