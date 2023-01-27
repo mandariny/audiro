@@ -9,6 +9,7 @@ import love from '../assets/images/love.png';
 import sad from '../assets/images/sad.png';
 import wow from '../assets/images/wow.png';
 import {useParams} from 'react-router-dom'
+import song from '../assets/audio/Ditto.mp3'
 const MyGift = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const outside = useRef();
@@ -39,6 +40,7 @@ const MyGift = () => {
         </div>
 
         <div className="mygift-detail-img"></div>
+        <image> </image>
 
         <div className="mygift-detail-bottom-wrapper">
           <div className="mygift-detail-song-wrapper">
@@ -53,7 +55,9 @@ const MyGift = () => {
             <div className="mygift-detail-heart-number">21340</div>
           </div>
         </div>
-
+        <audio controls>
+          <source src={song} type="audio/mpeg"></source>
+        </audio>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/pSUydWEqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
         <div className="mygift-detail-reaction-wrapper">
