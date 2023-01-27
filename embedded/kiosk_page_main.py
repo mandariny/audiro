@@ -6,7 +6,6 @@ from PyQt5.QtGui import QPixmap, QIcon, QColor
 from PyQt5 import QtCore
 from main_page1 import Ui_MainWindow
 
-
 # 사용자 모듈 - painter 추가
 from painter import PainterWidget
 import Keyboard
