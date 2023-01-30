@@ -30,7 +30,7 @@ public class SongChartController {
         }
     }
 
-    @GetMapping("/time")
+    @GetMapping("/updatetime")
     public ResponseEntity<?> getSongListByTime(@RequestParam long spotId){
         try{
             List<SongChartDTO> songChartByTimeList = songChartService.getSongListByTime(spotId);
@@ -41,4 +41,14 @@ public class SongChartController {
         }
     }
 
+    @GetMapping("/random")
+    public ResponseEntity<?> getSongListByRandom(@RequestParam long spotId){
+        try{
+            List<SongChartDTO> songChartByRandomList = songChartService.getSongListByRandom(spotId);
+
+            return ResponseEntity.ok().body(songChartByRandomList);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
