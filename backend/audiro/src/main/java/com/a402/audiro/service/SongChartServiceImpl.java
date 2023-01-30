@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +23,7 @@ public class SongChartServiceImpl implements SongChartService{
         List<SongChartDTO> songDTOList;
 
         try{
-            song = songMetaRepository.findBySpotId(spotId);
+            song = songMetaRepository.findBySpotIdGiftCnt(spotId);
             songDTOList = song.stream()
                     .map(s -> SongChartDTO.builder()
                             .song_meta_id(s.getId())
@@ -34,6 +35,8 @@ public class SongChartServiceImpl implements SongChartService{
                             .song_liked(s.getLiked())
                             .build())
                     .collect(Collectors.toList());
+
+
         }catch (Exception e){
             log.error(e.getMessage());
             throw e;
@@ -41,4 +44,34 @@ public class SongChartServiceImpl implements SongChartService{
 
         return songDTOList;
     }
+
+    @Override
+    public List<SongChartDTO> getSongListByTime(long spotId) {
+        List<SongMeta> song;
+        List<SongChartDTO> songDTOList;
+
+        try{
+            song = songMetaRepository.findBySpotIdTime(spotId);
+            songDTOList = song.stream()
+                    .map(s -> SongChartDTO.builder()
+                            .song_meta_id(s.getId())
+                            .song_title(s.getSong().getSongTitle())
+                            .singer(s.getSong().getSinger())
+                            .song_url(s.getSong().getSongUrl())
+                            .song_img(s.getSong().getSongImg())
+                            .gift_cnt(s.getCnt())
+                            .song_liked(s.getLiked())
+                            .update_time(Timestamp.valueOf(s.getUpdateTime()).toLocalDateTime())
+                            .build())
+                    .collect(Collectors.toList());
+
+
+        }catch (Exception e){
+            log.error(e.getMessage());
+            throw e;
+        }
+
+        return songDTOList;
+    }
+
 }

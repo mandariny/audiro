@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,7 +17,7 @@ public class SongChartDTO {
     private long song_id;
     private long song_liked;
     private long gift_cnt;
-    private long update_time;
+    private LocalDateTime update_time;
     private String song_title;
     private String singer;
     private String song_url;

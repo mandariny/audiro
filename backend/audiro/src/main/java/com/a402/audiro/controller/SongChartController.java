@@ -23,11 +23,22 @@ public class SongChartController {
     public ResponseEntity<?> getSongListByGiftCnt(@RequestParam long spotId){
         try{
             List<SongChartDTO> songChartByGiftCntList = songChartService.getSongListByGiftCnt(spotId);
+
             return ResponseEntity.ok().body(songChartByGiftCntList);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
+    @GetMapping("/time")
+    public ResponseEntity<?> getSongListByTime(@RequestParam long spotId){
+        try{
+            List<SongChartDTO> songChartByTimeList = songChartService.getSongListByTime(spotId);
+
+            return ResponseEntity.ok().body(songChartByTimeList);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
 }
