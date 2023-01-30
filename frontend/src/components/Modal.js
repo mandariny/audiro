@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Modal.css";
 import {GrFormClose} from 'react-icons/gr'
+import styled from 'styled-components';
 
 function Modal({ setOpenModal }) {
   return (

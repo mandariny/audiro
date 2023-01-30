@@ -39,6 +39,16 @@
     color:black;
 }
 .buttons{
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 299px;
+    height: 268px;
+    left: 33px;
+    top: 263px;
+    background: #6522F2;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
     justify-content:center;

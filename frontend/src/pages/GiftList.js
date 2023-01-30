@@ -1,9 +1,8 @@
 import React from "react";
-import {BrowserRouter, Route, Routes,Link} from "react-router-dom";
-import Home from './Home';
-import MyGift from './MyGift';
-import Messenger from './Messenger';
+import {Link} from "react-router-dom";
+
 import "../styles/GiftList.css"
+import styled from 'styled-components';
 
 const GiftList = () =>{
     return (
@@ -22,14 +21,7 @@ const GiftList = () =>{
             <Link to="/gifts/8"><img src='http://www.akbobada.com/home/akbobada/archive/akbo/img/202212200942036.jpg' height={105} width={170} /></Link>
             <Link to="/gifts/9"><img src='https://image.bugsm.co.kr/album/images/200/40824/4082425.jpg?version=20230105002539.0' height={105} width={170} /></Link>
             
-            {/* <BrowserRouter>
-            <Routes>
-                <Route exact path="/" element={<Home/>}/>
-                <Route path="/mygift" element={<MyGift/>}/>
-                <Route path="/gifts" element={<GiftList/>}/>
-                <Route path="/messenger" element={<Messenger/>}/>
-              </Routes>
-            </BrowserRouter> */}
+  
             </div>
         </div>
       )

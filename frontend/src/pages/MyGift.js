@@ -9,13 +9,21 @@ import love from '../assets/images/love.png';
 import sad from '../assets/images/sad.png';
 import wow from '../assets/images/wow.png';
 import {useParams} from 'react-router-dom'
-import song from '../assets/audio/Ditto.mp3'
+import song from '../assets/audio/Ditto.mp3';
+import DeleteModal from "../components/DeleteModal";
+import styled from 'styled-components';
+
 const MyGift = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const outside = useRef();
   const {giftid}=useParams()
+  console.log([deleteModalOpen, setDeleteModalOpen])
   return (
-    <div ref={outside} onClick={(e)=>{if(e.target==outside.current) setModalOpen(false)}}>
+    <div ref={outside} onClick={(e)=>{if(e.target==outside.current) setModalOpen(false)
+    
+    
+    }}>
       <div className="mygift-container">
         <div className="mygift-title">반가워요, 연희동 아자르님 👋 {giftid}번째 글입니다. </div>
         <div className="mygift-wrapper">
@@ -36,7 +44,9 @@ const MyGift = () => {
 
         <div className="mygift-detail-btn-wrapper">
           <div className="mygift-detail-btn-open">비공개</div>
-          <div className="mygift-detail-btn-delete">삭제하기</div>
+          <div className="mygift-detail-btn-delete" onClick={()=>{ setDeleteModalOpen(true)
+          console.log(deleteModalOpen)
+          }} >삭제하기</div>
         </div>
 
         <div className="mygift-detail-img"></div>
@@ -80,8 +90,11 @@ const MyGift = () => {
         </div>
       </div>
       {modalOpen && <Modal className="gift-modal" setOpenModal={setModalOpen} />}
+      {deleteModalOpen&& <DeleteModal setOpenModal={setDeleteModalOpen}/>}
+      
     </div>  
   );
+  
 }
 
 
