@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import '../styles/Nav.css'
+import styled from 'styled-components';
 
 const Nav=()=>{
 
@@ -17,11 +18,21 @@ const Nav=()=>{
             title: '편지함',
             link: '/messenger'
         },
+        {
+            title: '뮤직 메이트',
+            link: '/musicmate'
+        }
     ];
 
     const [select, setSelect] = useState('홈');
     const onClicked = (type)=>{
         setSelect(type);
+    }
+
+    const cur=window.location.href
+    console.log({cur}=='http://localhost:3000/')
+    if (cur=='http://localhost:3000/'){
+        return null;
     }
 
     return(

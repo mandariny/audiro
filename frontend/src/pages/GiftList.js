@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const GiftList = () =>{
     return (
         <div>
-            <h1> Home</h1>
+            <h1> GiftList</h1>
             <div className="gift-list">
             <Link to="/gifts/1"><img src='https://media.discordapp.net/attachments/1056882470429138968/1068086212054745118/love1.jpg' height={105} width={170} /></Link>
             <Link to="/gifts/2"><img src='https://cdn.discordapp.com/attachments/1056882470429138968/1068086212272861245/love2.jpg' height={105} width={170} /></Link>

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Home = () => {
+const Musicmate = () => {
     return (
         <div>
-            홈 서비스 소개
+            내 메이트
         </div>
     );
 };
 
-export default Home;
+export default Musicmate;

@@ -18,8 +18,8 @@ function DeleteModal({setOpenModal}) {
  
             <div className="title">삭제시 기기에서도 삭제됩니다. 정말 지우시곘습니까</div>
             <div >
-                <button onClick={deleteGift}> 취소 </button>
-                <button onClick={closeDeleteModal}> 삭제 </button>
+                <button onClick={deleteGift}> 삭제 </button>
+                <button onClick={closeDeleteModal}> 취소 </button>
 
             </div>
           </div>

@@ -7,18 +7,25 @@ import Nav from './components/Nav';
 import './App.css';
 import Logo from './components/Logo';
 import GiftList from "./pages/GiftList";
+import Login from './pages/Login'
+import Musicmate from "./pages/Musicmate";
+
 function App() {
+
   return (
     <div>
-      <Logo/>
+      <Logo userId='연희동 아자르'/>
       <BrowserRouter>
       <Nav/>
       <Routes>
           <Route exact path="/" element={<Home/>}/>
-          <Route path="/gifts/:giftid" element={<MyGift/>}/>
           <Route path="/gifts" element={<GiftList/>}/>
+          <Route path="/gifts/:giftid" element={<MyGift/>}/>
+          
           <Route path="/messenger" element={<Messenger/>}/>
-        </Routes>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/musicmate' element={<Musicmate/>}> </Route>
+      </Routes>
       </BrowserRouter>
       
     </div>
