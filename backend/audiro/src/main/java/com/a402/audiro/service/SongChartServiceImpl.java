@@ -23,7 +23,7 @@ public class SongChartServiceImpl implements SongChartService{
         List<SongChartDTO> songDTOList;
 
         try{
-            song = songMetaRepository.findBySpotIdGiftCnt(spotId);
+            song = songMetaRepository.findBySpotIdByGiftCnt(spotId);
             songDTOList = song.stream()
                     .map(s -> SongChartDTO.builder()
                             .song_meta_id(s.getId())
@@ -51,7 +51,7 @@ public class SongChartServiceImpl implements SongChartService{
         List<SongChartDTO> songDTOList;
 
         try{
-            song = songMetaRepository.findBySpotIdTime(spotId);
+            song = songMetaRepository.findBySpotIdByTime(spotId);
             songDTOList = song.stream()
                     .map(s -> SongChartDTO.builder()
                             .song_meta_id(s.getId())
@@ -80,7 +80,7 @@ public class SongChartServiceImpl implements SongChartService{
         List<SongChartDTO> songDTOList;
 
         try{
-            song = songMetaRepository.findBySpotIdRandom(spotId);
+            song = songMetaRepository.findBySpotIdByRandom(spotId);
             songDTOList = song.stream()
                     .map(s -> SongChartDTO.builder()
                             .song_meta_id(s.getId())
