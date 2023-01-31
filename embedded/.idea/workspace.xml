@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="63320d30-7b9f-4367-9fa7-2ec1d28b12b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiosk.py" beforeDir="false" afterPath="$PROJECT_DIR$/kiosk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiosk_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/kiosk_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiosk_main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/kiosk_main.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

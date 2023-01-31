@@ -79,9 +79,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         icon3 = QPixmap("love_dive.jpg")
 
         self.pushButton_40.setIcon(QIcon(icon1))
-        self.pushButton_40.setIconSize(icon1.rect().size())
+        self.pushButton_40.setIconSize(icon1.size())
         self.pushButton_93.setIcon(QIcon(icon2))
-        self.pushButton_93.setIconSize(icon2.rect().size())
+        self.pushButton_93.setIconSize(icon2.size())
         self.pushButton_94.setIcon(QIcon(icon3))
         self.pushButton_94.setIconSize(icon3.rect().size())
         self.pushButton_95.setIcon(QIcon(icon1))
