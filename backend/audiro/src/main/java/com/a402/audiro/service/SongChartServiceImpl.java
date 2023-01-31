@@ -33,6 +33,7 @@ public class SongChartServiceImpl implements SongChartService{
                             .song_img(s.getSong().getSongImg())
                             .gift_cnt(s.getCnt())
                             .song_liked(s.getLiked())
+                            .update_time(Timestamp.valueOf(s.getUpdateTime()).toLocalDateTime())
                             .build())
                     .collect(Collectors.toList());
 
