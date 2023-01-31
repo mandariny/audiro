@@ -1,22 +1,25 @@
 package com.a402.audiro.dto;
 
+import com.a402.audiro.entity.Gift;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GiftDTO {
+public class SongGiftListDTO {
+
     private long id;
-    private String giftImg;
-    private String song;
+    private String songTitle;
     private String singer;
     private String songUrl;
-    private LocalDateTime regDate;
-    private GiftEmojiDTO emoji;
+    private int songLiked;
+    private int giftCnt;
+    private List<Gift> giftList;
+
 }
