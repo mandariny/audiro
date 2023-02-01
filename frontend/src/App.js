@@ -16,18 +16,21 @@ function App() {
 
   return (
     <div>
-      <Logo userId='연희동 아자르'/>
+      {/* <Logo userId='연희동 아자르'/> */}
       <BrowserRouter>
-      <Nav/>
+      {/* <Nav/> */}
       <Routes>
-          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/" element={<Intro/>}/>
+          <Route path='/intro' element={<Intro/>}/>
+          <Route path='/home' element={<Home/>}/>
+
           <Route path="/gifts" element={<GiftList/>}/>
           <Route path="/gifts/:giftid" element={<MyGift/>}/>
           
           <Route path="/messenger" element={<Messenger/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/musicmate' element={<Musicmate/>}/> 
-          <Route path='/intro' element={<Intro/>}/>
+          
       </Routes>
       </BrowserRouter>
       

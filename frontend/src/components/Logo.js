@@ -1,8 +1,61 @@
 import React from "react";
-import '../styles/Logo.css';
-import styled from 'styled-components';
-import Group from '../assets/images/Group.png'
-import Headset from '../assets/images/headset.png'
+import styled, { keyframes } from 'styled-components';
+
+const StyledLogoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+`;
+
+const StyledLogoCircleLeft = styled.div`
+    position: absolute;
+    top: 35px;
+    left: 25px;
+    z-index: -99;
+    width: 27px;
+    height: 27px;
+    background-color: rgba(101, 34, 242, 0.56);
+    border-radius: 100%;
+`;
+
+const StyledLogo = styled.div`
+    font-size: 40px;
+    font-family: var(--font-nanumSquareEB);
+`;
+
+const moveInLeft = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`
+
+const StyledSubLogo = styled.div`
+    font-size: 16px;
+    font-family: var(--font-nanumSquareL);
+    animation-name: ${moveInLeft};
+    animation-duration: 3s;
+`;
+
+const StyledLogoCircleRight = styled.div`
+    position:absolute;
+    top: 20px;
+    left: 120px;
+    z-index: -99;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(101, 34, 242, 0.56);
+    border-radius: 100%;
+`;
 
 const Logo=(props)=>{   
     const cur=window.location.href
@@ -11,13 +64,13 @@ const Logo=(props)=>{
     }
 
     return(
-        <div className="logo-container">
-            <div className="logo-circle-left"></div>
-            <div className="logo">어디:로</div>
-            <div className="sub-logo">나와 새로운 사람의 음악 공간</div>
-            안녕하세요 {props.userId}님
-            <div className="logo-circle-right"></div>
-        </div>
+        <StyledLogoContainer>
+            <StyledLogoCircleLeft></StyledLogoCircleLeft>
+            <StyledLogo>어디:로</StyledLogo>
+            <StyledSubLogo>나와 새로운 사람의 음악 공간</StyledSubLogo>
+            {/* {props.userId}님 */}
+            <StyledLogoCircleRight></StyledLogoCircleRight>
+        </StyledLogoContainer>
     );
 };
 
