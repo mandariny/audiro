@@ -50,7 +50,7 @@ const MyGift = () => {
         </div>
 
         <div className="mygift-detail-img"></div>
-        <image> </image>
+       
 
         <div className="mygift-detail-bottom-wrapper">
           <div className="mygift-detail-song-wrapper">

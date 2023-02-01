@@ -30,8 +30,7 @@ const Nav=()=>{
     }
 
     const cur=window.location.href
-    console.log({cur}=='http://localhost:3000/')
-    if (cur=='http://localhost:3000/'){
+    if (cur=='http://localhost:3000/intro'){
         return null;
     }
 
