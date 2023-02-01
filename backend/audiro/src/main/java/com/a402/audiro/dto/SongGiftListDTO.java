@@ -1,6 +1,5 @@
 package com.a402.audiro.dto;
 
-import com.a402.audiro.entity.Gift;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +19,6 @@ public class SongGiftListDTO {
     private String songUrl;
     private int songLiked;
     private int giftCnt;
-    private List<Gift> giftList;
+    private List<String> giftList;
 
 }

@@ -1,8 +1,6 @@
 package com.a402.audiro.service;
 
-import com.a402.audiro.dto.GiftDTO;
 import com.a402.audiro.dto.SongGiftListDTO;
-import com.a402.audiro.entity.Gift;
 import com.a402.audiro.entity.Song;
 import com.a402.audiro.entity.SongMeta;
 import com.a402.audiro.repository.GiftRepository;
@@ -25,7 +23,7 @@ public class SongGiftListServiceImpl implements SongGiftListService{
     @Override
     public SongGiftListDTO getSongGiftList(long songId, long spotId){
 
-        List<Gift> gifts;
+        List<String> gifts;
         Song song;
         SongMeta songMeta;
         SongGiftListDTO songGiftListDTO = null;
@@ -38,6 +36,9 @@ public class SongGiftListServiceImpl implements SongGiftListService{
             log.error(e.getMessage());
             throw e;
         }
+
+        log.warn("class :"+ gifts.getClass());
+        log.warn(gifts.toString());
 
         return songGiftListDTO.builder()
                 .id(songId)
