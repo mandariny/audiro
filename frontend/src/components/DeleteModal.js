@@ -7,8 +7,9 @@ const StyledDeleteModalBackgroud=styled.div`
     position: absolute;
     height: 100vh;   
     width: 100vw;
-    top: 45%; 
-
+    top: 42%; 
+    backdrop-filter: brightness(50%);
+    // 블러야 투명도야 lighten? darken? opacity: 0.5;
 `
 
 const StyledDeleteAlarm=styled.div`
@@ -26,6 +27,7 @@ const StyledDeletModal=styled.div`
     border-radius: 20px;
     background-color: #6522f2;
     padding: 20px;
+
 `;
 const StyledDeleteButtons=styled.div`
     margin-top: 40px;
@@ -36,7 +38,8 @@ const StyledDeleteButtons=styled.div`
 `
 const StyledDeleteButton=styled.div`
     color:black;
-    background-color: white
+    background-color: white;
+    border-radius: 20%;
     
 `
 

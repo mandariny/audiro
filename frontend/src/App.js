@@ -10,7 +10,7 @@ import GiftList from "./pages/GiftList";
 import Login from './pages/Login'
 import Musicmate from "./pages/Musicmate";
 import Intro from './pages/Intro'
-
+import Others from "./pages/Others";
 
 function App() {
 
@@ -28,6 +28,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/musicmate' element={<Musicmate/>}/> 
           <Route path='/intro' element={<Intro/>}/>
+          <Route path='/:others' element={<Others/>}/>
       </Routes>
       </BrowserRouter>
       
