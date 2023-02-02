@@ -4,7 +4,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap, QIcon, QColor
 from PyQt5 import QtCore
-from kiosk_main import Ui_MainWindow
+from kiosk_main_monitor import Ui_MainWindow
 
 # 사용자 모듈 - painter 추가
 from painter import PainterWidget
@@ -36,7 +36,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(0)
         self.menu_toolBox.setCurrentIndex(0)
 
-        self.stackedWidget_4.setCurrentIndex(0)
+        #self.stackedWidget_4.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(2)
         ##스택페이지2 index(
         # 0: 그림판 text,
@@ -112,9 +112,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         ## 곡정보(제목,가수,재생시간) 변경 - UI 파일 내놔!!
         self.label_Artist_3.setText(self.video.author)  # 0-diito
-        self.label_Title_7.setText(self.video.title)
-        self.pushButton_40.setIcon(QIcon(qix))
-        self.pushButton_40.setIconSize(qix.rect().size())
+        self.label_Title_5.setText(self.video.title)
+        self.pushButton_97.setIcon(QIcon(qix))
+        self.pushButton_97.setIconSize(qix.rect().size())
         self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
         self.player.play()
 
@@ -276,8 +276,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
 app = QApplication(sys.argv)
 window = MyWindow()
-#window.setFixedWidth(1000)
-#window.setFixedHeight(1000)
+window.setFixedWidth(1080)
+window.setFixedHeight(1920)
 window.show()
 
 app.exec()
