@@ -1,21 +1,22 @@
 package com.a402.audirochat.entity;
 
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
+@Builder
 public class ChannelMessage {
-    public enum ContentType{
-        MESSAGE, IMAGE
-    }
+
+    private String userId;
+    private String userNickname;
+    private ContentType contentType;
+    private String content;
+    LocalDateTime sendTime;
 
     public ChannelMessage(String userId, String userNickname, ContentType type, String content){
         this.userId = userId;
@@ -24,10 +25,4 @@ public class ChannelMessage {
         this.content = content;
         this.sendTime = LocalDateTime.now();
     }
-
-    private String userId;
-    private String userNickname;
-    private ContentType contentType;
-    private String content;
-    LocalDateTime sendTime;
 }

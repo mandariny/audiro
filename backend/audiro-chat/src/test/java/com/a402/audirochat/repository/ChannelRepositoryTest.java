@@ -2,9 +2,10 @@ package com.a402.audirochat.repository;
 
 import com.a402.audirochat.entity.Channel;
 import com.a402.audirochat.entity.ChannelMessage;
-import com.a402.audirochat.entity.ChannelMessage.ContentType;
 import java.util.List;
 import java.util.Optional;
+
+import com.a402.audirochat.entity.ContentType;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
