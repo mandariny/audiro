@@ -1,0 +1,53 @@
+package com.a402.audirochat.repository;
+
+import com.a402.audirochat.entity.Channel;
+import com.a402.audirochat.entity.ChannelMessage;
+import com.a402.audirochat.entity.ChannelMessage.ContentType;
+import java.util.List;
+import java.util.Optional;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class ChannelRepositoryTest {
+
+    @Autowired
+    private ChannelRepository channelRepository;
+
+    @Test
+    @DisplayName("Channel에 메세지를 추가해보자!")
+    void addMessageToChannel(){
+        Channel channel = new Channel();
+        channel.setId("ch1");
+        ChannelMessage message = new ChannelMessage("sohee", "soheenic", ContentType.MESSAGE, "hihi");
+        List<ChannelMessage> messages = channel.getMessages();
+        messages.add(message);
+        channel.setMessages(messages);
+
+        channelRepository.save(channel);
+    }
+
+    @Test
+    @DisplayName("Channel에서 메세지를 가져와보자~")
+    void getMessageFromChannel(){
+        Optional<Channel> channel = channelRepository.findById("ch1");
+        Assertions.assertThat(channel.get().getMessages().get(0).getContent()).isEqualTo("hihi");
+    }
+
+    @Test
+    @DisplayName("Channel에 메세지를 추가해 update 하자")
+    void updateChannel(){
+        Optional<Channel> channel = channelRepository.findById("ch1");
+        List<ChannelMessage> messages = channel.get().getMessages();
+        ChannelMessage message = new ChannelMessage("sohee2", "soheenic2", ContentType.MESSAGE, "hihi2");
+        messages.add(message);
+        channel.get().setMessages(messages);
+
+        channelRepository.save(channel.get());
+        Optional<Channel> channel2 = channelRepository.findById("ch1");
+        Assertions.assertThat(channel2.get().getMessages().get(1).getUserId()).isEqualTo("sohee2");
+    }
+}

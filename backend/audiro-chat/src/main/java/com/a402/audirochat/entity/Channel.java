@@ -1,5 +1,6 @@
 package com.a402.audirochat.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,5 +19,5 @@ import org.springframework.data.redis.core.RedisHash;
 public class Channel {
     @Id
     private String Id;
-    private List<ChannelMessage> messages;
+    private List<ChannelMessage> messages = new ArrayList<>();
 }

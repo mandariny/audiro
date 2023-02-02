@@ -17,6 +17,14 @@ public class ChannelMessage {
         MESSAGE, IMAGE
     }
 
+    public ChannelMessage(String userId, String userNickname, ContentType type, String content){
+        this.userId = userId;
+        this.userNickname = userNickname;
+        this.contentType = type;
+        this.content = content;
+        this.sendTime = LocalDateTime.now();
+    }
+
     private String userId;
     private String userNickname;
     private ContentType contentType;
