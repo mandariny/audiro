@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './pages/Home';
-import MyGift from './pages/MyGift';
+import GiftDetail from './pages/GiftDetail';
 import Messenger from './pages/Messenger';
 import './App.css';
 import GiftList from "./pages/GiftList";
@@ -22,7 +22,7 @@ function App() {
           <Route path='/home' element={<Home/>}/>
 
           <Route path="/gifts" element={<GiftList/>}/>
-          <Route path="/gifts/:giftid" element={<MyGift/>}/>
+          <Route path="/gifts/:giftid" element={<GiftDetail/>}/>
           
           <Route path="/messenger" element={<Messenger/>}/>
           <Route path='/login' element={<Login/>}/>

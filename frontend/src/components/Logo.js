@@ -23,6 +23,7 @@ const StyledLogoCircleLeft = styled.div`
 const StyledLogo = styled.div`
     font-size: 40px;
     font-family: var(--font-nanumSquareEB);
+    color: white;
 `;
 
 const moveInLeft = keyframes`
@@ -44,6 +45,7 @@ const StyledSubLogo = styled.div`
     font-family: var(--font-nanumSquareL);
     animation-name: ${moveInLeft};
     animation-duration: 3s;
+    color: white;
 `;
 
 const StyledLogoCircleRight = styled.div`
