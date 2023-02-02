@@ -1,7 +1,7 @@
 import React, {useState, useRef} from "react";
 import {Link} from "react-router-dom";
 
-import Modal from "../components/Modal";
+import Modal from "../components/modal/Modal";
 import {BsHeadphones} from "react-icons/bs"
 import {HiMusicNote} from "react-icons/hi";
 
