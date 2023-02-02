@@ -19,7 +19,7 @@ import Youtube from 'react-youtube';
 import YouTube from "react-youtube";
 import ProfileHeader from "../components/mygift/ProfileHeader";
 
-
+import axios from "axios";
 
 const StyledGiftDetailContainer = styled.div`
     margin: 20px;
@@ -45,6 +45,7 @@ const StyledDetailBtn = styled.div`
 `;
 
 const StyledDetailImg = styled.div`
+    display: flex;
     height: 200px;
     background-color: white;
 `;
@@ -117,12 +118,21 @@ const StyledReactionNumber = styled.div`
     text-align: center;
 `;
 
-const MyGift = () => {
+const GiftDetail = () => {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const outside = useRef();
-  const {giftid}=useParams()
-  console.log([deleteModalOpen, setDeleteModalOpen])
-  
+
+  const {giftid} = useParams();
+  // console.log([deleteModalOpen, setDeleteModalOpen])
+
+  const [dataDetail, setDataDetail] = useState({});
+  const [dataEmoji, setDataEmoji] = useState({});
+  useEffect(() => {
+      axios.get('http://localhost:8080/gift/detail', {params: {giftId: giftid}})
+          .then((res) => {
+              setDataDetail(res.data)
+              setDataEmoji(res.data["emoji"])})
+              // console.log(res.data["emoji"]))
+  }, []);
 
   return (
     <div>
@@ -134,15 +144,14 @@ const MyGift = () => {
           <StyledDetailBtn>비공개</StyledDetailBtn>
           <StyledDetailBtn>삭제하기</StyledDetailBtn>
         </StyledGiftDetailBtnWrapper>
-
-        <StyledDetailImg></StyledDetailImg>
+        <StyledDetailImg><img src={dataDetail.giftImg} width="350"/></StyledDetailImg>
 
         <StyledDetailBottomWrapper>
           <StyledSongWrapper>
             <HiMusicNote fill="#6522f2" size="16"/>
-            <StyledSongDetail>뉴진스</StyledSongDetail>
+            <StyledSongDetail>{dataDetail.singer}</StyledSongDetail>
             <StyledSongDetail>-</StyledSongDetail>
-            <StyledSongDetail>ditto</StyledSongDetail>
+            <StyledSongDetail>{dataDetail.song}</StyledSongDetail>
           </StyledSongWrapper>
           <StyledHeartWrapper>
             <StyledHeartDetail><FaHeart fill="red"/></StyledHeartDetail>
@@ -153,19 +162,19 @@ const MyGift = () => {
         <StyledReactionWrapper>
           <StyledDetailReaction>
             <img src={love} height="35px" width="35px"/>
-            <StyledReactionNumber>2301</StyledReactionNumber>
+            <StyledReactionNumber>{dataEmoji.emo1}</StyledReactionNumber>
           </StyledDetailReaction>
           <StyledDetailReaction>
             <img src={sad} height="35px" width="35px"/>
-            <StyledReactionNumber>2301</StyledReactionNumber>
+            <StyledReactionNumber>{dataEmoji.emo2}</StyledReactionNumber>
           </StyledDetailReaction>
           <StyledDetailReaction>
             <img src={wow} height="35px" width="35px"/>
-            <StyledReactionNumber>2301</StyledReactionNumber>
+            <StyledReactionNumber>{dataEmoji.emo3}</StyledReactionNumber>
           </StyledDetailReaction>
           <StyledDetailReaction>
             <img src={fun} height="35px" width="35px"/>
-            <StyledReactionNumber>2301</StyledReactionNumber>
+            <StyledReactionNumber>{dataEmoji.emo4}</StyledReactionNumber>
           </StyledDetailReaction>
         </StyledReactionWrapper>
         
@@ -177,4 +186,4 @@ const MyGift = () => {
 }
 
 
-export default MyGift;
+export default GiftDetail;
