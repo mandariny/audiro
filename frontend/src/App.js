@@ -3,14 +3,11 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './pages/Home';
 import MyGift from './pages/MyGift';
 import Messenger from './pages/Messenger';
-import Nav from './components/Nav';
 import './App.css';
-import Logo from './components/Logo';
 import GiftList from "./pages/GiftList";
 import Login from './pages/Login'
 import Musicmate from "./pages/Musicmate";
 import Intro from './pages/Intro'
-
 
 function App() {
 
@@ -30,10 +27,8 @@ function App() {
           <Route path="/messenger" element={<Messenger/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/musicmate' element={<Musicmate/>}/> 
-          
       </Routes>
       </BrowserRouter>
-      
     </div>
   );
 }

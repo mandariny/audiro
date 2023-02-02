@@ -1,7 +1,5 @@
 import React from "react";
-import '../styles/Home.css'
 import styled from 'styled-components';
-import naver_logo from '../assets/images/naver_logo.png'
 import Logo from "../components/Logo";
 import kakao from "../assets/images/kakao_logo.png"
 import naver from "../assets/images/naver_logo.png"
@@ -43,14 +41,28 @@ const StyledLoginBtn = styled.div`
     justify-content: center;
 `;
 
-const StyledLoginLogo = styled.div`
+const StyledLoginLogoKaKao = styled.div`
     margin-right: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 `;
 
-const Home = () =>{
+const StyledLoginLogoGoogle = styled.div`
+    margin-right: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const StyledLoginLogoNaver = styled.div`
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const Login = () =>{
 
     return (
         <div>
@@ -59,14 +71,14 @@ const Home = () =>{
             <StyledLoginTitle>로그인</StyledLoginTitle>
             <StyledLoginBtnWrapper>
                 <StyledLoginBtn background="#FFE812"> 
-                    <StyledLoginLogo><img src={kakao} height="20"/></StyledLoginLogo> 카카오로 로그인하기
+                    <StyledLoginLogoKaKao><img src={kakao} height="20"/></StyledLoginLogoKaKao> 카카오로 로그인하기
                 </StyledLoginBtn>
                 <StyledLoginBtn background="#FFFFFF"> 
-                    <StyledLoginLogo><img src={google} height="20"/></StyledLoginLogo>
+                    <StyledLoginLogoGoogle><img src={google} height="18"/></StyledLoginLogoGoogle>
                     구글로 로그인하기
                 </StyledLoginBtn>
                 <StyledLoginBtn background="#FFFFFF"> 
-                    <StyledLoginLogo><img src={naver} height="20"/></StyledLoginLogo>
+                    <StyledLoginLogoNaver><img src={naver} height="20"/></StyledLoginLogoNaver>
                     네이버로 로그인하기
                 </StyledLoginBtn>
             </StyledLoginBtnWrapper>
@@ -82,4 +94,4 @@ const Home = () =>{
       )
 };
    
-export default Home;
+export default Login;
