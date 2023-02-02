@@ -20,4 +20,12 @@ public class Channel {
     @Id
     private String Id;
     private List<ChannelMessage> messages = new ArrayList<>();
+
+    public void addChannelMessage(ChannelMessage message){
+        this.messages.add(message);
+    }
+
+    public ChannelMessage getLastMessage(){
+        return this.messages.get(this.messages.size() - 1);
+    }
 }

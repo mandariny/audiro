@@ -23,9 +23,7 @@ public class ChannelRepositoryTest {
         Channel channel = new Channel();
         channel.setId("ch1");
         ChannelMessage message = new ChannelMessage("sohee", "soheenic", ContentType.MESSAGE, "hihi");
-        List<ChannelMessage> messages = channel.getMessages();
-        messages.add(message);
-        channel.setMessages(messages);
+        channel.addChannelMessage(message);
 
         channelRepository.save(channel);
     }
@@ -34,20 +32,26 @@ public class ChannelRepositoryTest {
     @DisplayName("Channel에서 메세지를 가져와보자~")
     void getMessageFromChannel(){
         Optional<Channel> channel = channelRepository.findById("ch1");
-        Assertions.assertThat(channel.get().getMessages().get(0).getContent()).isEqualTo("hihi");
+        Assertions.assertThat(channel.get().getLastMessage().getContent()).isEqualTo("hihi");
     }
 
     @Test
     @DisplayName("Channel에 메세지를 추가해 update 하자")
     void updateChannel(){
         Optional<Channel> channel = channelRepository.findById("ch1");
-        List<ChannelMessage> messages = channel.get().getMessages();
         ChannelMessage message = new ChannelMessage("sohee2", "soheenic2", ContentType.MESSAGE, "hihi2");
-        messages.add(message);
-        channel.get().setMessages(messages);
+        channel.get().addChannelMessage(message);
 
         channelRepository.save(channel.get());
         Optional<Channel> channel2 = channelRepository.findById("ch1");
         Assertions.assertThat(channel2.get().getMessages().get(1).getUserId()).isEqualTo("sohee2");
+    }
+
+    @Test
+    @DisplayName("Channel 정보를 삭제해보자!")
+    void deleteChannel(){
+        channelRepository.deleteById("ch1");
+        Optional<Channel> channel = channelRepository.findById("ch1");
+        Assertions.assertThat(channel).isEqualTo(Optional.empty());
     }
 }
