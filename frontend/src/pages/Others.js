@@ -27,10 +27,11 @@ const OthersMateButton=styled.button`
 
 const Others = () => {
     const {giftid}=useParams()
-    console.log(giftid)   
     return (
+        
         <OthersBackground>
             <div>
+                
             다른 사람 페이지입니다<br/>
             {giftid}님 페이지입니다.
             </div>
