@@ -1,15 +1,14 @@
-import React, {useState, useRef} from "react";
-import {Link} from "react-router-dom";
+import React, {useState, useRef, useEffect} from "react";
 
 import Modal from "../components/modal/Modal";
 import {BsHeadphones} from "react-icons/bs"
-import {HiMusicNote} from "react-icons/hi";
 
 import styled from 'styled-components';
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
-import style from "react-awesome-modal/lib/style";
 import Gift from "../components/mygift/Gift";
+
+import axios from 'axios';
 
 const StyledHeader = styled.div`
     margin-top: 20px;
@@ -81,13 +80,15 @@ const StyledMateModal = styled.div`
 `
 
 const GiftList = () =>{
-    const [modalOpen, setModalOpen] = useState(false);
 
-    const data = [
-        {"id": 1, "img_url":"https://media.discordapp.net/attachments/1056882470429138968/1068086212054745118/love1.jpg"},
-        {"id": 1, "img_url":"https://media.discordapp.net/attachments/1056882470429138968/1068086212054745118/love1.jpg"},
-        {"id": 1, "img_url":"https://media.discordapp.net/attachments/1056882470429138968/1068086212054745118/love1.jpg"},
-    ];
+    const [dataList, setDataList] = useState([]);
+    useEffect(() => {
+        axios.get('http://localhost:8080/gift', {params: {nickname: 'gaok'}})
+            .then((res) => 
+                setDataList(res.data))
+    }, []);
+
+    const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <div>
@@ -115,8 +116,8 @@ const GiftList = () =>{
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
-                    {data.map(item => (
-                        <Gift id={item.id} src={item.img_url}/>
+                    {dataList?.map(item => (
+                        <Gift key={item.id} id={item.id} src={item.giftImg}/>
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>
