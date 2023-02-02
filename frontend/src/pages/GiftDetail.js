@@ -118,7 +118,7 @@ const StyledReactionNumber = styled.div`
     text-align: center;
 `;
 
-const GiftDetail = () => {
+const GiftDetail = (props) => {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
   const {giftid} = useParams();
@@ -138,7 +138,7 @@ const GiftDetail = () => {
     <div>
       <Logo/>
       <Nav/>
-      <ProfileHeader/>
+      <ProfileHeader nickname="okiii"/>
       <StyledGiftDetailContainer>
         <StyledGiftDetailBtnWrapper>
           <StyledDetailBtn>비공개</StyledDetailBtn>

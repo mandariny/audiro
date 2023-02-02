@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import "../../styles/Modal.css";
 import {GrFormClose} from 'react-icons/gr'
 import styled from 'styled-components';
+import {Navigate, useNavigate} from 'react-router-dom';
 
 import axios from "axios";
 
@@ -63,11 +64,13 @@ const StyledModalListBtn = styled.div`
 function Modal({ setOpenModal }) {
 
   const [mateList, setMateList] = useState([]);
-    useEffect(() => {
-        axios.get('http://localhost:8080/musicmate', {params: {userId: 2}})
-            .then((res) => 
-                setMateList(res.data))
-    }, []);
+  useEffect(() => {
+      axios.get('http://localhost:8080/musicmate', {params: {userId: 2}})
+          .then((res) => 
+            setMateList(res.data))
+  }, []);
+
+  const navigate = useNavigate();
 
   return (
     <StyledModalBG>
@@ -79,7 +82,7 @@ function Modal({ setOpenModal }) {
         </StyledModalClose>
         <StyledModalTitle>음악메이트 목록</StyledModalTitle>
         <StyledModalListBtn>
-            {mateList.map(item => <div>{item}</div>)}
+            {mateList.map(item => <div onClick={()=>{setOpenModal(false); navigate('/gifts', {nickname: {item}})}}>{item}</div>)}
         </StyledModalListBtn>
       </StyledModalContainer>
     </StyledModalBG>

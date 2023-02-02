@@ -9,6 +9,8 @@ import Nav from "../components/Nav";
 import Gift from "../components/mygift/Gift";
 
 import axios from 'axios';
+import ProfileHeader from "../components/mygift/ProfileHeader";
+import { useLocation } from "react-router";
 
 const StyledHeader = styled.div`
     margin-top: 20px;
@@ -79,7 +81,9 @@ const StyledMateModal = styled.div`
     top: 50%;
 `
 
-const GiftList = () =>{
+
+
+const GiftList = (props) =>{
 
     const [dataList, setDataList] = useState([]);
     useEffect(() => {
@@ -89,41 +93,27 @@ const GiftList = () =>{
     }, []);
 
     const [modalOpen, setModalOpen] = useState(false);
-
+    
     return (
         <div>
             <Logo/>
             <Nav/>
-            <StyledHeader>
-                <StyledMyGiftTitle>반가워요, 연희동 아자르님 👋 </StyledMyGiftTitle>
-
-                <StyledMyGiftHeaderWrapper>
-                    <StyledMyGiftProfile><BsHeadphones fill='black' size="30"/></StyledMyGiftProfile>
-                    <div>
-                        <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
-                        <StyledMyGiftListTitle>나의 엽서</StyledMyGiftListTitle>
-                    </div>
-                    <div>
-                        <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
-                        <StyledMyGiftListTitle>방문한 지점</StyledMyGiftListTitle>
-                    </div>
-                    <div onClick={()=>{ setModalOpen(true) }}>
-                        <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
-                        <StyledMyGiftListTitle>음악 메이트</StyledMyGiftListTitle>
-                    </div>
-                </StyledMyGiftHeaderWrapper>
-            </StyledHeader>
+            <ProfileHeader nickname={props.nickname?"okiii":props.nickname} />
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
                     {dataList?.map(item => (
-                        <Gift key={item.id} id={item.id} src={item.giftImg}/>
+                        <Gift nickname={props.nickname} key={item.id} id={item.id} src={item.giftImg}/>
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>
             <StyledMateModal>{modalOpen && <Modal setOpenModal={setModalOpen} />}</StyledMateModal>
         </div>
       )
+};
+
+GiftList.defaultProps = {
+    nickname:"okiiii"
 };
    
 export default GiftList;

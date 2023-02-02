@@ -5,6 +5,7 @@ import {BsHeadphones} from "react-icons/bs"
 import {useParams} from 'react-router-dom'
 import DeleteModal from "../modal/DeleteModal";
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled.div`
     margin-top: 20px;
@@ -54,24 +55,26 @@ const StyledMyGiftListTitle = styled.div`
     color: white;
 `;
 
-const ProfileHeader = () => {
+const ProfileHeader = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const outside = useRef();
-  const {giftid}=useParams()
+  const {giftid}=useParams();
   console.log([deleteModalOpen, setDeleteModalOpen])
 
   return (
     <div>
       <StyledHeader>
-        <StyledMyGiftTitle>반가워요, 연희동 아자르님 👋 </StyledMyGiftTitle>
+        <StyledMyGiftTitle>반가워요, {props.nickname}님 👋 </StyledMyGiftTitle>
 
         <StyledMyGiftHeaderWrapper>
           <StyledMyGiftProfile><BsHeadphones fill='black' size="30"/></StyledMyGiftProfile>
-            <div>
-              <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
-              <StyledMyGiftListTitle>나의 엽서</StyledMyGiftListTitle>
-            </div>
+            <Link to="/gifts" style={{ textDecoration: 'none' }}>
+                <div>
+                <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
+                <StyledMyGiftListTitle>나의 엽서</StyledMyGiftListTitle>
+                </div>
+            </Link>
             <div>
               <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
               <StyledMyGiftListTitle>방문한 지점</StyledMyGiftListTitle>
