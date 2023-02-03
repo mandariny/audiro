@@ -10,9 +10,11 @@ import com.a402.audirochat.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 @RequiredArgsConstructor
 public class ChatServiceImpl implements ChatService{
 
@@ -37,10 +39,7 @@ public class ChatServiceImpl implements ChatService{
     @Override
     public List<ChannelThumbnailDTO> getChannelThumbnail(String userId) {
         Optional<User> user = userRepository.findById(userId);
-        List<Channel> channelList = user.get().getChannels();
-        List<ChannelThumbnailDTO> list = new ArrayList<>();
-        for(Channel channel : channelList){
-        }
+
 
         return null;
     }

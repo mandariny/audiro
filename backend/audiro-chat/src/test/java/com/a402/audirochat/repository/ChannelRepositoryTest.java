@@ -2,7 +2,6 @@ package com.a402.audirochat.repository;
 
 import com.a402.audirochat.entity.Channel;
 import com.a402.audirochat.entity.ChannelMessage;
-import java.util.List;
 import java.util.Optional;
 
 import com.a402.audirochat.entity.ContentType;

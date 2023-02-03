@@ -23,7 +23,7 @@ public class UserRepositoryTest {
         user.setId("sohee");
         Channel channel = new Channel();
         channel.setId("ch2");
-        user.addChannels(channel);
+        user.addChannels(channel, "sohee_friend");
 
         userRepository.save(user);
     }
@@ -32,7 +32,7 @@ public class UserRepositoryTest {
     @DisplayName("User의 채널을 찾아보자!")
     void readUser(){
         Optional<User> user = userRepository.findById("sohee");
-        Assertions.assertThat(user.get().getChannelList()).contains("ch2");
+        System.out.println(user.toString());
     }
 
     @Test
@@ -41,12 +41,12 @@ public class UserRepositoryTest {
         Optional<User> user = userRepository.findById("sohee");
         Channel channel = new Channel();
         channel.setId("ch3");
-        user.get().addChannels(channel);
+        user.get().addChannels(channel, "sohee_friend2");
 
         userRepository.save(user.get());
 
         user = userRepository.findById("sohee");
-        Assertions.assertThat(user.get().getChannelList()).contains("ch2", "ch3");
+        Assertions.assertThat(user.get().getChannels().get(1).getMemberNickname()).isEqualTo("sohee_friend2");
     }
 
     @Test

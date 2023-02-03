@@ -2,7 +2,6 @@ package com.a402.audirochat.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,17 +18,13 @@ import org.springframework.data.redis.core.RedisHash;
 @Setter
 @ToString
 public class User {
+
     @Id
     private String Id;
-    private List<Channel> channels = new ArrayList<>();
+    private List<ChannelInfo> channels = new ArrayList<>();
 
-    public void addChannels(Channel channel){
-        this.channels.add(channel);
+    public void addChannels(Channel channel, String memberNickname){
+        this.channels.add(new ChannelInfo(channel, memberNickname));
     }
 
-    public List<String> getChannelList(){
-        return this.channels.stream()
-                .map(c -> c.getId())
-                .collect(Collectors.toList());
-    }
 }
