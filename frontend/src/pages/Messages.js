@@ -69,7 +69,7 @@ const Messages = () => {
         <StyledMessageBox>
         <StyledOpponent>대화상대님과의 편지</StyledOpponent>    
         
-        <StyledMyMessage>
+        <StyledMyMessage> 
             <StyledSentMessage >내가 보낸 메시지</StyledSentMessage><StyledHeadsetImage src={Headset}/>
         </StyledMyMessage>
         <StyledMessage>
