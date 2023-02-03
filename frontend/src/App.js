@@ -11,7 +11,7 @@ import Login from './pages/Login'
 import Musicmate from "./pages/Musicmate";
 import Intro from './pages/Intro'
 import Others from "./pages/Others";
-
+import Messages from "./pages/Messages";
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
           <Route path='/musicmate' element={<Musicmate/>}/> 
           <Route path='/intro' element={<Intro/>}/>
           <Route path='/others/:nickname' element={<Others/>}/>
-
+          <Route path='/messages' element={<Messages/>} />
       </Routes>
       </BrowserRouter>
       
