@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './pages/Home';
 import GiftDetail from './pages/GiftDetail';
-import Messenger from './pages/Messenger';
+import MessageList from './pages/MessageList';
 import './App.css';
 import GiftList from "./pages/GiftList";
 import Login from './pages/Login'
@@ -27,10 +27,10 @@ function App() {
           <Route path="/gifts" element={<GiftList/>}/>
           <Route path="/gifts/:giftid" element={<GiftDetail/>}/>
           
-          <Route path="/messenger" element={<Messenger/>}/>
+          <Route path="/messenger" element={<MessageList/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/musicmate' element={<Musicmate/>}/> 
-          
+
           <Route path='/others/:nickname' element={<Others/>}/>
           <Route path='/messenger/:opponent' element={<Messages/>} />
       </Routes>
