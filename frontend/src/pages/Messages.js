@@ -62,12 +62,14 @@ const StyledSentMessage=styled.div`
     border: 1px solid #6522F2;
     border-radius: 15px 0px 15px 15px;
     padding: 4px;
+    margin: 4px;
 `
 
 const StyledGotMessage=styled.div`
     background-color: #6522F2;
     border-radius: 0px 15px 15px 15px; 
     padding: 4px;
+    margin: 4px;
 `
 const StyledTime=styled.div`
     font-size: 12px;
@@ -88,6 +90,10 @@ const StyledWriting=styled.div`
     font-size:16px;
 `
 const Messages = () => {
+    function submitHandler(e){
+        e.preventDefault()
+        console.log('submitted')
+    }
     return (
         <>
         <StyledOpponent>대화상대님과의 편지</StyledOpponent>  
@@ -107,7 +113,7 @@ const Messages = () => {
             <StyledHeadsetImage src={Headset}/>
             <div>
                 <StyledSender> 보낸사람 </StyledSender> 
-            <StyledGotMessage ><div>받은 메시지</div></StyledGotMessage> <br/>
+            <StyledGotMessage ><div>받은 메시지</div></StyledGotMessage>
             <StyledTime>작성시간</StyledTime>
             </div>
             
@@ -118,7 +124,7 @@ const Messages = () => {
 
         <StyledHr/>
         <StyledWriting>메세지 입력 중...</StyledWriting>
-        <StyledInputSet><form><StyledInput placeholder= "새로운 사람과의 대화를 시작합니다" type='text' /></form> <StyledSendImage src={Send}/></StyledInputSet>
+        <StyledInputSet><form onSubmit={submitHandler}><StyledInput placeholder= "새로운 사람과의 대화를 시작합니다" type='text' /></form> <StyledSendImage src={Send}/></StyledInputSet>
         </>
     );
 };
