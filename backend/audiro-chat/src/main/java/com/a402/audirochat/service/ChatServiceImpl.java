@@ -4,7 +4,10 @@ import com.a402.audirochat.dto.ChannelThumbnailDTO;
 import com.a402.audirochat.dto.MessageDTO;
 import com.a402.audirochat.entity.Channel;
 import com.a402.audirochat.entity.ChannelMessage;
+import com.a402.audirochat.entity.User;
 import com.a402.audirochat.repository.ChannelRepository;
+import com.a402.audirochat.repository.UserRepository;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
@@ -13,6 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ChatServiceImpl implements ChatService{
 
+    private final UserRepository userRepository;
     private final ChannelRepository channelRepository;
 
     @Override
@@ -32,6 +36,12 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public List<ChannelThumbnailDTO> getChannelThumbnail(String userId) {
+        Optional<User> user = userRepository.findById(userId);
+        List<Channel> channelList = user.get().getChannels();
+        List<ChannelThumbnailDTO> list = new ArrayList<>();
+        for(Channel channel : channelList){
+        }
+
         return null;
     }
 

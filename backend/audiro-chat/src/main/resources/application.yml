@@ -2,3 +2,12 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+  jpa:
+    hiberante:
+      ddl-auto: update
+    database: mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/audiroDB
+    username: root
+    password: 1234
