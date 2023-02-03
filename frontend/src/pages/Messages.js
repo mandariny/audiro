@@ -81,7 +81,7 @@ const StyledSender=styled.div`
 `
 
 const StyledHr=styled.hr`
-    width: 82vw;
+    width: 90vw;
     display: flex;
     justify-content: center;
     margin: 8px;
