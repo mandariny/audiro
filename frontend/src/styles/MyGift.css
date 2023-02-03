@@ -1,65 +1,7 @@
-.gift-modal{
-    position: absolute;
-    top: 10px;
-}
 
-.mygift-container{
-    margin: 20px;
-}
 
-.mygift-title{
-    font-size: 17px;
-    font-family: var(--font-nanumSquareEB);
-    margin-bottom: 20px;
-}
 
-.mygift-wrapper{
-    display: flex;
-    justify-content:space-around;
-    margin-bottom: 60px;
-}
 
-.mygift-profile{
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    background-color: white;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-}
-
-.mygift-list-wrapper > .mygift-list-number, .mygift-spot-wrapper > .mygift-spot-number, .mygift-mate-wrapper > .mygift-mate-number{
-   text-align: center;
-   margin-bottom: 10px;
-   font-size: 18px;
-   font-family: var(--font-nanumSquareEB);
-}
-
-.mygift-list-wrapper > .mygift-list-title, .mygift-spot-wrapper > .mygift-spot-title, .mygift-mate-wrapper > .mygift-mate-title{
-    text-align: center;
-    font-size: 13px;
-    font-family: var(--font-nanumSquareR);
- }
-
-.mygift-detail-btn-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.mygift-detail-btn-wrapper>*{
-    border: 1px solid #6522f2;
-    border-radius: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 13px;
-    font-family: var(--font-nanumSquareR);
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
 
 .mygift-detail-img{
     height: 200px;

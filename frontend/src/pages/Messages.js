@@ -2,36 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 import Headset from '../assets/images/Group.png'
 import Send from '../assets/images/send.png'
+import Logo from '../components/Logo';
+import Nav from '../components/Nav';
+
 const StyledMessageBox=styled.div`
     display:flex;
     flex-direction:column;
     
     justify-content:center;
     // align-items:center;
-    margin:16px
+    margin:16px;
+`;
 
-`
 const StyledMyMessage=styled.div`
     display:flex;
     justify-content:end;
     height:50px;
     margin:16px;
-`
+`;
 
 const StyledMessage=styled.div`
     display: flex;
     background-color: '#F5336D';
     height:50px;
     margin:16px;
-`
+`;
 const StyledHeadsetImage=styled.img`
     background-color:white;
     width: 42px;
     height: 42px;
     border-radius:100%;
     margin: 8px;
- 
-`
+`;
 const StyledInput=styled.input`
     width: 85vw;
     background: transparent;
@@ -39,63 +41,69 @@ const StyledInput=styled.input`
     &:focus {
         outline: none;  
     }
-`
+`;
+
 const StyledOpponent=styled.div`
     background-color: #1E0E40;
     height: 50px;
     margin: 24px ;
     display: flex;
     align-items: center;
-`
+`;
 
 const StyledInputSet=styled.div`
     background-color: #1E0E40;
     display:flex;
 
-`
+`;
+
 const StyledSendImage=styled.img`
     width:20px;
-    heigth:20px;
-    
-`
+    height:20px;
+`;
+
 const StyledSentMessage=styled.div`
     border: 1px solid #6522F2;
     border-radius: 15px 0px 15px 15px;
     padding: 4px;
     margin: 4px;
-`
+`;
 
 const StyledGotMessage=styled.div`
     background-color: #6522F2;
     border-radius: 0px 15px 15px 15px; 
     padding: 4px;
     margin: 4px;
-`
+`;
 const StyledTime=styled.div`
     font-size: 12px;
-`
+`;
 
 const StyledSender=styled.div`
     color: #6522F2;
     font-size: 16px;
-`
+`;
 
 const StyledHr=styled.hr`
     width: 90vw;
     display: flex;
     justify-content: center;
     margin: 8px;
-`
+`;
 const StyledWriting=styled.div`
     font-size:16px;
-`
+`;
+
 const Messages = () => {
     function submitHandler(e){
         e.preventDefault()
         console.log('submitted')
     }
+
     return (
         <>
+        <Logo/>
+        <Nav/>
         <StyledOpponent>대화상대님과의 편지</StyledOpponent>  
 
         <StyledMessageBox>

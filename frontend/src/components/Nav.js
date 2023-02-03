@@ -8,7 +8,7 @@ const Nav=()=>{
     const items=[
         {
             title: '홈',
-            link: '/'
+            link: '/home'
         },
         {
             title: '나의 엽서',
