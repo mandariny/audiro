@@ -61,7 +61,7 @@ const StyledSentMessage=styled.div`
 
 const StyledGotMessage=styled.div`
     background-color: #6522F2;
-    border-radius: 0px 15px 15px 15px;
+    border-radius: 0px 15px 15px 15px; 
 `
 
 const Messages = () => {
