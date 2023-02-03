@@ -63,7 +63,6 @@ const StyledGotMessage=styled.div`
     background-color: #6522F2;
     border-radius: 0px 15px 15px 15px; 
 `
-
 const Messages = () => {
     return (
         <>
