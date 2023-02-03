@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ManitoDTO {
 
-    private Long userId;
+    private String userId;
     private Long songId;
     private GiftTag giftTag;
     private String giftImg;

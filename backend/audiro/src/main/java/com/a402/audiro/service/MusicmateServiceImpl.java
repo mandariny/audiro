@@ -15,7 +15,7 @@ public class MusicmateServiceImpl implements MusicmateService{
     private final MusicmateRepository musicmateRepository;
 
     @Override
-    public List<String> getMusicmateList(long userId) {
+    public List<String> getMusicmateList(String userId) {
         List<String> musicmates;
 
         try {
