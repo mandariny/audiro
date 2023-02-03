@@ -16,6 +16,24 @@ public class UserRepositoryTest {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    ChannelRepository channelRepository;
+
+    @Test
+    @DisplayName("User 2명 만들고 서로 채팅방 5개 들어가있기")
+    void create2User(){
+        int arr[] = {2, 1};
+        for(int i=0; i<2; i++){
+            User user = new User();
+            user.setId("user"+(i+1));
+            for(int j=0; j<5; j++){
+                Optional<Channel> channel = channelRepository.findById("ch"+(j+1));
+                user.addChannels(channel.get(), "user"+arr[i]);
+            }
+            userRepository.save(user);
+        }
+    }
+
     @Test
     @DisplayName("User를 만들어보자~~")
     void createUser(){

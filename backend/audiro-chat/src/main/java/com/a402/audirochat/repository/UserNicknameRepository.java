@@ -4,4 +4,6 @@ import com.a402.audirochat.entity.UserNickname;
 import org.springframework.data.repository.Repository;
 
 public interface UserNicknameRepository extends Repository<UserNickname, String> {
+
+    String findUserNicknameById(String id);
 }

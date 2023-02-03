@@ -18,6 +18,16 @@ public class ChannelRepositoryTest {
     private ChannelRepository channelRepository;
 
     @Test
+    @DisplayName("Channel 5개 생성")
+    void createChannel(){
+        for(int i=0; i<5; i++){
+            Channel channel = new Channel();
+            channel.setId("ch"+ (i+1));
+            channelRepository.save(channel);
+        }
+    }
+
+    @Test
     @DisplayName("Channel에 메세지를 추가해보자!")
     void addMessageToChannel(){
         Channel channel = new Channel();
@@ -32,7 +42,7 @@ public class ChannelRepositoryTest {
     @DisplayName("Channel에서 메세지를 가져와보자~")
     void getMessageFromChannel(){
         Optional<Channel> channel = channelRepository.findById("ch1");
-        Assertions.assertThat(channel.get().getLastMessage().getContent()).isEqualTo("hihi");
+        Assertions.assertThat(channel.get().getLastMessage()).isEqualTo("hihi");
     }
 
     @Test
