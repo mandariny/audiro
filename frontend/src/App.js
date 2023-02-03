@@ -30,7 +30,7 @@ function App() {
           <Route path='/musicmate' element={<Musicmate/>}/> 
           <Route path='/intro' element={<Intro/>}/>
           <Route path='/others/:nickname' element={<Others/>}/>
-          <Route path='/messages' element={<Messages/>} />
+          <Route path='/messenger/:opponent' element={<Messages/>} />
       </Routes>
       </BrowserRouter>
       

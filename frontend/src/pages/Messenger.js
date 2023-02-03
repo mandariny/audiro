@@ -1,6 +1,7 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import '../styles/Messenger.css'
-
+import Messages from "./Messages";
 import styled from 'styled-components';
 import Chatroom2 from '../components/Chatroom2'
 const Messenger=() => {
@@ -13,7 +14,7 @@ const Messenger=() => {
         <div>
             <h1>Messenger</h1>
             
-            {example.map(item => <Chatroom2 {...item}/>)}
+            {example.map(item => <Link to= {`/messenger/${item.nickname}`} element={Messages}><Chatroom2 {...item}/></Link>)}
             
         </div>
        
