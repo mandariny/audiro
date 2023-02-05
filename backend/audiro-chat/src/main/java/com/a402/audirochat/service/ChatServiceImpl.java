@@ -87,4 +87,21 @@ public class ChatServiceImpl implements ChatService{
         userRepository.save(user1.get());
         userRepository.save(user2.get());
     }
+
+    // 테스트용 메서드
+    @Transactional
+    public void createChannel(String u1, String u2, String nickname1, String nickname2) {
+        // 채널 생성
+        Channel channel = new Channel();
+
+        // user에 삽입
+        Optional<User> user1 = userRepository.findById(u1);
+        Optional<User> user2 = userRepository.findById(u2);
+
+        user1.get().addChannels(channel, nickname2);
+        user2.get().addChannels(channel, nickname1);
+
+        userRepository.save(user1.get());
+        userRepository.save(user2.get());
+    }
 }
