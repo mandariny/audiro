@@ -12,5 +12,5 @@ public interface ChatService {
 
     List<MessageDTO> getChannelMessages(String channelId);
 
-    void createChannel(String u1, String u2, String nickname);
+    String createChannel(MessageDTO messageDTO);
 }

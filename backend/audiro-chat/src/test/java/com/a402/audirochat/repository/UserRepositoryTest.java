@@ -39,9 +39,6 @@ public class UserRepositoryTest {
     void createUser(){
         User user = new User();
         user.setId("sohee");
-        Channel channel = new Channel();
-        channel.setId("ch2");
-        user.addChannels(channel, "sohee_friend");
 
         userRepository.save(user);
     }

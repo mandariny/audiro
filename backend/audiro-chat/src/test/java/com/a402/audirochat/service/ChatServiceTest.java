@@ -4,6 +4,7 @@ import com.a402.audirochat.dto.ChannelThumbnailDTO;
 import com.a402.audirochat.dto.MessageDTO;
 import com.a402.audirochat.entity.Channel;
 import com.a402.audirochat.entity.ContentType;
+import com.a402.audirochat.exception.IdNullException;
 import com.a402.audirochat.repository.ChannelRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -54,5 +55,27 @@ public class ChatServiceTest {
     void getChannelMessagesTest(){
         List<MessageDTO> messageDTOList = chatService.getChannelMessages("ch1");
         Assertions.assertThat(messageDTOList.get(0).getContent()).isEqualTo("message~~~~~~~~안녕 ㅎㅎ");
+    }
+
+    @Test
+    @DisplayName("userId에 등록된 채널이 없는 경우 빈 리스트 반환")
+    void getEmptyChannelThumbnails(){
+        List<ChannelThumbnailDTO> channelThumbnailDTOList = chatService.getChannelThumbnail("sohee");
+        Assertions.assertThat(channelThumbnailDTOList.size()).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("userId가 null인 경우 IdNullException 발생")
+    void checkUserIdIsNULL(){
+        org.junit.jupiter.api.Assertions.assertThrows(IdNullException.class, ()->{
+           chatService.getChannelThumbnail(null);
+        });
+    }
+
+    @Test
+    @DisplayName("채팅을 처음 하는 유저의 경우 ID를 Redis에 등록하고 빈 리스트 반환")
+    void firstChatting(){
+        List<ChannelThumbnailDTO> channelThumbnailDTOList = chatService.getChannelThumbnail("user4");
+        Assertions.assertThat(channelThumbnailDTOList.size()).isEqualTo(0);
     }
 }

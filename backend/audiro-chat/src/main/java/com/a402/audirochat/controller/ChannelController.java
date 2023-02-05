@@ -4,15 +4,15 @@ import com.a402.audirochat.dto.ChannelThumbnailDTO;
 import com.a402.audirochat.dto.MessageDTO;
 import com.a402.audirochat.service.ChatService;
 import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -40,6 +40,20 @@ public class ChannelController {
         }catch(Exception e){
             log.error(e.getMessage());
             return ResponseEntity.ok().body(e.getMessage());
+        }
+    }
+
+    @PostMapping("channel")
+    @Transactional
+    public ResponseEntity<?> createNewChannel(@RequestBody(required = true) MessageDTO messageDTO){
+        try{
+            messageDTO.isReceiverValid();
+            String channelId = chatService.createChannel(messageDTO);
+            chatService.saveMessage(channelId, messageDTO);
+            return ResponseEntity.ok().body("success");
+        }catch(Exception e){
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 

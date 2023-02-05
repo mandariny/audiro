@@ -23,6 +23,10 @@ public class User {
     private String Id;
     private List<ChannelInfo> channels = new ArrayList<>();
 
+    public User(String Id){
+        this.Id = Id;
+    }
+
     public void addChannels(Channel channel, String memberNickname){
         this.channels.add(new ChannelInfo(channel, memberNickname));
     }

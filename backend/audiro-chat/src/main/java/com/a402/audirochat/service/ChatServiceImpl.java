@@ -8,8 +8,9 @@ import com.a402.audirochat.entity.User;
 import com.a402.audirochat.repository.ChannelRepository;
 import com.a402.audirochat.repository.UserNicknameRepository;
 import com.a402.audirochat.repository.UserRepository;
-import java.util.ArrayList;
+
 import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,16 @@ public class ChatServiceImpl implements ChatService{
     private final UserRepository userRepository;
     private final ChannelRepository channelRepository;
     private final UserNicknameRepository userNicknameRepository;
+
+    private Optional<User> getUser(String userId){
+        Optional<User> user = userRepository.findById(userId);
+        if(!user.isPresent()){
+            User newUser = new User(userId);
+            userRepository.save(newUser);
+            user = userRepository.findById(userId);
+        }
+        return user;
+    }
 
     @Override
     public void saveMessage(String channelId, MessageDTO messageDTO) {
@@ -44,8 +55,8 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public List<ChannelThumbnailDTO> getChannelThumbnail(String userId) {
-        // 시간순 정렬 필요
-        Optional<User> user = userRepository.findById(userId);
+
+        Optional<User> user = getUser(userId);
 
         return user.get().getChannels().stream()
                 .map(c -> ChannelThumbnailDTO.builder()
@@ -73,37 +84,22 @@ public class ChatServiceImpl implements ChatService{
 
     @Transactional
     @Override
-    public void createChannel(String u1, String u2, String nickname) {
+    public String createChannel(MessageDTO messageDTO) {
         // 채널 생성
         Channel channel = new Channel();
 
         // user에 삽입
-        Optional<User> user1 = userRepository.findById(u1);
-        Optional<User> user2 = userRepository.findById(u2);
+        Optional<User> user1 = getUser(messageDTO.getUserId());
+        Optional<User> user2 = getUser(messageDTO.getReceiverId());
 
-        String nickname2 = userNicknameRepository.findUserNicknameById(u2);
+        String nickname2 = userNicknameRepository.findUserNicknameById(messageDTO.getReceiverId());
 
         user1.get().addChannels(channel, nickname2);
-        user2.get().addChannels(channel, nickname);
+        user2.get().addChannels(channel, messageDTO.getUserNickname());
 
         userRepository.save(user1.get());
         userRepository.save(user2.get());
-    }
 
-    // 테스트용 메서드
-    @Transactional
-    public void createChannel(String u1, String u2, String nickname1, String nickname2) {
-        // 채널 생성
-        Channel channel = new Channel();
-
-        // user에 삽입
-        Optional<User> user1 = userRepository.findById(u1);
-        Optional<User> user2 = userRepository.findById(u2);
-
-        user1.get().addChannels(channel, nickname2);
-        user2.get().addChannels(channel, nickname1);
-
-        userRepository.save(user1.get());
-        userRepository.save(user2.get());
+        return channel.getId();
     }
 }
