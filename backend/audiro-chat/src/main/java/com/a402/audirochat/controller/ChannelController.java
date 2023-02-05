@@ -45,7 +45,7 @@ public class ChannelController {
 
     @MessageMapping("/channel/{channel}")
     @SendTo("/sub/{channel}")
-    public MessageDTO sendMessage(String userId, @DestinationVariable("channel") String channelId, MessageDTO messageDTO){
+    public MessageDTO sendMessage(@DestinationVariable("channel") String channelId, MessageDTO messageDTO){
         chatService.saveMessage(channelId, messageDTO);
         return messageDTO;
     }
