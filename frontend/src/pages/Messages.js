@@ -83,7 +83,7 @@ const StyledSendImage=styled.input`
 const StyledSentMessage=styled.div`
     border: 1px solid #6522F2;
     border-radius: 15px 0px 15px 15px;
-    padding: 4px;
+    padding: 10px 20px 1px 20px;
     margin: 4px;
     font-size: 10px;
     height:21px;
@@ -92,7 +92,7 @@ const StyledSentMessage=styled.div`
 const StyledGotMessage=styled.div`
     background-color: #6522F2;
     border-radius: 0px 15px 15px 15px; 
-    padding: 4px;
+    padding: 10px 20px 1px 20px;
     margin: 4px;
     font-size: 10px;
     height:21px;
@@ -103,6 +103,7 @@ const StyledTime=styled.div`
     font-family: 'Inter';
     font-style: normal;
     text-align:end;
+    margin:4px;
 `;
 
 const StyledSender=styled.div`
@@ -146,6 +147,7 @@ const Messages = () => {
             </StyledSentMessage>
             <StyledHeadsetWrapper><StyledHeadsetImage src={Headset}/></StyledHeadsetWrapper>
         </StyledMyMessage>
+        
 
         <StyledMessage>
             <StyledHeadsetWrapper><StyledHeadsetImage src={Headset}/></StyledHeadsetWrapper>
