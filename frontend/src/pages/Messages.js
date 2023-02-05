@@ -29,11 +29,20 @@ const StyledMessage=styled.div`
 `;
 const StyledHeadsetImage=styled.img`
     background-color:white;
-    width: 42px;
-    height: 42px;
+    width: 20px;
+    height: 16px;
     border-radius:100%;
     margin: 8px;
 `;
+const StyledHeadsetWrapper=styled.div`
+    background-color:white;
+    border-radius:100%;
+    width:35px;
+    height:35px;
+    diplay:flex;
+    align-items:center;
+`;
+
 const StyledInput=styled.input`
     width: 85vw;
     background: transparent;
@@ -53,13 +62,20 @@ const StyledOpponent=styled.div`
 
 const StyledInputSet=styled.div`
     background-color: #1E0E40;
-    display:flex;
+    display: flex;
+    flex-direction: row;
+    width: 96vw;
+    justify-content: center;
+    align-items: center;
+    margin:4px;
+    padding:4px;
 
 `;
 
-const StyledSendImage=styled.img`
+const StyledSendImage=styled.input`
     width:20px;
     height:20px;
+    
 `;
 
 const StyledSentMessage=styled.div`
@@ -67,6 +83,8 @@ const StyledSentMessage=styled.div`
     border-radius: 15px 0px 15px 15px;
     padding: 4px;
     margin: 4px;
+    font-size: 10px;
+    height:21px;
 `;
 
 const StyledGotMessage=styled.div`
@@ -74,9 +92,15 @@ const StyledGotMessage=styled.div`
     border-radius: 0px 15px 15px 15px; 
     padding: 4px;
     margin: 4px;
+    font-size: 10px;
+    height:21px;
 `;
 const StyledTime=styled.div`
-    font-size: 12px;
+    font-size: 10px;
+    line-height:12px;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align:end;
 `;
 
 const StyledSender=styled.div`
@@ -92,7 +116,11 @@ const StyledHr=styled.hr`
 `;
 const StyledWriting=styled.div`
     font-size:16px;
+    margin-left:36px;
+    font-size:12px;
+    line-height:12.1px;
 `;
+
 
 const Messages = () => {
     function submitHandler(e){
@@ -114,25 +142,25 @@ const Messages = () => {
                 <br/>
                 <br/><StyledTime>작성시간</StyledTime>
             </StyledSentMessage>
-            <StyledHeadsetImage src={Headset}/> 
-            
+            <StyledHeadsetWrapper><StyledHeadsetImage src={Headset}/></StyledHeadsetWrapper>
         </StyledMyMessage>
+
         <StyledMessage>
-            <StyledHeadsetImage src={Headset}/>
+            <StyledHeadsetWrapper><StyledHeadsetImage src={Headset}/></StyledHeadsetWrapper>
             <div>
                 <StyledSender> 보낸사람 </StyledSender> 
             <StyledGotMessage ><div>받은 메시지</div></StyledGotMessage>
             <StyledTime>작성시간</StyledTime>
-            </div>
-            
+            </div>  
         </StyledMessage>
+
         <br/>
         <br/>
         </StyledMessageBox>
-
-        <StyledHr/>
         <StyledWriting>메세지 입력 중...</StyledWriting>
-        <StyledInputSet><form onSubmit={submitHandler}><StyledInput placeholder= "새로운 사람과의 대화를 시작합니다" type='text' /></form> <StyledSendImage src={Send}/></StyledInputSet>
+        <StyledHr/>
+        
+        <StyledInputSet><form onSubmit={submitHandler}><StyledInput placeholder= "새로운 사람과의 대화를 시작합니다" type='text' /><StyledSendImage type='image' src={Send}/></form> </StyledInputSet>
         </>
     );
 };
