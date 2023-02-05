@@ -41,6 +41,7 @@ const StyledHeadsetWrapper=styled.div`
     height:35px;
     diplay:flex;
     align-items:center;
+    margin:8px
 `;
 
 const StyledInput=styled.input`
@@ -54,12 +55,17 @@ const StyledInput=styled.input`
 
 const StyledOpponent=styled.div`
     background-color: #1E0E40;
-    height: 50px;
+    height: 38px;
     margin-top: 34px ;
     padding-left:16px;
     display: flex;
     align-items: center;
-    width:95vw;
+    width:90vw;
+`;
+
+const StyledOpponentWrapper=styled.div`
+    display: flex;
+    justify-content: center;
 `;
 
 const StyledInputSet=styled.div`
@@ -108,7 +114,7 @@ const StyledTime=styled.div`
 
 const StyledSender=styled.div`
     color: #6522F2;
-    font-size: 16px;
+    font-size: 12px;
 `;
 
 const StyledHr=styled.hr`
@@ -135,7 +141,7 @@ const Messages = () => {
         <>
         <Logo/>
         <Nav/>
-        <StyledOpponent>대화상대님과의 편지</StyledOpponent>  
+        <StyledOpponentWrapper><StyledOpponent>대화상대님과의 편지</StyledOpponent>  </StyledOpponentWrapper>
 
         <StyledMessageBox>
           
