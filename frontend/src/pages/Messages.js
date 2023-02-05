@@ -55,9 +55,11 @@ const StyledInput=styled.input`
 const StyledOpponent=styled.div`
     background-color: #1E0E40;
     height: 50px;
-    margin: 24px ;
+    margin-top: 34px ;
+    padding-left:16px;
     display: flex;
     align-items: center;
+    width:95vw;
 `;
 
 const StyledInputSet=styled.div`
@@ -160,7 +162,7 @@ const Messages = () => {
         <StyledWriting>메세지 입력 중...</StyledWriting>
         <StyledHr/>
         
-        <StyledInputSet><form onSubmit={submitHandler}><StyledInput placeholder= "새로운 사람과의 대화를 시작합니다" type='text' /><StyledSendImage type='image' src={Send}/></form> </StyledInputSet>
+        <StyledInputSet><form id='send' onSubmit={submitHandler}><StyledInput  placeholder= "새로운 사람과의 대화를 시작합니다" type='text' /> </form> <StyledSendImage form='send' type='image' src={Send}/> </StyledInputSet>
         </>
     );
 };
