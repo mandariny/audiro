@@ -94,11 +94,11 @@ class AlphaNeumericVirtualKeyboard(QtWidgets.QWidget):
 
         #self.setWindowState(QtCore.Qt.WindowFullScreen)
         #self.setSizePolicy(QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed))
-        self.setSizePolicy(QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding))
+        #self.setSizePolicy(QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding))
         #self.setSizePolicy(QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum))
         #self.setSizePolicy(QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Ignored))
         #self.setFixedSize(QSize(800, 960))
-        #self.setFixedSize(800,960)
+        self.setFixedSize(900,600)
         self.capsLock = 1
         self.numberOnly = 2
         self.fractionNumber = 3
@@ -110,7 +110,7 @@ class AlphaNeumericVirtualKeyboard(QtWidgets.QWidget):
         self.moveUp = False
         #self.global_layout = QtWidgets.QVBoxLayout(parent)
         self.keys_layout = QtWidgets.QGridLayout(self)
-        self.keys_layout.setRowStretch(1,1)
+        self.keys_layout.setRowStretch(1, 1)
         self.keys_layout.setColumnStretch(1,1)
         self.isBackKeyPressed = False
         self.threadPool = QtCore.QThreadPool()
@@ -121,7 +121,7 @@ class AlphaNeumericVirtualKeyboard(QtWidgets.QWidget):
         self.callback_method = None
         self.back_button = KeyButton("Backspace", self)
         self.caps_button = KeyButton("Caps", self)
-        self.sym_button = KeyButton("?!@#", self)
+        self.sym_button = KeyButton("한/영", self)
         self.close_button = KeyButton("Close", self)
         self.sym_state = False
         self.caps_state = False
@@ -155,17 +155,25 @@ class AlphaNeumericVirtualKeyboard(QtWidgets.QWidget):
             self.caps_state = 1
             self.sym_state = 0
             keys = self.key_list_by_lines_caps
-            self.caps_button.setStyleSheet("background-color:rgb(29, 150, 255);font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px; min-height:42px; max-height: 42px; width: 120px;")
+            #self.caps_button.setStyleSheet("background-color:rgb(29, 150, 255);font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px; min-height:42px; max-height: 42px; width: 120px;")
+            self.caps_button.setStyleSheet(
+                "background-color:rgb(29, 150, 255);font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px; min-height:100px; max-height: 100px; width: 120px;")
         else:
             self.caps_state = 0
             keys = self.key_list_by_lines_lower
-            self.caps_button.setStyleSheet("QPushButton {font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px;background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);min-height:42px; max-height: 42px; width: 120px;}\nQPushButton:pressed {background-color: rgb(29, 150, 255);}")
+            #self.caps_button.setStyleSheet("QPushButton {font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px;background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);min-height:42px; max-height: 42px; width: 120px;}\nQPushButton:pressed {background-color: rgb(29, 150, 255);}")
+            self.caps_button.setStyleSheet(
+                "QPushButton {font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px;background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);min-height:100px; max-height: 100px; width: 120px;}\nQPushButton:pressed {background-color: rgb(29, 150, 255);}")
+
         for lineIndex, line in enumerate(keys):
             for keyIndex, key in enumerate(line):
                 if key != ' ' and key != '  'and key != 'Backspace' and key != 'CAPS' and key != 'Close' and key != 'Sym':
                     button = self.array_buttons[lineIndex][keyIndex]
                     button.setText(key)
-        self.sym_button.setStyleSheet("QPushButton {font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px;background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);min-height:42px; max-height: 42px; width: 120px;}\nQPushButton:pressed {background-color: rgb(29, 150, 255);}")
+        #self.sym_button.setStyleSheet("QPushButton {font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px;background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);min-height:42px; max-height: 42px; width: 120px;}\nQPushButton:pressed {background-color: rgb(29, 150, 255);}")
+        self.sym_button.setStyleSheet(
+            "QPushButton {font-size: 20px;font-family: Noto Sans CJK JP;border: 3px solid #8f8f91;border-radius: 8px;background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);min-height:100px; max-height: 100px; width: 120px;}\nQPushButton:pressed {background-color: rgb(29, 150, 255);}")
+
         self.sym_state = 0
 
     def hide(self, animation=False):
@@ -206,6 +214,7 @@ class AlphaNeumericVirtualKeyboard(QtWidgets.QWidget):
         """
         x_pos = 420
         y_pos = 700
+        source = self.source
 
         self.moveUp = moveUp
         if ui_Scroll:
@@ -233,6 +242,7 @@ class AlphaNeumericVirtualKeyboard(QtWidgets.QWidget):
                         self.back_button.mousePressEvent = self.backspacePressEvent
                         self.back_button.mouseReleaseEvent = self.backspaceReleaseEvent
                         self.back_button.mouseDoubleClickEvent = self.backsapceDoubleClick
+
                     elif key == 'Caps':
                         self.array_buttons[lineIndex][keyIndex] = self.caps_button
                         self.keys_layout.addWidget(self.caps_button, lineIndex, keyIndex)

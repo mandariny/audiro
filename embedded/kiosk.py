@@ -54,12 +54,17 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         #self.stackedPages2.setCurrentIndex(4) # 내가 원하는 위젯 뿌리기 - 다음에는 ui 파일도 올려줘...
 
         #키보드 선언
+        self.keyboard_widget.display()
+        self.keyboard_widget.setStyleSheet("")
+
         self.temp_line = QLineEdit()
 
-        self.virtual_keyboard = Keyboard.AlphaNeumericVirtualKeyboard(self.temp_line)
+        #self.virtual_keyboard = Keyboard.AlphaNeumericVirtualKeyboard(self.temp_line)
+        self.virtual_keyboard = Keyboard.AlphaNeumericVirtualKeyboard(self.keyboard_lineEdit)
+
         self.stackedPages2.addWidget(self.virtual_keyboard)
-        #self.virtual_keyboard.display()
-        #self.virtual_keyboard.setFixedSize(800, 960)
+        self.virtual_keyboard.display()
+        self.virtual_keyboard.setFixedSize(800, 960)
 
         #플레이어 선언
         pafy.set_api_key(hy_key)
@@ -226,7 +231,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def searchMusic(self):
         self.stackedPages.setCurrentIndex(4)
-        self.stackedPages2.setCurrentIndex(2)
+        self.stackedPages2.setCurrentIndex(6)
 
     def volumeChange(self):
         pass

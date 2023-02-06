@@ -250,7 +250,7 @@ font-size:27px;
                       <number>1</number>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>2</number>
                      </property>
                      <property name="tabSpacing">
                       <number>30</number>
@@ -394,7 +394,7 @@ font-size:27px;
                         <x>0</x>
                         <y>0</y>
                         <width>224</width>
-                        <height>87</height>
+                        <height>85</height>
                        </rect>
                       </property>
                       <attribute name="label">
@@ -534,7 +534,7 @@ font-size:27px;
                 </size>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page1">
                 <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -7328,7 +7328,7 @@ QSlider::handle:vertical {
                        <property name="rightMargin">
                         <number>0</number>
                        </property>
-                       <item alignment="Qt::AlignHCenter">
+                       <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
                         <widget class="QFrame" name="frame_75">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -7349,7 +7349,7 @@ QSlider::handle:vertical {
                           <property name="rightMargin">
                            <number>0</number>
                           </property>
-                          <item>
+                          <item alignment="Qt::AlignVCenter">
                            <widget class="QLabel" name="label_31">
                             <property name="text">
                              <string/>
@@ -7368,7 +7368,44 @@ QSlider::handle:vertical {
                          </layout>
                         </widget>
                        </item>
-                       <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+                       <item alignment="Qt::AlignHCenter">
+                        <widget class="QFrame" name="frame_47">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_103">
+                          <item>
+                           <widget class="QLabel" name="label_54">
+                            <property name="font">
+                             <font>
+                              <pointsize>15</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>전화번호를 입력해주세요.(-는 빼고 입력해주세요)</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="lineEdit_3">
+                            <property name="minimumSize">
+                             <size>
+                              <width>300</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{background-color:#ffffff;}</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item alignment="Qt::AlignHCenter">
                         <widget class="QFrame" name="frame_53">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -7394,7 +7431,7 @@ QSlider::handle:vertical {
                              <string notr="true">*{color:#ffffff;}</string>
                             </property>
                             <property name="text">
-                             <string>전화번호를 입력해주세요.(-는 빼고 입력해주세요)</string>
+                             <string>인증 코드를 입력해주세요.(특수문자는 빼고 입력해주세요.)</string>
                             </property>
                            </widget>
                           </item>
@@ -7432,7 +7469,7 @@ QSlider::handle:vertical {
                               <widget class="QLineEdit" name="lineEdit_2">
                                <property name="minimumSize">
                                 <size>
-                                 <width>400</width>
+                                 <width>350</width>
                                  <height>50</height>
                                 </size>
                                </property>
@@ -7589,7 +7626,7 @@ QSlider::handle:vertical {
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>9</number>
+             <number>6</number>
             </property>
             <widget class="QWidget" name="page_draw">
              <layout class="QVBoxLayout" name="verticalLayout_32">
@@ -8731,16 +8768,43 @@ border-radius: 20px;
             <widget class="QWidget" name="page_4">
              <layout class="QVBoxLayout" name="verticalLayout_39">
               <item>
-               <widget class="QLabel" name="label_29">
-                <property name="text">
-                 <string/>
+               <widget class="QFrame" name="frame_170">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
                 </property>
-                <property name="pixmap">
-                 <pixmap>../../../Users/snghs/PycharmProjects/audiro/venv/keyboard.jpg</pixmap>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
                 </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_104">
+                 <item>
+                  <widget class="QLineEdit" name="keyboard_lineEdit">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>100</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:white; color:black;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignHCenter">
+                  <widget class="QWidget" name="keyboard_widget" native="true">
+                   <property name="minimumSize">
+                    <size>
+                     <width>800</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
@@ -9868,8 +9932,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>868</x>
-     <y>797</y>
+     <x>911</x>
+     <y>876</y>
     </hint>
     <hint type="destinationlabel">
      <x>1127</x>

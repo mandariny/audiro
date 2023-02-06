@@ -21,7 +21,7 @@ from PyQt5.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFram
     QSizePolicy, QSlider, QStackedWidget, QTabWidget,
     QToolBox, QVBoxLayout, QWidget)
 
-import painter
+import Keyboard
 
 
 class Ui_MainWindow(object):
@@ -170,7 +170,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.addItem(self.menuPage2, u"\uc74c\uc545 \uc120\ubb3c")
         self.menuPage3 = QWidget()
         self.menuPage3.setObjectName(u"menuPage3")
-        self.menuPage3.setGeometry(QRect(0, 0, 224, 87))
+        self.menuPage3.setGeometry(QRect(0, 0, 224, 85))
         self.verticalLayout_4 = QVBoxLayout(self.menuPage3)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
@@ -3458,10 +3458,32 @@ class Ui_MainWindow(object):
         self.label_31.setScaledContents(True)
         self.label_31.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_49.addWidget(self.label_31)
+        self.verticalLayout_49.addWidget(self.label_31, 0, Qt.AlignVCenter)
 
 
-        self.verticalLayout_47.addWidget(self.frame_75, 0, Qt.AlignHCenter)
+        self.verticalLayout_47.addWidget(self.frame_75, 0, Qt.AlignHCenter|Qt.AlignBottom)
+
+        self.frame_47 = QFrame(self.frame_52)
+        self.frame_47.setObjectName(u"frame_47")
+        self.frame_47.setFrameShape(QFrame.StyledPanel)
+        self.frame_47.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_103 = QVBoxLayout(self.frame_47)
+        self.verticalLayout_103.setObjectName(u"verticalLayout_103")
+        self.label_54 = QLabel(self.frame_47)
+        self.label_54.setObjectName(u"label_54")
+        self.label_54.setFont(font3)
+
+        self.verticalLayout_103.addWidget(self.label_54)
+
+        self.lineEdit_3 = QLineEdit(self.frame_47)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setMinimumSize(QSize(300, 50))
+        self.lineEdit_3.setStyleSheet(u"*{background-color:#ffffff;}")
+
+        self.verticalLayout_103.addWidget(self.lineEdit_3)
+
+
+        self.verticalLayout_47.addWidget(self.frame_47, 0, Qt.AlignHCenter)
 
         self.frame_53 = QFrame(self.frame_52)
         self.frame_53.setObjectName(u"frame_53")
@@ -3489,7 +3511,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_30.setContentsMargins(0, 0, 0, 0)
         self.lineEdit_2 = QLineEdit(self.frame_76)
         self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setMinimumSize(QSize(400, 50))
+        self.lineEdit_2.setMinimumSize(QSize(350, 50))
         self.lineEdit_2.setStyleSheet(u"*{background-color:#ffffff;}")
 
         self.horizontalLayout_30.addWidget(self.lineEdit_2)
@@ -3513,7 +3535,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_30.addWidget(self.frame_76, 0, Qt.AlignTop)
 
 
-        self.verticalLayout_47.addWidget(self.frame_53, 0, Qt.AlignHCenter|Qt.AlignTop)
+        self.verticalLayout_47.addWidget(self.frame_53, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_50.addWidget(self.frame_52, 0, Qt.AlignHCenter|Qt.AlignTop)
@@ -3688,7 +3710,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_34 = QHBoxLayout(self.frame_56)
         self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
         self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget = painter.PainterWidget()
+        self.painter_widget = QWidget(self.frame_56)
         self.painter_widget.setObjectName(u"painter_widget")
         self.painter_widget.setEnabled(True)
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -4147,12 +4169,29 @@ class Ui_MainWindow(object):
         self.page_4.setObjectName(u"page_4")
         self.verticalLayout_39 = QVBoxLayout(self.page_4)
         self.verticalLayout_39.setObjectName(u"verticalLayout_39")
-        self.label_29 = QLabel(self.page_4)
-        self.label_29.setObjectName(u"label_29")
-        self.label_29.setPixmap(QPixmap(u"../../../Users/snghs/PycharmProjects/audiro/venv/keyboard.jpg"))
-        self.label_29.setScaledContents(True)
+        self.frame_170 = QFrame(self.page_4)
+        self.frame_170.setObjectName(u"frame_170")
+        self.frame_170.setFrameShape(QFrame.StyledPanel)
+        self.frame_170.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_104 = QVBoxLayout(self.frame_170)
+        self.verticalLayout_104.setObjectName(u"verticalLayout_104")
+        self.keyboard_lineEdit = QLineEdit(self.frame_170)
+        self.keyboard_lineEdit.setObjectName(u"keyboard_lineEdit")
+        self.keyboard_lineEdit.setMinimumSize(QSize(0, 100))
+        self.keyboard_lineEdit.setFont(font17)
+        self.keyboard_lineEdit.setStyleSheet(u"background-color:white; color:black;")
 
-        self.verticalLayout_39.addWidget(self.label_29)
+        self.verticalLayout_104.addWidget(self.keyboard_lineEdit)
+
+        self.keyboard_widget = Keyboard.AlphaNeumericVirtualKeyboard(self.keyboard_lineEdit)
+        self.keyboard_widget.setObjectName(u"keyboard_widget")
+        self.keyboard_widget.setStyleSheet(u"color:black;")
+        #self.keyboard_widget.setMinimumSize(QSize(500, 400))
+
+        self.verticalLayout_104.addWidget(self.keyboard_widget, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_39.addWidget(self.frame_170)
 
         self.stackedPages2.addWidget(self.page_4)
         self.page_5 = QWidget()
@@ -4294,7 +4333,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_57 = QHBoxLayout(self.frame_99)
         self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
         self.horizontalLayout_57.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_2 = painter.PainterWidget()
+        self.painter_widget_2 = QWidget(self.frame_99)
         self.painter_widget_2.setObjectName(u"painter_widget_2")
         self.painter_widget_2.setEnabled(True)
         sizePolicy.setHeightForWidth(self.painter_widget_2.sizePolicy().hasHeightForWidth())
@@ -4456,7 +4495,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_63 = QHBoxLayout(self.frame_105)
         self.horizontalLayout_63.setObjectName(u"horizontalLayout_63")
         self.horizontalLayout_63.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_3 = painter.PainterWidget()
+        self.painter_widget_3 = QWidget(self.frame_105)
         self.painter_widget_3.setObjectName(u"painter_widget_3")
         self.painter_widget_3.setEnabled(True)
         sizePolicy.setHeightForWidth(self.painter_widget_3.sizePolicy().hasHeightForWidth())
@@ -4573,13 +4612,13 @@ class Ui_MainWindow(object):
         self.pushButton_27.clicked.connect(MainWindow.colorChange9)
         self.pushButton_63.clicked.connect(MainWindow.painterClear)
 
-        self.menu_toolBox.setCurrentIndex(0)
+        self.menu_toolBox.setCurrentIndex(2)
         self.menu_toolBox.layout().setSpacing(30)
-        self.stackedPages.setCurrentIndex(0)
+        self.stackedPages.setCurrentIndex(3)
         self.stackedWidget_3.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)
-        self.stackedPages2.setCurrentIndex(9)
+        self.stackedPages2.setCurrentIndex(6)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -4751,7 +4790,8 @@ class Ui_MainWindow(object):
         self.pushButton_49.setText("")
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"3\ub2e8\uacc4. \ud3b8\uc9c0\ub97c \ubcf4\ub0bc \uc0ac\ub78c\uc758 \uc804\ud654\ubc88\ud638\ub97c \uc785\ub825\ud558\uc138\uc694.", None))
         self.label_31.setText("")
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"\uc804\ud654\ubc88\ud638\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.(-\ub294 \ube7c\uace0 \uc785\ub825\ud574\uc8fc\uc138\uc694)", None))
+        self.label_54.setText(QCoreApplication.translate("MainWindow", u"\uc804\ud654\ubc88\ud638\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.(-\ub294 \ube7c\uace0 \uc785\ub825\ud574\uc8fc\uc138\uc694)", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"\uc778\uc99d \ucf54\ub4dc\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.(\ud2b9\uc218\ubb38\uc790\ub294 \ube7c\uace0 \uc785\ub825\ud574\uc8fc\uc138\uc694.)", None))
         self.pushButton_12.setText(QCoreApplication.translate("MainWindow", u"  \ud655\uc778", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"\uc18c\uc911\ud55c \ud3b8\uc9c0\uac00 \uc798 \uc804\ub2ec\ub418\uc5c8\uc2b5\ub2c8\ub2e4!", None))
         self.pushButton_28.setText("")
@@ -4778,7 +4818,6 @@ class Ui_MainWindow(object):
         self.pushButton_14.setText(QCoreApplication.translate("MainWindow", u"\uc74c\uc545 \ucd94\ucc9c\ud558\uae30", None))
         self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"\uadf8\ub9cc\ud558\uae30", None))
         self.label_33.setText("")
-        self.label_29.setText("")
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"\uc791\uc131\ud55c \ud3b8\uc9c0 \ubcf4\uc5ec\uc8fc\uae30", None))
         self.pushButton_36.setText("")
         self.pushButton_39.setText("")
