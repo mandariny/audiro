@@ -18,7 +18,9 @@ public class Spot {
     @Column(name = "spot_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "spot_name")
     private String spotName;
+    @Column(name = "spot_addr")
     private String spotAddr;
 
     @Override

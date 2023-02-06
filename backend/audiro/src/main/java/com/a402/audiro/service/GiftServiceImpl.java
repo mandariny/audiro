@@ -24,6 +24,10 @@ public class GiftServiceImpl implements GiftService{
         List<Gift> gift;
         List<GiftThumbnailDTO> giftDTOList;
 
+        log.warn("gift before");
+        gift = giftRepository.findByNickname(nickname);
+        log.warn("gift log: " +gift.get(0).toString());
+
         try{
             gift = giftRepository.findByNickname(nickname);
             giftDTOList = gift.stream()

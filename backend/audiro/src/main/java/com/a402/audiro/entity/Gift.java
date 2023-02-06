@@ -17,7 +17,7 @@ public class Gift {
 
     @Id
     @Column(name = "gift_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @ManyToOne
@@ -32,12 +32,17 @@ public class Gift {
     @JoinColumn(name = "song_id")
     private Song song;
 
+    @Column(name = "gift_img")
     private String giftImg;
+
+    @Column(name = "is_open")
     private boolean isOpen;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "gift_tag")
     private GiftTag giftTag;
 
+    @Column(name = "reg_time")
     private LocalDateTime regTime;
 
     @Column(name = "gift_feedback1")
@@ -52,6 +57,7 @@ public class Gift {
     @Column(name = "gift_feedback4")
     private int feed4;
 
+    @Column(name = "is_manito")
     private boolean isManito;
 
     @Override

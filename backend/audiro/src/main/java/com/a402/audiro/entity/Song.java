@@ -16,11 +16,14 @@ public class Song {
 
     @Id
     @Column(name = "song_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "song_img")
     private String songImg;
+    @Column(name = "song_title")
     private String songTitle;
     private String singer;
+    @Column(name = "song_url")
     private String songUrl;
 
     @Override
