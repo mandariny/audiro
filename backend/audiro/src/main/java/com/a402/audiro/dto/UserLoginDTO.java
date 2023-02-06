@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Builder
 public class UserLoginDTO {
-    private String id;
+    private long id;
     private String nickname;
     private String role;
 }

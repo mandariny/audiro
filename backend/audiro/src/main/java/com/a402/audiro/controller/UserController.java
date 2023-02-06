@@ -8,14 +8,10 @@ import com.a402.audiro.dto.UserLoginDTO;
 import com.a402.audiro.service.UserService;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("user")
@@ -30,7 +26,7 @@ public class UserController {
 
     //선택한 유저 정보 조회
     @GetMapping("/{id}")
-    public ResponseEntity<?> detail(@PathVariable String id){
+    public ResponseEntity<?> detail(@PathVariable long id){
         try{
             UserInfoDTO UserInfoDTO = userService.selectUser(id);
             return ResponseEntity.ok().body(UserInfoDTO);
@@ -46,7 +42,7 @@ public class UserController {
             userService.updateUserNickName(newNickName);
             //responseHeader에 새로운 토큰을 날려보내야함.
             UserLoginDTO userLoginDTO = (UserLoginDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            String id = userLoginDTO.getId();
+            long id = userLoginDTO.getId();
             String role = userLoginDTO.getRole();
             JwtTokens newTokens = jwtTokenService.generateToken(id, newNickName, role);
             return ResponseEntity.ok().header("Auth",newTokens.getAccessToken()).header("Refresh",newTokens.getRefreshToken()).body(SUCCESS);

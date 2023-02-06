@@ -1,12 +1,11 @@
 /*
-* 구글로 부터 받은 Request 데이터 후처리 함수. 엑세스 토큰 + 사용자 정보
-* 이친구는 SecurityConfig에서 호출되어서 반환값을 넘겨줌
-*
-* */
+ * 구글로 부터 받은 Request 데이터 후처리 함수. 엑세스 토큰 + 사용자 정보
+ * 이친구는 SecurityConfig에서 호출되어서 반환값을 넘겨줌
+ *
+ * */
 
 package com.a402.audiro.config.oauth;
 
-import java.util.Collections;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,6 +16,8 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 
 @Slf4j
 @Service

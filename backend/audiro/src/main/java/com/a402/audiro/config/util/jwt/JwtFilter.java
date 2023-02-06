@@ -1,19 +1,25 @@
 package com.a402.audiro.config.util.jwt;
 
 import com.a402.audiro.dto.UserLoginDTO;
+import com.a402.audiro.entity.User;
 import com.a402.audiro.repository.UserRepository;
-import java.io.IOException;
-import java.util.Arrays;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.filter.GenericFilterBean;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Arrays;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 @Slf4j
@@ -30,7 +36,7 @@ public class JwtFilter extends OncePerRequestFilter {
         if (accessToken != null && jwtTokenService.verifyToken(accessToken)) {
             log.info("유효한 토큰입니다.");
             //토큰에서 지금 접속한 사용자 정보 꺼내기
-            String id = jwtTokenService.getUserId(accessToken);
+            long id = jwtTokenService.getUserId(accessToken);
             String nickName = jwtTokenService.getUserNickName(accessToken);
             String role = jwtTokenService.getUserRole(accessToken); //토큰에 role을 담았는데, role이 변하는 기능을 넣으면 DB에서 조회한 값을 넣는게 맞는듯
 

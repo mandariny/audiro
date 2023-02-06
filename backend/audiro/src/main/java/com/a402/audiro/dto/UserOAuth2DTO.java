@@ -15,7 +15,8 @@ import lombok.ToString;
 @Builder
 @ToString
 public class UserOAuth2DTO {
-    private String id;
+    private long id;
+    private String idOAuth2;
     private String nickname;
     private String name;
     private String token;

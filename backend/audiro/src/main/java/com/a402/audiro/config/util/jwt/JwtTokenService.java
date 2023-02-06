@@ -4,11 +4,12 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import java.util.Base64;
-import java.util.Date;
-import javax.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
+import java.util.Base64;
+import java.util.Date;
 
 @Slf4j
 @Service
@@ -22,10 +23,11 @@ public class JwtTokenService {
     }//Base64로 인코딩
 
     //토큰 생성 메서드
-    public String generateAccessJwt(String userId, String nickName, String role) {
+    public String generateAccessJwt(long userId, String nickName, String role) {
         long tokenPeriod = 1000L * 60L * 100L; //인증토큰의 만료시간 100분
-        Claims claims = Jwts.claims().setSubject(userId);
+        Claims claims = Jwts.claims();
         claims.put("role", role);
+        claims.put("userId",userId);;
         Date now = new Date();
         claims.put("nickName", nickName);
         return Jwts.builder()
@@ -35,9 +37,10 @@ public class JwtTokenService {
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
-    public String generateRefreshJwt(String userId, String nickName, String role) {
+    public String generateRefreshJwt(long userId, String nickName, String role) {
         long refreshPeriod = 1000L * 60L * 60L * 24L * 30L * 3L; //Refresh토큰 만료 3주
-        Claims claims = Jwts.claims().setSubject(userId);
+        Claims claims = Jwts.claims();
+        claims.put("userId",userId);
         claims.put("role", role);
         Date now = new Date();
         claims.put("nickName", nickName);
@@ -50,7 +53,7 @@ public class JwtTokenService {
     }
 
 
-    public JwtTokens generateToken(String userId, String nickName, String role) {
+    public JwtTokens generateToken(long userId, String nickName, String role) {
 
         return new JwtTokens(
                 generateAccessJwt(userId, nickName, role),
@@ -75,15 +78,14 @@ public class JwtTokenService {
     //토큰 refresh 메서드
     public String refreshAccessToken(String refreshToken){
         //리프레쉬 토큰에 담긴 사용자 정보
-        String id = getUserId(refreshToken);
+        long id = getUserId(refreshToken);
         String nickName = getUserNickName(refreshToken);
         String role = getUserRole(refreshToken);
-
         return generateAccessJwt(id, nickName, role);
     }
 
-    public String getUserId(String token) {
-        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
+    public long getUserId(String token) {
+        return Integer.parseInt(Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().get("userId").toString());
     } //jwt토큰에서 userId 빼오는 메서드
 
     public String getUserNickName(String token) {

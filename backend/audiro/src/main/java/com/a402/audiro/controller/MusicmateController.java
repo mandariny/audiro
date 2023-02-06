@@ -20,7 +20,7 @@ public class MusicmateController {
     private final MusicmateService musicmateService;
 
     @GetMapping
-    public ResponseEntity<?> getMusicmateList(@RequestParam String userId){
+    public ResponseEntity<?> getMusicmateList(@RequestParam Long userId){
         try{
             List<String> musicmateNickNameList = musicmateService.getMusicmateList(userId);
             return ResponseEntity.ok().body(musicmateNickNameList);

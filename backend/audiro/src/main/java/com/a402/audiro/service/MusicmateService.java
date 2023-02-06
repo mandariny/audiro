@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface MusicmateService {
 
-    List<String> getMusicmateList(String userId);
+    List<String> getMusicmateList(long userId);
 }

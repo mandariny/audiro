@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface UserService {
     //선택한 유저 정보 초회
-    UserInfoDTO selectUser(String id);
+    UserInfoDTO selectUser(long id);
 
     //본인 닉네임 변경
     void updateUserNickName(String newNickName);

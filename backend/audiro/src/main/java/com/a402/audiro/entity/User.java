@@ -19,7 +19,8 @@ public class User {
 
     @Id
     @Column(name = "user_id")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String name;
     private String token;
     private String nickname;
@@ -32,10 +33,9 @@ public class User {
     @Column(name = "profile_img")
     private String img;
 
-
     public String getEmail() { return email; }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

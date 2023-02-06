@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MusicmateDTO {
     private long id;
-    private String userId;
+    private long userId;
     private long mateId;
     private boolean isMate;
     private boolean isBlock;

@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public UserInfoDTO selectUser(String id) {
+    public UserInfoDTO selectUser(long id) {
         User userEntity;
         try {
             userEntity = userRepository.findById(id);
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
             //현재 로그인된 유저와 아이디
             UserLoginDTO loginUser = (UserLoginDTO) SecurityContextHolder.getContext()
                     .getAuthentication().getPrincipal();
-            String loginUserId = loginUser.getId();
+            long loginUserId = loginUser.getId();
             log.info("사용자 {}의 닉네임을 {}로 변경 시작", loginUserId,newNickName);
             User userEntity = userRepository.findById(loginUserId);
             userEntity.setNickname(newNickName);
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
         try {
             UserLoginDTO loginUser = (UserLoginDTO) SecurityContextHolder.getContext()
                     .getAuthentication().getPrincipal();
-            String loginUserId = loginUser.getId();
+            long loginUserId = loginUser.getId();
             log.info("사용자 {}의 상태메세지를 {}로 변경 시작", loginUserId,newMsg);
             User userEntity = userRepository.findById(loginUserId);
             userEntity.setMsg(newMsg);
@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService {
         try {
             UserLoginDTO loginUser = (UserLoginDTO) SecurityContextHolder.getContext()
                     .getAuthentication().getPrincipal();
-            String loginUserId = loginUser.getId();
+            long loginUserId = loginUser.getId();
             log.info("사용자 {}의 사진을 변경 시작", loginUserId);
             User userEntity = userRepository.findById(loginUserId);
             userEntity.setNickname(newImg);

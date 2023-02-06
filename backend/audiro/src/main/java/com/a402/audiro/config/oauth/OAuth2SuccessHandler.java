@@ -1,10 +1,10 @@
 /*
-* 구글 등등에서 사용자가 로그인 성공시
-* - 사용자 정보를 DB조회
-* - 최초 로그인이면 회원가입
-* - DB에 있으면 업데이트
-* - JWT토큰 넣어주기
-* */
+ * 구글 등등에서 사용자가 로그인 성공시
+ * - 사용자 정보를 DB조회
+ * - 최초 로그인이면 회원가입
+ * - DB에 있으면 업데이트
+ * - JWT토큰 넣어주기
+ * */
 
 package com.a402.audiro.config.oauth;
 
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
     private final JwtTokenService jwtTokenService;
-    private final UserRequestMapper userRequestMapper;
+    private final OAuth2DTOMapper OAuth2DTOMapper;
     private final ObjectMapper objectMapper;
 
     @Autowired
@@ -42,41 +42,50 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
             Authentication authentication) throws IOException, ServletException {
         OAuth2User oAuth2User = (OAuth2User)authentication.getPrincipal();
-        UserOAuth2DTO userOAuth2DTO = userRequestMapper.toDto(oAuth2User);
+        UserOAuth2DTO userOAuth2DTO = OAuth2DTOMapper.toDto(oAuth2User);
         log.info("현재 로그인된 사용자 정보 : {}", userOAuth2DTO.toString());
         //토큰에 담을 유저 정보
-        String role = "ROLE_USER";
-        String nowId = userOAuth2DTO.getId();
-        String nickName = nowId;
+        String token = userOAuth2DTO.getToken();
 
         // 최초 로그인일때 회원가입 처리 할거야
-        User userEntity = userRepository.findById(nowId);
+        User userEntity = userRepository.findByToken(token);
+        long id;
+        String role;
+        String nickName;
         if(userEntity == null){
+            role = "ROLE_USER";
             log.info("최초 로그인 입니다");
             //DB에 없으면 강제로 회원가입시키자
             userEntity = User.builder()
-                    .id(nowId)
-                    .nickname(nickName) //임시 닉네임?
                     .role(role)
                     .email(userOAuth2DTO.getEmail())
+                    .nickname("임시 닉네임")
+                    .token(token)
                     .name(userOAuth2DTO.getName())
                     .img(userOAuth2DTO.getImg())
                     .build();
             userRepository.save(userEntity);
-            log.info("회원가입 완료 : {}",userEntity.toString());
+            //닉네임 넣어주기
+            User userSaved = userRepository.findByToken(token);
+            id = userSaved.getId();
+            nickName = "사용자" + String.valueOf(id);
+            userSaved.setNickname(nickName);
+            userRepository.save(userSaved);
+            log.info("회원가입 완료 : {}",userSaved.toString());
         }else{
             log.info("기존 회원입니다.");
+            id = userEntity.getId();
             role = userEntity.getRole();
             nickName = userEntity.getNickname();
-            log.info("회원 정보 업데이트 Role << {} , nickname << {}",role,nickName);
         }
 
-        //토큰발급
-        JwtTokens token = jwtTokenService.generateToken(userOAuth2DTO.getId(), nickName, role);
-        log.info("발급된 jwtToken : " + "{}", token);
 
-        //토큰 넣기
-        writeTokenResponse(response, token);
+        //토큰발급
+        JwtTokens jwtTokens = jwtTokenService.generateToken(id, nickName, role);
+        log.info("발급된 jwtToken : " + "{}", jwtTokens);
+
+        //Response에 토큰 넣기
+        writeTokenResponse(response, jwtTokens);
     }
 
     private void writeTokenResponse(HttpServletResponse response, JwtTokens token)

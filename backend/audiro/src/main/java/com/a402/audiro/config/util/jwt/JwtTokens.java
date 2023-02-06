@@ -1,6 +1,6 @@
 /*
-* jwt token과 refresh token을 저장할 객체
-* */
+ * jwt token과 refresh token을 저장할 객체
+ * */
 package com.a402.audiro.config.util.jwt;
 
 import lombok.AllArgsConstructor;
