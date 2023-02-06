@@ -1,0 +1,56 @@
+/* *{
+    color: white;
+}; */
+#kakao-login{
+
+    width: 214px;
+    height: 52px;
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: #FFE812;
+    border-radius: 20px;
+}
+#naver-login{
+
+    width: 214px;
+    height: 52px;
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: greenyellow;
+    border-radius: 20px;
+}
+#google-login{
+
+    width: 214px;
+    height: 52px;
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.link-text{
+    color:black;
+}
+.buttons{
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 299px;
+    height: 268px;
+    left: 33px;
+    top: 263px;
+    background: #6522F2;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
