@@ -1,3 +1,4 @@
+DROP DATABASE audiroDB;
 CREATE DATABASE audiroDB;
 
 USE audiroDB;
@@ -6,7 +7,7 @@ USE audiroDB;
 DROP TABLE IF EXISTS USER;
 
 CREATE TABLE USER(
-                     USER_ID INT NOT NULL PRIMARY KEY auto_increment,
+                     USER_ID BIGINT NOT NULL PRIMARY KEY auto_increment,
                      NAME VARCHAR(20) NOT NULL,
                      TOKEN VARCHAR(200),
                      NICKNAME VARCHAR(100) NOT NULL UNIQUE,
@@ -16,7 +17,7 @@ CREATE TABLE USER(
                      ROLE VARCHAR(20)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 UPDATE user SET role = "ROLE_ADMIN" WHERE email="fanngineer@gmail.com";
-INSERT INTO USER (NAME, TOKEN, NICKNAME) VALUES ('sohee', 'abv12efwsedfwerg', 'sohee');
+INSERT INTO USER (NAME, TOKEN, NICKNAME) VALUES ('sohee', 'abv12efw-- sedfwerg', 'sohee');
 INSERT INTO USER (NAME, TOKEN, NICKNAME) VALUES ('gaok', 'abv12eqwqdfwerg', 'gaok');
 INSERT INTO USER (NAME, TOKEN, NICKNAME) VALUES ('sungwhan', 'webv12ef1231', 'sungwhan');
 INSERT INTO USER (NAME, TOKEN, NICKNAME) VALUES ('hosung', '12wrtsedddfwerg', 'hosung');
@@ -52,7 +53,7 @@ INSERT SPOT (SPOT_NAME, SPOT_ADDR) VALUES('역삼점', '서울시 강남구 역�
 DROP TABLE IF EXISTS GIFT;
 
 CREATE TABLE GIFT(
-    GIFT_ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    GIFT_ID BIGINT AUTO_INCREMENT PRIMARY KEY,
     USER_ID BIGINT NOT NULL,
     SPOT_ID BIGINT NOT NULL,
     SONG_ID BIGINT NOT NULL,
@@ -119,3 +120,8 @@ CREATE TABLE SONG_META(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO SONG_META (SONG_ID, SPOT_ID) VALUES(1, 1);
+
+select * from user;
+select * from gift;
+
+select * from gift join user on gift.user_id = user.user_id where user.nickname = 'gaok';
