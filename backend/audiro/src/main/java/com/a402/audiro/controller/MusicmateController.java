@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("musicmate")
+@RequestMapping("api/musicmate")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Builder

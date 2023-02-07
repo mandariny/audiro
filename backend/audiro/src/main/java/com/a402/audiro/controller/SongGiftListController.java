@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("song/gifts")
+@RequestMapping("api/song/gifts")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Builder

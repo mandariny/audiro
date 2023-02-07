@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("manito")
+@RequestMapping("api/manito")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Builder

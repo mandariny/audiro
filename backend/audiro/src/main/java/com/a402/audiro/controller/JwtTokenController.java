@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/token")
+@RequestMapping("api/token")
 public class JwtTokenController {
 
     @Autowired
