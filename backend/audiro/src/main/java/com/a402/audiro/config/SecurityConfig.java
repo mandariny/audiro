@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //                .and()
 //                .authorizeRequests()
         http.authorizeRequests()
-                .antMatchers("/","/loginForm","/exception/**","/common","/swagger-ui.html","/token/refresh").permitAll() //메인페이지는 모든 사용자에게 가능하게
+                .antMatchers("/api/","/api/loginForm","/api/exception/**","/common","/api/swagger-ui.html","/api/token/refresh").permitAll() //메인페이지는 모든 사용자에게 가능하게
                 //.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
                 //.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN') and hasRole('ROLE_USER')")
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')") //인증뿐 아니라 권한이 있는 사람만
