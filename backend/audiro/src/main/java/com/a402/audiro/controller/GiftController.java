@@ -40,6 +40,16 @@ public class GiftController {
         }
     }
 
+    @GetMapping("/feedback")
+    public ResponseEntity<?> addFeedback(@RequestParam long giftId, @RequestParam int idx){
+        try{
+            giftService.addFeedbackCnt(giftId, idx);
+            return ResponseEntity.ok().body("success");
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     @DeleteMapping
     public ResponseEntity<?> deleteGift(@RequestParam long giftId){
         try{

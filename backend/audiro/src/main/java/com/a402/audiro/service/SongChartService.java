@@ -1,6 +1,7 @@
 package com.a402.audiro.service;
 
 import com.a402.audiro.dto.SongChartDTO;
+import com.a402.audiro.entity.Song;
 import java.util.List;
 
 public interface SongChartService {

@@ -28,18 +28,13 @@ public class GiftServiceImpl implements GiftService{
         gift = giftRepository.findByNickname(nickname);
         log.warn("gift log: " +gift.get(0).toString());
 
-        try{
-            gift = giftRepository.findByNickname(nickname);
-            giftDTOList = gift.stream()
-                    .map(g -> GiftThumbnailDTO.builder()
-                            .id(g.getId())
-                            .giftImg(g.getGiftImg())
-                            .build())
-                    .collect(Collectors.toList());
-        }catch (Exception e){
-            log.error(e.getMessage());
-            throw e;
-        }
+        gift = giftRepository.findByNickname(nickname);
+        giftDTOList = gift.stream()
+                .map(g -> GiftThumbnailDTO.builder()
+                        .id(g.getId())
+                        .giftImg(g.getGiftImg())
+                        .build())
+                .collect(Collectors.toList());
 
         return giftDTOList;
     }
@@ -47,13 +42,7 @@ public class GiftServiceImpl implements GiftService{
     @Override
     public GiftDTO getGiftDetail(long giftId) {
         Gift gift;
-
-        try{
-            gift = giftRepository.findById(giftId);
-        }catch(Exception e){
-            log.error(e.getMessage());
-            throw e;
-        }
+        gift = giftRepository.findById(giftId);
 
         return GiftDTO.builder()
                 .id(gift.getId())
@@ -73,11 +62,26 @@ public class GiftServiceImpl implements GiftService{
 
     @Override
     public void deleteGift(long giftId) {
-        try{
-            giftRepository.deleteById(giftId);
-        }catch(Exception e){
-            log.error(e.getMessage());
-            throw e;
+        giftRepository.deleteById(giftId);
+    }
+
+    @Override
+    public void addFeedbackCnt(long giftId, int idx) {
+        Gift gift = giftRepository.findById(giftId);
+        switch (idx){
+            case 1:
+                gift.addFeed1();
+                break;
+            case 2:
+                gift.addFeed2();
+                break;
+            case 3:
+                gift.addFeed3();
+                break;
+            case 4:
+                gift.addFeed4();
+                break;
         }
+        giftRepository.save(gift);
     }
 }
