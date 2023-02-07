@@ -4,7 +4,9 @@ import com.a402.audiro.entity.Spot;
 import com.a402.audiro.exception.SpotNotExistException;
 import com.a402.audiro.repository.SpotRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class SpotServiceImpl implements SpotService{
 

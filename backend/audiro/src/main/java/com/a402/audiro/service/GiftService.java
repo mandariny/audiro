@@ -11,4 +11,6 @@ public interface GiftService {
     GiftDTO getGiftDetail(long giftId);
 
     void deleteGift(long giftId);
+
+    void addFeedbackCnt(long giftId, int idx);
 }

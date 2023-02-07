@@ -1,6 +1,7 @@
 package com.a402.audiro.service;
 
 import com.a402.audiro.dto.UserInfoDTO;
+import com.a402.audiro.entity.User;
 import java.util.List;
 
 public interface UserService {
@@ -19,4 +20,7 @@ public interface UserService {
     //유저 목록 조회
     //쓸일 없는데 관리자 페이지나 뭐 할때 위해서 그냥 만듦
     List<UserInfoDTO> getUserList();
+
+    // 로그인중인 유저의 DB 정보 반환
+    User getUser();
 }

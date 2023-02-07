@@ -80,4 +80,24 @@ public class GiftServiceImpl implements GiftService{
             throw e;
         }
     }
+
+    @Override
+    public void addFeedbackCnt(long giftId, int idx) {
+        Gift gift = giftRepository.findById(giftId);
+        switch (idx){
+            case 1:
+                gift.addFeed1();
+                break;
+            case 2:
+                gift.addFeed2();
+                break;
+            case 3:
+                gift.addFeed3();
+                break;
+            case 4:
+                gift.addFeed4();
+                break;
+        }
+        giftRepository.save(gift);
+    }
 }

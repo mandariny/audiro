@@ -23,6 +23,7 @@ public class Postcard {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "postcard_id")
     private long Id;
 
     @ManyToOne

@@ -1,6 +1,7 @@
 package com.a402.audiro.service;
 
 import com.a402.audiro.dto.PostcardDTO;
+import com.a402.audiro.dto.UserLoginDTO;
 import com.a402.audiro.entity.Postcard;
 import com.a402.audiro.entity.Song;
 import com.a402.audiro.entity.Spot;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class PostcardServiceImpl implements PostcardService{
 
     private final PostcardRepository postcardRepository;
-    private final UserRepository userRepository;
+    private final UserService userService;
     private final SongService songService;
     private final SpotService spotService;
 
@@ -34,7 +35,7 @@ public class PostcardServiceImpl implements PostcardService{
         Spot spot = spotService.isValidSpot(postcardDTO.getSpotId());
         isValidPassword(postcardDTO.getPasswd());
 
-        User user = userRepository.findById(postcardDTO.getSendId());
+        User user = userService.getUser();
 
         Postcard postcard = Postcard.builder()
                 .user(user)

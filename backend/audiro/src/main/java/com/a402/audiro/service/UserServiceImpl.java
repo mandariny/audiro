@@ -112,4 +112,14 @@ public class UserServiceImpl implements UserService {
         }
         return userInfoDTOs;
     }
+
+    @Override
+    public User getUser() {
+        UserLoginDTO loginUser = (UserLoginDTO) SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        long loginUserId = loginUser.getId();
+        User userEntity = userRepository.findById(loginUserId);
+
+        return userEntity;
+    }
 }

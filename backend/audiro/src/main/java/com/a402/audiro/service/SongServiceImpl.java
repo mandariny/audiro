@@ -4,7 +4,9 @@ import com.a402.audiro.entity.Song;
 import com.a402.audiro.exception.SongNotExistException;
 import com.a402.audiro.repository.SongRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class SongServiceImpl implements SongService{
 

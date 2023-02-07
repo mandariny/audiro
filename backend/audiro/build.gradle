@@ -27,6 +27,9 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'net.nurigo:sdk:4.2.7'
+	implementation("org.springframework.retry:spring-retry")
+	implementation("org.springframework:spring-aspects")
 
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-logging', version: '2.6.8'
 
