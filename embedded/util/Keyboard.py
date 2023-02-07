@@ -7,7 +7,7 @@ import threading
 import time
 import unicodedata
 
-from jamo import h2j, j2hcj
+#from jamo import h2j, j2hcj
 
 
 class KeyButton(QtWidgets.QPushButton):
@@ -422,13 +422,6 @@ class AlphaNeumericVirtualKeyboard(QtWidgets.QWidget):
                 #str1 = unicodedata.normalize('NFD', self.source.text())
                 #self.source.clear()
                 #self.source.setText((unicodedata.normalize('NFC', str1)))
-                self.source.setText(h2j(j2hcj(self.source.text())))
-                str = h2j(self.source.text())
-                print(str)
-                str = j2hcj(str)
-                print(str)
-                str = h2j(str)
-                print(str)
 
                 return
 

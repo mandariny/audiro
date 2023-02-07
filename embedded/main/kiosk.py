@@ -200,19 +200,23 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def moveToNextStep(self):
         currentPage = self.stackedPages.currentIndex()
 
-        if self.stackedPages.currentIndex()==8:
+        if self.stackedPages.currentIndex() == 8:
             self.stackedPages2.setCurrentIndex(0)
-        elif self.stackedPages.currentIndex()==9:
+        elif self.stackedPages.currentIndex() == 9:
             self.stackedPages2.setCurrentIndex(6)
-        elif self.stackedPages.currentIndex()==10:
+        elif self.stackedPages.currentIndex() == 10:
             self.stackedPages2.setCurrentIndex(10)
 
-        elif self.stackedPages.currentIndex()==3:
+        elif self.stackedPages.currentIndex() == 3:
             self.stackedPages2.setCurrentIndex(5)
-        elif self.stackedPages.currentIndex()==4:
+        elif self.stackedPages.currentIndex() == 4:
             self.stackedPages2.setCurrentIndex(9)
+        elif self.stackedPages2.currentIndex() == 10:
+            self.stackedPages2.setCurrentIndex(7)
+        elif self.stackedPages2.currentIndex() == 12:
+            self.stackedPages2.setCurrentIndex(2)
 
-        if self.stackedPages.currentIndex()==3 and self.stackedPages2.currentIndex()==0:
+        if self.stackedPages.currentIndex() == 3 and self.stackedPages2.currentIndex() == 0:
             pass
         elif self.stackedPages.currentIndex() == 1:
             self.stackedPages.setCurrentIndex(0)
@@ -221,6 +225,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.stackedPages.setCurrentIndex(currentPage + 1)
 
     def reply(self):
+        self.stackedPages.setCurrentIndex(3)
         self.stackedPages2.setCurrentIndex(0)
 
     def draw(self):
@@ -243,51 +248,62 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.painter_widget.pen.setColor(QColor(0, 0, 0))
         self.painter_widget_2.pen.setColor(QColor(0, 0, 0))
         self.painter_widget_3.pen.setColor(QColor(0, 0, 0))
+        self.painter_widget_4.pen.setColor(QColor(0, 0, 0))
 
     def colorChange2(self):
         self.painter_widget.pen.setColor(QColor(245, 51, 51))
         self.painter_widget_2.pen.setColor(QColor(245, 51, 51))
         self.painter_widget_3.pen.setColor(QColor(245, 51, 51))
+        self.painter_widget_4.pen.setColor(QColor(245, 51, 51))
 
     def colorChange3(self):
         self.painter_widget.pen.setColor(QColor(238, 106, 31))
         self.painter_widget_2.pen.setColor(QColor(238, 106, 31))
         self.painter_widget_3.pen.setColor(QColor(238, 106, 31))
+        self.painter_widget_4.pen.setColor(QColor(238, 106, 31))
+
 
     def colorChange4(self):
         self.painter_widget.pen.setColor(QColor(231, 234, 91))
         self.painter_widget_2.pen.setColor(QColor(231, 234, 91))
         self.painter_widget_3.pen.setColor(QColor(231, 234, 91))
+        self.painter_widget_4.pen.setColor(QColor(231, 234, 91))
 
     def colorChange5(self):
         self.painter_widget.pen.setColor(QColor(26, 203, 22))
         self.painter_widget_2.pen.setColor(QColor(26, 203, 22))
         self.painter_widget_3.pen.setColor(QColor(26, 203, 22))
+        self.painter_widget_4.pen.setColor(QColor(26, 203, 22))
 
     def colorChange6(self):
         self.painter_widget.pen.setColor(QColor(76, 37, 232))
         self.painter_widget_2.pen.setColor(QColor(76, 37, 232))
         self.painter_widget_3.pen.setColor(QColor(76, 37, 232))
+        self.painter_widget_4.pen.setColor(QColor(76, 37, 232))
 
     def colorChange7(self):
         self.painter_widget.pen.setColor(QColor(181, 37, 232))
         self.painter_widget_2.pen.setColor(QColor(181, 37, 232))
         self.painter_widget_3.pen.setColor(QColor(181, 37, 232))
+        self.painter_widget_4.pen.setColor(QColor(181, 37, 232))
 
     def colorChange8(self):
         self.painter_widget.pen.setColor(QColor(232, 37, 142))
         self.painter_widget_2.pen.setColor(QColor(232, 37, 142))
         self.painter_widget_3.pen.setColor(QColor(232, 37, 142))
+        self.painter_widget_4.pen.setColor(QColor(232, 37, 142))
 
     def colorChange9(self):
         self.painter_widget.pen.setColor(QColor(255,255,255))
         self.painter_widget_2.pen.setColor(QColor(255, 255, 255))
         self.painter_widget_3.pen.setColor(QColor(255, 255, 255))
+        self.painter_widget_4.pen.setColor(QColor(255, 255, 255))
 
     def painterClear(self):
         self.painter_widget.clear()
         self.painter_widget_2.clear()
         self.painter_widget_3.clear()
+        self.painter_widget_4.clear()
 
 app = QApplication(sys.argv)
 screen_rect = app.desktop().screenGeometry()
