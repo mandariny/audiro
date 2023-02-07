@@ -3,6 +3,7 @@ package com.a402.audiropostcard.controller;
 import com.a402.audiropostcard.dto.PasswordDTO;
 import com.a402.audiropostcard.dto.PostcardDTO;
 import com.a402.audiropostcard.exception.PasswordDuplicationException;
+import com.a402.audiropostcard.service.MessageService;
 import com.a402.audiropostcard.service.PostcardService;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -22,15 +23,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostcardController {
 
     private final PostcardService postcardService;
+    private final MessageService messageService;
 
     @PostMapping()
     @Transactional
     public ResponseEntity<?> sendMessage(@RequestBody PostcardDTO postcardDTO){
         try{
             postcardService.savePostcard(postcardDTO);
-            postcardService.sendMessage(postcardDTO);
+            messageService.sendMessage(postcardDTO);
 
-            return ResponseEntity.ok().body("sucess: send a message");
+            return ResponseEntity.ok().body("sucess: 메세지를 성공적으로 전송했습니다.");
 
         }catch(Exception e){
             log.error(e.getMessage());
@@ -42,7 +44,7 @@ public class PostcardController {
     public ResponseEntity<?> passwordValidationCheck(@RequestBody PasswordDTO passwordDTO){
         try{
             postcardService.isValidPassword(passwordDTO);
-            return ResponseEntity.ok().body("success");
+            return ResponseEntity.ok().body("success: 사용 가능한 암호입니다.");
         }catch(PasswordDuplicationException e){
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());

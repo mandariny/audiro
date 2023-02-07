@@ -9,4 +9,6 @@ public interface PostcardRepository extends Repository<Postcard, Long> {
 
     @Query(value = "select * from postcard where password = :password", nativeQuery = true)
     Postcard findByPasswrod(@Param("password") String pw);
+
+    void save(Postcard postcard);
 }

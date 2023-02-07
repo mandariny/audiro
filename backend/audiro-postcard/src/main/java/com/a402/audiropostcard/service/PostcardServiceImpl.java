@@ -11,6 +11,7 @@ import com.a402.audiropostcard.exception.SpotNotExistException;
 import com.a402.audiropostcard.repository.PostcardRepository;
 import com.a402.audiropostcard.repository.SongRepository;
 import com.a402.audiropostcard.repository.SpotRepository;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,12 +36,10 @@ public class PostcardServiceImpl implements PostcardService{
     }
 
     @Override
-    public boolean isValidPassword(PasswordDTO passwordDTO) {
+    public void isValidPassword(PasswordDTO passwordDTO) {
         Postcard postcard = postcardRepository.findByPasswrod(passwordDTO.getPasswd());
 
         if(postcard != null) throw new PasswordDuplicationException();
-
-        return true;
     }
 
     @Override
@@ -48,11 +47,15 @@ public class PostcardServiceImpl implements PostcardService{
         isValidSong(postcardDTO.getSongId());
         isValidSpot(postcardDTO.getSpotId());
 
+        Postcard postcard = Postcard.builder()
+                .sendId(postcardDTO.getSendId())
+                .songId(postcardDTO.getSongId())
+                .spotId(postcardDTO.getSpotId())
+                .password(postcardDTO.getPasswd())
+                .postcardImg(postcardDTO.getPostcardImg())
+                .regTime(LocalDateTime.now())
+                .build();
 
-    }
-
-    @Override
-    public void sendMessage(PostcardDTO postcardDTO) {
-
+        postcardRepository.save(postcard);
     }
 }
