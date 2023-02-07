@@ -12,7 +12,7 @@ public interface MusicmateRepository extends Repository<Musicmate, Long> {
 
     Musicmate findById(long id);
 
-    @Query(value = "select nickname from musicmate inner join user on musicmate.mate_id=user.user_id where musicmate.is_mate=True and musicmate.is_block=False and musicmate.user_id=:userId",
+    @Query(value = "select nickname from Musicmate inner join User on Musicmate.mate_id=User.user_id where Musicmate.is_mate=True and Musicmate.is_block=False and Musicmate.user_id=:userId",
             nativeQuery = true)
     List<String> findByUserId(@Param("userId") Long userId);
 }
