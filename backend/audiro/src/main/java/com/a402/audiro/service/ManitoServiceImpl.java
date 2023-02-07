@@ -52,6 +52,7 @@ public class ManitoServiceImpl implements ManitoService{
             // 기존 마니토를 밀어냄
             Gift beforeManito = giftRepository.findById(manitoDTO.getBeforeManitoId());
             beforeManito.setManito(Boolean.FALSE);
+            log.info("삭제된 마니또 : {}",beforeManito);
 
             // 새로운 마니토를 추가함
             User user = userRepository.findById(manitoDTO.getUserId());
