@@ -2,6 +2,7 @@ package com.a402.audiro.controller;
 
 import com.a402.audiro.dto.PasswordDTO;
 import com.a402.audiro.dto.PostcardDTO;
+import com.a402.audiro.dto.PostcardDetailDTO;
 import com.a402.audiro.exception.PasswordDuplicationException;
 import com.a402.audiro.service.PostcardService;
 import com.a402.audiro.service.SmsService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,6 +27,19 @@ public class PostcardController {
 
     private final PostcardService postcardService;
     private final SmsService smsService;
+
+    @GetMapping
+    public ResponseEntity<?> getPostcardDetail(@RequestParam long postcardId){
+        try{
+            log.info("postcard를 조회합니다.");
+            PostcardDetailDTO postcardDetailDTO = postcardService.getPostcardDetail(postcardId);
+            return ResponseEntity.ok().body(postcardDetailDTO);
+
+        }catch(Exception e){
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
     @PostMapping
     @Transactional

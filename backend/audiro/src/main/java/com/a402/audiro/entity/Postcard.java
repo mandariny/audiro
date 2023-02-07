@@ -19,6 +19,7 @@ import org.hibernate.annotations.DynamicInsert;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
 public class Postcard {
 
     @Id
@@ -47,4 +48,16 @@ public class Postcard {
     @Column(name = "reg_time")
     private LocalDateTime regTime;
 
+    @Override
+    public String toString() {
+        return "Postcard{" +
+                "Id=" + Id +
+                ", user=" + user +
+                ", song=" + song +
+                ", spot=" + spot +
+                ", password='" + password + '\'' +
+                ", postcardImg='" + postcardImg + '\'' +
+                ", regTime=" + regTime +
+                '}';
+    }
 }

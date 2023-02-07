@@ -1,20 +1,21 @@
 package com.a402.audiro.service;
 
 import com.a402.audiro.dto.PostcardDTO;
-import com.a402.audiro.dto.UserLoginDTO;
+import com.a402.audiro.dto.PostcardDetailDTO;
 import com.a402.audiro.entity.Postcard;
 import com.a402.audiro.entity.Song;
 import com.a402.audiro.entity.Spot;
 import com.a402.audiro.entity.User;
 import com.a402.audiro.exception.PasswordDuplicationException;
 import com.a402.audiro.repository.PostcardRepository;
-import com.a402.audiro.repository.UserRepository;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PostcardServiceImpl implements PostcardService{
 
     private final PostcardRepository postcardRepository;
@@ -47,5 +48,22 @@ public class PostcardServiceImpl implements PostcardService{
                 .build();
 
         postcardRepository.save(postcard);
+    }
+
+    @Override
+    public PostcardDetailDTO getPostcardDetail(long postcardId) {
+        Postcard postcard = postcardRepository.findById(postcardId);
+        log.info(postcard.toString());
+
+        PostcardDetailDTO postcardDetailDTO = PostcardDetailDTO.builder()
+                .id(postcard.getId())
+                .postcardImg(postcard.getPostcardImg())
+                .songTitle(postcard.getSong().getSongTitle())
+                .singer(postcard.getSong().getSinger())
+                .songUrl(postcard.getSong().getSongUrl())
+                .regTime(postcard.getRegTime())
+                .build();
+
+        return postcardDetailDTO;
     }
 }
