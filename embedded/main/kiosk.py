@@ -191,9 +191,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def moveToReceivedMail(self):
         self.stackedPages.setCurrentIndex(7)
+        self.stackedPages2.setCurrentIndex(2)
 
     def moveToSendMail(self):
         self.stackedPages.setCurrentIndex(9)
+        self.stackedPages2.setCurrentIndex(2)
 
     def moveToNextStep(self):
         currentPage = self.stackedPages.currentIndex()
@@ -201,9 +203,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         if self.stackedPages.currentIndex()==8:
             self.stackedPages2.setCurrentIndex(0)
         elif self.stackedPages.currentIndex()==9:
-            self.stackedPages2.setCurrentIndex(9)
-        elif self.stackedPages.currentIndex()==10:
             self.stackedPages2.setCurrentIndex(6)
+        elif self.stackedPages.currentIndex()==10:
+            self.stackedPages2.setCurrentIndex(10)
 
         elif self.stackedPages.currentIndex()==3:
             self.stackedPages2.setCurrentIndex(5)
