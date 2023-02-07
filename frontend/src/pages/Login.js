@@ -66,7 +66,7 @@ const StyledLoginLogoNaver = styled.div`
 const Login = () =>{
 
     const GoogleClicked = () => {
-        axios.get('/api/oauth2/authorization/google')
+        axios.get('http://localhost:8080/oauth2/authorization/google')
         .then((res) => {
             console.log(res);
         })
