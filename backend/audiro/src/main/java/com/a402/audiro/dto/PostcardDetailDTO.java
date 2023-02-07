@@ -13,4 +13,16 @@ public class PostcardDetailDTO {
     private String singer;
     private String songUrl;
     private LocalDateTime regTime;
+
+    @Override
+    public String toString() {
+        return "PostcardDetailDTO{" +
+                "id=" + id +
+                ", postcardImg='" + postcardImg + '\'' +
+                ", songTitle='" + songTitle + '\'' +
+                ", singer='" + singer + '\'' +
+                ", songUrl='" + songUrl + '\'' +
+                ", regTime=" + regTime +
+                '}';
+    }
 }

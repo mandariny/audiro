@@ -5,8 +5,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 @Getter
 public class PostcardDTO {
     private long sendId;
@@ -43,5 +45,6 @@ public class PostcardDTO {
                         + "[%s]\n\n"
                         + "위의 문구를 입력하시면 편지를 받아보실 수 있습니다."
                 , this.nickname, this.spotName, this.passwd);
+        this.regTime = LocalDateTime.now();
     }
 }
