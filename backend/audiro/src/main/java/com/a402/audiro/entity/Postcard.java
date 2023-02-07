@@ -22,7 +22,7 @@ import org.hibernate.annotations.DynamicInsert;
 public class Postcard {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;
 
     @ManyToOne

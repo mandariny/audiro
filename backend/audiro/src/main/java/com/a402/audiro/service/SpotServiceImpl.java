@@ -11,7 +11,7 @@ public class SpotServiceImpl implements SpotService{
     private final SpotRepository spotRepository;
 
     @Override
-    public Spot isValid(long id) {
+    public Spot isValidSpot(long id) {
         Spot spot = spotRepository.findById(id);
 
         if(spot == null) throw new SpotNotExistException();

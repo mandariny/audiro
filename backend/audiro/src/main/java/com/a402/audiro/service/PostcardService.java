@@ -6,7 +6,7 @@ import com.a402.audiro.dto.PostcardDTO;
 
 public interface PostcardService {
 
-    public void isValidPassword(PasswordDTO passwordDTO);
+    public void isValidPassword(String password);
 
     public void savePostcard(PostcardDTO postcardDTO);
 
