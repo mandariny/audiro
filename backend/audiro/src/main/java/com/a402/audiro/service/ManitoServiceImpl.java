@@ -29,18 +29,13 @@ public class ManitoServiceImpl implements ManitoService{
         List<Gift> manito;
         List<GiftThumbnailDTO> manitoList;
 
-        try{
-            manito = giftRepository.findManitos();
-            manitoList = manito.stream()
-                    .map(m -> GiftThumbnailDTO.builder()
-                            .id(m.getId())
-                            .giftImg(m.getGiftImg())
-                            .build())
-                    .collect(Collectors.toList());
-        }catch(Exception e){
-            log.error(e.getMessage());
-            throw e;
-        }
+        manito = giftRepository.findManitos();
+        manitoList = manito.stream()
+                .map(m -> GiftThumbnailDTO.builder()
+                        .id(m.getId())
+                        .giftImg(m.getGiftImg())
+                        .build())
+                .collect(Collectors.toList());
 
         return manitoList;
     }
@@ -48,52 +43,47 @@ public class ManitoServiceImpl implements ManitoService{
     @Transactional
     @Override
     public void addManito(ManitoDTO manitoDTO) {
-        try{
-            // 기존 마니토를 밀어냄
-            Gift beforeManito = giftRepository.findById(manitoDTO.getBeforeManitoId());
-            beforeManito.setManito(Boolean.FALSE);
+        // 기존 마니토를 밀어냄
+        Gift beforeManito = giftRepository.findById(manitoDTO.getBeforeManitoId());
+        beforeManito.setManito(Boolean.FALSE);
 
-            // 새로운 마니토를 추가함
-            User user = userRepository.findById(manitoDTO.getUserId());
-            Song song = songRepository.findById(manitoDTO.getSongId());
-            Spot spot = spotRepository.findById(manitoDTO.getSpotId());
+        // 새로운 마니토를 추가함
+        User user = userRepository.findById(manitoDTO.getUserId());
+        Song song = songRepository.findById(manitoDTO.getSongId());
+        Spot spot = spotRepository.findById(manitoDTO.getSpotId());
 
-            Gift manito = Gift.builder()
-                    .user(user)
+        Gift manito = Gift.builder()
+                .user(user)
+                .song(song)
+                .spot(spot)
+                .giftImg(manitoDTO.getGiftImg())
+                .giftTag(manitoDTO.getGiftTag())
+                .isManito(Boolean.TRUE)
+                .build();
+        giftRepository.save(manito);
+
+        // 노래 추천 횟수 수정
+        SongMeta beforeManitoMeta = songMetaRepository.findBySongAndSpot(beforeManito.getSong(), beforeManito.getSpot());
+        SongMeta manitoMeta = songMetaRepository.findBySongAndSpot(manito.getSong(), manito.getSpot());
+
+        if(manitoMeta == null){
+            manitoMeta = SongMeta.builder()
                     .song(song)
                     .spot(spot)
-                    .giftImg(manitoDTO.getGiftImg())
-                    .giftTag(manitoDTO.getGiftTag())
-                    .isManito(Boolean.TRUE)
+                    .updateTime(LocalDateTime.now())
+                    .liked(0)
                     .build();
-            giftRepository.save(manito);
-
-            // 노래 추천 횟수 수정
-            SongMeta beforeManitoMeta = songMetaRepository.findBySongAndSpot(beforeManito.getSong(), beforeManito.getSpot());
-            SongMeta manitoMeta = songMetaRepository.findBySongAndSpot(manito.getSong(), manito.getSpot());
-
-            if(manitoMeta == null){
-                manitoMeta = SongMeta.builder()
-                        .song(song)
-                        .spot(spot)
-                        .updateTime(LocalDateTime.now())
-                        .liked(0)
-                        .build();
-            }
-
-            if(beforeManito.getId() != manito.getId()){
-                beforeManitoMeta.minusCnt();
-                manitoMeta.plusCnt();
-                songMetaRepository.save(beforeManitoMeta);
-            }
-
-            manitoMeta.setUpdateTime();
-
-            songMetaRepository.save(manitoMeta);
-
-        }catch (Exception e){
-            log.error(e.getMessage());
-            throw e;
         }
+
+        if(beforeManito.getId() != manito.getId()){
+            beforeManitoMeta.minusCnt();
+            manitoMeta.plusCnt();
+            songMetaRepository.save(beforeManitoMeta);
+        }
+
+        manitoMeta.setUpdateTime();
+
+        songMetaRepository.save(manitoMeta);
+
     }
 }
