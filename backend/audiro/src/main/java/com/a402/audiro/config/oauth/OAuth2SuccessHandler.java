@@ -23,7 +23,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -86,6 +91,11 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
 
         //Response에 토큰 넣기
         writeTokenResponse(response, jwtTokens);
+        RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+        String redirectUri = request.getParameter("redirect_uri");
+        log.info("redirect_uri : {}", redirectUri);
+        redirectStrategy.sendRedirect(request, response, redirectUri);
+        log.info("Redirect 완료");
     }
 
     private void writeTokenResponse(HttpServletResponse response, JwtTokens token)
