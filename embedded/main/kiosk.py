@@ -190,6 +190,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
         song_id = 0
+        """
         postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
         response = requests.get(postcard_url, headers=request_header, params=None)
         res_json = response.json()
@@ -200,6 +201,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.music_post4.pixmap(gift_list[3])
         self.music_post5.pixmap(gift_list[4])
         self.music_post6.pixmap(gift_list[5])
+        """
     def playMusic2_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
@@ -330,6 +332,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def playMusic1_post(self):
         self.stackedPages.setCurrentIndex(3)
         self.stackedPages2.setCurrentIndex(3)
+        """
+        
+        """
 
     def playMusic2_post(self):
         self.stackedPages.setCurrentIndex(3)
@@ -382,13 +387,20 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         elif self.stackedPages2.currentIndex() == 12:
             self.stackedPages2.setCurrentIndex(2)
 
-        if self.stackedPages.currentIndex() == 3 and self.stackedPages2.currentIndex() == 0:
-            pass
-        elif self.stackedPages.currentIndex() == 1:
-            self.stackedPages.setCurrentIndex(0)
-            self.stackedPages2.setCurrentIndex(2)
-        else:
-            self.stackedPages.setCurrentIndex(currentPage + 1)
+        self.stackedPages.setCurrentIndex(currentPage + 1)
+
+    def press_emoji1(self):
+
+        pass
+
+    def press_emoji2(self):
+        pass
+
+    def press_emoji3(self):
+        pass
+
+    def press_emoji4(self):
+        pass
 
     def reply(self):
         self.stackedPages.setCurrentIndex(3)
@@ -407,6 +419,36 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(4)
         self.stackedPages2.setCurrentIndex(6)
 
+    def send_feedback(self):
+        self.stackedPages2.setCurrentIndex(5)
+        self.painter_widget.save("../resource/saved_images/feedbackImg.png")
+        print("feedback saved!")
+
+        # POST
+        postcard_url = local_url + "/api/chat"
+        manito_data = {
+            'user_id': 'user_id',
+            'userNickname': 'user_nickname',
+            'gift_img': "../resource/saved_images/feedbackImg.png",
+            'receiver': "receiver"
+        }
+
+    def post_manito(self):
+        self.stackedPages.setCurrentIndex(2)
+        self.stackedPages2.setCurrentIndex(2)
+        self.painter_widget_3.save("../resource/saved_images/manitoImg.png")
+
+        # POST
+        postcard_url = local_url + "/api/manito"
+        manito_data = {
+            'user_id': 'user_id',
+            'song_id': 'songId',
+            'gift_tag': 'gift_tag',
+            'gift_img': "../resource/saved_images/manitoImg.png",
+            'spot_id': spot_id,
+            'before_manito_id': 'before_manito_id'
+        }
+
     def save_postcard(self):
         self.painter_widget_4.save("../resource/saved_images/postcardImg.png")
         print("postcard saved!")
@@ -420,12 +462,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def send_message(self):
         phone_number = self.lineEdit_3.text()
         postcard_url = local_url + "/api/postcard"
-        postcard_data = {'sendId': self.sendId, 'nickname': self.nickname, 'phoneNumber': self.phone_number, 'passwd': self.passwd, 'songId': self.songId, 'spotId': self.spotId, 'postcardImg': self.postcardImg}
+        postcard_data = {'sendId': self.sendId, 'nickname': self.nickname, 'phoneNumber': self.phone_number, 'passwd': self.passwd, 'songId': self.songId, 'spotId': self.spotId, 'postcardImg': "../resource/saved_images/postcardImg.png"}
         pd = json.dumps(postcard_data)
         response = requests.post(postcard_url, headers=request_header, data=postcard_data)
-
-        self.sent_postcard_image.pixmap(postcard_data['postcardImg'])
-        pass
 
     def volumeChange(self):
         pass
