@@ -93,10 +93,12 @@ const GiftList = (props) =>{
     console.log(nickname);
 
     const [dataList, setDataList] = useState([]);
+    const [giftcnt, setGiftcnt] = useState();
     useEffect(() => {
         axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${nickname}`}, headers: {Auth: `${token}`}})
             .then((res) => {
-                 setDataList(res.data)
+                 setDataList(res.data);
+                 setGiftcnt(res.data.legth);
                 //console.log(res.data);
                 //console.log(res);
                 })
@@ -108,7 +110,7 @@ const GiftList = (props) =>{
         <div>
             <Logo/>
             <Nav/>
-            <ProfileHeader nickname={nickname} />
+            <ProfileHeader nickname={nickname} giftcnt={giftcnt}/>
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>

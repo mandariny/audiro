@@ -71,7 +71,7 @@ const ProfileHeader = (props) => {
           <StyledMyGiftProfile><BsHeadphones fill='black' size="30"/></StyledMyGiftProfile>
             <Link to="/gifts" style={{ textDecoration: 'none' }}>
                 <div>
-                <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
+                <StyledMyGiftListNumber>{props.giftcnt}</StyledMyGiftListNumber>
                 <StyledMyGiftListTitle>나의 엽서</StyledMyGiftListTitle>
                 </div>
             </Link>
