@@ -1,16 +1,33 @@
+import json
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap, QIcon, QColor
+from PyQt5.QtCore import Qt
 from kiosk_main_monitor import Ui_MainWindow
 
 # 사용자 모듈 - painter 추가
 import painter
 import Keyboard
 
+import time
+
 # 사용자 모듈 - player 추가
 from player import VLC
 import pafy
 import urllib.request
+
+import requests
+
+spot_id = 1    # 기기 번호
+
+# http get 요청
+
+# local_url -> 추후 서버 주소로 변경
+local_url = "http://localhost:8080"
+
+request_header = {
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjo1LCJuaWNrTmFtZSI6IuyCrOyaqeyekDUiLCJpYXQiOjE2NzU3NjU2NDYsImV4cCI6MTY3NTc3MTY0Nn0.b66aiYT0VmVFJzsRV1t2o3JCoINxuhFCixKwJ0jm5N8'
+}
 
 
 # 변수 처리해야함
@@ -22,7 +39,6 @@ omg = "https://www.youtube.com/watch?v=-p1ftgMVWOc"
 one_page = "https://www.youtube.com/watch?v=_78CYlWmigI"
 love_dive = "https://www.youtube.com/watch?v=Y8JFxS1HlDo"
 
-
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -31,8 +47,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.stackedPages.setCurrentIndex(0)
         self.menu_toolBox.setCurrentIndex(0)
-
-        #self.stackedWidget_4.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(2)
         ##스택페이지2 index(
         # 0: 그림판 text,
@@ -50,15 +64,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         #self.stackedPages2.setCurrentIndex(4) # 내가 원하는 위젯 뿌리기 - 다음에는 ui 파일도 올려줘...
 
         #키보드 선언
+        self.keyboard_widget = Keyboard.AlphaNeumericVirtualKeyboard(self.lineEdit_4)
+        self.keyboard_widget.setObjectName(u"keyboard_widget")
+        self.keyboard_widget.setStyleSheet(u"color:black")
+
+        self.verticalLayout_104.addWidget(self.keyboard_widget, 0, Qt.AlignHCenter)
         self.keyboard_widget.display()
-
-        self.temp_line = QLineEdit()
-
-        self.virtual_keyboard = Keyboard.AlphaNeumericVirtualKeyboard(self.temp_line)
-
-        self.stackedPages2.addWidget(self.virtual_keyboard)
-        self.virtual_keyboard.display()
-        self.virtual_keyboard.setFixedSize(800, 960)
 
         #플레이어 선언
         pafy.set_api_key(hy_key)
@@ -66,32 +77,39 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.music_list = [ditto, hype_boy,love_dive,omg, one_page]
 
         self.player = VLC()
+        #self.new_music(self.music_list[self.music_index][0])
         self.new_music(self.music_list[self.music_index])
         #self.player.add_callback(vlc.EventType.MediaPlayerEndReached, self.nextMusic)  ## 종료 됬을대 다음곡
 
-        #self.stackedPages2.setCurrentIndex(5)
+        #유저 정보
+        sendId = ""
+        nickname = ""
+        passwd = ""
 
-
-        # 차트 이미지 설정
-        icon1 = QPixmap("ditto.jpg")
-        icon2 = QPixmap("hype_boy.jpg")
-        icon3 = QPixmap("love_dive.jpg")
-
-        self.pushButton_40.setIcon(QIcon(icon1))
-        self.pushButton_40.setIconSize(icon1.size())
-        self.pushButton_93.setIcon(QIcon(icon2))
-        self.pushButton_93.setIconSize(icon2.size())
-        self.pushButton_94.setIcon(QIcon(icon3))
-        self.pushButton_94.setIconSize(icon3.rect().size())
-        self.pushButton_95.setIcon(QIcon(icon1))
-        self.pushButton_95.setIconSize(icon1.rect().size())
-        self.pushButton_96.setIcon(QIcon(icon2))
-        self.pushButton_96.setIconSize(icon2.rect().size())
+        songId = 0
+        postcardImg = ""
 
         # 차트 scroll 세팅
         QScroller.grabGesture(
             self.scrollArea.viewport(), QScroller.LeftMouseButtonGesture
         )
+        """
+        # 차트 정보 불러오기
+        postcard_url = local_url + "/api/postcard"
+        for i in range(10):
+            postcard_param = {'postcardId': i}
+            response = requests.get(postcard_url, headers=request_header, params=postcard_param)
+            res_json = response.json()
+            self.music_list.append([res_json.get('id'), res_json.get('postcardImg'), res_json.get('song'), res_json.get('singer'), res_json.get('song_Url'), res_json.get('regTime')])
+
+        # 차트 이미지 넣기
+        chart_button_list = [self.chart_img_Button1, self.chart_img_Button2, self.chart_img_Button3, self.chart_img_Button4, self.chart_img_Button5, self.chart_img_Button6, self.chart_img_Button7, self.chart_img_Button8, self.chart_img_Button9, self.chart_img_Button10]
+        for i in range(10):
+            qix = QPixmap()
+            qix.loadFromData(self.music_list[i][1])
+            chart_button_list[i].setIcon(QIcon(qix))
+            chart_button_list[i].setIconSize(qix.rect().size())
+        """
 
     # 플레이어 함수들
     def new_music(self, url):
@@ -112,11 +130,32 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         ## 곡정보(제목,가수,재생시간) 변경 - UI 파일 내놔!!
         self.label_Artist_3.setText(self.video.author)  # 0-diito
         self.label_Title_5.setText(self.video.title)
+        self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
+        self.player.play()
+
+    """def playMusic(self, index):
+        self.video = pafy.new(self.music_list[index][4])  # pafy + youtube-dl 사용 direct link 변환
+        audio_url = self.video.getbestaudio(preftype="m4a").url  # direct link에서 음성만 추출
+        self.player.set_uri(audio_url)
+
+        ## 곡변경 시 슬라이더 초기설정 (0과 초기볼륨 설정)
+        # self.horizontalSlider_20.setValue(0)
+        # self.verticalSlider_19.setValue(70)
+        self.player.set_volume(70)
+
+        # 이미지 선처리
+        img = self.music_list[index][1]
+        qix = QPixmap()
+        qix.loadFromData(img)
+
+        ## 곡정보(제목,가수,재생시간) 변경 - UI 파일 내놔!!
+        self.label_Artist_3.setText(self.music_list[index][3])  # singer
+        self.label_Title_5.setText(self.music_list[index][2])   # song
         self.pushButton_97.setIcon(QIcon(qix))
         self.pushButton_97.setIconSize(qix.rect().size())
         self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
         self.player.play()
-
+    """
     def nextMusic(self):
         pass
 
@@ -150,14 +189,143 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def playMusic1_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
-
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
     def playMusic2_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
-
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
     def playMusic3_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
+    def playMusic4_chart(self):
+        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
+    def playMusic5_chart(self):
+        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
+    def playMusic6_chart(self):
+        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
+    def playMusic7_chart(self):
+        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
+    def playMusic8_chart(self):
+        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
+    def playMusic9_chart(self):
+        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
+    def playMusic10_chart(self):
+        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages2.setCurrentIndex(8)
+        song_id = 0
+        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
+        response = requests.get(postcard_url, headers=request_header, params=None)
+        res_json = response.json()
+        gift_list = res_json.get('gifts')
+        self.music_post1.pixmap(gift_list[0])
+        self.music_post2.pixmap(gift_list[1])
+        self.music_post3.pixmap(gift_list[2])
+        self.music_post4.pixmap(gift_list[3])
+        self.music_post5.pixmap(gift_list[4])
+        self.music_post6.pixmap(gift_list[5])
 
     def playMusic1_post(self):
         self.stackedPages.setCurrentIndex(3)
@@ -211,8 +379,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.stackedPages2.setCurrentIndex(5)
         elif self.stackedPages.currentIndex() == 4:
             self.stackedPages2.setCurrentIndex(9)
-        elif self.stackedPages2.currentIndex() == 10:
-            self.stackedPages2.setCurrentIndex(7)
         elif self.stackedPages2.currentIndex() == 12:
             self.stackedPages2.setCurrentIndex(2)
 
@@ -240,6 +406,26 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def searchMusic(self):
         self.stackedPages.setCurrentIndex(4)
         self.stackedPages2.setCurrentIndex(6)
+
+    def save_postcard(self):
+        self.painter_widget_4.save("../resource/saved_images/postcardImg.png")
+        print("postcard saved!")
+        self.sent_postcard_image.setPixmap(QPixmap("../resource/saved_images/postcardImg.png"))
+        self.stackedPages.setCurrentIndex(12)
+        self.stackedPages2.setCurrentIndex(7)
+
+    def input_code(self):
+        pass
+
+    def send_message(self):
+        phone_number = self.lineEdit_3.text()
+        postcard_url = local_url + "/api/postcard"
+        postcard_data = {'sendId': self.sendId, 'nickname': self.nickname, 'phoneNumber': self.phone_number, 'passwd': self.passwd, 'songId': self.songId, 'spotId': self.spotId, 'postcardImg': self.postcardImg}
+        pd = json.dumps(postcard_data)
+        response = requests.post(postcard_url, headers=request_header, data=postcard_data)
+
+        self.sent_postcard_image.pixmap(postcard_data['postcardImg'])
+        pass
 
     def volumeChange(self):
         pass

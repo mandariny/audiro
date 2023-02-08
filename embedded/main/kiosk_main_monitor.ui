@@ -501,7 +501,7 @@ font-size:27px;
              </size>
             </property>
             <property name="currentIndex">
-             <number>7</number>
+             <number>12</number>
             </property>
             <widget class="QWidget" name="page1">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -740,6 +740,16 @@ font-size:27px;
                   </widget>
                  </item>
                  <item>
+                  <widget class="QFrame" name="frame_28">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QFrame" name="frame_7">
                    <property name="minimumSize">
                     <size>
@@ -930,15 +940,15 @@ background-color:#6522F2;
                       <widget class="QWidget" name="scrollAreaWidgetContents">
                        <property name="geometry">
                         <rect>
-                         <x>0</x>
+                         <x>-2332</x>
                          <y>0</y>
-                         <width>1848</width>
+                         <width>3072</width>
                          <height>463</height>
                         </rect>
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_127">
                         <item>
-                         <widget class="QPushButton" name="pushButton_97">
+                         <widget class="QPushButton" name="chart_img_Button1">
                           <property name="minimumSize">
                            <size>
                             <width>300</width>
@@ -967,60 +977,15 @@ background-color:#6522F2;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QPushButton" name="pushButton_40">
+                         <widget class="QPushButton" name="chart_img_Button2">
                           <property name="minimumSize">
                            <size>
                             <width>300</width>
                             <height>300</height>
                            </size>
                           </property>
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:150; </string>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                          <property name="icon">
-                           <iconset>
-                            <normaloff>../resource/icons/hype_boy.png</normaloff>../resource/icons/hype_boy.png</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>300</width>
-                            <height>300</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="pushButton_93">
-                          <property name="minimumSize">
-                           <size>
-                            <width>300</width>
-                            <height>300</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:150; </string>
-                          </property>
-                          <property name="text">
-                           <string/>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>300</width>
-                            <height>300</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="pushButton_94">
-                          <property name="minimumSize">
-                           <size>
-                            <width>300</width>
-                            <height>300</height>
-                           </size>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">border-radius:150;</string>
@@ -1028,27 +993,9 @@ background-color:#6522F2;
                           <property name="text">
                            <string/>
                           </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>300</width>
-                            <height>300</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="pushButton_96">
-                          <property name="minimumSize">
-                           <size>
-                            <width>300</width>
-                            <height>300</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">border-radius:150; </string>
-                          </property>
-                          <property name="text">
-                           <string/>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
                           </property>
                           <property name="iconSize">
                            <size>
@@ -1059,18 +1006,228 @@ background-color:#6522F2;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QPushButton" name="pushButton_95">
+                         <widget class="QPushButton" name="chart_img_Button3">
                           <property name="minimumSize">
                            <size>
                             <width>300</width>
                             <height>300</height>
                            </size>
                           </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
                           <property name="styleSheet">
-                           <string notr="true">border-radius:150; </string>
+                           <string notr="true">border-radius:150;</string>
                           </property>
                           <property name="text">
                            <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="chart_img_Button4">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:150;</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="chart_img_Button5">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:150;</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="chart_img_Button6">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:150;</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="chart_img_Button7">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:150;</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="chart_img_Button8">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:150;</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="chart_img_Button9">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:150;</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="chart_img_Button10">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <property name="autoFillBackground">
+                           <bool>false</bool>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:150;</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../resource/icons/ditto.png</normaloff>../resource/icons/ditto.png</iconset>
                           </property>
                           <property name="iconSize">
                            <size>
@@ -1855,8 +2012,8 @@ border-radius: 25px;</string>
                           <property name="verticalSpacing">
                            <number>80</number>
                           </property>
-                          <item row="0" column="1">
-                           <widget class="QLabel" name="label_111">
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="music_post4">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1877,7 +2034,7 @@ border-radius: 25px;</string>
                              <string/>
                             </property>
                             <property name="pixmap">
-                             <pixmap>../resource/post2.jpg</pixmap>
+                             <pixmap>../resource/post4.jpg</pixmap>
                             </property>
                             <property name="scaledContents">
                              <bool>true</bool>
@@ -1887,8 +2044,8 @@ border-radius: 25px;</string>
                             </property>
                            </widget>
                           </item>
-                          <item row="1" column="2">
-                           <widget class="QLabel" name="label_116">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="music_post1">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1909,7 +2066,7 @@ border-radius: 25px;</string>
                              <string/>
                             </property>
                             <property name="pixmap">
-                             <pixmap>../resource/post6.jpg</pixmap>
+                             <pixmap>../resource/post1.jpg</pixmap>
                             </property>
                             <property name="scaledContents">
                              <bool>true</bool>
@@ -1920,7 +2077,7 @@ border-radius: 25px;</string>
                            </widget>
                           </item>
                           <item row="0" column="2">
-                           <widget class="QLabel" name="label_115">
+                           <widget class="QLabel" name="music_post3">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1957,8 +2114,72 @@ border-radius: 25px;</string>
                             </property>
                            </widget>
                           </item>
+                          <item row="1" column="2">
+                           <widget class="QLabel" name="music_post6">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{background: rgb(255, 243, 149)
+}</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="pixmap">
+                             <pixmap>../resource/post6.jpg</pixmap>
+                            </property>
+                            <property name="scaledContents">
+                             <bool>true</bool>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="QLabel" name="music_post2">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{background: rgb(255, 243, 149)
+}</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="pixmap">
+                             <pixmap>../resource/post2.jpg</pixmap>
+                            </property>
+                            <property name="scaledContents">
+                             <bool>true</bool>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
                           <item row="1" column="1">
-                           <widget class="QLabel" name="label_112">
+                           <widget class="QLabel" name="music_post5">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1980,70 +2201,6 @@ border-radius: 25px;</string>
                             </property>
                             <property name="pixmap">
                              <pixmap>../resource/post5.jpg</pixmap>
-                            </property>
-                            <property name="scaledContents">
-                             <bool>true</bool>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignCenter</set>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="label_114">
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>0</height>
-                             </size>
-                            </property>
-                            <property name="maximumSize">
-                             <size>
-                              <width>16777215</width>
-                              <height>16777215</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">*{background: rgb(255, 243, 149)
-}</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="pixmap">
-                             <pixmap>../resource/post1.jpg</pixmap>
-                            </property>
-                            <property name="scaledContents">
-                             <bool>true</bool>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignCenter</set>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="QLabel" name="label_113">
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>0</height>
-                             </size>
-                            </property>
-                            <property name="maximumSize">
-                             <size>
-                              <width>16777215</width>
-                              <height>16777215</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">*{background: rgb(255, 243, 149)
-}</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="pixmap">
-                             <pixmap>../resource/post4.jpg</pixmap>
                             </property>
                             <property name="scaledContents">
                              <bool>true</bool>
@@ -4146,7 +4303,7 @@ background-color:black;
                             </font>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
                            </property>
                            <property name="text">
                             <string>뉴진스</string>
@@ -4179,7 +4336,7 @@ background-color:black;
                             </font>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
                            </property>
                            <property name="text">
                             <string>뉴진스</string>
@@ -4206,7 +4363,7 @@ background-color:black;
                             </font>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
                            </property>
                            <property name="text">
                             <string>뉴진스</string>
@@ -4233,7 +4390,7 @@ background-color:black;
                             </font>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
                            </property>
                            <property name="text">
                             <string>뉴진스</string>
@@ -4333,335 +4490,327 @@ background-color:black;
                        </attribute>
                        <layout class="QVBoxLayout" name="verticalLayout_91">
                         <item>
-                         <widget class="QFrame" name="frame_148">
+                         <widget class="QFrame" name="frame_113">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_92">
-                           <property name="leftMargin">
-                            <number>0</number>
+                          <widget class="QFrame" name="frame_179">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>10</y>
+                             <width>684</width>
+                             <height>50</height>
+                            </rect>
                            </property>
-                           <property name="rightMargin">
-                            <number>0</number>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
                            </property>
-                           <item>
-                            <widget class="QFrame" name="frame_174">
-                             <property name="minimumSize">
-                              <size>
-                               <width>0</width>
-                               <height>50</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">background-color:white;</string>
-                             </property>
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_88">
-                              <property name="spacing">
-                               <number>0</number>
+                           <property name="styleSheet">
+                            <string notr="true">background-color:white;</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_94">
+                            <property name="spacing">
+                             <number>0</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>10</number>
+                            </property>
+                            <property name="topMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="bottomMargin">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <widget class="QLineEdit" name="lineEdit_8">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>50</height>
+                               </size>
                               </property>
-                              <property name="leftMargin">
-                               <number>10</number>
+                              <property name="font">
+                               <font>
+                                <pointsize>16</pointsize>
+                                <weight>75</weight>
+                                <bold>true</bold>
+                               </font>
                               </property>
-                              <property name="topMargin">
-                               <number>0</number>
+                              <property name="styleSheet">
+                               <string notr="true">background-color:white; border:none; color:black</string>
                               </property>
-                              <property name="rightMargin">
-                               <number>0</number>
+                              <property name="text">
+                               <string/>
                               </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
+                              <property name="placeholderText">
+                               <string>ditto</string>
                               </property>
-                              <item>
-                               <widget class="QLineEdit" name="lineEdit_7">
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>0</width>
-                                  <height>50</height>
-                                 </size>
-                                </property>
-                                <property name="font">
-                                 <font>
-                                  <pointsize>16</pointsize>
-                                  <weight>75</weight>
-                                  <bold>true</bold>
-                                 </font>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">background-color:white; border:none; color:black</string>
-                                </property>
-                                <property name="text">
-                                 <string/>
-                                </property>
-                                <property name="placeholderText">
-                                 <string>ditto</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QPushButton" name="pushButton_67">
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>16777215</width>
-                                  <height>16777215</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true"/>
-                                </property>
-                                <property name="text">
-                                 <string/>
-                                </property>
-                                <property name="icon">
-                                 <iconset>
-                                  <normaloff>../resource/icons/search_black.png</normaloff>../resource/icons/search_black.png</iconset>
-                                </property>
-                                <property name="iconSize">
-                                 <size>
-                                  <width>30</width>
-                                  <height>30</height>
-                                 </size>
-                                </property>
-                                <property name="autoRepeatDelay">
-                                 <number>305</number>
-                                </property>
-                                <property name="flat">
-                                 <bool>true</bool>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QFrame" name="frame_152">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QGroupBox" name="groupBox_2">
-                             <property name="styleSheet">
-                              <string notr="true">border:none;</string>
-                             </property>
-                             <property name="title">
-                              <string/>
-                             </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_109">
-                              <property name="spacing">
-                               <number>7</number>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QPushButton" name="pushButton_79">
+                              <property name="maximumSize">
+                               <size>
+                                <width>16777215</width>
+                                <height>16777215</height>
+                               </size>
                               </property>
-                              <property name="leftMargin">
-                               <number>0</number>
+                              <property name="styleSheet">
+                               <string notr="true"/>
                               </property>
-                              <property name="topMargin">
-                               <number>0</number>
+                              <property name="text">
+                               <string/>
                               </property>
-                              <property name="rightMargin">
-                               <number>0</number>
+                              <property name="icon">
+                               <iconset>
+                                <normaloff>../resource/icons/search_black.png</normaloff>../resource/icons/search_black.png</iconset>
                               </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
+                              <property name="iconSize">
+                               <size>
+                                <width>30</width>
+                                <height>30</height>
+                               </size>
                               </property>
-                              <item>
-                               <widget class="QFrame" name="frame_153">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_73">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_16">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                   <property name="checked">
-                                    <bool>true</bool>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_42">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_154">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_74">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_17">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_43">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_155">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_77">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_18">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_44">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_156">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_78">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_19">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_45">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                          </layout>
+                              <property name="autoRepeatDelay">
+                               <number>305</number>
+                              </property>
+                              <property name="flat">
+                               <bool>true</bool>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_114">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>65</y>
+                             <width>684</width>
+                             <height>16</height>
+                            </rect>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_20">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>99</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                           <property name="checked">
+                            <bool>true</bool>
+                           </property>
+                           <property name="autoExclusive">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_21">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>154</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_22">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>208</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_23">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>263</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_39">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>113</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_40">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>166</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_41">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>220</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_55">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>276</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                        </layout>
@@ -6227,340 +6376,327 @@ background-color:black;
                        </attribute>
                        <layout class="QVBoxLayout" name="verticalLayout_20">
                         <item>
-                         <widget class="QFrame" name="frame_28">
+                         <widget class="QFrame" name="frame_128">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_21">
-                           <property name="leftMargin">
-                            <number>0</number>
+                          <widget class="QFrame" name="frame_174">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>10</y>
+                             <width>684</width>
+                             <height>50</height>
+                            </rect>
                            </property>
-                           <property name="rightMargin">
-                            <number>0</number>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
                            </property>
-                           <item>
-                            <widget class="QFrame" name="frame_172">
-                             <property name="minimumSize">
-                              <size>
-                               <width>0</width>
-                               <height>50</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">background-color:white;</string>
-                             </property>
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_86">
-                              <property name="spacing">
-                               <number>0</number>
+                           <property name="styleSheet">
+                            <string notr="true">background-color:white;</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_88">
+                            <property name="spacing">
+                             <number>0</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>10</number>
+                            </property>
+                            <property name="topMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="bottomMargin">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <widget class="QLineEdit" name="lineEdit_7">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>50</height>
+                               </size>
                               </property>
-                              <property name="leftMargin">
-                               <number>10</number>
+                              <property name="font">
+                               <font>
+                                <pointsize>16</pointsize>
+                                <weight>75</weight>
+                                <bold>true</bold>
+                               </font>
                               </property>
-                              <property name="topMargin">
-                               <number>0</number>
+                              <property name="styleSheet">
+                               <string notr="true">background-color:white; border:none; color:black</string>
                               </property>
-                              <property name="rightMargin">
-                               <number>0</number>
+                              <property name="text">
+                               <string/>
                               </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
+                              <property name="placeholderText">
+                               <string>뉴진스</string>
                               </property>
-                              <item>
-                               <widget class="QLineEdit" name="lineEdit_5">
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>0</width>
-                                  <height>50</height>
-                                 </size>
-                                </property>
-                                <property name="font">
-                                 <font>
-                                  <pointsize>16</pointsize>
-                                  <weight>75</weight>
-                                  <bold>true</bold>
-                                 </font>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">background-color:white; border:none; color:black</string>
-                                </property>
-                                <property name="text">
-                                 <string/>
-                                </property>
-                                <property name="placeholderText">
-                                 <string>뉴진스</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QPushButton" name="pushButton_22">
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>16777215</width>
-                                  <height>16777215</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true"/>
-                                </property>
-                                <property name="text">
-                                 <string/>
-                                </property>
-                                <property name="icon">
-                                 <iconset>
-                                  <normaloff>../resource/icons/search_black.png</normaloff>../resource/icons/search_black.png</iconset>
-                                </property>
-                                <property name="iconSize">
-                                 <size>
-                                  <width>30</width>
-                                  <height>30</height>
-                                 </size>
-                                </property>
-                                <property name="autoRepeatDelay">
-                                 <number>305</number>
-                                </property>
-                                <property name="flat">
-                                 <bool>true</bool>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QFrame" name="frame_31">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QGroupBox" name="groupBox_3">
-                             <property name="styleSheet">
-                              <string notr="true">border:none;</string>
-                             </property>
-                             <property name="title">
-                              <string/>
-                             </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_115">
-                              <property name="spacing">
-                               <number>7</number>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QPushButton" name="pushButton_67">
+                              <property name="maximumSize">
+                               <size>
+                                <width>16777215</width>
+                                <height>16777215</height>
+                               </size>
                               </property>
-                              <property name="leftMargin">
-                               <number>0</number>
+                              <property name="styleSheet">
+                               <string notr="true"/>
                               </property>
-                              <property name="topMargin">
-                               <number>0</number>
+                              <property name="text">
+                               <string/>
                               </property>
-                              <property name="rightMargin">
-                               <number>0</number>
+                              <property name="icon">
+                               <iconset>
+                                <normaloff>../resource/icons/search_black.png</normaloff>../resource/icons/search_black.png</iconset>
                               </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
+                              <property name="iconSize">
+                               <size>
+                                <width>30</width>
+                                <height>30</height>
+                               </size>
                               </property>
-                              <item>
-                               <widget class="QFrame" name="frame_32">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_20">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_4">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                   <property name="checked">
-                                    <bool>true</bool>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_6">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_33">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_21">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_5">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_7">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_34">
-                                <property name="font">
-                                 <font>
-                                  <pointsize>14</pointsize>
-                                 </font>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_22">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_6">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_8">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_35">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_23">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_7">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_9">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                          </layout>
+                              <property name="autoRepeatDelay">
+                               <number>305</number>
+                              </property>
+                              <property name="flat">
+                               <bool>true</bool>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_129">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>65</y>
+                             <width>684</width>
+                             <height>16</height>
+                            </rect>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_16">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>99</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                           <property name="checked">
+                            <bool>true</bool>
+                           </property>
+                           <property name="autoExclusive">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_17">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>154</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_18">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>208</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_19">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>263</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_42">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>113</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_43">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>166</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_44">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>220</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_45">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>276</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                        </layout>
@@ -6571,335 +6707,327 @@ background-color:black;
                        </attribute>
                        <layout class="QVBoxLayout" name="verticalLayout_24">
                         <item>
-                         <widget class="QFrame" name="frame_39">
+                         <widget class="QFrame" name="frame_148">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_23">
-                           <property name="leftMargin">
-                            <number>0</number>
+                          <widget class="QFrame" name="frame_172">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>10</y>
+                             <width>684</width>
+                             <height>50</height>
+                            </rect>
                            </property>
-                           <property name="rightMargin">
-                            <number>0</number>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
                            </property>
-                           <item>
-                            <widget class="QFrame" name="frame_173">
-                             <property name="minimumSize">
-                              <size>
-                               <width>0</width>
-                               <height>50</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">background-color:white;</string>
-                             </property>
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_87">
-                              <property name="spacing">
-                               <number>0</number>
+                           <property name="styleSheet">
+                            <string notr="true">background-color:white;</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_86">
+                            <property name="spacing">
+                             <number>0</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>10</number>
+                            </property>
+                            <property name="topMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="bottomMargin">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <widget class="QLineEdit" name="lineEdit_5">
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>50</height>
+                               </size>
                               </property>
-                              <property name="leftMargin">
-                               <number>10</number>
+                              <property name="font">
+                               <font>
+                                <pointsize>16</pointsize>
+                                <weight>75</weight>
+                                <bold>true</bold>
+                               </font>
                               </property>
-                              <property name="topMargin">
-                               <number>0</number>
+                              <property name="styleSheet">
+                               <string notr="true">background-color:white; border:none; color:black</string>
                               </property>
-                              <property name="rightMargin">
-                               <number>0</number>
+                              <property name="text">
+                               <string/>
                               </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
+                              <property name="placeholderText">
+                               <string>ditto</string>
                               </property>
-                              <item>
-                               <widget class="QLineEdit" name="lineEdit_6">
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>0</width>
-                                  <height>50</height>
-                                 </size>
-                                </property>
-                                <property name="font">
-                                 <font>
-                                  <pointsize>16</pointsize>
-                                  <weight>75</weight>
-                                  <bold>true</bold>
-                                 </font>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">background-color:white; border:none; color:black</string>
-                                </property>
-                                <property name="text">
-                                 <string/>
-                                </property>
-                                <property name="placeholderText">
-                                 <string>ditto</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QPushButton" name="pushButton_66">
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>16777215</width>
-                                  <height>16777215</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true"/>
-                                </property>
-                                <property name="text">
-                                 <string/>
-                                </property>
-                                <property name="icon">
-                                 <iconset>
-                                  <normaloff>../resource/icons/search_black.png</normaloff>../resource/icons/search_black.png</iconset>
-                                </property>
-                                <property name="iconSize">
-                                 <size>
-                                  <width>30</width>
-                                  <height>30</height>
-                                 </size>
-                                </property>
-                                <property name="autoRepeatDelay">
-                                 <number>305</number>
-                                </property>
-                                <property name="flat">
-                                 <bool>true</bool>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QFrame" name="frame_30">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QGroupBox" name="groupBox_4">
-                             <property name="styleSheet">
-                              <string notr="true">border:none;</string>
-                             </property>
-                             <property name="title">
-                              <string/>
-                             </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_111">
-                              <property name="spacing">
-                               <number>7</number>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QPushButton" name="pushButton_22">
+                              <property name="maximumSize">
+                               <size>
+                                <width>16777215</width>
+                                <height>16777215</height>
+                               </size>
                               </property>
-                              <property name="leftMargin">
-                               <number>0</number>
+                              <property name="styleSheet">
+                               <string notr="true"/>
                               </property>
-                              <property name="topMargin">
-                               <number>0</number>
+                              <property name="text">
+                               <string/>
                               </property>
-                              <property name="rightMargin">
-                               <number>0</number>
+                              <property name="icon">
+                               <iconset>
+                                <normaloff>../resource/icons/search_black.png</normaloff>../resource/icons/search_black.png</iconset>
                               </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
+                              <property name="iconSize">
+                               <size>
+                                <width>30</width>
+                                <height>30</height>
+                               </size>
                               </property>
-                              <item>
-                               <widget class="QFrame" name="frame_42">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_25">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_8">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                   <property name="checked">
-                                    <bool>true</bool>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_11">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_43">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_26">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_9">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_12">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_44">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_27">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_10">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_13">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QFrame" name="frame_45">
-                                <property name="styleSheet">
-                                 <string notr="true">border:2px solid #6522f2; border-radius: 10px;</string>
-                                </property>
-                                <property name="frameShape">
-                                 <enum>QFrame::StyledPanel</enum>
-                                </property>
-                                <property name="frameShadow">
-                                 <enum>QFrame::Raised</enum>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_28">
-                                 <item>
-                                  <widget class="QRadioButton" name="radioButton_11">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>뉴진스</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignRight">
-                                  <widget class="QLabel" name="label_14">
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">border:none;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>ditto</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                          </layout>
+                              <property name="autoRepeatDelay">
+                               <number>305</number>
+                              </property>
+                              <property name="flat">
+                               <bool>true</bool>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                          <widget class="QFrame" name="frame_152">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>65</y>
+                             <width>684</width>
+                             <height>16</height>
+                            </rect>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_24">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>99</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                           <property name="checked">
+                            <bool>true</bool>
+                           </property>
+                           <property name="autoExclusive">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_25">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>154</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_26">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>208</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QRadioButton" name="radioButton_27">
+                           <property name="geometry">
+                            <rect>
+                             <x>1</x>
+                             <y>263</y>
+                             <width>681</width>
+                             <height>50</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">border:2px solid #6522f2; border-radius: 10px; padding:10px;</string>
+                           </property>
+                           <property name="text">
+                            <string>뉴진스</string>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_56">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>113</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_57">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>166</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_58">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>220</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="label_59">
+                           <property name="geometry">
+                            <rect>
+                             <x>611</x>
+                             <y>276</y>
+                             <width>56</width>
+                             <height>21</height>
+                            </rect>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>16</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>ditto</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                        </layout>
@@ -7826,7 +7954,7 @@ QSlider::handle:vertical {
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>6</number>
+             <number>10</number>
             </property>
             <widget class="QWidget" name="page_draw">
              <layout class="QVBoxLayout" name="verticalLayout_32">
@@ -9013,7 +9141,7 @@ border-radius: 20px;
                   <widget class="QWidget" name="keyboard_widget" native="true">
                    <property name="minimumSize">
                     <size>
-                     <width>800</width>
+                     <width>0</width>
                      <height>0</height>
                     </size>
                    </property>
@@ -9066,7 +9194,7 @@ border-radius: 20px;
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_82">
                     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                     <widget class="QLabel" name="label_28">
+                     <widget class="QLabel" name="sent_postcard_image">
                       <property name="font">
                        <font>
                         <pointsize>25</pointsize>
@@ -9078,7 +9206,7 @@ border-radius: 20px;
                        <string notr="true">color:red;</string>
                       </property>
                       <property name="text">
-                       <string>작성한 편지 보여주기</string>
+                       <string/>
                       </property>
                      </widget>
                     </item>
@@ -10130,45 +10258,13 @@ border-radius: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_97</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>playMusic1_chart()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>488</x>
-     <y>449</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>824</x>
-     <y>159</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_40</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>playMusic2_chart()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>863</x>
-     <y>481</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>839</x>
-     <y>208</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>rightButton_19</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>nextMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>951</x>
+     <x>1033</x>
      <y>517</y>
     </hint>
     <hint type="destinationlabel">
@@ -10184,7 +10280,7 @@ border-radius: 30px;</string>
    <slot>prevMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>430</x>
+     <x>348</x>
      <y>517</y>
     </hint>
     <hint type="destinationlabel">
@@ -10472,8 +10568,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>911</x>
-     <y>876</y>
+     <x>920</x>
+     <y>899</y>
     </hint>
     <hint type="destinationlabel">
      <x>1127</x>
@@ -10488,8 +10584,8 @@ border-radius: 30px;</string>
    <slot>reply()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>185</x>
-     <y>254</y>
+     <x>200</x>
+     <y>295</y>
     </hint>
     <hint type="destinationlabel">
      <x>1124</x>
@@ -10504,8 +10600,8 @@ border-radius: 30px;</string>
    <slot>postMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>160</x>
-     <y>287</y>
+     <x>175</x>
+     <y>328</y>
     </hint>
     <hint type="destinationlabel">
      <x>1120</x>
@@ -10520,8 +10616,8 @@ border-radius: 30px;</string>
    <slot>moveToReceivedMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>135</x>
-     <y>305</y>
+     <x>150</x>
+     <y>346</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -10536,8 +10632,8 @@ border-radius: 30px;</string>
    <slot>moveToSendMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>128</x>
-     <y>338</y>
+     <x>143</x>
+     <y>379</y>
     </hint>
     <hint type="destinationlabel">
      <x>1110</x>
@@ -10552,8 +10648,8 @@ border-radius: 30px;</string>
    <slot>login()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>143</x>
-     <y>1038</y>
+     <x>202</x>
+     <y>1251</y>
     </hint>
     <hint type="destinationlabel">
      <x>1106</x>
@@ -10632,8 +10728,8 @@ border-radius: 30px;</string>
    <slot>searchMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>481</x>
-     <y>1245</y>
+     <x>511</x>
+     <y>1474</y>
     </hint>
     <hint type="destinationlabel">
      <x>1110</x>
@@ -10680,8 +10776,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>152</x>
-     <y>1147</y>
+     <x>113</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1136</x>
@@ -10696,8 +10792,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>1147</y>
+     <x>163</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1135</x>
@@ -10712,8 +10808,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>252</x>
-     <y>1147</y>
+     <x>213</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1137</x>
@@ -10728,8 +10824,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>302</x>
-     <y>1147</y>
+     <x>263</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1155</x>
@@ -10744,8 +10840,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>314</x>
-     <y>1120</y>
+     <x>313</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1190</x>
@@ -10760,8 +10856,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>369</x>
-     <y>1121</y>
+     <x>363</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1216</x>
@@ -10776,8 +10872,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>452</x>
-     <y>1147</y>
+     <x>413</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1250</x>
@@ -10792,8 +10888,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>472</x>
-     <y>1116</y>
+     <x>463</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1269</x>
@@ -10808,8 +10904,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>523</x>
-     <y>1129</y>
+     <x>513</x>
+     <y>1107</y>
     </hint>
     <hint type="destinationlabel">
      <x>1290</x>
@@ -10834,30 +10930,14 @@ border-radius: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_56</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>backToChart()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>995</x>
-     <y>1863</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1168</x>
-     <y>1787</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_46</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>1194</y>
+     <x>115</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1113</x>
@@ -10872,8 +10952,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>204</x>
-     <y>1194</y>
+     <x>165</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1118</x>
@@ -10888,8 +10968,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>254</x>
-     <y>1194</y>
+     <x>215</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1126</x>
@@ -10904,8 +10984,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>304</x>
-     <y>1194</y>
+     <x>265</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1140</x>
@@ -10920,8 +11000,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>354</x>
-     <y>1194</y>
+     <x>315</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1151</x>
@@ -10936,8 +11016,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>367</x>
-     <y>1163</y>
+     <x>365</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1168</x>
@@ -10952,8 +11032,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>421</x>
-     <y>1160</y>
+     <x>415</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1174</x>
@@ -10968,8 +11048,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>474</x>
-     <y>1160</y>
+     <x>465</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1185</x>
@@ -10984,8 +11064,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>521</x>
-     <y>1167</y>
+     <x>515</x>
+     <y>1154</y>
     </hint>
     <hint type="destinationlabel">
      <x>1200</x>
@@ -11000,8 +11080,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>970</x>
-     <y>1170</y>
+     <x>993</x>
+     <y>1205</y>
     </hint>
     <hint type="destinationlabel">
      <x>1119</x>
@@ -11016,8 +11096,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>138</x>
-     <y>1173</y>
+     <x>115</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1112</x>
@@ -11032,8 +11112,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>183</x>
-     <y>1174</y>
+     <x>165</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1117</x>
@@ -11048,8 +11128,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>227</x>
-     <y>1164</y>
+     <x>215</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1130</x>
@@ -11064,8 +11144,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>282</x>
-     <y>1169</y>
+     <x>265</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1143</x>
@@ -11080,8 +11160,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>349</x>
-     <y>1178</y>
+     <x>315</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1160</x>
@@ -11096,8 +11176,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>397</x>
-     <y>1183</y>
+     <x>365</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1177</x>
@@ -11112,8 +11192,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>439</x>
-     <y>1172</y>
+     <x>415</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1197</x>
@@ -11128,8 +11208,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>481</x>
-     <y>1186</y>
+     <x>465</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1207</x>
@@ -11144,8 +11224,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>548</x>
-     <y>1171</y>
+     <x>515</x>
+     <y>1154</y>
     </hint>
     <hint type="destinationlabel">
      <x>1223</x>
@@ -11160,8 +11240,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>978</x>
-     <y>1168</y>
+     <x>993</x>
+     <y>1205</y>
     </hint>
     <hint type="destinationlabel">
      <x>1136</x>
@@ -11170,18 +11250,210 @@ border-radius: 30px;</string>
    </hints>
   </connection>
   <connection>
+   <sender>chart_img_Button1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic1_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1771</x>
+     <y>501</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1137</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic2_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1442</x>
+     <y>464</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1153</x>
+     <y>439</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic3_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1293</x>
+     <y>477</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1214</x>
+     <y>513</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic4_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-781</x>
+     <y>558</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1199</x>
+     <y>550</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic5_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-519</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1183</x>
+     <y>592</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic6_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-227</x>
+     <y>611</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1184</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button7</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic7_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>449</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1156</x>
+     <y>492</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button8</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic8_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>461</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1157</x>
+     <y>548</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button9</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic9_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>523</x>
+     <y>461</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1219</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chart_img_Button10</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>playMusic10_chart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>895</x>
+     <y>514</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1176</x>
+     <y>628</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_8</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>input_code()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>885</x>
+     <y>594</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1140</x>
+     <y>577</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_12</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>send_message()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>909</x>
+     <y>882</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1139</x>
+     <y>844</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>pushButton_78</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>moveToNextStep()</slot>
+   <slot>save_postcard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>978</x>
-     <y>1891</y>
+     <x>988</x>
+     <y>1863</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1124</x>
-     <y>1781</y>
+     <x>1154</x>
+     <y>1871</y>
     </hint>
    </hints>
   </connection>
@@ -11219,5 +11491,15 @@ border-radius: 30px;</string>
   <slot>colorChange9()</slot>
   <slot>painterClear()</slot>
   <slot>searchMusic()</slot>
+  <slot>playMusic4_chart()</slot>
+  <slot>playMusic5_chart()</slot>
+  <slot>playMusic6_chart()</slot>
+  <slot>playMusic7_chart()</slot>
+  <slot>playMusic8_chart()</slot>
+  <slot>playMusic9_chart()</slot>
+  <slot>playMusic10_chart()</slot>
+  <slot>input_code()</slot>
+  <slot>send_message()</slot>
+  <slot>save_postcard()</slot>
  </slots>
 </ui>
