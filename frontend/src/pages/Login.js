@@ -26,8 +26,8 @@ const StyledLoginBtnWrapper = styled.div`
     border-radius: 50px;
 `;
 
-const StyledLoginBtn = styled.div`
-    color: #000000;
+const StyledLoginBtn = styled.a`
+    color: black;
     background-color: ${props => props.background};
     padding-left: 20px;
     padding-right: 20px;
@@ -40,6 +40,8 @@ const StyledLoginBtn = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-style: none;
+    text-decoration: none;
 `;
 
 const StyledLoginLogoKaKao = styled.div`
@@ -64,12 +66,6 @@ const StyledLoginLogoNaver = styled.div`
 `;
 
 const Login = () =>{
-    const GoogleClicked = () => {
-        axios.get('http://i8a402.p.ssafy.io/oauth2/authorization/google', {params: {redirect_uri:"http://i8a402.p.ssafy.io/home"}})
-        .then((res) => {
-            console.log(res);
-        })
-    }
 
     return (
         <div>
@@ -77,18 +73,13 @@ const Login = () =>{
             <StyledLoginContainer>
             <StyledLoginTitle>로그인</StyledLoginTitle>
             <StyledLoginBtnWrapper>
-                <StyledLoginBtn background="#FFE812"> 
+                <StyledLoginBtn background="#FFE812" href="http://i8a402.p.ssafy.io/oauth2/authorization/kakao?redirect_uri=http://i8a402.p.ssafy.io/home&spot_id=1"> 
                     <StyledLoginLogoKaKao><img src={kakao} height="20"/></StyledLoginLogoKaKao> 카카오로 로그인하기
                 </StyledLoginBtn>
-                <StyledLoginBtn background="#FFFFFF" onClick={GoogleClicked}> 
+                <StyledLoginBtn background="#FFFFFF" href="http://i8a402.p.ssafy.io/oauth2/authorization/google?redirect_uri=http://i8a402.p.ssafy.io/home&spot_id=1"> 
                     <StyledLoginLogoGoogle><img src={google} height="18"/></StyledLoginLogoGoogle>
                     구글로 로그인하기
                 </StyledLoginBtn>
-
-                <StyledLoginBtn background="#FFFFFF" onClick={GoogleClicked}> 
-                    <a href="http://i8a402.p.ssafy.io/oauth2/authorization/google?redirect_uri=http://i8a402.p.ssafy.io/home">구글로 로그인하기</a>
-                </StyledLoginBtn>
-
                 <StyledLoginBtn background="#FFFFFF"> 
                     <StyledLoginLogoNaver><img src={naver} height="20"/></StyledLoginLogoNaver>
                     네이버로 로그인하기
