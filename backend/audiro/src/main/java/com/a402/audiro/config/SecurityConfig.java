@@ -66,7 +66,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .userService(oauth2Service) //로그인 후처리, 도메인 마다 다르게 넘어온 정보를 가공된 user를 반환
             .and()
             .successHandler(oAuth2SuccessHandler); //로그인 성공 시에 리디렉션 및 DB에 저장
-
         //jwt 토큰 필터 추가
         http.addFilterBefore(new JwtFilter(jwtTokenService, userRepository), UsernamePasswordAuthenticationFilter.class);
     }
