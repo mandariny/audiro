@@ -99,10 +99,6 @@ const GiftList = (props) =>{
             .then((res) => {
                  setDataList(res.data);
                  setGiftcnt(res.data.length);
-                 console.log("data 찍어보기");
-                 console.log(res.data);
-                 console.log(dataList.length);
-                 console.log(res.data.length);
                 })
     }, []);
 
@@ -117,7 +113,7 @@ const GiftList = (props) =>{
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
                     {dataList?.map(item => (
-                        <Gift nickname={nickname} key={item.id} id={item.id} src={item.giftImg}/>
+                        <Gift nickname={nickname} giftcnt={giftcnt} key={item.id} id={item.id} src={item.giftImg}/>
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>
