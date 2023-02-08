@@ -89,10 +89,12 @@ const GiftList = (props) =>{
     
     const token = localStorage.getItem('login-token');
     console.log(jwt(token));
+    const nickname = jwt(token)['nickName']; 
+    console.log(nickname);
 
     const [dataList, setDataList] = useState([]);
     useEffect(() => {
-        axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${decodeURL('°¡¿Á')}`}, headers: {Auth: `${token}`}})
+        axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${nickname}`}, headers: {Auth: `${token}`}})
             .then((res) => {
                  setDataList(res.data)
                 //console.log(res.data);
@@ -106,12 +108,12 @@ const GiftList = (props) =>{
         <div>
             <Logo/>
             <Nav/>
-            <ProfileHeader nickname={props.nickname?"ok":props.nickname} />
+            <ProfileHeader nickname={nickname} />
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
                     {dataList?.map(item => (
-                        <Gift nickname={props.nickname} key={item.id} id={item.id} src={item.giftImg}/>
+                        <Gift nickname={nickname} key={item.id} id={item.id} src={item.giftImg}/>
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>

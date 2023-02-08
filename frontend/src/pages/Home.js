@@ -12,14 +12,19 @@ const Home = () => {
         console.log(window.location);
         console.log(window.location.search);
         const jwtToken = params.get("auth");
+        
+        if(jwtToken!=null){
+          setToken(jwtToken);
+          localStorage.setItem('login-token', jwtToken);
+        }
+        
         console.log(jwtToken);
-        setToken(jwtToken);
-        localStorage.setItem('login-token', jwtToken);
         console.log("parsing");
         //console.log(jwt(token));
         //console.log(jwt(token["ninkName"]));
     }, [])
-
+    
+    //setToken(localStorage.getItem('login-token'));
     return (
         <div>
             <Logo/>

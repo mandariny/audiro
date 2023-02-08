@@ -123,6 +123,7 @@ const StyledReactionNumber = styled.div`
 const GiftDetail = (props) => {
   const token = localStorage.getItem('login-token');
   console.log(jwt(token));
+  const nickname = jwt(token)['nickName']; 
     
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
@@ -143,7 +144,7 @@ const GiftDetail = (props) => {
     <div>
       <Logo/>
       <Nav/>
-      <ProfileHeader nickname="okiii"/>
+      <ProfileHeader nickname={nickname}/>
       <StyledGiftDetailContainer>
         <StyledGiftDetailBtnWrapper>
           <StyledDetailBtn>비공개</StyledDetailBtn>
