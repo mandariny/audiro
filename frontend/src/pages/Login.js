@@ -67,6 +67,9 @@ const StyledLoginLogoNaver = styled.div`
 
 const Login = () =>{
 
+    const GoogleLoginClicked = axios.get('http://i8a402.p.ssafy.io/oauth2/authorization/google', {redirect_uri: 'http://i8a402.p.ssafy.io/home'}, {spot_id: 1})
+    .then((res) => console.log(res));
+
     return (
         <div>
             <Logo />
@@ -76,7 +79,7 @@ const Login = () =>{
                 <StyledLoginBtn background="#FFE812" href="http://i8a402.p.ssafy.io/oauth2/authorization/kakao?redirect_uri=http://i8a402.p.ssafy.io/home&spot_id=1"> 
                     <StyledLoginLogoKaKao><img src={kakao} height="20"/></StyledLoginLogoKaKao> 카카오로 로그인하기
                 </StyledLoginBtn>
-                <StyledLoginBtn background="#FFFFFF" href="http://i8a402.p.ssafy.io/oauth2/authorization/google?redirect_uri=http://i8a402.p.ssafy.io/home&spot_id=1"> 
+                <StyledLoginBtn onClick={GoogleLoginClicked} background="#FFFFFF"> 
                     <StyledLoginLogoGoogle><img src={google} height="18"/></StyledLoginLogoGoogle>
                     구글로 로그인하기
                 </StyledLoginBtn>
