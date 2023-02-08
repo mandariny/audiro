@@ -84,6 +84,11 @@ const Login = () =>{
                     <StyledLoginLogoGoogle><img src={google} height="18"/></StyledLoginLogoGoogle>
                     구글로 로그인하기
                 </StyledLoginBtn>
+
+                <StyledLoginBtn background="#FFFFFF" onClick={GoogleClicked}> 
+                    <a href="http://i8a402.p.ssafy.io/oauth2/authorization/google?redirect_uri=http://i8a402.p.ssafy.io/home">구글로 로그인하기</a>
+                </StyledLoginBtn>
+
                 <StyledLoginBtn background="#FFFFFF"> 
                     <StyledLoginLogoNaver><img src={naver} height="20"/></StyledLoginLogoNaver>
                     네이버로 로그인하기
