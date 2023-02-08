@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {Navigate, useNavigate} from 'react-router-dom';
 
 import axios from "axios";
-
+import jwt from 'jwt-decode';
 
 const StyledModalBG = styled.div`
     position: absolute;
