@@ -64,9 +64,8 @@ const StyledLoginLogoNaver = styled.div`
 `;
 
 const Login = () =>{
-
     const GoogleClicked = () => {
-        axios.get('http://localhost:8080/oauth2/authorization/google')
+        axios.get('http://i8a402.p.ssafy.io/oauth2/authorization/google', {params: {redirect_uri:"http://i8a402.p.ssafy.io/home"}})
         .then((res) => {
             console.log(res);
         })
