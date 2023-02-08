@@ -2,6 +2,7 @@ package com.a402.audiro.controller;
 
 import com.a402.audiro.dto.GiftThumbnailDTO;
 import com.a402.audiro.dto.ManitoDTO;
+import com.a402.audiro.dto.ManitoImagePairDTO;
 import com.a402.audiro.service.ManitoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.DataInput;
@@ -33,8 +34,9 @@ public class ManitoController {
     @GetMapping
     public ResponseEntity<?> getManitoList(){
         try{
-            List<GiftThumbnailDTO> manitoList = manitoService.getManitoList();
-            return ResponseEntity.ok().body(manitoList);
+            log.info("마니또 리스트 요청을 받았습니다.");
+            List<ManitoImagePairDTO> manitoImagePairDTOS = manitoService.getManitoImagePairList();
+            return ResponseEntity.ok().body(manitoImagePairDTOS);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -43,6 +45,7 @@ public class ManitoController {
     @PostMapping
     public ResponseEntity<?> addManito(@RequestParam(value = "giftImg") MultipartFile giftImg, @RequestParam(value ="manito", required = true) String manito){
         try{
+            log.info("새로운 마니또가 들어왔습니다. 마니또 정보 : {}", manito);
             //해당 경로에 manito 이미지 저장
             byte[] bytes = giftImg.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + giftImg.getOriginalFilename());
