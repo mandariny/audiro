@@ -99,7 +99,7 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
         //Response에 토큰 넣기
         writeTokenResponse(response, jwtTokens);
         RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-        String targetUri = determineTargetUrl(request, response, authentication);
+        String targetUri = determineTargetUrl(request, response, authentication) + "?auth="+jwtTokens.getAccessToken()+"&refresh="+jwtTokens.getRefreshToken();
         log.info("redirect_uri : {}", targetUri);
         redirectStrategy.sendRedirect(request, response, targetUri);
         log.info("Redirect 완료");
