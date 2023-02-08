@@ -98,7 +98,7 @@ const GiftList = (props) =>{
         axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${nickname}`}, headers: {Auth: `${token}`}})
             .then((res) => {
                  setDataList(res.data);
-                 setGiftcnt(dataList.length);
+                 setGiftcnt(res.data.length);
                  console.log("data 찍어보기");
                  console.log(res.data);
                  console.log(dataList.length);
