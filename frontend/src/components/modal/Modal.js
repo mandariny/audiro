@@ -66,10 +66,22 @@ const StyledModalListBtn = styled.div`
 function Modal({ setOpenModal }) {
 
   const [mateList, setMateList] = useState([]);
+
+  const token = localStorage.getItem('login-token');
+  console.log(jwt(token));
+  const userid = jwt(token)['userId']; 
+  console.log(userid);
+
+  const [musicmatecnt, setMusicmatecnt] = useState(0);
   useEffect(() => {
-      axios.get('http://localhost:8080/musicmate', {params: {userId: 2}})
+      axios.get('http://i8a402.p.ssafy.io/api/musicmate', {params: {userId: `${userid}`}, headers: {Auth: `${token}`}})
           .then((res) => 
-            setMateList(res.data))
+            {
+              setMateList(res.data);
+              console.log(res.data.length);
+              setMusicmatecnt(res.data.length);
+            }
+          )
   }, []);
 
   const navigate = useNavigate();
