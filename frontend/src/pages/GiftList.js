@@ -12,6 +12,8 @@ import axios from 'axios';
 import ProfileHeader from "../components/mygift/ProfileHeader";
 import { useLocation } from "react-router";
 
+import jwt from 'jwt-decode';
+
 const StyledHeader = styled.div`
     margin-top: 20px;
     margin-left: 10px;
@@ -63,7 +65,7 @@ const StyledMyGiftListTitle = styled.div`
 const StyledMyGiftListWrapper=styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 `;
 
 const StyledMyGiftList = styled.div`
@@ -84,12 +86,18 @@ const StyledMateModal = styled.div`
 
 
 const GiftList = (props) =>{
+    
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
 
     const [dataList, setDataList] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:8080/gift', {params: {nickname: 'gaok'}})
-            .then((res) => 
-                setDataList(res.data))
+        axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${decodeURL('°¡¿Á')}`}, headers: {Auth: `${token}`}})
+            .then((res) => {
+                 setDataList(res.data)
+                //console.log(res.data);
+                //console.log(res);
+                })
     }, []);
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -98,7 +106,7 @@ const GiftList = (props) =>{
         <div>
             <Logo/>
             <Nav/>
-            <ProfileHeader nickname={props.nickname?"okiii":props.nickname} />
+            <ProfileHeader nickname={props.nickname?"ok":props.nickname} />
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>

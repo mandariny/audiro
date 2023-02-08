@@ -2,16 +2,22 @@ import React, {useEffect, useState, useParams} from 'react';
 import Logo from '../components/Logo';
 import Nav from '../components/Nav';
 
-const Home = (location) => {
+import jwt from 'jwt-decode';
+const Home = () => {
 
     const [token, setToken] = useState();
 
     useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        // console.log(window.location);
+        const params = new URLSearchParams(window.location.search);
+        console.log(window.location);
+        console.log(window.location.search);
         const jwtToken = params.get("auth");
-        // console.log(jwtToken);
+        console.log(jwtToken);
         setToken(jwtToken);
+        localStorage.setItem('login-token', jwtToken);
+        console.log("parsing");
+        //console.log(jwt(token));
+        //console.log(jwt(token["ninkName"]));
     }, [])
 
     return (
