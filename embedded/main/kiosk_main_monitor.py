@@ -411,7 +411,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3072, 318))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3072, 463))
         self.horizontalLayout_127 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_127.setObjectName(u"horizontalLayout_127")
         self.chart_img_Button1 = QPushButton(self.scrollAreaWidgetContents)
@@ -4624,14 +4624,15 @@ class Ui_MainWindow(object):
         self.emoji_button2.clicked.connect(MainWindow.press_emoji2)
         self.emoji_button3.clicked.connect(MainWindow.press_emoji3)
         self.emoji_button4.clicked.connect(MainWindow.press_emoji4)
+        self.verticalSlider_16.valueChanged.connect(MainWindow.volumeChange)
 
         self.menu_toolBox.setCurrentIndex(1)
         self.menu_toolBox.layout().setSpacing(30)
-        self.stackedPages.setCurrentIndex(8)
+        self.stackedPages.setCurrentIndex(0)
         self.stackedWidget_3.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
-        self.stackedPages2.setCurrentIndex(6)
+        self.stackedPages2.setCurrentIndex(9)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

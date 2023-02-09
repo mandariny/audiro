@@ -612,6 +612,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(4)
         self.stackedPages2.setCurrentIndex(6)
 
+    def change_volume(self, vol):
+        self.player.set_volume(vol)
+
     def send_feedback(self):
         self.stackedPages2.setCurrentIndex(5)
         self.painter_widget.save("../resource/saved_images/feedbackImg.png")
