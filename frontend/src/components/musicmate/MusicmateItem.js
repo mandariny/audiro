@@ -19,7 +19,7 @@ const StyledMMInfoWrapper=styled.div`
     justify-content: center;
 `;
 
-const StyledMMImg=styled.div`
+const StyledMMImg=styled.img`
     border-radius: 100%;
     background-color: white;
     width: 30px;
