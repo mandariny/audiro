@@ -34,8 +34,8 @@ const StyledMyGiftHeaderWrapper = styled.div`
 `;
 
 const StyledMyGiftProfile = styled.div`
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 100%;
     background-color: white;
     display: flex;
@@ -61,8 +61,8 @@ const StyledMyGiftListTitle = styled.div`
 const StyledProfileImg=styled.img`
     background-color: white;
     border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 `;
 
 const ProfileHeader = (props) => {
