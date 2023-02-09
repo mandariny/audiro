@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled, { keyframes } from 'styled-components';
 import {BsHeadphones} from "react-icons/bs"
 
+import axios from "axios";
 import jwt from 'jwt-decode';
 
 const StyledLogoContainer = styled.div`
@@ -99,16 +100,25 @@ const Logo=(props)=>{
     console.log(jwt(token));
     const nickname = jwt(token)['nickName']; 
     console.log(nickname);
+    const userId = jwt(token)['userId']; 
+    console.log(userId);
+
+    const [userImg, setuserImg] = useState();
+    useEffect(() => {
+        axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
+            .then((res) => {
+                 setuserImg(res.data.img);
+                })
+    }, []);
 
     return(
         <StyledLogoContainer>
             <StyledLogoCircleLeft></StyledLogoCircleLeft>
             <StyledLogo>어디:로</StyledLogo>
             <StyledSubLogo>나와 새로운 사람의 음악 공간</StyledSubLogo>
-            {/* {props.userId}님 */}
             <StyledLogoGreet>
                 <StyledLogoHeadset>
-                    <BsHeadphones fill='black' size="30"/>
+                    <img src={userImg}/>
                 </StyledLogoHeadset>
                 <StyledLogoProfile>{nickname}님</StyledLogoProfile>
             </StyledLogoGreet>
