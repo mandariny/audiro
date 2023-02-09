@@ -74,15 +74,11 @@ const StyledLogoGreet=styled.div`
     align-items: center;
 `;
 
-const StyledLogoHeadset=styled.div`
+const StyledLogoHeadset=styled.img`
     background-color: white;
     border-radius: 100%;
     width: 20px;
     height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px;
 `;
 
 const StyledLogoProfile = styled.div`
@@ -117,9 +113,7 @@ const Logo=(props)=>{
             <StyledLogo>어디:로</StyledLogo>
             <StyledSubLogo>나와 새로운 사람의 음악 공간</StyledSubLogo>
             <StyledLogoGreet>
-                <StyledLogoHeadset>
-                    <img src={userImg}/>
-                </StyledLogoHeadset>
+                <StyledLogoHeadset src={userImg}/>
                 <StyledLogoProfile>{nickname}님</StyledLogoProfile>
             </StyledLogoGreet>
             <StyledLogoCircleRight></StyledLogoCircleRight>
