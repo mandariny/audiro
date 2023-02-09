@@ -60,6 +60,10 @@ public class ChannelController {
     @MessageMapping("/channel/{channel}")
     @SendTo("/sub/{channel}")
     public MessageDTO sendMessage(@DestinationVariable("channel") String channelId, MessageDTO messageDTO){
+        log.info("메세지를 받았습니다. " + messageDTO.getContent());
+        log.info(messageDTO.toString());
+        log.info("channelId: "+channelId);
+
         chatService.saveMessage(channelId, messageDTO);
         return messageDTO;
     }

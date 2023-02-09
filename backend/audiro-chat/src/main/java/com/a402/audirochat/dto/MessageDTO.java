@@ -3,10 +3,7 @@ package com.a402.audirochat.dto;
 import com.a402.audirochat.entity.ContentType;
 import com.a402.audirochat.exception.IdNullException;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@ToString
 public class MessageDTO {
 
     @NotNull

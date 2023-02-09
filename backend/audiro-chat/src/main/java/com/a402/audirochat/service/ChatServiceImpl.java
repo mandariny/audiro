@@ -49,8 +49,11 @@ public class ChatServiceImpl implements ChatService{
                 .build();
         Optional<Channel> channel = channelRepository.findById(channelId);
 
+        log.info("채널 정보 : " + channel.get().toString());
+
         channel.get().addChannelMessage(message);
         channelRepository.save(channel.get());
+        log.info("메세지를 저장했습니다. " + messageDTO.getContent());
     }
 
     @Override
