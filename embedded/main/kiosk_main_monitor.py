@@ -8,18 +8,20 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
+from PyQt5.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
     QGridLayout, QHBoxLayout, QLabel, QLineEdit,
     QMainWindow, QPushButton, QRadioButton, QScrollArea,
     QSizePolicy, QSlider, QStackedWidget, QTabWidget,
     QToolBox, QVBoxLayout, QWidget)
+
+import painter
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -120,7 +122,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.setLineWidth(1)
         self.menuPage1 = QWidget()
         self.menuPage1.setObjectName(u"menuPage1")
-        self.menuPage1.setGeometry(QRect(0, 0, 244, 69))
+        self.menuPage1.setGeometry(QRect(0, 0, 244, 85))
         self.verticalLayout_26 = QVBoxLayout(self.menuPage1)
         self.verticalLayout_26.setSpacing(0)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
@@ -128,7 +130,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.addItem(self.menuPage1, u"\uba40\ucea0:\ub85c\uc758 \uc778\uae30\ucc28\ud2b8")
         self.menuPage2 = QWidget()
         self.menuPage2.setObjectName(u"menuPage2")
-        self.menuPage2.setGeometry(QRect(0, 0, 244, 69))
+        self.menuPage2.setGeometry(QRect(0, 0, 244, 85))
         font2 = QFont()
         font2.setPointSize(9)
         self.menuPage2.setFont(font2)
@@ -168,7 +170,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.addItem(self.menuPage2, u"\uc74c\uc545 \uc120\ubb3c")
         self.menuPage3 = QWidget()
         self.menuPage3.setObjectName(u"menuPage3")
-        self.menuPage3.setGeometry(QRect(0, 0, 244, 69))
+        self.menuPage3.setGeometry(QRect(0, 0, 244, 85))
         self.verticalLayout_4 = QVBoxLayout(self.menuPage3)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
@@ -411,7 +413,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(-2332, 0, 3072, 463))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3085, 322))
         self.horizontalLayout_127 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_127.setObjectName(u"horizontalLayout_127")
         self.chart_img_Button1 = QPushButton(self.scrollAreaWidgetContents)
@@ -4022,13 +4024,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_104 = QVBoxLayout(self.frame_170)
         self.verticalLayout_104.setObjectName(u"verticalLayout_104")
         self.verticalLayout_104.setContentsMargins(0, 0, 0, 0)
-        self.keyboard_widget = QWidget(self.frame_170)
-        self.keyboard_widget.setObjectName(u"keyboard_widget")
-        self.keyboard_widget.setMinimumSize(QSize(0, 0))
-        self.keyboard_widget.setStyleSheet(u"color:black")
-
-        self.verticalLayout_104.addWidget(self.keyboard_widget, 0, Qt.AlignHCenter|Qt.AlignVCenter)
-
 
         self.verticalLayout_39.addWidget(self.frame_170)
 
@@ -4627,6 +4622,10 @@ class Ui_MainWindow(object):
         self.pushButton_78.clicked.connect(MainWindow.save_postcard)
         self.pushButton_64.clicked.connect(MainWindow.post_manito)
         self.pushButton_56.clicked.connect(MainWindow.backToChart)
+        self.emoji_button1.clicked.connect(MainWindow.press_emoji1)
+        self.emoji_button2.clicked.connect(MainWindow.press_emoji2)
+        self.emoji_button3.clicked.connect(MainWindow.press_emoji3)
+        self.emoji_button4.clicked.connect(MainWindow.press_emoji4)
 
         self.menu_toolBox.setCurrentIndex(1)
         self.menu_toolBox.layout().setSpacing(30)
@@ -4634,7 +4633,7 @@ class Ui_MainWindow(object):
         self.stackedWidget_3.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)
-        self.stackedPages2.setCurrentIndex(7)
+        self.stackedPages2.setCurrentIndex(6)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

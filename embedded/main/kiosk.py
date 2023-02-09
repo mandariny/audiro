@@ -2,14 +2,16 @@ import json
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap, QIcon, QColor
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QObject
 from kiosk_main_monitor import Ui_MainWindow
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+from PyQt5.QtGui import QGuiApplication, QRegion
 
 # 사용자 모듈 - painter 추가
 import painter
-import Keyboard
 
-import time
+import os
 
 # 사용자 모듈 - player 추가
 from player import VLC
@@ -17,6 +19,8 @@ import pafy
 import urllib.request
 
 import requests
+
+os.environ["QT_IM_MODULE"] = "qtvirtualkeyboard"
 
 spot_id = 1    # 기기 번호
 
@@ -38,6 +42,20 @@ ditto = "https://www.youtube.com/watch?v=Km71Rr9K-Bw"
 omg = "https://www.youtube.com/watch?v=-p1ftgMVWOc"
 one_page = "https://www.youtube.com/watch?v=_78CYlWmigI"
 love_dive = "https://www.youtube.com/watch?v=Y8JFxS1HlDo"
+
+def handleVisibleChanged():
+    if not QGuiApplication.inputMethod().isVisible():
+        return
+    for w in QGuiApplication.allWindows():
+        if w.metaObject().className() == "QtVirtualKeyboard::InputView":
+            keyboard = w.findChild(QObject, "keyboard")
+            if keyboard is not None:
+                r = w.geometry()
+                print(r.width())
+                print(r.height())
+                r.moveTop(keyboard.property("y"))
+                w.setMask(QRegion(r))
+                return
 
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -64,12 +82,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         #self.stackedPages2.setCurrentIndex(4) # 내가 원하는 위젯 뿌리기 - 다음에는 ui 파일도 올려줘...
 
         #키보드 선언
-        self.keyboard_widget = Keyboard.AlphaNeumericVirtualKeyboard(self.lineEdit_4)
-        self.keyboard_widget.setObjectName(u"keyboard_widget")
-        self.keyboard_widget.setStyleSheet(u"color:black")
-
-        self.verticalLayout_104.addWidget(self.keyboard_widget, 0, Qt.AlignHCenter)
-        self.keyboard_widget.display()
 
         #플레이어 선언
         pafy.set_api_key(hy_key)
@@ -530,13 +542,20 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.painter_widget_3.clear()
         self.painter_widget_4.clear()
 
+
+
 app = QApplication(sys.argv)
 screen_rect = app.desktop().screenGeometry()
 print(screen_rect.width(), screen_rect.height())
+
+QGuiApplication.inputMethod().visibleChanged.connect(handleVisibleChanged)
+
+
 window = MyWindow()
 window.setFixedWidth(1080)
 window.setFixedHeight(1920)
 window.showFullScreen()
 
 app.exec()
+
 

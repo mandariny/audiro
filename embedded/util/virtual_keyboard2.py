@@ -1,8 +1,8 @@
 import os
 import sys
 
+#from PySide2 import QtCore, QtGui, QtWidgets
 from PyQt5 import QtCore, QtGui, QtWidgets
-# from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 def handleVisibleChanged():
@@ -12,11 +12,9 @@ def handleVisibleChanged():
         if w.metaObject().className() == "QtVirtualKeyboard::InputView":
             keyboard = w.findChild(QtCore.QObject, "keyboard")
             if keyboard is not None:
-                region = w.mask()
-                rect = [w.geometry()]
-                rect[0].moveTop(keyboard.property("y"))
-                region.setRects(rect)
-                w.setMask(region)
+                r = w.geometry()
+                r.moveTop(keyboard.property("y"))
+                w.setMask(QtGui.QRegion(r))
                 return
 
 

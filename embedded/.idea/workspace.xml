@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0752f328-0bd7-4fdd-9bdd-c607acd9d6bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/util/stomp_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/kiosk.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/kiosk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/kiosk_main_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/kiosk_main_monitor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/kiosk_main_monitor.ui" beforeDir="false" afterPath="$PROJECT_DIR$/main/kiosk_main_monitor.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/laugh - 복사본.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/saved_images/postcardImg.png" beforeDir="false" afterPath="$PROJECT_DIR$/resource/saved_images/postcardImg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/virtual_keyboard2.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/virtual_keyboard2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

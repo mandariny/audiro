@@ -264,7 +264,7 @@ font-size:27px;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>69</height>
+                        <height>85</height>
                        </rect>
                       </property>
                       <attribute name="label">
@@ -294,7 +294,7 @@ font-size:27px;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>69</height>
+                        <height>85</height>
                        </rect>
                       </property>
                       <property name="font">
@@ -397,7 +397,7 @@ font-size:27px;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>69</height>
+                        <height>85</height>
                        </rect>
                       </property>
                       <attribute name="label">
@@ -940,10 +940,10 @@ background-color:#6522F2;
                       <widget class="QWidget" name="scrollAreaWidgetContents">
                        <property name="geometry">
                         <rect>
-                         <x>-2332</x>
+                         <x>0</x>
                          <y>0</y>
-                         <width>3072</width>
-                         <height>463</height>
+                         <width>3085</width>
+                         <height>322</height>
                         </rect>
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_127">
@@ -7955,7 +7955,7 @@ QSlider::handle:vertical {
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>7</number>
+             <number>6</number>
             </property>
             <widget class="QWidget" name="page_draw">
              <layout class="QVBoxLayout" name="verticalLayout_32">
@@ -9138,19 +9138,6 @@ border-radius: 20px;
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QWidget" name="keyboard_widget" native="true">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color:black</string>
-                   </property>
-                  </widget>
-                 </item>
                 </layout>
                </widget>
               </item>
