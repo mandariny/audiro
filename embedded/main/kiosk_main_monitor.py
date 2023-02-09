@@ -8,20 +8,18 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PyQt5.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
     QGridLayout, QHBoxLayout, QLabel, QLineEdit,
     QMainWindow, QPushButton, QRadioButton, QScrollArea,
     QSizePolicy, QSlider, QStackedWidget, QTabWidget,
     QToolBox, QVBoxLayout, QWidget)
-
-import painter
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -122,7 +120,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.setLineWidth(1)
         self.menuPage1 = QWidget()
         self.menuPage1.setObjectName(u"menuPage1")
-        self.menuPage1.setGeometry(QRect(0, 0, 244, 85))
+        self.menuPage1.setGeometry(QRect(0, 0, 244, 69))
         self.verticalLayout_26 = QVBoxLayout(self.menuPage1)
         self.verticalLayout_26.setSpacing(0)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
@@ -130,7 +128,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.addItem(self.menuPage1, u"\uba40\ucea0:\ub85c\uc758 \uc778\uae30\ucc28\ud2b8")
         self.menuPage2 = QWidget()
         self.menuPage2.setObjectName(u"menuPage2")
-        self.menuPage2.setGeometry(QRect(0, 0, 244, 85))
+        self.menuPage2.setGeometry(QRect(0, 0, 244, 69))
         font2 = QFont()
         font2.setPointSize(9)
         self.menuPage2.setFont(font2)
@@ -170,7 +168,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.addItem(self.menuPage2, u"\uc74c\uc545 \uc120\ubb3c")
         self.menuPage3 = QWidget()
         self.menuPage3.setObjectName(u"menuPage3")
-        self.menuPage3.setGeometry(QRect(0, 0, 244, 85))
+        self.menuPage3.setGeometry(QRect(0, 0, 244, 69))
         self.verticalLayout_4 = QVBoxLayout(self.menuPage3)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
@@ -413,7 +411,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3085, 455))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3072, 318))
         self.horizontalLayout_127 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_127.setObjectName(u"horizontalLayout_127")
         self.chart_img_Button1 = QPushButton(self.scrollAreaWidgetContents)
@@ -1587,17 +1585,17 @@ class Ui_MainWindow(object):
         self.frame_25.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_16 = QHBoxLayout(self.frame_25)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.label_156 = QLabel(self.frame_25)
-        self.label_156.setObjectName(u"label_156")
+        self.gift_detail_img = QLabel(self.frame_25)
+        self.gift_detail_img.setObjectName(u"gift_detail_img")
         font11 = QFont()
         font11.setPointSize(28)
         font11.setBold(True)
-        self.label_156.setFont(font11)
-        self.label_156.setStyleSheet(u"color: red;")
-        self.label_156.setAlignment(Qt.AlignCenter)
-        self.label_156.setWordWrap(True)
+        self.gift_detail_img.setFont(font11)
+        self.gift_detail_img.setStyleSheet(u"color: red;")
+        self.gift_detail_img.setAlignment(Qt.AlignCenter)
+        self.gift_detail_img.setWordWrap(True)
 
-        self.horizontalLayout_16.addWidget(self.label_156, 0, Qt.AlignHCenter)
+        self.horizontalLayout_16.addWidget(self.gift_detail_img, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_25.addWidget(self.frame_25)
@@ -1636,12 +1634,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_65 = QHBoxLayout(self.frame_194)
         self.horizontalLayout_65.setObjectName(u"horizontalLayout_65")
         self.horizontalLayout_65.setContentsMargins(0, 0, 0, 0)
-        self.label_Title_3 = QLabel(self.frame_194)
-        self.label_Title_3.setObjectName(u"label_Title_3")
-        self.label_Title_3.setFont(font8)
-        self.label_Title_3.setAlignment(Qt.AlignCenter)
+        self.gift_detail_song = QLabel(self.frame_194)
+        self.gift_detail_song.setObjectName(u"gift_detail_song")
+        self.gift_detail_song.setFont(font8)
+        self.gift_detail_song.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_65.addWidget(self.label_Title_3, 0, Qt.AlignHCenter)
+        self.horizontalLayout_65.addWidget(self.gift_detail_song, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_15.addWidget(self.frame_194)
@@ -1653,13 +1651,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_18 = QHBoxLayout(self.frame_54)
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.horizontalLayout_18.setContentsMargins(-1, 11, -1, -1)
-        self.label_160 = QLabel(self.frame_54)
-        self.label_160.setObjectName(u"label_160")
-        self.label_160.setMaximumSize(QSize(16777215, 30))
-        self.label_160.setFont(font9)
-        self.label_160.setAlignment(Qt.AlignCenter)
+        self.gift_detail_singer = QLabel(self.frame_54)
+        self.gift_detail_singer.setObjectName(u"gift_detail_singer")
+        self.gift_detail_singer.setMaximumSize(QSize(16777215, 30))
+        self.gift_detail_singer.setFont(font9)
+        self.gift_detail_singer.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_18.addWidget(self.label_160)
+        self.horizontalLayout_18.addWidget(self.gift_detail_singer)
 
 
         self.verticalLayout_15.addWidget(self.frame_54)
@@ -2461,18 +2459,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9 = QHBoxLayout(self.frame_24)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.horizontalLayout_9.setContentsMargins(15, -1, 15, -1)
-        self.label_2 = QLabel(self.frame_24)
-        self.label_2.setObjectName(u"label_2")
+        self.postcard_detail_img = QLabel(self.frame_24)
+        self.postcard_detail_img.setObjectName(u"postcard_detail_img")
         font17 = QFont()
         font17.setPointSize(28)
-        self.label_2.setFont(font17)
-        self.label_2.setLayoutDirection(Qt.LeftToRight)
-        self.label_2.setStyleSheet(u"background:#D9D9D9; color:red;")
-        self.label_2.setTextFormat(Qt.AutoText)
-        self.label_2.setAlignment(Qt.AlignCenter)
-        self.label_2.setWordWrap(True)
+        self.postcard_detail_img.setFont(font17)
+        self.postcard_detail_img.setLayoutDirection(Qt.LeftToRight)
+        self.postcard_detail_img.setStyleSheet(u"background:#D9D9D9; color:red;")
+        self.postcard_detail_img.setTextFormat(Qt.AutoText)
+        self.postcard_detail_img.setAlignment(Qt.AlignCenter)
+        self.postcard_detail_img.setWordWrap(True)
 
-        self.horizontalLayout_9.addWidget(self.label_2)
+        self.horizontalLayout_9.addWidget(self.postcard_detail_img)
 
 
         self.verticalLayout_13.addWidget(self.frame_24)
@@ -2525,12 +2523,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_139 = QHBoxLayout(self.frame_286)
         self.horizontalLayout_139.setObjectName(u"horizontalLayout_139")
         self.horizontalLayout_139.setContentsMargins(0, 0, 0, 0)
-        self.label_Title_18 = QLabel(self.frame_286)
-        self.label_Title_18.setObjectName(u"label_Title_18")
-        self.label_Title_18.setFont(font8)
-        self.label_Title_18.setAlignment(Qt.AlignCenter)
+        self.postcard_detail_song = QLabel(self.frame_286)
+        self.postcard_detail_song.setObjectName(u"postcard_detail_song")
+        self.postcard_detail_song.setFont(font8)
+        self.postcard_detail_song.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_139.addWidget(self.label_Title_18)
+        self.horizontalLayout_139.addWidget(self.postcard_detail_song)
 
 
         self.horizontalLayout_92.addWidget(self.frame_286)
@@ -2538,12 +2536,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_98.addWidget(self.frame_248)
 
-        self.label_Artist_9 = QLabel(self.frame_140)
-        self.label_Artist_9.setObjectName(u"label_Artist_9")
-        self.label_Artist_9.setFont(font9)
-        self.label_Artist_9.setAlignment(Qt.AlignCenter)
+        self.postcard_detail_singer = QLabel(self.frame_140)
+        self.postcard_detail_singer.setObjectName(u"postcard_detail_singer")
+        self.postcard_detail_singer.setFont(font9)
+        self.postcard_detail_singer.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_98.addWidget(self.label_Artist_9, 0, Qt.AlignBottom)
+        self.verticalLayout_98.addWidget(self.postcard_detail_singer, 0, Qt.AlignBottom)
 
         self.frame_130 = QFrame(self.frame_140)
         self.frame_130.setObjectName(u"frame_130")
@@ -3555,7 +3553,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_34 = QHBoxLayout(self.frame_56)
         self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
         self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget = painter.PainterWidget()
+        self.painter_widget = QWidget(self.frame_56)
         self.painter_widget.setObjectName(u"painter_widget")
         self.painter_widget.setEnabled(True)
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -4168,7 +4166,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_57 = QHBoxLayout(self.frame_99)
         self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
         self.horizontalLayout_57.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_2 = painter.PainterWidget()
+        self.painter_widget_2 = QWidget(self.frame_99)
         self.painter_widget_2.setObjectName(u"painter_widget_2")
         self.painter_widget_2.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_2.sizePolicy().hasHeightForWidth())
@@ -4629,9 +4627,9 @@ class Ui_MainWindow(object):
 
         self.menu_toolBox.setCurrentIndex(1)
         self.menu_toolBox.layout().setSpacing(30)
-        self.stackedPages.setCurrentIndex(1)
+        self.stackedPages.setCurrentIndex(8)
         self.stackedWidget_3.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(6)
 
@@ -4722,10 +4720,10 @@ class Ui_MainWindow(object):
         self.emoji_button3.setText("")
         self.emoji_button1.setText("")
         self.pushButton_65.setText(QCoreApplication.translate("MainWindow", u"\uadf8\ub9cc\ub4e3\uae30", None))
-        self.label_156.setText(QCoreApplication.translate("MainWindow", u"ditto\ub97c \ucd94\ucc9c\ud558\ub294                    \uc0ac\ub78c\uc774 \uadf8\ub9b0 \uc5fd\uc11c", None))
+        self.gift_detail_img.setText(QCoreApplication.translate("MainWindow", u"ditto\ub97c \ucd94\ucc9c\ud558\ub294                    \uc0ac\ub78c\uc774 \uadf8\ub9b0 \uc5fd\uc11c", None))
         self.pushButton_98.setText("")
-        self.label_Title_3.setText(QCoreApplication.translate("MainWindow", u"Ditto", None))
-        self.label_160.setText(QCoreApplication.translate("MainWindow", u"New Jeans", None))
+        self.gift_detail_song.setText(QCoreApplication.translate("MainWindow", u"Ditto", None))
+        self.gift_detail_singer.setText(QCoreApplication.translate("MainWindow", u"New Jeans", None))
         self.label_158.setText(QCoreApplication.translate("MainWindow", u"0:00", None))
         self.label_159.setText(QCoreApplication.translate("MainWindow", u"3:34", None))
         self.pushButton_2.setText("")
@@ -4767,10 +4765,10 @@ class Ui_MainWindow(object):
         self.label_24.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"\ubb38\uc790\ub85c \ubc1b\uc740 \uc778\uc99d \ucf54\ub4dc\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.", None))
         self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"  \ud655\uc778", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\ud3b8\uc9c0 \ub0b4\uc6a9                                                   (\ub2e4\ub978 \uc0ac\ub78c\uc774 \ub098\uc5d0\uac8c \uc791\uc131\ud55c \uc5fd\uc11c)", None))
+        self.postcard_detail_img.setText(QCoreApplication.translate("MainWindow", u"\ud3b8\uc9c0 \ub0b4\uc6a9                                                   (\ub2e4\ub978 \uc0ac\ub78c\uc774 \ub098\uc5d0\uac8c \uc791\uc131\ud55c \uc5fd\uc11c)", None))
         self.pushButton_99.setText("")
-        self.label_Title_18.setText(QCoreApplication.translate("MainWindow", u"Love Dive", None))
-        self.label_Artist_9.setText(QCoreApplication.translate("MainWindow", u"IVE", None))
+        self.postcard_detail_song.setText(QCoreApplication.translate("MainWindow", u"Love Dive", None))
+        self.postcard_detail_singer.setText(QCoreApplication.translate("MainWindow", u"IVE", None))
         self.label_210.setText(QCoreApplication.translate("MainWindow", u"0:00", None))
         self.label_211.setText(QCoreApplication.translate("MainWindow", u"3:34", None))
         self.pushButton_48.setText("")

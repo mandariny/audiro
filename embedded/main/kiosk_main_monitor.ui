@@ -264,7 +264,7 @@ font-size:27px;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>85</height>
+                        <height>69</height>
                        </rect>
                       </property>
                       <attribute name="label">
@@ -294,7 +294,7 @@ font-size:27px;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>85</height>
+                        <height>69</height>
                        </rect>
                       </property>
                       <property name="font">
@@ -397,7 +397,7 @@ font-size:27px;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>85</height>
+                        <height>69</height>
                        </rect>
                       </property>
                       <attribute name="label">
@@ -501,7 +501,7 @@ font-size:27px;
              </size>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>8</number>
             </property>
             <widget class="QWidget" name="page1">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -942,8 +942,8 @@ background-color:#6522F2;
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>3085</width>
-                         <height>455</height>
+                         <width>3072</width>
+                         <height>318</height>
                         </rect>
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_127">
@@ -3623,7 +3623,7 @@ color: #FFFFFF;
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_16">
                     <item alignment="Qt::AlignHCenter">
-                     <widget class="QLabel" name="label_156">
+                     <widget class="QLabel" name="gift_detail_img">
                       <property name="font">
                        <font>
                         <pointsize>28</pointsize>
@@ -3727,7 +3727,7 @@ color: #FFFFFF;
                            <number>0</number>
                           </property>
                           <item alignment="Qt::AlignHCenter">
-                           <widget class="QLabel" name="label_Title_3">
+                           <widget class="QLabel" name="gift_detail_song">
                             <property name="font">
                              <font>
                               <pointsize>30</pointsize>
@@ -3759,7 +3759,7 @@ color: #FFFFFF;
                            <number>11</number>
                           </property>
                           <item>
-                           <widget class="QLabel" name="label_160">
+                           <widget class="QLabel" name="gift_detail_singer">
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -4143,7 +4143,7 @@ background-color:black;
 }</string>
                       </property>
                       <property name="currentIndex">
-                       <number>0</number>
+                       <number>1</number>
                       </property>
                       <property name="usesScrollButtons">
                        <bool>false</bool>
@@ -5673,7 +5673,7 @@ border-radius: 20px;
                      <number>15</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="label_2">
+                     <widget class="QLabel" name="postcard_detail_img">
                       <property name="font">
                        <font>
                         <pointsize>28</pointsize>
@@ -5822,7 +5822,7 @@ border-radius: 20px;
                               <number>0</number>
                              </property>
                              <item>
-                              <widget class="QLabel" name="label_Title_18">
+                              <widget class="QLabel" name="postcard_detail_song">
                                <property name="font">
                                 <font>
                                  <pointsize>30</pointsize>
@@ -5845,7 +5845,7 @@ border-radius: 20px;
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QLabel" name="label_Artist_9">
+                        <widget class="QLabel" name="postcard_detail_singer">
                          <property name="font">
                           <font>
                            <pointsize>15</pointsize>
@@ -10172,7 +10172,7 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>402</x>
+     <x>401</x>
      <y>98</y>
     </hint>
     <hint type="destinationlabel">
@@ -10188,8 +10188,8 @@ border-radius: 30px;</string>
    <slot>backToChart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>983</x>
-     <y>101</y>
+     <x>984</x>
+     <y>99</y>
     </hint>
     <hint type="destinationlabel">
      <x>820</x>
@@ -10204,7 +10204,7 @@ border-radius: 30px;</string>
    <slot>moveToSendMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
+     <x>361</x>
      <y>138</y>
     </hint>
     <hint type="destinationlabel">
@@ -10220,7 +10220,7 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
+     <x>361</x>
      <y>88</y>
     </hint>
     <hint type="destinationlabel">
@@ -10236,7 +10236,7 @@ border-radius: 30px;</string>
    <slot>moveToReceivedMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
+     <x>361</x>
      <y>138</y>
     </hint>
     <hint type="destinationlabel">
@@ -10252,8 +10252,8 @@ border-radius: 30px;</string>
    <slot>nextMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1032</x>
-     <y>509</y>
+     <x>361</x>
+     <y>68</y>
     </hint>
     <hint type="destinationlabel">
      <x>1173</x>
@@ -10268,8 +10268,8 @@ border-radius: 30px;</string>
    <slot>prevMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>369</x>
-     <y>509</y>
+     <x>361</x>
+     <y>68</y>
     </hint>
     <hint type="destinationlabel">
      <x>1154</x>
@@ -10316,8 +10316,8 @@ border-radius: 30px;</string>
    <slot>backToPosts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1010</x>
-     <y>198</y>
+     <x>1015</x>
+     <y>195</y>
     </hint>
     <hint type="destinationlabel">
      <x>1150</x>
@@ -10332,8 +10332,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>1145</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1121</x>
@@ -10348,8 +10348,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>163</x>
-     <y>1145</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1126</x>
@@ -10364,8 +10364,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1133</x>
@@ -10380,8 +10380,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>263</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1149</x>
@@ -10396,8 +10396,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>313</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1174</x>
@@ -10412,8 +10412,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>363</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1183</x>
@@ -10428,8 +10428,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>413</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1191</x>
@@ -10444,8 +10444,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>463</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1186</x>
@@ -10460,8 +10460,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>513</x>
-     <y>1107</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1189</x>
@@ -10476,8 +10476,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1044</x>
-     <y>1156</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1134</x>
@@ -10540,7 +10540,7 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
+     <x>361</x>
      <y>68</y>
     </hint>
     <hint type="destinationlabel">
@@ -10556,7 +10556,7 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
+     <x>361</x>
      <y>88</y>
     </hint>
     <hint type="destinationlabel">
@@ -10636,8 +10636,8 @@ border-radius: 30px;</string>
    <slot>login()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>1251</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1106</x>
@@ -10652,8 +10652,8 @@ border-radius: 30px;</string>
    <slot>reply()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>537</x>
-     <y>1531</y>
+     <x>120</x>
+     <y>1111</y>
     </hint>
     <hint type="destinationlabel">
      <x>1103</x>
@@ -10668,8 +10668,8 @@ border-radius: 30px;</string>
    <slot>send_feedback()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>995</x>
-     <y>1863</y>
+     <x>160</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1117</x>
@@ -10684,8 +10684,8 @@ border-radius: 30px;</string>
    <slot>backToPosts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>1623</y>
+     <x>120</x>
+     <y>1111</y>
     </hint>
     <hint type="destinationlabel">
      <x>1125</x>
@@ -10700,8 +10700,8 @@ border-radius: 30px;</string>
    <slot>postMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>1437</y>
+     <x>120</x>
+     <y>1111</y>
     </hint>
     <hint type="destinationlabel">
      <x>1118</x>
@@ -10716,8 +10716,8 @@ border-radius: 30px;</string>
    <slot>searchMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>532</x>
-     <y>1527</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1110</x>
@@ -10732,8 +10732,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>402</x>
-     <y>98</y>
+     <x>1015</x>
+     <y>205</y>
     </hint>
     <hint type="destinationlabel">
      <x>1115</x>
@@ -10748,8 +10748,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>1145</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1136</x>
@@ -10764,8 +10764,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>163</x>
-     <y>1145</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1135</x>
@@ -10780,8 +10780,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1137</x>
@@ -10796,8 +10796,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>263</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1155</x>
@@ -10812,8 +10812,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>313</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1190</x>
@@ -10828,8 +10828,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>363</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1216</x>
@@ -10844,8 +10844,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>413</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1250</x>
@@ -10860,8 +10860,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>463</x>
-     <y>1108</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1269</x>
@@ -10876,8 +10876,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>513</x>
-     <y>1107</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1290</x>
@@ -10892,8 +10892,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1044</x>
-     <y>1156</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1140</x>
@@ -10908,8 +10908,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>1191</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1113</x>
@@ -10924,8 +10924,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>163</x>
-     <y>1191</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1118</x>
@@ -10940,8 +10940,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>216</x>
-     <y>1191</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1126</x>
@@ -10956,8 +10956,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>265</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1140</x>
@@ -10972,8 +10972,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>315</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1151</x>
@@ -10988,8 +10988,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>365</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1168</x>
@@ -11004,8 +11004,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>415</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1174</x>
@@ -11020,8 +11020,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>465</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1185</x>
@@ -11036,8 +11036,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>515</x>
-     <y>1154</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1200</x>
@@ -11052,8 +11052,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1044</x>
-     <y>1202</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1119</x>
@@ -11068,8 +11068,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>1191</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1112</x>
@@ -11084,8 +11084,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>163</x>
-     <y>1191</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1117</x>
@@ -11100,8 +11100,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>216</x>
-     <y>1191</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1130</x>
@@ -11116,8 +11116,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>265</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1143</x>
@@ -11132,8 +11132,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>315</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1160</x>
@@ -11148,8 +11148,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>365</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1177</x>
@@ -11164,8 +11164,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>415</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1197</x>
@@ -11180,8 +11180,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>465</x>
-     <y>1155</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1207</x>
@@ -11196,8 +11196,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>515</x>
-     <y>1154</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1223</x>
@@ -11212,8 +11212,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1044</x>
-     <y>1202</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1136</x>
@@ -11228,8 +11228,8 @@ border-radius: 30px;</string>
    <slot>playMusic1_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>389</x>
-     <y>633</y>
+     <x>570</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1137</x>
@@ -11244,8 +11244,8 @@ border-radius: 30px;</string>
    <slot>playMusic2_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>696</x>
-     <y>633</y>
+     <x>876</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1153</x>
@@ -11260,8 +11260,8 @@ border-radius: 30px;</string>
    <slot>playMusic3_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1003</x>
-     <y>633</y>
+     <x>1182</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1214</x>
@@ -11276,8 +11276,8 @@ border-radius: 30px;</string>
    <slot>playMusic4_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1310</x>
-     <y>633</y>
+     <x>1488</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1199</x>
@@ -11292,8 +11292,8 @@ border-radius: 30px;</string>
    <slot>playMusic5_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1617</x>
-     <y>633</y>
+     <x>1794</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1183</x>
@@ -11308,8 +11308,8 @@ border-radius: 30px;</string>
    <slot>playMusic6_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1924</x>
-     <y>633</y>
+     <x>2100</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1184</x>
@@ -11324,8 +11324,8 @@ border-radius: 30px;</string>
    <slot>playMusic7_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>2231</x>
-     <y>633</y>
+     <x>2406</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1156</x>
@@ -11340,8 +11340,8 @@ border-radius: 30px;</string>
    <slot>playMusic8_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>2538</x>
-     <y>633</y>
+     <x>2712</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1157</x>
@@ -11356,8 +11356,8 @@ border-radius: 30px;</string>
    <slot>playMusic9_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>2845</x>
-     <y>633</y>
+     <x>3018</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1219</x>
@@ -11372,8 +11372,8 @@ border-radius: 30px;</string>
    <slot>playMusic10_chart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>3152</x>
-     <y>633</y>
+     <x>3324</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>1176</x>
@@ -11388,7 +11388,7 @@ border-radius: 30px;</string>
    <slot>input_code()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
+     <x>361</x>
      <y>88</y>
     </hint>
     <hint type="destinationlabel">
@@ -11404,7 +11404,7 @@ border-radius: 30px;</string>
    <slot>send_message()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
+     <x>361</x>
      <y>88</y>
     </hint>
     <hint type="destinationlabel">
@@ -11420,8 +11420,8 @@ border-radius: 30px;</string>
    <slot>save_postcard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>988</x>
-     <y>1863</y>
+     <x>190</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1154</x>
@@ -11436,8 +11436,8 @@ border-radius: 30px;</string>
    <slot>post_manito()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>977</x>
-     <y>1896</y>
+     <x>190</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1122</x>
@@ -11452,8 +11452,8 @@ border-radius: 30px;</string>
    <slot>backToChart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>1831</y>
+     <x>160</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1139</x>
