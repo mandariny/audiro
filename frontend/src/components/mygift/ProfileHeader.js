@@ -101,11 +101,11 @@ const ProfileHeader = (props) => {
                 </div>
             </Link>
             <div>
-              <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
+              <StyledMyGiftListNumber>1</StyledMyGiftListNumber>
               <StyledMyGiftListTitle>방문한 지점</StyledMyGiftListTitle>
             </div>
             <Link to="/musicmate" style={{ textDecoration: 'none' }}>
-              <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
+              <StyledMyGiftListNumber>{props.mmcnt}</StyledMyGiftListNumber>
               <StyledMyGiftListTitle>음악 메이트</StyledMyGiftListTitle>
             </Link>
         </StyledMyGiftHeaderWrapper>
