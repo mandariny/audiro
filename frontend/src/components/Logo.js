@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import styled, { keyframes } from 'styled-components';
-import {BsHeadphones} from "react-icons/bs"
 
 import axios from "axios";
 import jwt from 'jwt-decode';
+import LogoUserInfo from "./LogoUserInfo";
 
 const StyledLogoContainer = styled.div`
     display: flex;
@@ -67,28 +67,6 @@ const StyledLogoCircleRight = styled.div`
     border-radius: 100%;
 `;
 
-const StyledLogoGreet=styled.div`
-    display: flex;
-    justify-content: end;
-    margin-right: 15px;
-    align-items: center;
-`;
-
-const StyledLogoHeadset=styled.img`
-    background-color: white;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-`;
-
-const StyledLogoProfile = styled.div`
-    text-align: end;
-    color: white;
-    margin-right: 5px;
-    font-size: 15px;
-    font-family: var(--font-nanumSquareR);
-    margin-left: 5px;
-`;
 
 const Logo=(props)=>{   
 
@@ -112,12 +90,8 @@ const Logo=(props)=>{
             <StyledLogoCircleLeft></StyledLogoCircleLeft>
             <StyledLogo>어디:로</StyledLogo>
             <StyledSubLogo>나와 새로운 사람의 음악 공간</StyledSubLogo>
-            <StyledLogoGreet>
-                <StyledLogoHeadset src={userImg}/>
-                <StyledLogoProfile>{nickname}님</StyledLogoProfile>
-            </StyledLogoGreet>
+            <LogoUserInfo type={props.type}/>
             <StyledLogoCircleRight></StyledLogoCircleRight>
-            {/*  */}
         </StyledLogoContainer>
     );
 };
