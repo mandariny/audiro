@@ -9,9 +9,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
+@Slf4j
 @RedisHash("channel")
 @AllArgsConstructor
 @Getter
@@ -31,6 +33,7 @@ public class Channel {
     }
 
     public String getLastMessage(){
+        log.info("메세지 사이즈 : " + this.messages.size());
         if(this.messages.size() == 0) return null;
         return this.messages.get(this.messages.size() - 1).getContent();
     }

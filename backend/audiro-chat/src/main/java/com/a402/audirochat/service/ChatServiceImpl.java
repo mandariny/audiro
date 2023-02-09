@@ -49,7 +49,7 @@ public class ChatServiceImpl implements ChatService{
                 .build();
         Optional<Channel> channel = channelRepository.findById(channelId);
 
-        log.info("채널 정보 : " + channel.get().toString());
+//        log.info("채널 정보 : " + channel.get().toString());
 
         channel.get().addChannelMessage(message);
         channelRepository.save(channel.get());
@@ -60,6 +60,11 @@ public class ChatServiceImpl implements ChatService{
     public List<ChannelThumbnailDTO> getChannelThumbnail(String userId) {
 
         Optional<User> user = getUser(userId);
+
+        for(int i=0; i<5; i++){
+
+            log.info("채널 정보 : " + user.get().getChannels().get(i).getChannel().toString());
+        }
 
         return user.get().getChannels().stream()
                 .map(c -> ChannelThumbnailDTO.builder()

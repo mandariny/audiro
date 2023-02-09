@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequiredArgsConstructor
 @RestController()
+@CrossOrigin("*")
 public class ChannelController {
 
     private final ChatService chatService;

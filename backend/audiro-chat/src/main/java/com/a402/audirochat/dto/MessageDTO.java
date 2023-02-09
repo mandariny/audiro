@@ -17,9 +17,9 @@ public class MessageDTO {
     @NotNull
     private String userId;
     private String receiverId;
-    @NotNull
+
     private String userNickname;
-    @NotNull
+
     private ContentType contentType;
     @NotNull
     private String content;
