@@ -48,12 +48,12 @@ const StyledMMBlockBtn=styled.div`
     border: 2px solid #F5336D;
 `;
 
-const MusicmateItem = () => {
+const MusicmateItem = (props) => {
     return (
             <StyledMMWrapper>
                 <StyledMMInfoWrapper>
-                    <StyledMMImg></StyledMMImg>
-                    <StyledMMNinkname>닉네임</StyledMMNinkname>
+                    <StyledMMImg src={props.img}></StyledMMImg>
+                    <StyledMMNinkname>{props.nickname}</StyledMMNinkname>
                 </StyledMMInfoWrapper>
                 <StyledMMBlockBtn>차단하기</StyledMMBlockBtn>
             </StyledMMWrapper>
