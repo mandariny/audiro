@@ -66,7 +66,6 @@ const StyledProfileImg=styled.img`
 `;
 
 const ProfileHeader = (props) => {
-  const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const outside = useRef();
   const {giftid}=useParams();
@@ -105,13 +104,12 @@ const ProfileHeader = (props) => {
               <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
               <StyledMyGiftListTitle>방문한 지점</StyledMyGiftListTitle>
             </div>
-            <div onClick={()=>{ setModalOpen(true) }}>
+            <Link to="/musicmate" style={{ textDecoration: 'none' }}>
               <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
               <StyledMyGiftListTitle>음악 메이트</StyledMyGiftListTitle>
-            </div>
+            </Link>
         </StyledMyGiftHeaderWrapper>
       </StyledHeader>
-      {modalOpen && <Modal className="gift-modal" setOpenModal={setModalOpen} />}
       </div>
   );
   
