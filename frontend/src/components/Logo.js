@@ -90,7 +90,7 @@ const Logo=(props)=>{
             <StyledLogoCircleLeft></StyledLogoCircleLeft>
             <StyledLogo>어디:로</StyledLogo>
             <StyledSubLogo>나와 새로운 사람의 음악 공간</StyledSubLogo>
-            <LogoUserInfo type={props.type}/>
+            {/* <LogoUserInfo type={props.type}/> */}
             <StyledLogoCircleRight></StyledLogoCircleRight>
         </StyledLogoContainer>
     );

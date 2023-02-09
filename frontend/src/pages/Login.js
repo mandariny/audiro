@@ -69,7 +69,7 @@ const Login = () =>{
 
     return (
         <div>
-            <Logo type="login"/>
+            {/* <Logo type="login"/> */}
             <StyledLoginContainer>
             <StyledLoginTitle>로그인</StyledLoginTitle>
             <StyledLoginBtnWrapper>

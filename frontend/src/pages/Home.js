@@ -12,10 +12,12 @@ const Home = () => {
         console.log(window.location);
         console.log(window.location.search);
         const jwtToken = params.get("auth");
+        const refreshToken = params.get("refresh");
         
         if(jwtToken!=null){
           setToken(jwtToken);
           localStorage.setItem('login-token', jwtToken);
+          localStorage.setItem('refresh-token', refreshToken);
         }
         
         console.log(jwtToken);
