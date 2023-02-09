@@ -19,6 +19,8 @@ const StyledHeader = styled.div`
 `;
 
 const StyledMyGiftTitle = styled.div`
+    display: flex;
+    align-items: center;
     font-size: 17px;
     font-family: var(--font-nanumSquareEB);
     margin-bottom: 25px;

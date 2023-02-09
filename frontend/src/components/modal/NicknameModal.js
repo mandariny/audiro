@@ -16,6 +16,7 @@ const NicknameModal = (props) => {
         }
     
     const token=localStorage.getItem('login-token')
+
     const submitHandler=(e)=>
     {
         e.preventDefault()}    
@@ -27,7 +28,7 @@ const NicknameModal = (props) => {
             url:'http://i8a402.p.ssafy.io:80/api/user/change-nickname',
             headers: {Auth: `${token}`},
             data:{
-                newNickname:`${newNickname}`
+                newNickName:`${newNickname}`
             },
         })
         .then ((res)=>{
@@ -35,7 +36,6 @@ const NicknameModal = (props) => {
             const jwtToken=res.header.resfresh
             localStorage.setItem('login-token', jwtToken);
             console.log('success')
-
         })
         .catch((err=>{
             console.log(err.data)
