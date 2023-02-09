@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom'
 import DeleteModal from "../modal/DeleteModal";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import NicknameModal from "../modal/NicknameModal";
 
 import axios from "axios";
 import jwt from 'jwt-decode';
@@ -84,11 +85,12 @@ const ProfileHeader = (props) => {
       })
   }, []);
 
+  const [NicknameOpen, setNicknameOpen] = useState(false);
 
   return (
     <div>
       <StyledHeader>
-        <StyledMyGiftTitle>반가워요, {props.nickname}님 👋 </StyledMyGiftTitle>
+        <StyledMyGiftTitle>반가워요, <div onClick={()=>{setNicknameOpen(true)}}>{props.nickname}님 👋 </div></StyledMyGiftTitle>
 
         <StyledMyGiftHeaderWrapper>
           <StyledMyGiftProfile>
@@ -110,6 +112,7 @@ const ProfileHeader = (props) => {
             </Link>
         </StyledMyGiftHeaderWrapper>
       </StyledHeader>
+      {NicknameOpen && <NicknameModal/> }
       </div>
   );
   
