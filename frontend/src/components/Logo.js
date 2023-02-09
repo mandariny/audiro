@@ -1,12 +1,13 @@
 import React from "react";
 import styled, { keyframes } from 'styled-components';
-import Headset from '../assets/images/Group.png'
+import {BsHeadphones} from "react-icons/bs"
+
+import jwt from 'jwt-decode';
 
 const StyledLogoContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 35px;
-    padding-bottom: 30px;
     padding-top: 20px;
 `;
 
@@ -69,17 +70,35 @@ const StyledLogoGreet=styled.div`
     display: flex;
     justify-content: end;
     margin-right: 15px;
+    align-items: center;
 `;
 
-const StyledLogoHeadset=styled.img`
-    height: 24px;
-    width: 24px;
+const StyledLogoHeadset=styled.div`
     background-color: white;
     border-radius: 100%;
-    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+`;
+
+const StyledLogoProfile = styled.div`
+    text-align: end;
+    color: white;
+    margin-right: 5px;
+    font-size: 15px;
+    font-family: var(--font-nanumSquareR);
+    margin-left: 5px;
 `;
 
 const Logo=(props)=>{   
+
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
+    const nickname = jwt(token)['nickName']; 
+    console.log(nickname);
 
     return(
         <StyledLogoContainer>
@@ -87,8 +106,14 @@ const Logo=(props)=>{
             <StyledLogo>어디:로</StyledLogo>
             <StyledSubLogo>나와 새로운 사람의 음악 공간</StyledSubLogo>
             {/* {props.userId}님 */}
-            {/* <StyledLogoGreet><StyledLogoHeadset src={Headset}/>{props.userId}님</StyledLogoGreet> */}
+            <StyledLogoGreet>
+                <StyledLogoHeadset>
+                    <BsHeadphones fill='black' size="30"/>
+                </StyledLogoHeadset>
+                <StyledLogoProfile>{nickname}님</StyledLogoProfile>
+            </StyledLogoGreet>
             <StyledLogoCircleRight></StyledLogoCircleRight>
+            {/*  */}
         </StyledLogoContainer>
     );
 };
