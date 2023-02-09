@@ -34,8 +34,8 @@ const NicknameModal = (props) => {
         .then ((res)=>{
             console.log("결과 받기")
             console.log(res);
-            console.log(res.headers.Refresh);
-            const jwtToken=res.headers.Resfresh;
+            console.log(res.Headers.Refresh);
+            const jwtToken=res.Headers.Refresh;
             localStorage.setItem('login-token', jwtToken);
             console.log('success');
         })
