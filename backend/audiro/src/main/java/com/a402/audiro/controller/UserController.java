@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Builder
+@CrossOrigin(value = {"*"}, exposedHeaders = {"Content-Disposition"})
 public class UserController {
     private static final String SUCCESS = "success";
     private static final String FAIL = "fail";
