@@ -413,7 +413,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3085, 322))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3085, 455))
         self.horizontalLayout_127 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_127.setObjectName(u"horizontalLayout_127")
         self.chart_img_Button1 = QPushButton(self.scrollAreaWidgetContents)
@@ -1105,22 +1105,22 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_134.addWidget(self.label_104)
 
-        self.label_105 = QLabel(self.frame_121)
-        self.label_105.setObjectName(u"label_105")
-        self.label_105.setFont(font7)
-        self.label_105.setStyleSheet(u"border:none;")
+        self.song_gift_cnt = QLabel(self.frame_121)
+        self.song_gift_cnt.setObjectName(u"song_gift_cnt")
+        self.song_gift_cnt.setFont(font7)
+        self.song_gift_cnt.setStyleSheet(u"border:none;")
 
-        self.horizontalLayout_134.addWidget(self.label_105, 0, Qt.AlignRight)
+        self.horizontalLayout_134.addWidget(self.song_gift_cnt, 0, Qt.AlignRight)
 
 
         self.horizontalLayout_128.addWidget(self.frame_121, 0, Qt.AlignLeft|Qt.AlignVCenter)
 
-        self.label_Title_17 = QLabel(self.frame_285)
-        self.label_Title_17.setObjectName(u"label_Title_17")
-        self.label_Title_17.setFont(font8)
-        self.label_Title_17.setAlignment(Qt.AlignCenter)
+        self.song_title = QLabel(self.frame_285)
+        self.song_title.setObjectName(u"song_title")
+        self.song_title.setFont(font8)
+        self.song_title.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_128.addWidget(self.label_Title_17)
+        self.horizontalLayout_128.addWidget(self.song_title)
 
         self.frame_122 = QFrame(self.frame_285)
         self.frame_122.setObjectName(u"frame_122")
@@ -1144,12 +1144,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_135.addWidget(self.label_106, 0, Qt.AlignLeft)
 
-        self.label_107 = QLabel(self.frame_122)
-        self.label_107.setObjectName(u"label_107")
-        self.label_107.setFont(font7)
-        self.label_107.setStyleSheet(u"border:none;")
+        self.song_liked_cnt = QLabel(self.frame_122)
+        self.song_liked_cnt.setObjectName(u"song_liked_cnt")
+        self.song_liked_cnt.setFont(font7)
+        self.song_liked_cnt.setStyleSheet(u"border:none;")
 
-        self.horizontalLayout_135.addWidget(self.label_107, 0, Qt.AlignRight)
+        self.horizontalLayout_135.addWidget(self.song_liked_cnt, 0, Qt.AlignRight)
 
 
         self.horizontalLayout_128.addWidget(self.frame_122, 0, Qt.AlignRight)
@@ -1160,12 +1160,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_97.addWidget(self.frame_247)
 
-        self.label_Artist_8 = QLabel(self.frame_137)
-        self.label_Artist_8.setObjectName(u"label_Artist_8")
-        self.label_Artist_8.setFont(font9)
-        self.label_Artist_8.setAlignment(Qt.AlignCenter)
+        self.song_singer = QLabel(self.frame_137)
+        self.song_singer.setObjectName(u"song_singer")
+        self.song_singer.setFont(font9)
+        self.song_singer.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_97.addWidget(self.label_Artist_8, 0, Qt.AlignBottom)
+        self.verticalLayout_97.addWidget(self.song_singer, 0, Qt.AlignBottom)
 
         self.frame_123 = QFrame(self.frame_137)
         self.frame_123.setObjectName(u"frame_123")
@@ -3555,7 +3555,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_34 = QHBoxLayout(self.frame_56)
         self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
         self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget = QWidget(self.frame_56)
+        self.painter_widget = painter.PainterWidget()
         self.painter_widget.setObjectName(u"painter_widget")
         self.painter_widget.setEnabled(True)
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -4168,7 +4168,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_57 = QHBoxLayout(self.frame_99)
         self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
         self.horizontalLayout_57.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_2 = QWidget(self.frame_99)
+        self.painter_widget_2 = painter.PainterWidget()
         self.painter_widget_2.setObjectName(u"painter_widget_2")
         self.painter_widget_2.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_2.sizePolicy().hasHeightForWidth())
@@ -4629,7 +4629,7 @@ class Ui_MainWindow(object):
 
         self.menu_toolBox.setCurrentIndex(1)
         self.menu_toolBox.layout().setSpacing(30)
-        self.stackedPages.setCurrentIndex(3)
+        self.stackedPages.setCurrentIndex(1)
         self.stackedWidget_3.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)
@@ -4696,11 +4696,11 @@ class Ui_MainWindow(object):
         self.label_135.setText(QCoreApplication.translate("MainWindow", u"page2", None))
         self.leftButton_13.setText(QCoreApplication.translate("MainWindow", u">", None))
         self.label_104.setText("")
-        self.label_105.setText(QCoreApplication.translate("MainWindow", u"60126", None))
-        self.label_Title_17.setText(QCoreApplication.translate("MainWindow", u"Love Dive", None))
+        self.song_gift_cnt.setText(QCoreApplication.translate("MainWindow", u"60126", None))
+        self.song_title.setText(QCoreApplication.translate("MainWindow", u"Love Dive", None))
         self.label_106.setText("")
-        self.label_107.setText(QCoreApplication.translate("MainWindow", u"60126", None))
-        self.label_Artist_8.setText(QCoreApplication.translate("MainWindow", u"IVE", None))
+        self.song_liked_cnt.setText(QCoreApplication.translate("MainWindow", u"60126", None))
+        self.song_singer.setText(QCoreApplication.translate("MainWindow", u"IVE", None))
         self.label_208.setText(QCoreApplication.translate("MainWindow", u"0:00", None))
         self.label_209.setText(QCoreApplication.translate("MainWindow", u"3:34", None))
         self.pushButton_47.setText("")

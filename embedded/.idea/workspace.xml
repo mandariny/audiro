@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/main/kiosk.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/kiosk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/kiosk_main_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/kiosk_main_monitor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/kiosk_main_monitor.ui" beforeDir="false" afterPath="$PROJECT_DIR$/main/kiosk_main_monitor.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/virtual_keyboard2.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/virtual_keyboard2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

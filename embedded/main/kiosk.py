@@ -16,7 +16,9 @@ import os
 # 사용자 모듈 - player 추가
 from player import VLC
 import pafy
+
 import urllib.request
+from urllib.error import URLError, HTTPError
 
 import requests
 
@@ -27,10 +29,11 @@ spot_id = 1    # 기기 번호
 # http get 요청
 
 # local_url -> 추후 서버 주소로 변경
-local_url = "http://localhost:8080"
+#local_url = "http://localhost:8080"
+local_url = "http://i8a402.p.ssafy.io:80/"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjo1LCJuaWNrTmFtZSI6IuyCrOyaqeyekDUiLCJpYXQiOjE2NzU3NjU2NDYsImV4cCI6MTY3NTc3MTY0Nn0.b66aiYT0VmVFJzsRV1t2o3JCoINxuhFCixKwJ0jm5N8'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjo1LCJuaWNrTmFtZSI6IuyCrOyaqeyekDUiLCJpYXQiOjE2NzU5MjY0MTksImV4cCI6MTY3NTkzMjQxOX0.ZMj7zYUFeNQhaqw2X5Aw5tDt2s7ZcXNYxJ6tOXssJRY'
 }
 
 
@@ -43,6 +46,7 @@ omg = "https://www.youtube.com/watch?v=-p1ftgMVWOc"
 one_page = "https://www.youtube.com/watch?v=_78CYlWmigI"
 love_dive = "https://www.youtube.com/watch?v=Y8JFxS1HlDo"
 
+# virtualkeyboard 윈도우가 메인 윈도우를 가리는 문제 해결
 def handleVisibleChanged():
     if not QGuiApplication.inputMethod().isVisible():
         return
@@ -51,8 +55,6 @@ def handleVisibleChanged():
             keyboard = w.findChild(QObject, "keyboard")
             if keyboard is not None:
                 r = w.geometry()
-                print(r.width())
-                print(r.height())
                 r.moveTop(keyboard.property("y"))
                 w.setMask(QRegion(r))
                 return
@@ -90,7 +92,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.player = VLC()
         #self.new_music(self.music_list[self.music_index][0])
-        self.new_music(self.music_list[self.music_index])
+        #self.new_music(self.music_list[self.music_index])
         #self.player.add_callback(vlc.EventType.MediaPlayerEndReached, self.nextMusic)  ## 종료 됬을대 다음곡
 
         #유저 정보
@@ -105,23 +107,38 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         QScroller.grabGesture(
             self.scrollArea.viewport(), QScroller.LeftMouseButtonGesture
         )
-        """
-        # 차트 정보 불러오기
-        postcard_url = local_url + "/api/postcard"
-        for i in range(10):
-            postcard_param = {'postcardId': i}
-            response = requests.get(postcard_url, headers=request_header, params=postcard_param)
-            res_json = response.json()
-            self.music_list.append([res_json.get('id'), res_json.get('postcardImg'), res_json.get('song'), res_json.get('singer'), res_json.get('song_Url'), res_json.get('regTime')])
 
+        # 차트 정보 불러오기
+        song_list_url = local_url + "api/song/chart/giftcnt"
+        song_list_param = {'spotId': spot_id}
+        response = requests.get(song_list_url, headers=request_header, params=song_list_param)
+        print(response.json())
+        self.music_chart = response.json()
+
+        """
+        for i in range(10):
+            self.music_chart.append([
+                res_json.get('song_id'),
+                res_json.get('song_name'),
+                res_json.get('singer'),
+                res_json.get('song_url'),
+                res_json.get('song_img'),
+                res_json.get('song_liked'),
+                res_json.get('gift_cnt')
+            ])
+        """
         # 차트 이미지 넣기
         chart_button_list = [self.chart_img_Button1, self.chart_img_Button2, self.chart_img_Button3, self.chart_img_Button4, self.chart_img_Button5, self.chart_img_Button6, self.chart_img_Button7, self.chart_img_Button8, self.chart_img_Button9, self.chart_img_Button10]
-        for i in range(10):
+        print(self.music_chart)
+        """
+        for i in range(len(self.music_chart)):
             qix = QPixmap()
-            qix.loadFromData(self.music_list[i][1])
+            qix.loadFromData(self.music_chart[i].get('song_img'))
             chart_button_list[i].setIcon(QIcon(qix))
             chart_button_list[i].setIconSize(qix.rect().size())
         """
+        self.play_music(self.music_chart[0].get('song_url'))
+
 
     # 플레이어 함수들
     def new_music(self, url):
@@ -145,8 +162,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
         self.player.play()
 
-    """def playMusic(self, index):
-        self.video = pafy.new(self.music_list[index][4])  # pafy + youtube-dl 사용 direct link 변환
+    def play_music(self, index):
+        self.video = pafy.new(self.music_chart[0].get('song_url'))  # pafy + youtube-dl 사용 direct link 변환
+        #self.video = pafy.new(ditto)  # pafy + youtube-dl 사용 direct link 변환
         audio_url = self.video.getbestaudio(preftype="m4a").url  # direct link에서 음성만 추출
         self.player.set_uri(audio_url)
 
@@ -156,18 +174,37 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.player.set_volume(70)
 
         # 이미지 선처리
-        img = self.music_list[index][1]
-        qix = QPixmap()
-        qix.loadFromData(img)
+        img_url = self.music_chart[0].get('song_img')
+
+        try:
+            #403 방지
+            headers = {'User-Agent': 'Chrome/66.0.3359.181'}
+            req = urllib.request.Request(img_url, headers=headers)
+            img = urllib.request.urlopen(req)
+
+        except HTTPError as e:
+            err = e.read()
+            code = e.getcode()
+
+        source = img.read()
+        img.close()
+
+        img = requests.get(img_url)
+
+        pixmap = QPixmap()
+        pixmap.loadFromData(source)
+        pixmap = pixmap.scaled(300,300, Qt.IgnoreAspectRatio)
+        icon = QIcon()
+        icon.addPixmap(pixmap)
 
         ## 곡정보(제목,가수,재생시간) 변경 - UI 파일 내놔!!
-        self.label_Artist_3.setText(self.music_list[index][3])  # singer
-        self.label_Title_5.setText(self.music_list[index][2])   # song
-        self.pushButton_97.setIcon(QIcon(qix))
-        self.pushButton_97.setIconSize(qix.rect().size())
+        self.label_Artist_3.setText(self.music_chart[0].get('singer'))  # singer
+        self.label_Title_5.setText(self.music_chart[0].get('song_title'))   # song
+        self.chart_img_Button1.setIcon(icon)
+        self.chart_img_Button1.setIconSize(pixmap.rect().size())
         self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
         self.player.play()
-    """
+
     def nextMusic(self):
         pass
 
@@ -201,11 +238,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def playMusic1_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
-        song_id = 0
-        """
-        postcard_url = local_url + "/song/gifts/:" + song_id + "/:" + spot_id
-        response = requests.get(postcard_url, headers=request_header, params=None)
+
+        song_id = 1
+        song_gift_url = local_url + "api/song/gifts/"
+        song_gift_param = {'spotId': spot_id, 'songId': song_id}
+
+        response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
+        print(res_json)
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(gift_list[0])
         self.music_post2.pixmap(gift_list[1])
@@ -213,7 +253,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.music_post4.pixmap(gift_list[3])
         self.music_post5.pixmap(gift_list[4])
         self.music_post6.pixmap(gift_list[5])
-        """
+
+        self.song_title.setText(res_json.get('song_title'))
+        self.song_singer.setText(res_json.get('singer'))
+        self.song_gift_cnt.setText(res_json.get('gift_cnt'))
+        self.song_liked_cnt.setText(res_json.get('song_liked'))
+
+        self.play_music(0)
+
     def playMusic2_chart(self):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
