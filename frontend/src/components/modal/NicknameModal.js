@@ -19,23 +19,26 @@ const NicknameModal = (props) => {
 
     const submitHandler=(e)=>
     {
-        e.preventDefault()}    
+        e.preventDefault()
+    }    
 
     const ChangeNickname=(e)=> {
+        console.log("newNickName")
         console.log(newNickname)
-        axios({
+        axios.post('http://i8a402.p.ssafy.io:80/api/user/change-nickname', 
+        {
             method:'POST',
-            url:'http://i8a402.p.ssafy.io:80/api/user/change-nickname',
+            url:'',
             headers: {Auth: `${token}`},
-            data:{
-                newNickName:`${newNickname}`
-            },
+            newNickName:`${newNickname}`
         })
         .then ((res)=>{
-            console.log(res.header.refresh)
-            const jwtToken=res.header.resfresh
+            console.log("결과 받기")
+            console.log(res);
+            console.log(res.header.refresh);
+            const jwtToken=res.header.resfresh;
             localStorage.setItem('login-token', jwtToken);
-            console.log('success')
+            console.log('success');
         })
         .catch((err=>{
             console.log(err.data)
