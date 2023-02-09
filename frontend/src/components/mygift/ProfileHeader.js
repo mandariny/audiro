@@ -61,8 +61,8 @@ const StyledMyGiftListTitle = styled.div`
 const StyledProfileImg=styled.img`
     background-color: white;
     border-radius: 100%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 `;
 
 const ProfileHeader = (props) => {
