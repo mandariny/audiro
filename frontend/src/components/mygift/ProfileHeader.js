@@ -7,6 +7,9 @@ import DeleteModal from "../modal/DeleteModal";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+import axios from "axios";
+import jwt from 'jwt-decode';
+
 const StyledHeader = styled.div`
     margin-top: 20px;
     margin-left: 10px;
@@ -55,6 +58,13 @@ const StyledMyGiftListTitle = styled.div`
     color: white;
 `;
 
+const StyledProfileImg=styled.img`
+    background-color: white;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+`;
+
 const ProfileHeader = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -62,13 +72,29 @@ const ProfileHeader = (props) => {
   const {giftid}=useParams();
   console.log([deleteModalOpen, setDeleteModalOpen])
 
+  const token = localStorage.getItem('login-token');
+  console.log(jwt(token));
+  const userId = jwt(token)['userId']; 
+  console.log(userId);
+
+  const [userImg, setuserImg] = useState();
+  useEffect(() => {
+    axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
+      .then((res) => {
+        setuserImg(res.data.img);
+      })
+  }, []);
+
+
   return (
     <div>
       <StyledHeader>
         <StyledMyGiftTitle>반가워요, {props.nickname}님 👋 </StyledMyGiftTitle>
 
         <StyledMyGiftHeaderWrapper>
-          <StyledMyGiftProfile><BsHeadphones fill='black' size="30"/></StyledMyGiftProfile>
+          <StyledMyGiftProfile>
+          <StyledProfileImg src={userImg}/>
+          </StyledMyGiftProfile>
             <Link to="/gifts" style={{ textDecoration: 'none' }}>
                 <div>
                 <StyledMyGiftListNumber>{props.giftcnt}</StyledMyGiftListNumber>
