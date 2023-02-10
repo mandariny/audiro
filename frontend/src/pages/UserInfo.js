@@ -14,13 +14,14 @@ const StyleUserInfoContainer = styled.div`
     background-color: rgba(65, 22, 162, 0.5);
     margin-left: 20px;
     margin-right: 20px;
+    padding-bottom: 20px;
 `;
 
 const StyleUserInfoImg = styled.img`
     border-radius: 100%;
     background-color: white;
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     margin-bottom: 50px;
 `;
 
