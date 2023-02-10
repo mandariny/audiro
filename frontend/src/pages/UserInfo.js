@@ -36,6 +36,12 @@ const StyleUserInfoTitle = styled.div`
     color: white;
 `;
 
+const StyleTitle = styled.div`
+    font-size: 20px;
+    font-family: var(--font-nanumSquareB);
+    color: white;
+`;
+
 const StyleUserInfoText = styled.div`
     font-size: 16px;
     font-family: var(--font-nanumSquareL);
@@ -71,6 +77,7 @@ const UserInfo = () =>{
             <Nav/>
         
             <StyleUserInfoContainer>
+                <StyleTitle>내 정보 수정</StyleTitle>
                 <StyleUserInfoImg src={profile}></StyleUserInfoImg>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>이름</StyleUserInfoTitle>
