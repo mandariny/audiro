@@ -54,7 +54,7 @@ const StyleUserInfoText = styled.div`
     color: white;
 `;
 
-const StyleUserInfoInput = styled.div`
+const StyleUserInfoInput = styled.input`
     font-size: 16px;
     font-family: var(--font-nanumSquareL);
     color: white;
