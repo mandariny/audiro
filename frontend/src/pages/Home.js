@@ -22,8 +22,6 @@ const Home = () => {
         
         console.log(jwtToken);
         console.log("parsing");
-        //console.log(jwt(token));
-        //console.log(jwt(token["ninkName"]));
     }, [])
     
     //setToken(localStorage.getItem('login-token'));
