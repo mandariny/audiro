@@ -138,6 +138,7 @@ const UserInfo = () =>{
                     <StyleUserInfoTitle>닉네임</StyleUserInfoTitle>
                     <form onSubmit={submitHandler}>
                         <StyleUserInfoInput onChange={onChange} value={nickname}  type="text">{nickname}</StyleUserInfoInput>
+                        <button type='submit'>닉네임 변경</button>
                     </form>
                 </StyledUserInfoWrapper>
 
