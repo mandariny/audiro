@@ -13,7 +13,7 @@ const StyleUserInfoContainer = styled.div`
     margin-top: 30px;
 `;
 
-const StyleUserInfoImg = styled.div`
+const StyleUserInfoImg = styled.img`
     border-radius: 100%;
     background-color: white;
     width: 70px;
@@ -53,13 +53,14 @@ const UserInfo = () =>{
 
     const [name, setName] = useState();
     const [email, setEmail] = useState();
-
+    const [profile, setProfile] = useState();
     useEffect(() => {
         axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
             .then((res) => {
                  console.log(res);
                  setName(res.data["name"]);
                  setEmail(res.data["email"]);
+                 setProfile(res.data['img']);
             })
     }, []);
 
@@ -70,7 +71,7 @@ const UserInfo = () =>{
             <Nav/>
         
             <StyleUserInfoContainer>
-                <StyleUserInfoImg></StyleUserInfoImg>
+                <StyleUserInfoImg src={profile}></StyleUserInfoImg>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>이름</StyleUserInfoTitle>
                     <StyleUserInfoText>{name}</StyleUserInfoText>
