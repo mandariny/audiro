@@ -54,6 +54,12 @@ const StyleUserInfoText = styled.div`
     color: white;
 `;
 
+const StyleUserInfoInput = styled.div`
+    font-size: 16px;
+    font-family: var(--font-nanumSquareL);
+    color: white;
+`;
+
 const UserInfo = () =>{
 
     const token = localStorage.getItem('login-token');
@@ -66,6 +72,8 @@ const UserInfo = () =>{
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [profile, setProfile] = useState();
+    const [newNick, setNewNick] = useState();
+
     useEffect(() => {
         axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
             .then((res) => {
@@ -76,6 +84,38 @@ const UserInfo = () =>{
             })
     }, []);
 
+    const onChange=(e)=>{    
+        setNewNick(e.target.value);
+        console.log(nickname)
+    }
+
+    const submitHandler=(e)=>
+    {
+        e.preventDefault()
+        
+        axios.post('http://i8a402.p.ssafy.io:80/api/user/change-nickname', {}
+        ,
+        {
+            headers: {
+              "Auth": token
+            },
+            params: {newNickName: `${newNick}`}
+        })
+        .then ((res)=>{
+            console.log("결과 받기")
+            console.log(token);
+            console.log(res);
+    
+            console.log((res['headers'])['refresh'])
+            const jwtToken=(res['headers'])['refresh'];
+            localStorage.setItem('login-token', jwtToken);
+            console.log('success');
+            console.log(localStorage.getItem('login-token'))
+        })
+        .catch((e)=>{
+            console.log(e);
+        });
+    }    
 
     return (
         <div>
@@ -95,7 +135,9 @@ const UserInfo = () =>{
                 </StyledUserInfoWrapper>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>닉네임</StyleUserInfoTitle>
-                    <StyleUserInfoText>{nickname}</StyleUserInfoText>
+                    <form onSubmit={submitHandler}>
+                        <StyleUserInfoInput onChange={onChange} value={nickname}  type="text">{nickname}</StyleUserInfoInput>
+                    </form>
                 </StyledUserInfoWrapper>
 
             </StyleUserInfoContainer>
