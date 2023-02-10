@@ -1,9 +1,14 @@
 package com.a402.audiro.controller;
 
 import com.a402.audiro.config.util.jwt.JwtTokenService;
+import com.a402.audiro.config.util.jwt.JwtTokens;
 import com.a402.audiro.dto.UserLoginDTO;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import jdk.nashorn.internal.parser.Token;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,25 +24,49 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/token")
 public class JwtTokenController {
 
-    @Autowired
     private JwtTokenService jwtTokenService;
 
     @PostMapping("/refresh")
-    private ResponseEntity refresh(ServletRequest request){
+    private ResponseEntity refresh(HttpServletRequest request){
         log.info("토큰 Refresh 요청");
-        String refreshToken = ((HttpServletRequest)request).getHeader("Refresh");
+        String refreshToken = request.getHeader("Refresh");
         log.info("refresh from request header : " + refreshToken);
-        //요청을 받으면 들어온 토큰에 대해서 유효성 검증!!
-        if (refreshToken != null && jwtTokenService.verifyToken(refreshToken)) {
-            log.info("유효한 Refresh 토큰입니다.");
-            //AccessToken 새로 생성하기
-            String newAccessToken = jwtTokenService.refreshAccessToken(refreshToken);
-            log.info("AccessToken Refresh완료");
-            //SecurityContext에 권한과 함께 저장
-            return ResponseEntity.ok().header("Refresh",newAccessToken).body("토큰생성완료");
-        }else{
-            log.info("유효한 Refresh 토큰이 없습니다.");
+
+        if (refreshToken == null) {
+            //토큰이 없으면
+            log.info("토큰이 없습니다.");
             return ResponseEntity.badRequest().body("토큰이 유효하지 않습니다");
+            //로그인 페이지로 넘어갈거임
+        } else {
+            //토큰이 있으면 검증을 시도
+            try {
+                jwtTokenService.verifyToken(refreshToken);
+                //토큰 검증이 통과했다면
+                log.info("유효한 토큰입니다.");
+                if (jwtTokenService.getType(refreshToken).equals("refresh")) {
+                    //토큰이 엑세스 토큰인지 먼저 확인한 후,
+                    //AccessToken 새로 생성하기
+                    JwtTokens newTokens = jwtTokenService.refreshAccessToken(refreshToken);
+                    log.info("AccessToken Refresh완료");
+                    //SecurityContext에 권한과 함께 저장
+                    return ResponseEntity.ok().header("Auth",newTokens.getAccessToken()).body("토큰생성완료");
+                }else{
+                    //엑세스 토큰이 아닌 경우에는
+                    log.warn("not-access-token");
+                    return ResponseEntity.badRequest().body("토큰이 유효하지 않습니다");
+                }
+            } catch (ExpiredJwtException e) {
+                //만료시에는 로그인 페이지로 데려다주고싶은데
+                return ResponseEntity.badRequest().body("토큰이 유효하지 않습니다");
+            } catch (JwtException e) {
+                //토큰 검증에 실패했을때
+                log.warn("wrong_token");
+                return ResponseEntity.badRequest().body("토큰이 유효하지 않습니다");
+            } catch (Exception e) {
+                //사용자 정보 꺼내기에 실패한경우 >> secret key는 맞는데 토큰의 내용 형식이 이상한 경우
+                log.warn("wrong_token");
+                return ResponseEntity.badRequest().body("토큰이 유효하지 않습니다");
+            }
         }
     }
 }
