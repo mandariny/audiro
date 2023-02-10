@@ -6,6 +6,13 @@ import Nav from "../components/Nav";
 
 import jwt from 'jwt-decode';
 
+
+const StyleUserInfoInput = styled.input`
+    font-size: 16px;
+    font-family: var(--font-nanumSquareL);
+    color: white;
+`;
+
 const StyleUserInfoContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -49,12 +56,6 @@ const StyleTitle = styled.div`
 `;
 
 const StyleUserInfoText = styled.div`
-    font-size: 16px;
-    font-family: var(--font-nanumSquareL);
-    color: white;
-`;
-
-const StyleUserInfoInput = styled.input`
     font-size: 16px;
     font-family: var(--font-nanumSquareL);
     color: white;
