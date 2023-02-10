@@ -1,53 +1,59 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import axios from 'axios'
+
 const StyeldNicknameModal=styled.div`
     
 `;
 
 const NicknameModal = (props) => {
 
-    const [newNickname,setNewNickname]=useState('')
+    const [nickname,setNickname]=useState('')
     const onChange=(e)=>{    
-        setNewNickname(e.target.value)
-        setNewNickname(e.target.value)
-        console.log(newNickname)
-        console.log(e.target.value)
-        }
+        setNickname(e.target.value)
+        console.log(nickname)
+    }
     
     const token=localStorage.getItem('login-token')
 
     const submitHandler=(e)=>
     {
         e.preventDefault()
-    }    
-
-    const ChangeNickname=(e)=> {
-        console.log("newNickName")
-        console.log(newNickname)
-        axios.post('http://i8a402.p.ssafy.io:80/api/user/change-nickname', 
+        
+        const data = {
+          "newNickName" : nickname
+        }
+        
+        axios.post('http://i8a402.p.ssafy.io:80/api/user/change-nickname', {}
+        ,
         {
-            newNickName:`${newNickname}`
-        },  
-        {
-            headers: {Auth: `${token}`}
+            headers: {
+              "Auth": token
+            },
+            params: {newNickName: `${nickname}`}
         })
         .then ((res)=>{
             console.log("결과 받기")
+            console.log(token);
             console.log(res);
-            console.log(res.Headers.Refresh);
-            const jwtToken=res.Headers.Refresh;
+    
+            console.log((res['headers'])['refresh'])
+            const jwtToken=(res['headers'])['refresh'];
             localStorage.setItem('login-token', jwtToken);
             console.log('success');
+            console.log(localStorage.getItem('login-token'))
+        })
+        .catch((e)=>{
+            console.log(e);
         });
-    }
+    }    
 
     return (
         <StyeldNicknameModal>
        
             <form onSubmit={submitHandler}>
-                <input onChange={onChange} value={newNickname}  type='text'/> 
-                <button type='button' onClick={ChangeNickname}>닉네임 변경</button>
+                <input onChange={onChange} value={nickname}  type='text'/> 
+                <button type='submit'>닉네임 변경</button>
             </form>
         </StyeldNicknameModal>
     );
