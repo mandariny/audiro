@@ -147,6 +147,32 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.music_post5.pixmap(self.show_image(res_json[0].get('gift_img')))
         self.music_post6.pixmap(self.show_image(res_json[0].get('gift_img')))
 
+    def play_chart_scroll(self):
+        value = self.scrollArea.horizontalScrollBar().value()
+        #position_ratio = value / 1
+        if value < 0.1:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.2:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.3:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.4:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.5:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.6:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.7:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.8:
+            self.play_music(self.music_chart[0].get('song_url'))
+        elif value < 0.9:
+            self.play_music(self.music_chart[0].get('song_url'))
+        else:
+            self.play_music(self.music_chart[0].get('song_url'))
+
+
+
     # 플레이어 함수들
     def new_music(self, url):
         self.video = pafy.new(url)  # pafy + youtube-dl 사용 direct link 변환
@@ -540,10 +566,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def backToChart(self):
         self.stackedPages.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(2)
+        self.menu_toolBox.setCurrentIndex(0)
+        self.player.stop()
 
     def backToPosts(self):
         self.stackedPages.setCurrentIndex(2)
         self.stackedPages2.setCurrentIndex(2)
+        self.menu_toolBox.setCurrentIndex(1)
+        self.player.stop()
 
     def changeMenu(self, ind):
         if ind == 0:
@@ -611,6 +641,32 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def searchMusic(self):
         self.stackedPages.setCurrentIndex(4)
         self.stackedPages2.setCurrentIndex(6)
+
+    def pause(self):
+        playing = self.player.is_playing()
+        if playing:
+            self.player.pause()
+        else:
+            self.player.resume()
+
+    def show_volume_chart(self):
+        visible = self.volume_frame_chart.isVisible()
+        self.volume_frame_chart.setVisible(not visible)
+    def show_volume_song(self):
+        visible = self.volume_frame_chart.isVisible()
+        self.volume_frame_song.setVisible(not visible)
+    def show_volume_manito(self):
+        visible = self.volume_frame_manito.isVisible()
+        self.volume_frame_manito.setVisible(not visible)
+    def show_volume_post(self):
+        visible = self.volume_frame_post.isVisible()
+        self.volume_frame_post.setVisible(not visible)
+    def show_volume_received(self):
+        visible = self.volume_frame_received.isVisible()
+        self.volume_frame_received.setVisible(not visible)
+    def show_volume_send(self):
+        visible = self.volume_frame_send.isVisible()
+        self.volume_frame_send.setVisible(not visible)
 
     def change_volume(self, vol):
         self.player.set_volume(vol)
@@ -741,7 +797,6 @@ screen_rect = app.desktop().screenGeometry()
 print(screen_rect.width(), screen_rect.height())
 
 QGuiApplication.inputMethod().visibleChanged.connect(handleVisibleChanged)
-
 
 window = MyWindow()
 window.setFixedWidth(1080)
