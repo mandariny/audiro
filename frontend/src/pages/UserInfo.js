@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from 'styled-components';
 import axios from "axios";
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
+
+import jwt from 'jwt-decode';
 
 const StyleUserInfoContainer = styled.div`
     display: flex;
@@ -42,6 +44,26 @@ const StyleUserInfoText = styled.div`
 
 const UserInfo = () =>{
 
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
+    const nickname = jwt(token)['nickName']; 
+    console.log(nickname);
+    const userId = jwt(token)['userId']; 
+    console.log(userId);
+
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+
+    useEffect(() => {
+        axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
+            .then((res) => {
+                 console.log(res);
+                 setName(res.data["name"]);
+                 setEmail(res.data["email"]);
+            })
+    }, []);
+
+
     return (
         <div>
             <Logo/>
@@ -51,15 +73,15 @@ const UserInfo = () =>{
                 <StyleUserInfoImg></StyleUserInfoImg>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>이름</StyleUserInfoTitle>
-                    <StyleUserInfoText>이가옥</StyleUserInfoText>
+                    <StyleUserInfoText>{name}</StyleUserInfoText>
                 </StyledUserInfoWrapper>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>이메일</StyleUserInfoTitle>
-                    <StyleUserInfoText>dlrkdhr321@gmail.com</StyleUserInfoText>
+                    <StyleUserInfoText>{email}</StyleUserInfoText>
                 </StyledUserInfoWrapper>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>닉네임</StyleUserInfoTitle>
-                    <StyleUserInfoText>okiii</StyleUserInfoText>
+                    <StyleUserInfoText>{nickname}</StyleUserInfoText>
                 </StyledUserInfoWrapper>
 
             </StyleUserInfoContainer>

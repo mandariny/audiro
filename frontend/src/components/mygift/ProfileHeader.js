@@ -26,7 +26,9 @@ const StyledMyGiftTitle = styled.div`
     margin-bottom: 25px;
     margin-left: 10px;
     color: white;
-    text-decoration: none;
+    >*{
+      text-decoration: none;
+    }
 `;
 
 const StyledMyGiftHeaderWrapper = styled.div`
