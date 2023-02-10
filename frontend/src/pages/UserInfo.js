@@ -11,6 +11,9 @@ const StyleUserInfoContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    background-color: rgba(65, 22, 162, 0.5);
+    margin-left: 20px;
+    margin-right: 20px;
 `;
 
 const StyleUserInfoImg = styled.img`
@@ -37,9 +40,11 @@ const StyleUserInfoTitle = styled.div`
 `;
 
 const StyleTitle = styled.div`
-    font-size: 20px;
+    font-size: 18px;
     font-family: var(--font-nanumSquareB);
     color: white;
+    margin-bottom: 20px;
+    margin-top: 20px;
 `;
 
 const StyleUserInfoText = styled.div`
