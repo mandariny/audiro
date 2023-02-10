@@ -129,6 +129,7 @@ const GiftDetail = (props) => {
 
   const {giftid} = useParams();
   const {giftcnt} = useParams();
+  const {mmcnt} = useParams();
   // console.log([deleteModalOpen, setDeleteModalOpen])
 
   const [dataDetail, setDataDetail] = useState({});
@@ -146,7 +147,7 @@ const GiftDetail = (props) => {
     <div>
       <Logo/>
       <Nav/>
-      <ProfileHeader nickname={nickname} giftcnt={giftcnt} />
+      <ProfileHeader nickname={nickname} giftcnt={giftcnt} mmcnt={mmcnt} />
       <StyledGiftDetailContainer>
         <StyledGiftDetailBtnWrapper>
           <StyledDetailBtn>비공개</StyledDetailBtn>

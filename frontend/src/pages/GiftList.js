@@ -126,7 +126,7 @@ const GiftList = (props) =>{
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
                     {dataList?.map(item => (
-                        <Gift nickname={nickname} giftcnt={giftcnt} key={item.id} id={item.id} src={item.giftImg}/>
+                        <Gift nickname={nickname} giftcnt={giftcnt} mmcnt={mmcnt} key={item.id} id={item.id} src={item.giftImg}/>
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>
