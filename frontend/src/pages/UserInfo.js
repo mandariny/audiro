@@ -1,6 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
 import axios from "axios";
+import Logo from "../components/Logo";
+import Nav from "../components/Nav";
 
 const StyleUserInfoContainer = styled.div`
     display: flex;
@@ -41,22 +43,27 @@ const StyleUserInfoText = styled.div`
 const UserInfo = () =>{
 
     return (
-        <StyleUserInfoContainer>
-            <StyleUserInfoImg></StyleUserInfoImg>
-            <StyledUserInfoWrapper>
-                <StyleUserInfoTitle>이름</StyleUserInfoTitle>
-                <StyleUserInfoText>이가옥</StyleUserInfoText>
-            </StyledUserInfoWrapper>
-            <StyledUserInfoWrapper>
-                <StyleUserInfoTitle>이메일</StyleUserInfoTitle>
-                <StyleUserInfoText>dlrkdhr321@gmail.com</StyleUserInfoText>
-            </StyledUserInfoWrapper>
-            <StyledUserInfoWrapper>
-                <StyleUserInfoTitle>닉네임</StyleUserInfoTitle>
-                <StyleUserInfoText>okiii</StyleUserInfoText>
-            </StyledUserInfoWrapper>
+        <div>
+            <Logo/>
+            <Nav/>
+        
+            <StyleUserInfoContainer>
+                <StyleUserInfoImg></StyleUserInfoImg>
+                <StyledUserInfoWrapper>
+                    <StyleUserInfoTitle>이름</StyleUserInfoTitle>
+                    <StyleUserInfoText>이가옥</StyleUserInfoText>
+                </StyledUserInfoWrapper>
+                <StyledUserInfoWrapper>
+                    <StyleUserInfoTitle>이메일</StyleUserInfoTitle>
+                    <StyleUserInfoText>dlrkdhr321@gmail.com</StyleUserInfoText>
+                </StyledUserInfoWrapper>
+                <StyledUserInfoWrapper>
+                    <StyleUserInfoTitle>닉네임</StyleUserInfoTitle>
+                    <StyleUserInfoText>okiii</StyleUserInfoText>
+                </StyledUserInfoWrapper>
 
-        </StyleUserInfoContainer>
+            </StyleUserInfoContainer>
+        </div>
       )
 };
 
