@@ -6,7 +6,6 @@ import Nav from "../components/Nav";
 
 import jwt from 'jwt-decode';
 
-
 const StyleUserInfoInput = styled.input`
     font-size: 16px;
     font-family: var(--font-nanumSquareL);
@@ -73,7 +72,6 @@ const UserInfo = () =>{
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [profile, setProfile] = useState();
-    const [newNick, setNewNick] = useState();
 
     useEffect(() => {
         axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
@@ -84,39 +82,6 @@ const UserInfo = () =>{
                  setProfile(res.data['img']);
             })
     }, []);
-
-    const onChange=(e)=>{    
-        setNewNick(e.target.value);
-        console.log(nickname)
-    }
-
-    const submitHandler=(e)=>
-    {
-        e.preventDefault()
-        
-        axios.post('http://i8a402.p.ssafy.io:80/api/user/change-nickname', {}
-        ,
-        {
-            headers: {
-              "Auth": token
-            },
-            params: {newNickName: `${newNick}`}
-        })
-        .then ((res)=>{
-            console.log("결과 받기")
-            console.log(token);
-            console.log(res);
-    
-            console.log((res['headers'])['refresh'])
-            const jwtToken=(res['headers'])['refresh'];
-            localStorage.setItem('login-token', jwtToken);
-            console.log('success');
-            console.log(localStorage.getItem('login-token'))
-        })
-        .catch((e)=>{
-            console.log(e);
-        });
-    }    
 
     return (
         <div>
@@ -136,10 +101,7 @@ const UserInfo = () =>{
                 </StyledUserInfoWrapper>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>닉네임</StyleUserInfoTitle>
-                    {/* <form onSubmit={submitHandler}> */}
-                        <StyleUserInfoInput type="text">{nickname}</StyleUserInfoInput>
-                        {/* <button type='submit'>닉네임 변경</button> */}
-                    {/* </form> */}
+                    <StyleUserInfoInput>{nickname}</StyleUserInfoInput>
                 </StyledUserInfoWrapper>
 
             </StyleUserInfoContainer>
