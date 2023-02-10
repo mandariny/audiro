@@ -92,11 +92,10 @@ const ProfileHeader = (props) => {
   return (
     <div>
       <StyledHeader>
-        <StyledMyGiftTitle>반가워요, <div onClick={()=>{setNicknameOpen(true)}}>{props.nickname}님 👋 </div></StyledMyGiftTitle>
-
+        <StyledMyGiftTitle><Link to="/userinfo">반가워요, {props.nickname}님 👋</Link></StyledMyGiftTitle>
         <StyledMyGiftHeaderWrapper>
           <StyledMyGiftProfile>
-          <StyledProfileImg src={userImg}/>
+            <StyledProfileImg src={userImg}/>
           </StyledMyGiftProfile>
             <Link to="/gifts" style={{ textDecoration: 'none' }}>
                 <div>

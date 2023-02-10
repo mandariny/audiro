@@ -12,6 +12,8 @@ import Intro from './pages/Intro'
 import Others from "./pages/Others";
 import Messages from "./pages/Messages";
 
+import UserInfo from "./pages/UserInfo";
+
 function App() {
 
   return (
@@ -33,6 +35,7 @@ function App() {
 
           <Route path='/others/:nickname' element={<Others/>}/>
           <Route path='/messenger/:opponent' element={<Messages/>} />
+          <Route path='/userinfo' element={<UserInfo/>}/>
       </Routes>
       </BrowserRouter>
     </div>
