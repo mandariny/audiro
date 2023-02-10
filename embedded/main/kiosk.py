@@ -1,5 +1,3 @@
-import json
-import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap, QIcon, QColor
 from PyQt5.QtCore import Qt, QObject
@@ -7,11 +5,15 @@ from kiosk_main_monitor import Ui_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from PyQt5.QtGui import QGuiApplication, QRegion
+from PyQt5.QtCore import *
 
 # 사용자 모듈 - painter 추가
 import painter
 
+import json
+import sys
 import os
+import time
 
 # 사용자 모듈 - player 추가
 from player import VLC
@@ -22,18 +24,13 @@ from urllib.error import URLError, HTTPError
 
 import requests
 
-os.environ["QT_IM_MODULE"] = "qtvirtualkeyboard"
-
-spot_id = 1    # 기기 번호
-
 # http get 요청
-
 # local_url -> 추후 서버 주소로 변경
 #local_url = "http://localhost:8080"
-local_url = "http://i8a402.p.ssafy.io:80/"
+local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjo1LCJuaWNrTmFtZSI6IuyCrOyaqeyekDUiLCJpYXQiOjE2NzU5MjY0MTksImV4cCI6MTY3NTkzMjQxOX0.ZMj7zYUFeNQhaqw2X5Aw5tDt2s7ZcXNYxJ6tOXssJRY'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjo1LCJuaWNrTmFtZSI6ImdrZ2tna2drIiwiaWF0IjoxNjc2MDE3ODYxLCJleHAiOjE2NzYwMjM4NjF9.Idt5aET9MvMzDatsE61HG3roNKunTC93MIxUVFg6Ics'
 }
 
 
@@ -45,6 +42,13 @@ ditto = "https://www.youtube.com/watch?v=Km71Rr9K-Bw"
 omg = "https://www.youtube.com/watch?v=-p1ftgMVWOc"
 one_page = "https://www.youtube.com/watch?v=_78CYlWmigI"
 love_dive = "https://www.youtube.com/watch?v=Y8JFxS1HlDo"
+
+song_id = 1
+
+spot_id = 1    # 기기 번호
+
+# 가상 키보드 불러오기
+os.environ["QT_IM_MODULE"] = "qtvirtualkeyboard"
 
 # virtualkeyboard 윈도우가 메인 윈도우를 가리는 문제 해결
 def handleVisibleChanged():
@@ -58,6 +62,23 @@ def handleVisibleChanged():
                 r.moveTop(keyboard.property("y"))
                 w.setMask(QRegion(r))
                 return
+
+#QThread 클래스 선언하기, QThread 클래스를 쓰려면 QtCore 모듈을 import 해야함.
+class Thread(QThread):
+    def __init__(self, parent): #parent는 WndowClass에서 전달하는 self이다.(WidnowClass의 인스턴스)
+        super().__init__(parent)
+        self.parent = parent    #self.parent를 사용하여 WindowClass 위젯을 제어할 수 있다.
+        self.num = 0
+        self.running = True
+
+    def pause(self):
+        self.running = False
+
+    def run(self):
+        while self.running:
+            self.move_slider.emit(self.num)
+            self.num += 1
+            self.sleep(1)
 
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -89,7 +110,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         pafy.set_api_key(hy_key)
         self.music_index = 0
         self.music_list = [ditto, hype_boy,love_dive,omg, one_page]
-
+        self.music_chart = []
         self.player = VLC()
         #self.new_music(self.music_list[self.music_index][0])
         #self.new_music(self.music_list[self.music_index])
@@ -109,11 +130,13 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         )
 
         # 차트 정보 불러오기
-        song_list_url = local_url + "api/song/chart/giftcnt"
+        song_list_url = local_url + "/api/song/chart/giftcnt"
         song_list_param = {'spotId': spot_id}
         response = requests.get(song_list_url, headers=request_header, params=song_list_param)
-        print(response.json())
-        self.music_chart = response.json()
+        res_json = response.json()
+        print(res_json[0].get('song_title'))
+
+        self.music_chart = res_json
 
         # 차트 이미지 넣기
         chart_button_list = [self.chart_img_Button1, self.chart_img_Button2, self.chart_img_Button3, self.chart_img_Button4, self.chart_img_Button5, self.chart_img_Button6, self.chart_img_Button7, self.chart_img_Button8, self.chart_img_Button9, self.chart_img_Button10]
@@ -129,23 +152,58 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             ## 곡정보(제목,가수,재생시간) 변경
             self.label_Artist_3.setText(self.music_chart[0].get('singer'))  # singer
             self.label_Title_5.setText(self.music_chart[0].get('song_title'))  # song
-            self.chart_img_Button1.setIcon(icon)
-            self.chart_img_Button1.setIconSize(pixmap.rect().size())
-            self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
-            self.player.play()
+            chart_button_list[i].setIcon(icon)
+            chart_button_list[i].setIconSize(pixmap.rect().size())
 
-        self.play_music(self.music_chart[0].get('song_url'))
+        try:
+            self.play_music(self.music_chart[0].get('song_url'))
+            print('성공')
+        except:
+            print("에러")
 
         # 마니또 목록 불러오기
-        manito_list_url = local_url + '/manito'
+        manito_list_url = local_url + '/api/manito/1'
         response = requests.get(manito_list_url, headers=request_header, params=None)
         res_json = response.json()
+        print(res_json[0])
         self.music_post1.pixmap(self.show_image(res_json[0].get('gift_img')))
         self.music_post2.pixmap(self.show_image(res_json[0].get('gift_img')))
         self.music_post3.pixmap(self.show_image(res_json[0].get('gift_img')))
         self.music_post4.pixmap(self.show_image(res_json[0].get('gift_img')))
         self.music_post5.pixmap(self.show_image(res_json[0].get('gift_img')))
         self.music_post6.pixmap(self.show_image(res_json[0].get('gift_img')))
+
+        self.scrollArea.horizontalScrollBar().valueChanged.connect(lambda: swipe_music())
+
+        # 스와이프로 차트 음악 넘겨 재생
+        def swipe_music():
+            value = self.scrollArea.horizontalScrollBar().value()
+
+            if value < 10:
+               self.play_music(self.music_chart[0])
+            elif value < 20:
+                self.play_music(self.music_chart[0])
+            elif value < 30:
+                self.play_music(self.music_chart[0])
+            elif value < 40:
+                self.play_music(self.music_chart[0])
+            elif value < 50:
+                self.play_music(self.music_chart[0])
+            elif value < 60:
+                self.play_music(self.music_chart[0])
+            elif value < 70:
+                self.play_music(self.music_chart[0])
+            elif value < 80:
+                self.play_music(self.music_chart[0])
+            elif value < 90:
+                self.play_music(self.music_chart[0])
+            else:
+                self.play_music(self.music_chart[0])
+
+    def move_slider(self, num):
+        x = Thread(self)    #self는 WindowClass의 인스턴스, Thread 클래스에서 parent로 전달
+        x.start()           #쓰레드 클래스의 run 메서드를 동작시키는 부분
+        self.chart_music_slider.setValue(num)
 
     # 플레이어 함수들
     def new_music(self, url):
@@ -236,6 +294,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.chart_img_Button1.setIconSize(pixmap.rect().size())
         self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
         self.player.play()
+        #self.move_slider(0)
 
     def nextMusic(self):
         pass
@@ -540,10 +599,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def backToChart(self):
         self.stackedPages.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(2)
+        self.player.stop()
 
     def backToPosts(self):
         self.stackedPages.setCurrentIndex(2)
         self.stackedPages2.setCurrentIndex(2)
+        self.player.stop()
 
     def changeMenu(self, ind):
         if ind == 0:
@@ -572,6 +633,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.stackedPages2.setCurrentIndex(6)
         elif self.stackedPages.currentIndex() == 10:
             self.stackedPages2.setCurrentIndex(10)
+            # 검색한 노래 정보 받아오기 - 구현 필요
+
+            #self.play_music()
 
         elif self.stackedPages.currentIndex() == 3:
             self.stackedPages2.setCurrentIndex(5)
@@ -583,7 +647,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(currentPage + 1)
 
     def press_emoji1(self):
-        cnt_emo = int(self.count_emoji1.text())
+        gift_detail_url = local_url + "/api/gift/detail"
+        gift_detail_param = {'pk': 'pk'}
+        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
+        res_json = response.json()
+
+        cnt_emo = int(res_json.get('emoji').get('emo1'))
         self.count_emoji1.setText(str(cnt_emo+1))
 
     def press_emoji2(self):
@@ -665,10 +734,18 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def send_message(self):
         phone_number = self.lineEdit_3.text()
-        postcard_url = local_url + "/api/postcard"
-        postcard_data = {'sendId': self.sendId, 'nickname': self.nickname, 'phoneNumber': self.phone_number, 'passwd': self.passwd, 'songId': self.songId, 'spotId': self.spotId, 'postcardImg': "../resource/saved_images/postcardImg.png"}
-        pd = json.dumps(postcard_data)
-        response = requests.post(postcard_url, headers=request_header, data=postcard_data)
+        add_postcard_url = local_url + "/api/postcard"
+        add_postcard_data = {
+            'sendId': self.sendId,
+            'nickname': self.nickname,
+            'phoneNumber': self.phone_number,
+            'passwd': self.passwd,
+            'songId': self.songId,
+            'spotId': self.spotId,
+            'postcardImg': "../resource/saved_images/postcardImg.png"
+        }
+        pd = json.dumps(add_postcard_data)
+        response = requests.post(add_postcard_url, headers=request_header, data=pd)
 
     def volumeChange(self):
         pass
@@ -690,7 +767,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.painter_widget_2.pen.setColor(QColor(238, 106, 31))
         self.painter_widget_3.pen.setColor(QColor(238, 106, 31))
         self.painter_widget_4.pen.setColor(QColor(238, 106, 31))
-
 
     def colorChange4(self):
         self.painter_widget.pen.setColor(QColor(231, 234, 91))

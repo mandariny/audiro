@@ -1463,7 +1463,7 @@ border-radius: 15px;</string>
                             </layout>
                            </widget>
                           </item>
-                          <item>
+                          <item alignment="Qt::AlignBottom">
                            <widget class="QLabel" name="label_Title_5">
                             <property name="font">
                              <font>
@@ -1685,7 +1685,7 @@ border-radius: 15px;</string>
                               <number>10</number>
                              </property>
                              <item>
-                              <widget class="QSlider" name="horizontalSlider_17">
+                              <widget class="QSlider" name="chart_music_slider">
                                <property name="styleSheet">
                                 <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -1771,8 +1771,8 @@ QSlider::handle:horizontal {
                              <string notr="true">QSlider::groove:vertical {
     border: 1px solid #999999;
      /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
-    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);
-    margin:0  2px;
+    background: #B1B1B1;
+    margin:3px  6px;
 }
 QSlider::handle:vertical {
     background: #ffffff;
@@ -1848,7 +1848,7 @@ QSlider::handle:vertical {
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>50</height>
+                  <height>0</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -2413,48 +2413,57 @@ border-radius: 25px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QFrame" name="frame_133">
+                  <widget class="QFrame" name="frame_39">
                    <property name="minimumSize">
                     <size>
-                     <width>0</width>
-                     <height>200</height>
+                     <width>800</width>
+                     <height>0</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:none;</string>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
+                    <enum>QFrame::Sunken</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout">
-                    <property name="spacing">
-                     <number>11</number>
-                    </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_21">
                     <item>
-                     <widget class="QFrame" name="frame_135">
+                     <widget class="QFrame" name="frame_134">
+                      <property name="minimumSize">
+                       <size>
+                        <width>50</width>
+                        <height>0</height>
+                       </size>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_76"/>
+                      <layout class="QVBoxLayout" name="verticalLayout_108"/>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_137">
+                     <widget class="QFrame" name="frame_44">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_97">
-                       <property name="spacing">
-                        <number>0</number>
-                       </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_109">
                        <property name="leftMargin">
-                        <number>0</number>
+                        <number>30</number>
                        </property>
                        <property name="topMargin">
                         <number>0</number>
@@ -2466,14 +2475,14 @@ border-radius: 25px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QFrame" name="frame_247">
+                        <widget class="QFrame" name="frame_229">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_91">
+                         <layout class="QHBoxLayout" name="horizontalLayout_95">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -2486,121 +2495,65 @@ border-radius: 25px;</string>
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
-                          <item>
-                           <widget class="QFrame" name="frame_285">
+                          <item alignment="Qt::AlignVCenter">
+                           <widget class="QFrame" name="frame_124">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>100</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">width:30px; height:20px;border: 1px solid #6522F2;
+border-radius: 15px;</string>
+                            </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
                             </property>
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_128">
+                            <layout class="QHBoxLayout" name="horizontalLayout_151">
+                             <property name="spacing">
+                              <number>5</number>
+                             </property>
                              <property name="leftMargin">
-                              <number>0</number>
+                              <number>11</number>
                              </property>
                              <property name="topMargin">
-                              <number>0</number>
+                              <number>11</number>
                              </property>
                              <property name="rightMargin">
-                              <number>0</number>
+                              <number>11</number>
                              </property>
                              <property name="bottomMargin">
-                              <number>0</number>
+                              <number>11</number>
                              </property>
-                             <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-                              <widget class="QFrame" name="frame_121">
-                               <property name="minimumSize">
-                                <size>
-                                 <width>100</width>
-                                 <height>0</height>
-                                </size>
-                               </property>
+                             <item>
+                              <widget class="QLabel" name="label_112">
                                <property name="maximumSize">
                                 <size>
-                                 <width>100</width>
-                                 <height>40</height>
+                                 <width>25</width>
+                                 <height>35</height>
                                 </size>
                                </property>
                                <property name="styleSheet">
-                                <string notr="true">width:30px; height:20px;border: 1px solid #6522F2;
-border-radius: 15px;</string>
-                               </property>
-                               <property name="frameShape">
-                                <enum>QFrame::StyledPanel</enum>
-                               </property>
-                               <property name="frameShadow">
-                                <enum>QFrame::Raised</enum>
-                               </property>
-                               <layout class="QHBoxLayout" name="horizontalLayout_134">
-                                <property name="spacing">
-                                 <number>5</number>
-                                </property>
-                                <property name="leftMargin">
-                                 <number>11</number>
-                                </property>
-                                <property name="topMargin">
-                                 <number>11</number>
-                                </property>
-                                <property name="rightMargin">
-                                 <number>11</number>
-                                </property>
-                                <property name="bottomMargin">
-                                 <number>11</number>
-                                </property>
-                                <item>
-                                 <widget class="QLabel" name="label_104">
-                                  <property name="maximumSize">
-                                   <size>
-                                    <width>25</width>
-                                    <height>35</height>
-                                   </size>
-                                  </property>
-                                  <property name="styleSheet">
-                                   <string notr="true">border:none;</string>
-                                  </property>
-                                  <property name="text">
-                                   <string/>
-                                  </property>
-                                  <property name="pixmap">
-                                   <pixmap>../resource/icons/mail 1.png</pixmap>
-                                  </property>
-                                  <property name="scaledContents">
-                                   <bool>true</bool>
-                                  </property>
-                                  <property name="alignment">
-                                   <set>Qt::AlignCenter</set>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item alignment="Qt::AlignRight">
-                                 <widget class="QLabel" name="song_gift_cnt">
-                                  <property name="font">
-                                   <font>
-                                    <pointsize>12</pointsize>
-                                   </font>
-                                  </property>
-                                  <property name="styleSheet">
-                                   <string notr="true">border:none;</string>
-                                  </property>
-                                  <property name="text">
-                                   <string>60126</string>
-                                  </property>
-                                 </widget>
-                                </item>
-                               </layout>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="song_title">
-                               <property name="font">
-                                <font>
-                                 <pointsize>30</pointsize>
-                                 <weight>75</weight>
-                                 <bold>true</bold>
-                                </font>
+                                <string notr="true">border:none;</string>
                                </property>
                                <property name="text">
-                                <string>Love Dive</string>
+                                <string/>
+                               </property>
+                               <property name="pixmap">
+                                <pixmap>../resource/icons/mail 1.png</pixmap>
+                               </property>
+                               <property name="scaledContents">
+                                <bool>true</bool>
                                </property>
                                <property name="alignment">
                                 <set>Qt::AlignCenter</set>
@@ -2608,86 +2561,118 @@ border-radius: 15px;</string>
                               </widget>
                              </item>
                              <item alignment="Qt::AlignRight">
-                              <widget class="QFrame" name="frame_122">
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>0</height>
-                                </size>
+                              <widget class="QLabel" name="label_113">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">border:none;</string>
+                               </property>
+                               <property name="text">
+                                <string>60126</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item alignment="Qt::AlignBottom">
+                           <widget class="QLabel" name="label_Title_8">
+                            <property name="font">
+                             <font>
+                              <pointsize>30</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Ditto</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="frame_125">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>100</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">width:30px; height:20px;border: 1px solid #6522F2;
+border-radius: 15px;</string>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_152">
+                             <property name="spacing">
+                              <number>11</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>11</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>11</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>11</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>11</number>
+                             </property>
+                             <item alignment="Qt::AlignLeft">
+                              <widget class="QLabel" name="label_114">
                                <property name="maximumSize">
                                 <size>
-                                 <width>100</width>
-                                 <height>40</height>
+                                 <width>20</width>
+                                 <height>30</height>
                                 </size>
                                </property>
                                <property name="styleSheet">
-                                <string notr="true">width:30px; height:20px;border: 1px solid #6522F2;
-border-radius: 15px;</string>
+                                <string notr="true">border:none;</string>
                                </property>
-                               <property name="frameShape">
-                                <enum>QFrame::StyledPanel</enum>
+                               <property name="text">
+                                <string/>
                                </property>
-                               <property name="frameShadow">
-                                <enum>QFrame::Raised</enum>
+                               <property name="pixmap">
+                                <pixmap>../resource/icons/heart.png</pixmap>
                                </property>
-                               <layout class="QHBoxLayout" name="horizontalLayout_135">
-                                <property name="spacing">
-                                 <number>11</number>
-                                </property>
-                                <property name="leftMargin">
-                                 <number>11</number>
-                                </property>
-                                <property name="topMargin">
-                                 <number>11</number>
-                                </property>
-                                <property name="rightMargin">
-                                 <number>11</number>
-                                </property>
-                                <property name="bottomMargin">
-                                 <number>11</number>
-                                </property>
-                                <item alignment="Qt::AlignLeft">
-                                 <widget class="QLabel" name="label_106">
-                                  <property name="maximumSize">
-                                   <size>
-                                    <width>20</width>
-                                    <height>30</height>
-                                   </size>
-                                  </property>
-                                  <property name="styleSheet">
-                                   <string notr="true">border:none;</string>
-                                  </property>
-                                  <property name="text">
-                                   <string/>
-                                  </property>
-                                  <property name="pixmap">
-                                   <pixmap>../resource/icons/heart.png</pixmap>
-                                  </property>
-                                  <property name="scaledContents">
-                                   <bool>true</bool>
-                                  </property>
-                                  <property name="alignment">
-                                   <set>Qt::AlignCenter</set>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item alignment="Qt::AlignRight">
-                                 <widget class="QLabel" name="song_liked_cnt">
-                                  <property name="font">
-                                   <font>
-                                    <pointsize>12</pointsize>
-                                   </font>
-                                  </property>
-                                  <property name="styleSheet">
-                                   <string notr="true">border:none;</string>
-                                  </property>
-                                  <property name="text">
-                                   <string>60126</string>
-                                  </property>
-                                 </widget>
-                                </item>
-                               </layout>
+                               <property name="scaledContents">
+                                <bool>true</bool>
+                               </property>
+                               <property name="alignment">
+                                <set>Qt::AlignCenter</set>
+                               </property>
+                              </widget>
+                             </item>
+                             <item alignment="Qt::AlignRight">
+                              <widget class="QLabel" name="label_115">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">border:none;</string>
+                               </property>
+                               <property name="text">
+                                <string>60126</string>
+                               </property>
                               </widget>
                              </item>
                             </layout>
@@ -2697,7 +2682,7 @@ border-radius: 15px;</string>
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QLabel" name="song_singer">
+                        <widget class="QLabel" name="label_Artist_6">
                          <property name="font">
                           <font>
                            <pointsize>15</pointsize>
@@ -2706,7 +2691,7 @@ border-radius: 15px;</string>
                           </font>
                          </property>
                          <property name="text">
-                          <string>IVE</string>
+                          <string>New Jeans</string>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -2714,14 +2699,14 @@ border-radius: 15px;</string>
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_123">
+                        <widget class="QFrame" name="frame_135">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_136">
+                         <layout class="QHBoxLayout" name="horizontalLayout_153">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -2735,7 +2720,7 @@ border-radius: 15px;</string>
                            <number>0</number>
                           </property>
                           <item>
-                           <widget class="QLabel" name="label_208">
+                           <widget class="QLabel" name="label_190">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
@@ -2747,7 +2732,7 @@ border-radius: 15px;</string>
                            </widget>
                           </item>
                           <item alignment="Qt::AlignRight">
-                           <widget class="QLabel" name="label_209">
+                           <widget class="QLabel" name="label_191">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
@@ -2761,42 +2746,63 @@ border-radius: 15px;</string>
                          </layout>
                         </widget>
                        </item>
-                       <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_124">
-                         <property name="maximumSize">
-                          <size>
-                           <width>16777215</width>
-                           <height>30</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">*{
-  border-radius: 15px;
-  background-color: #6522f2;}</string>
-                         </property>
+                       <item>
+                        <widget class="QFrame" name="frame_231">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_69">
+                         <layout class="QHBoxLayout" name="horizontalLayout_96">
                           <property name="leftMargin">
-                           <number>15</number>
+                           <number>0</number>
                           </property>
                           <property name="topMargin">
-                           <number>10</number>
+                           <number>0</number>
                           </property>
                           <property name="rightMargin">
-                           <number>15</number>
+                           <number>0</number>
                           </property>
                           <property name="bottomMargin">
-                           <number>10</number>
+                           <number>0</number>
                           </property>
-                          <item alignment="Qt::AlignVCenter">
-                           <widget class="QSlider" name="horizontalSlider_27">
+                          <item>
+                           <widget class="QFrame" name="frame_45">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
+                            </property>
                             <property name="styleSheet">
-                             <string notr="true">QSlider::groove:horizontal {
+                             <string notr="true">*{
+  border-radius: 15px;
+  background-color: #6522f2;}</string>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_111">
+                             <property name="leftMargin">
+                              <number>15</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>10</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>15</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>10</number>
+                             </property>
+                             <item>
+                              <widget class="QSlider" name="chart_music_slider_4">
+                               <property name="styleSheet">
+                                <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
      /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);
@@ -2810,16 +2816,19 @@ QSlider::handle:horizontal {
     margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
     border-radius: 5px;
 }</string>
-                            </property>
-                            <property name="value">
-                             <number>25</number>
-                            </property>
-                            <property name="sliderPosition">
-                             <number>25</number>
-                            </property>
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
+                               </property>
+                               <property name="value">
+                                <number>25</number>
+                               </property>
+                               <property name="sliderPosition">
+                                <number>25</number>
+                               </property>
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
                            </widget>
                           </item>
                          </layout>
@@ -2828,18 +2837,12 @@ QSlider::handle:horizontal {
                       </layout>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QFrame" name="frame_134">
+                    <item alignment="Qt::AlignRight">
+                     <widget class="QFrame" name="frame_137">
                       <property name="minimumSize">
                        <size>
-                        <width>0</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
                         <width>50</width>
-                        <height>16777215</height>
+                        <height>0</height>
                        </size>
                       </property>
                       <property name="frameShape">
@@ -2848,21 +2851,9 @@ QSlider::handle:horizontal {
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_75">
-                       <property name="leftMargin">
-                        <number>13</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>13</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>0</number>
-                       </property>
-                       <item>
-                        <widget class="QFrame" name="frame_125">
+                      <layout class="QVBoxLayout" name="verticalLayout_115">
+                       <item alignment="Qt::AlignHCenter">
+                        <widget class="QFrame" name="frame_173">
                          <property name="enabled">
                           <bool>true</bool>
                          </property>
@@ -2870,6 +2861,12 @@ QSlider::handle:horizontal {
                           <size>
                            <width>0</width>
                            <height>150</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
                           </size>
                          </property>
                          <property name="styleSheet">
@@ -2882,27 +2879,15 @@ QSlider::handle:horizontal {
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_137">
-                          <property name="leftMargin">
-                           <number>6</number>
-                          </property>
-                          <property name="topMargin">
-                           <number>11</number>
-                          </property>
-                          <property name="rightMargin">
-                           <number>6</number>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>11</number>
-                          </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_154">
                           <item>
-                           <widget class="QSlider" name="verticalSlider_27">
+                           <widget class="QSlider" name="verticalSlider_19">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:vertical {
     border: 1px solid #999999;
      /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
-    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);
-    margin:0  2px;
+    background: #B1B1B1;
+    margin:3px  6px;
 }
 QSlider::handle:vertical {
     background: #ffffff;
@@ -2924,14 +2909,27 @@ QSlider::handle:vertical {
                          </layout>
                         </widget>
                        </item>
-                       <item>
-                        <widget class="QPushButton" name="pushButton_47">
+                       <item alignment="Qt::AlignHCenter">
+                        <widget class="QPushButton" name="pushButton_66">
+                         <property name="styleSheet">
+                          <string notr="true">*{width: 66px;
+  height: 30px;
+  border-radius: 15px;
+  color: #ffffff;
+}  </string>
+                         </property>
                          <property name="text">
                           <string/>
                          </property>
                          <property name="icon">
                           <iconset>
                            <normaloff>../resource/icons/volume.png</normaloff>../resource/icons/volume.png</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>30</width>
+                           <height>30</height>
+                          </size>
                          </property>
                         </widget>
                        </item>
@@ -3648,7 +3646,7 @@ color: #FFFFFF;
                    </layout>
                   </widget>
                  </item>
-                 <item>
+                 <item alignment="Qt::AlignBottom">
                   <widget class="QFrame" name="frame_29">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
@@ -3674,8 +3672,8 @@ color: #FFFFFF;
                       <widget class="QPushButton" name="pushButton_98">
                        <property name="geometry">
                         <rect>
-                         <x>-4</x>
-                         <y>237</y>
+                         <x>-5</x>
+                         <y>177</y>
                          <width>41</width>
                          <height>41</height>
                         </rect>
@@ -4884,17 +4882,17 @@ background-color:black;
                    </layout>
                   </widget>
                  </item>
-                 <item>
-                  <widget class="QFrame" name="frame_163">
+                 <item alignment="Qt::AlignBottom">
+                  <widget class="QFrame" name="frame_31">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_82">
+                   <layout class="QHBoxLayout" name="horizontalLayout_19">
                     <item>
-                     <widget class="QFrame" name="frame_164">
+                     <widget class="QFrame" name="frame_40">
                       <property name="minimumSize">
                        <size>
                         <width>30</width>
@@ -4907,11 +4905,11 @@ background-color:black;
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <widget class="QPushButton" name="pushButton_101">
+                      <widget class="QPushButton" name="pushButton_102">
                        <property name="geometry">
                         <rect>
-                         <x>-4</x>
-                         <y>383</y>
+                         <x>-5</x>
+                         <y>177</y>
                          <width>41</width>
                          <height>41</height>
                         </rect>
@@ -4933,26 +4931,23 @@ background-color:black;
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_165">
+                     <widget class="QFrame" name="frame_121">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_100">
-                       <property name="spacing">
-                        <number>0</number>
-                       </property>
-                       <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_195">
+                      <layout class="QVBoxLayout" name="verticalLayout_21">
+                       <item>
+                        <widget class="QFrame" name="frame_196">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_83">
+                         <layout class="QHBoxLayout" name="horizontalLayout_68">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -4965,8 +4960,8 @@ background-color:black;
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
-                          <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-                           <widget class="QLabel" name="label_Title_4">
+                          <item alignment="Qt::AlignHCenter">
+                           <widget class="QLabel" name="gift_detail_song_2">
                             <property name="font">
                              <font>
                               <pointsize>30</pointsize>
@@ -4985,29 +4980,20 @@ background-color:black;
                          </layout>
                         </widget>
                        </item>
-                       <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_166">
+                       <item>
+                        <widget class="QFrame" name="frame_122">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_84">
-                          <property name="leftMargin">
-                           <number>0</number>
-                          </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_20">
                           <property name="topMargin">
-                           <number>0</number>
+                           <number>11</number>
                           </property>
-                          <property name="rightMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>0</number>
-                          </property>
-                          <item alignment="Qt::AlignBottom">
-                           <widget class="QLabel" name="label_162">
+                          <item>
+                           <widget class="QLabel" name="gift_detail_singer_2">
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -5033,14 +5019,14 @@ background-color:black;
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_167">
+                        <widget class="QFrame" name="frame_123">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_142">
+                         <layout class="QHBoxLayout" name="horizontalLayout_134">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -5054,7 +5040,7 @@ background-color:black;
                            <number>0</number>
                           </property>
                           <item alignment="Qt::AlignLeft">
-                           <widget class="QLabel" name="label_163">
+                           <widget class="QLabel" name="label_160">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
@@ -5069,7 +5055,7 @@ background-color:black;
                            </widget>
                           </item>
                           <item alignment="Qt::AlignRight">
-                           <widget class="QLabel" name="label_164">
+                           <widget class="QLabel" name="label_165">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
@@ -5090,7 +5076,7 @@ background-color:black;
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_168">
+                        <widget class="QFrame" name="frame_133">
                          <property name="maximumSize">
                           <size>
                            <width>16777215</width>
@@ -5108,7 +5094,7 @@ background-color:black;
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_101">
+                         <layout class="QVBoxLayout" name="verticalLayout_75">
                           <property name="leftMargin">
                            <number>15</number>
                           </property>
@@ -5122,7 +5108,7 @@ background-color:black;
                            <number>10</number>
                           </property>
                           <item alignment="Qt::AlignVCenter">
-                           <widget class="QSlider" name="horizontalSlider_23">
+                           <widget class="QSlider" name="horizontalSlider_24">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -5157,29 +5143,26 @@ QSlider::handle:horizontal {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_199">
+                     <widget class="QFrame" name="frame_200">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_141">
+                      <layout class="QVBoxLayout" name="verticalLayout_142">
                        <property name="topMargin">
                         <number>11</number>
                        </property>
-                       <property name="bottomMargin">
-                        <number>6</number>
-                       </property>
                        <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_169">
+                        <widget class="QFrame" name="frame_153">
                          <property name="enabled">
                           <bool>true</bool>
                          </property>
                          <property name="minimumSize">
                           <size>
                            <width>0</width>
-                           <height>130</height>
+                           <height>150</height>
                           </size>
                          </property>
                          <property name="styleSheet">
@@ -5192,7 +5175,7 @@ QSlider::handle:horizontal {
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_147">
+                         <layout class="QHBoxLayout" name="horizontalLayout_148">
                           <property name="spacing">
                            <number>7</number>
                           </property>
@@ -5206,7 +5189,7 @@ QSlider::handle:horizontal {
                            <number>11</number>
                           </property>
                           <item>
-                           <widget class="QSlider" name="verticalSlider_32">
+                           <widget class="QSlider" name="verticalSlider_33">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:vertical {
     border: 1px solid #999999;
@@ -5235,7 +5218,7 @@ QSlider::handle:vertical {
                         </widget>
                        </item>
                        <item>
-                        <widget class="QPushButton" name="pushButton_20">
+                        <widget class="QPushButton" name="pushButton_10">
                          <property name="text">
                           <string/>
                          </property>
@@ -5703,91 +5686,71 @@ border-radius: 20px;
                   </widget>
                  </item>
                  <item alignment="Qt::AlignBottom">
-                  <widget class="QFrame" name="frame_138">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>250</height>
-                    </size>
-                   </property>
+                  <widget class="QFrame" name="frame_32">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_36">
-                    <property name="spacing">
-                     <number>11</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>40</number>
-                    </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_22">
                     <item>
-                     <widget class="QFrame" name="frame_27">
+                     <widget class="QFrame" name="frame_41">
+                      <property name="minimumSize">
+                       <size>
+                        <width>30</width>
+                        <height>0</height>
+                       </size>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_37">
-                       <property name="bottomMargin">
-                        <number>0</number>
+                      <widget class="QPushButton" name="pushButton_101">
+                       <property name="geometry">
+                        <rect>
+                         <x>-5</x>
+                         <y>177</y>
+                         <width>41</width>
+                         <height>41</height>
+                        </rect>
                        </property>
-                       <item alignment="Qt::AlignBottom">
-                        <widget class="QPushButton" name="pushButton_99">
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>../resource/icons/play.png</normaloff>../resource/icons/play.png</iconset>
-                         </property>
-                         <property name="iconSize">
-                          <size>
-                           <width>30</width>
-                           <height>30</height>
-                          </size>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../resource/icons/play.png</normaloff>../resource/icons/play.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>30</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_140">
+                     <widget class="QFrame" name="frame_154">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_98">
-                       <property name="spacing">
-                        <number>0</number>
-                       </property>
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>5</number>
-                       </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_23">
                        <item>
-                        <widget class="QFrame" name="frame_248">
+                        <widget class="QFrame" name="frame_195">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_92">
+                         <layout class="QHBoxLayout" name="horizontalLayout_69">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -5800,81 +5763,73 @@ border-radius: 20px;
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
+                          <item alignment="Qt::AlignHCenter">
+                           <widget class="QLabel" name="gift_detail_song_3">
+                            <property name="font">
+                             <font>
+                              <pointsize>30</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Ditto</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_155">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_23">
+                          <property name="topMargin">
+                           <number>11</number>
+                          </property>
                           <item>
-                           <widget class="QFrame" name="frame_286">
-                            <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
+                           <widget class="QLabel" name="gift_detail_singer_3">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
                             </property>
-                            <property name="frameShadow">
-                             <enum>QFrame::Raised</enum>
+                            <property name="font">
+                             <font>
+                              <pointsize>15</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_139">
-                             <property name="leftMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="topMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="rightMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="bottomMargin">
-                              <number>0</number>
-                             </property>
-                             <item>
-                              <widget class="QLabel" name="postcard_detail_song">
-                               <property name="font">
-                                <font>
-                                 <pointsize>30</pointsize>
-                                 <weight>75</weight>
-                                 <bold>true</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>Love Dive</string>
-                               </property>
-                               <property name="alignment">
-                                <set>Qt::AlignCenter</set>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
+                            <property name="text">
+                             <string>New Jeans</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
                            </widget>
                           </item>
                          </layout>
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QLabel" name="postcard_detail_singer">
-                         <property name="font">
-                          <font>
-                           <pointsize>15</pointsize>
-                           <weight>75</weight>
-                           <bold>true</bold>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>IVE</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_130">
-                         <property name="font">
-                          <font>
-                           <pointsize>12</pointsize>
-                          </font>
-                         </property>
+                        <widget class="QFrame" name="frame_156">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_143">
+                         <layout class="QHBoxLayout" name="horizontalLayout_135">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -5887,12 +5842,15 @@ border-radius: 20px;
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
-                          <item>
-                           <widget class="QLabel" name="label_210">
+                          <item alignment="Qt::AlignLeft">
+                           <widget class="QLabel" name="label_162">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
                              </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{color:#ffffff;}</string>
                             </property>
                             <property name="text">
                              <string>0:00</string>
@@ -5900,9 +5858,20 @@ border-radius: 20px;
                            </widget>
                           </item>
                           <item alignment="Qt::AlignRight">
-                           <widget class="QLabel" name="label_211">
+                           <widget class="QLabel" name="label_163">
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{color:#ffffff;}</string>
+                            </property>
                             <property name="text">
                              <string>3:34</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                             </property>
                            </widget>
                           </item>
@@ -5910,7 +5879,7 @@ border-radius: 20px;
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_131">
+                        <widget class="QFrame" name="frame_163">
                          <property name="maximumSize">
                           <size>
                            <width>16777215</width>
@@ -5928,7 +5897,7 @@ border-radius: 20px;
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_71">
+                         <layout class="QVBoxLayout" name="verticalLayout_76">
                           <property name="leftMargin">
                            <number>15</number>
                           </property>
@@ -5942,7 +5911,7 @@ border-radius: 20px;
                            <number>10</number>
                           </property>
                           <item alignment="Qt::AlignVCenter">
-                           <widget class="QSlider" name="horizontalSlider_28">
+                           <widget class="QSlider" name="horizontalSlider_23">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -5977,33 +5946,27 @@ QSlider::handle:horizontal {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_141">
-                      <property name="maximumSize">
-                       <size>
-                        <width>50</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
+                     <widget class="QFrame" name="frame_199">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_80">
-                       <property name="leftMargin">
-                        <number>13</number>
+                      <layout class="QVBoxLayout" name="verticalLayout_141">
+                       <property name="topMargin">
+                        <number>11</number>
                        </property>
-                       <property name="rightMargin">
-                        <number>13</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>10</number>
-                       </property>
-                       <item>
-                        <widget class="QFrame" name="frame_142">
+                       <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+                        <widget class="QFrame" name="frame_164">
                          <property name="enabled">
                           <bool>true</bool>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>150</height>
+                          </size>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border-radius: 10px;
@@ -6015,27 +5978,27 @@ QSlider::handle:horizontal {
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_144">
-                          <property name="leftMargin">
-                           <number>6</number>
+                         <layout class="QHBoxLayout" name="horizontalLayout_142">
+                          <property name="spacing">
+                           <number>7</number>
                           </property>
-                          <property name="topMargin">
-                           <number>11</number>
+                          <property name="leftMargin">
+                           <number>10</number>
                           </property>
                           <property name="rightMargin">
-                           <number>6</number>
+                           <number>10</number>
                           </property>
                           <property name="bottomMargin">
                            <number>11</number>
                           </property>
                           <item>
-                           <widget class="QSlider" name="verticalSlider_30">
+                           <widget class="QSlider" name="verticalSlider_32">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:vertical {
     border: 1px solid #999999;
      /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);
-    margin:0  2px;
+    margin:0  5px;
 }
 QSlider::handle:vertical {
     background: #ffffff;
@@ -6058,13 +6021,19 @@ QSlider::handle:vertical {
                         </widget>
                        </item>
                        <item>
-                        <widget class="QPushButton" name="pushButton_48">
+                        <widget class="QPushButton" name="pushButton_11">
                          <property name="text">
                           <string/>
                          </property>
                          <property name="icon">
                           <iconset>
                            <normaloff>../resource/icons/volume.png</normaloff>../resource/icons/volume.png</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>35</width>
+                           <height>35</height>
+                          </size>
                          </property>
                         </widget>
                        </item>
@@ -7130,91 +7099,71 @@ background-color:black;
                   </widget>
                  </item>
                  <item alignment="Qt::AlignBottom">
-                  <widget class="QFrame" name="frame_139">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>250</height>
-                    </size>
-                   </property>
+                  <widget class="QFrame" name="frame_30">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_39">
-                    <property name="spacing">
-                     <number>11</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>40</number>
-                    </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_24">
                     <item>
-                     <widget class="QFrame" name="frame_49">
+                     <widget class="QFrame" name="frame_42">
+                      <property name="minimumSize">
+                       <size>
+                        <width>30</width>
+                        <height>0</height>
+                       </size>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_42">
-                       <property name="bottomMargin">
-                        <number>0</number>
+                      <widget class="QPushButton" name="pushButton_99">
+                       <property name="geometry">
+                        <rect>
+                         <x>-5</x>
+                         <y>177</y>
+                         <width>41</width>
+                         <height>41</height>
+                        </rect>
                        </property>
-                       <item alignment="Qt::AlignBottom">
-                        <widget class="QPushButton" name="pushButton_100">
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>../resource/icons/play.png</normaloff>../resource/icons/play.png</iconset>
-                         </property>
-                         <property name="iconSize">
-                          <size>
-                           <width>30</width>
-                           <height>30</height>
-                          </size>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../resource/icons/play.png</normaloff>../resource/icons/play.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>30</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_143">
+                     <widget class="QFrame" name="frame_130">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_99">
-                       <property name="spacing">
-                        <number>0</number>
-                       </property>
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>5</number>
-                       </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_69">
                        <item>
-                        <widget class="QFrame" name="frame_249">
+                        <widget class="QFrame" name="frame_197">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_93">
+                         <layout class="QHBoxLayout" name="horizontalLayout_70">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -7227,76 +7176,73 @@ background-color:black;
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
+                          <item alignment="Qt::AlignHCenter">
+                           <widget class="QLabel" name="gift_detail_song_4">
+                            <property name="font">
+                             <font>
+                              <pointsize>30</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Ditto</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_131">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_25">
+                          <property name="topMargin">
+                           <number>11</number>
+                          </property>
                           <item>
-                           <widget class="QFrame" name="frame_287">
-                            <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
+                           <widget class="QLabel" name="gift_detail_singer_4">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
                             </property>
-                            <property name="frameShadow">
-                             <enum>QFrame::Raised</enum>
+                            <property name="font">
+                             <font>
+                              <pointsize>15</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_141">
-                             <property name="leftMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="topMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="rightMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="bottomMargin">
-                              <number>0</number>
-                             </property>
-                             <item>
-                              <widget class="QLabel" name="label_Title_19">
-                               <property name="font">
-                                <font>
-                                 <pointsize>30</pointsize>
-                                 <weight>75</weight>
-                                 <bold>true</bold>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>Ditto</string>
-                               </property>
-                               <property name="alignment">
-                                <set>Qt::AlignCenter</set>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
+                            <property name="text">
+                             <string>New Jeans</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
                            </widget>
                           </item>
                          </layout>
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QLabel" name="label_Artist_10">
-                         <property name="font">
-                          <font>
-                           <pointsize>15</pointsize>
-                           <weight>75</weight>
-                           <bold>true</bold>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>New Jeans</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_144">
+                        <widget class="QFrame" name="frame_138">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_145">
+                         <layout class="QHBoxLayout" name="horizontalLayout_136">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -7309,12 +7255,15 @@ background-color:black;
                           <property name="bottomMargin">
                            <number>0</number>
                           </property>
-                          <item>
-                           <widget class="QLabel" name="label_212">
+                          <item alignment="Qt::AlignLeft">
+                           <widget class="QLabel" name="label_164">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
                              </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{color:#ffffff;}</string>
                             </property>
                             <property name="text">
                              <string>0:00</string>
@@ -7322,14 +7271,20 @@ background-color:black;
                            </widget>
                           </item>
                           <item alignment="Qt::AlignRight">
-                           <widget class="QLabel" name="label_213">
+                           <widget class="QLabel" name="label_166">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
                              </font>
                             </property>
+                            <property name="styleSheet">
+                             <string notr="true">*{color:#ffffff;}</string>
+                            </property>
                             <property name="text">
                              <string>3:34</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                             </property>
                            </widget>
                           </item>
@@ -7337,7 +7292,7 @@ background-color:black;
                         </widget>
                        </item>
                        <item alignment="Qt::AlignBottom">
-                        <widget class="QFrame" name="frame_145">
+                        <widget class="QFrame" name="frame_140">
                          <property name="maximumSize">
                           <size>
                            <width>16777215</width>
@@ -7355,7 +7310,7 @@ background-color:black;
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_72">
+                         <layout class="QVBoxLayout" name="verticalLayout_71">
                           <property name="leftMargin">
                            <number>15</number>
                           </property>
@@ -7369,7 +7324,7 @@ background-color:black;
                            <number>10</number>
                           </property>
                           <item alignment="Qt::AlignVCenter">
-                           <widget class="QSlider" name="horizontalSlider_29">
+                           <widget class="QSlider" name="horizontalSlider_25">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -7404,33 +7359,27 @@ QSlider::handle:horizontal {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_146">
-                      <property name="maximumSize">
-                       <size>
-                        <width>50</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
+                     <widget class="QFrame" name="frame_201">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_81">
-                       <property name="leftMargin">
-                        <number>13</number>
+                      <layout class="QVBoxLayout" name="verticalLayout_143">
+                       <property name="topMargin">
+                        <number>11</number>
                        </property>
-                       <property name="rightMargin">
-                        <number>13</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>0</number>
-                       </property>
-                       <item>
-                        <widget class="QFrame" name="frame_147">
+                       <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+                        <widget class="QFrame" name="frame_141">
                          <property name="enabled">
                           <bool>true</bool>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>150</height>
+                          </size>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border-radius: 10px;
@@ -7442,27 +7391,27 @@ QSlider::handle:horizontal {
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_146">
-                          <property name="leftMargin">
-                           <number>6</number>
+                         <layout class="QHBoxLayout" name="horizontalLayout_143">
+                          <property name="spacing">
+                           <number>7</number>
                           </property>
-                          <property name="topMargin">
-                           <number>11</number>
+                          <property name="leftMargin">
+                           <number>10</number>
                           </property>
                           <property name="rightMargin">
-                           <number>6</number>
+                           <number>10</number>
                           </property>
                           <property name="bottomMargin">
                            <number>11</number>
                           </property>
                           <item>
-                           <widget class="QSlider" name="verticalSlider_31">
+                           <widget class="QSlider" name="verticalSlider_30">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:vertical {
     border: 1px solid #999999;
      /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);
-    margin:0  2px;
+    margin:0  5px;
 }
 QSlider::handle:vertical {
     background: #ffffff;
@@ -7485,13 +7434,19 @@ QSlider::handle:vertical {
                         </widget>
                        </item>
                        <item>
-                        <widget class="QPushButton" name="pushButton_49">
+                        <widget class="QPushButton" name="pushButton_17">
                          <property name="text">
                           <string/>
                          </property>
                          <property name="icon">
                           <iconset>
                            <normaloff>../resource/icons/volume.png</normaloff>../resource/icons/volume.png</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>35</width>
+                           <height>35</height>
+                          </size>
                          </property>
                         </widget>
                        </item>
