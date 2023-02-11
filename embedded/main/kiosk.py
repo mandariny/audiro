@@ -173,7 +173,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.music_post5.pixmap(self.show_image(res_json[0].get('gift_img')))
         self.music_post6.pixmap(self.show_image(res_json[0].get('gift_img')))
 
-<<<<<<< HEAD
     def play_chart_scroll(self):
         value = self.scrollArea.horizontalScrollBar().value()
         #position_ratio = value / 1
@@ -198,8 +197,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         else:
             self.play_music(self.music_chart[0].get('song_url'))
 
-
-=======
         self.scrollArea.horizontalScrollBar().valueChanged.connect(lambda: swipe_music())
 
         # 스와이프로 차트 음악 넘겨 재생
@@ -231,7 +228,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         x = Thread(self)    #self는 WindowClass의 인스턴스, Thread 클래스에서 parent로 전달
         x.start()           #쓰레드 클래스의 run 메서드를 동작시키는 부분
         self.chart_music_slider.setValue(num)
->>>>>>> 61b658c0f071cbfc472765c06510c3df49d0a268
 
     # 플레이어 함수들
     def new_music(self, url):
@@ -627,19 +623,13 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def backToChart(self):
         self.stackedPages.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(2)
-<<<<<<< HEAD
         self.menu_toolBox.setCurrentIndex(0)
-=======
->>>>>>> 61b658c0f071cbfc472765c06510c3df49d0a268
         self.player.stop()
 
     def backToPosts(self):
         self.stackedPages.setCurrentIndex(2)
         self.stackedPages2.setCurrentIndex(2)
-<<<<<<< HEAD
         self.menu_toolBox.setCurrentIndex(1)
-=======
->>>>>>> 61b658c0f071cbfc472765c06510c3df49d0a268
         self.player.stop()
 
     def changeMenu(self, ind):
