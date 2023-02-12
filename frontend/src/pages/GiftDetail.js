@@ -164,7 +164,7 @@ const GiftDetail = (props) => {
       <StyledGiftDetailContainer>
         <StyledGiftDetailBtnWrapper>
           <StyledDetailBtn>비공개</StyledDetailBtn>
-          <StyledDetailBtn>삭제하기</StyledDetailBtn>
+          <StyledDetailBtn onClick={()=> {setDeleteModalOpen(true)}}>삭제하기</StyledDetailBtn>
         </StyledGiftDetailBtnWrapper>
         <StyledDetailImg><img src={dataDetail.giftImg} width="350"/></StyledDetailImg>
 
