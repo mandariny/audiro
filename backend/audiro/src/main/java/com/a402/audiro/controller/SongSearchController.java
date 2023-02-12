@@ -22,10 +22,20 @@ public class SongSearchController {
 
     private final SongService songListService;
 
-    @GetMapping
-    public ResponseEntity<?> getSongList(@RequestParam String keyword){
+    @GetMapping("/title")
+    public ResponseEntity<?> getSongTitleList(@RequestParam String keyword){
         try{
-            List<SongSearchDTO> songList = songListService.searchSong(keyword);
+            List<SongSearchDTO> songList = songListService.searchTitle(keyword);
+            return ResponseEntity.ok().body(songList);
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/singer")
+    public ResponseEntity<?> getSingerList(@RequestParam String keyword){
+        try{
+            List<SongSearchDTO> songList = songListService.searchSinger(keyword);
             return ResponseEntity.ok().body(songList);
         }catch(Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());

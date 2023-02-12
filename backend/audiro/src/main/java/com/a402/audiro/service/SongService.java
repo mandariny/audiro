@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface SongService {
 
-    List<SongSearchDTO> searchSong(String keyword);
+    List<SongSearchDTO> searchTitle(String keyword);
+    List<SongSearchDTO> searchSinger(String keyword);
     Song isValidSong(long id);
 }

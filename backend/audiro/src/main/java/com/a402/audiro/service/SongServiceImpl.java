@@ -26,8 +26,19 @@ public class SongServiceImpl implements SongService{
     }
 
     @Transactional
-    public List<SongSearchDTO> searchSong(String keyword){
+    public List<SongSearchDTO> searchTitle(String keyword){
         List<Song> songs = songRepository.findBySongTitleContaining(keyword);
+        List<SongSearchDTO> songDTOList = new ArrayList<>();
+
+        for(Song song : songs){
+            songDTOList.add(this.convertEntityToDTO(song));
+        }
+        return songDTOList;
+    }
+
+    @Transactional
+    public List<SongSearchDTO> searchSinger(String keyword){
+        List<Song> songs = songRepository.findBySingerContaining(keyword);
         List<SongSearchDTO> songDTOList = new ArrayList<>();
 
         for(Song song : songs){
