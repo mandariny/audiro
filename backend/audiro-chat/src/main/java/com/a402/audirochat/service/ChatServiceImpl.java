@@ -4,6 +4,7 @@ import com.a402.audirochat.dto.ChannelThumbnailDTO;
 import com.a402.audirochat.dto.MessageDTO;
 import com.a402.audirochat.entity.Channel;
 import com.a402.audirochat.entity.ChannelMessage;
+import com.a402.audirochat.entity.ContentType;
 import com.a402.audirochat.entity.User;
 import com.a402.audirochat.exception.ChannelNotExistException;
 import com.a402.audirochat.repository.ChannelRepository;
@@ -64,8 +65,23 @@ public class ChatServiceImpl implements ChatService{
         }
     }
 
+    private boolean isExistChannel(User user1, User user2){
+        if(user1.getChannels().containsKey(user2.getId())){
+            log.info("이미 존재하는 채널입니다!");
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     @Override
     public void saveMessage(String channelId, MessageDTO messageDTO) {
+        if(messageDTO.getContentType() == ContentType.IMAGE){
+            // 이미지 저장
+
+            // 이미지 path를 content에 저장
+        }
+
         ChannelMessage message = ChannelMessage.builder()
                 .userId(messageDTO.getUserId())
                 .userNickname(messageDTO.getUserNickname())
@@ -112,15 +128,6 @@ public class ChatServiceImpl implements ChatService{
                         .sendTime(m.getSendTime())
                         .build())
                 .collect(Collectors.toList());
-    }
-
-    private boolean isExistChannel(User user1, User user2){
-        if(user1.getChannels().containsKey(user2.getId())){
-            log.info("이미 존재하는 채널입니다!");
-            return true;
-        }else{
-            return false;
-        }
     }
 
     @Transactional

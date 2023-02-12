@@ -4,6 +4,7 @@ import com.a402.audirochat.entity.ContentType;
 import com.a402.audirochat.exception.IdNullException;
 import com.sun.istack.NotNull;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 
@@ -16,12 +17,18 @@ public class MessageDTO {
 
     @NotNull
     private long userId;
+
+    @NotNull
     private long receiverId;
 
+    @NotNull
     private String userNickname;
 
-    private ContentType contentType;
     @NotNull
+    private ContentType contentType;
+
+    private byte[] imageData;
+
     private String content;
     LocalDateTime sendTime;
 
