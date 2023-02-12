@@ -28,7 +28,7 @@ public class UserRepositoryTest {
             user.setId(i+1);
             for(int j=0; j<5; j++){
                 Optional<Channel> channel = channelRepository.findById("ch"+(j+1));
-                user.addChannels(channel.get(), "user"+arr[i]);
+                user.addChannels(1, channel.get(), "user"+arr[i]);
             }
             userRepository.save(user);
         }
@@ -56,12 +56,12 @@ public class UserRepositoryTest {
         Optional<User> user = userRepository.findById(1l);
         Channel channel = new Channel();
         channel.setId("ch3");
-        user.get().addChannels(channel, "sohee_friend2");
+        user.get().addChannels(1, channel, "sohee_friend2");
 
         userRepository.save(user.get());
 
         user = userRepository.findById(1l);
-        Assertions.assertThat(user.get().getChannels().get(1).getMemberNickname()).isEqualTo("sohee_friend2");
+        Assertions.assertThat(user.get().getChannels().get(1).getChannelName()).isEqualTo("sohee_friend2");
     }
 
     @Test

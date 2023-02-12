@@ -12,5 +12,6 @@ import java.io.Serializable;
 @Getter
 public class ChannelInfo implements Serializable {
     private Channel channel;
-    private String memberNickname;
+    // 상대방의 닉네임이 기본 채널명
+    private String channelName;
 }

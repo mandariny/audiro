@@ -85,10 +85,10 @@ public class ChatServiceImpl implements ChatService{
     @Override
     public List<ChannelThumbnailDTO> getChannelThumbnail(long userId) {
         Optional<User> user = getUser(userId);
-        List<ChannelThumbnailDTO> channelThumbnailDTOList = user.get().getChannels().stream()
+        List<ChannelThumbnailDTO> channelThumbnailDTOList = user.get().getChannels().values().stream()
                 .map(c -> ChannelThumbnailDTO.builder()
                         .channelId(c.getChannel().getId())
-                        .nickname(c.getMemberNickname())
+                        .nickname(c.getChannelName())
                         .lastMessage(channelRepository.findById(c.getChannel().getId()).get().getLastMessage())
                         .lastMessageTime(channelRepository.findById(c.getChannel().getId()).get().getLastMessageTime())
                         .build())
@@ -114,29 +114,46 @@ public class ChatServiceImpl implements ChatService{
                 .collect(Collectors.toList());
     }
 
+    private boolean isExistChannel(User user1, User user2){
+        if(user1.getChannels().containsKey(user2.getId())){
+            log.info("이미 존재하는 채널입니다!");
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     @Transactional
     @Override
     public String createChannel(MessageDTO messageDTO) {
-        Channel channel = new Channel();
-        log.info("채널 생성!!");
+        long userId1 = messageDTO.getUserId();
+        long userId2 = messageDTO.getReceiverId();
+        Optional<User> user1 = getUser(userId1);
+        Optional<User> user2 = getUser(userId2);
+        log.info("user 정보 찾기");
 
-        Optional<User> user1 = getUser(messageDTO.getUserId());
-        Optional<User> user2 = getUser(messageDTO.getReceiverId());
-        log.info("user에 채널 정보 저장");
+        Channel channel;
 
-        String nickname2 = userNicknameRepository.findUserNicknameById(messageDTO.getReceiverId());
-        log.info("상대방 닉네임 확인");
+        if(isExistChannel(user1.get(), user2.get())){
+             channel = user1.get().getChannels().get(userId2).getChannel();
+        }else{
+            channel = new Channel();
+            log.info("채널 생성!!");
 
-        user1.get().addChannels(channel, nickname2);
-        user2.get().addChannels(channel, messageDTO.getUserNickname());
-        log.info("채널 인포 생성");
+            String nickname2 = userNicknameRepository.findUserNicknameById(userId2);
+            log.info("상대방 닉네임 확인");
 
-        userRepository.save(user1.get());
-        userRepository.save(user2.get());
-        log.info("유저 정보 업데이트");
+            user1.get().addChannels(userId2, channel, nickname2);
+            user2.get().addChannels(userId1, channel, messageDTO.getUserNickname());
+            log.info("채널 인포 생성");
 
-        channelRepository.save(channel);
-        log.info("채널 정보 저장");
+            userRepository.save(user1.get());
+            userRepository.save(user2.get());
+            log.info("유저 정보 업데이트");
+
+            channelRepository.save(channel);
+            log.info("채널 정보 저장");
+        }
 
         return channel.getId();
     }
