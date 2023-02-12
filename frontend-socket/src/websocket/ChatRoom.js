@@ -80,6 +80,7 @@ const ChatRoom = () => {
         axios.get(REQUEST_URL, {params: {channelId: channel_id}})
             .then((res)=>{
                 setMessageList(res.data);
+                console.log(res.data);
             })
 
         return () => disconnect();

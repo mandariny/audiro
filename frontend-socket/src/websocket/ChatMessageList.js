@@ -2,6 +2,7 @@ import React from 'react';
 import ChatMessage from './ChatMessage';
 
 const ChatMessageList = (props) => {
+    // console.log("메세지 : " + props.messageList[0]);
     const chatMessageList = props.messageList && props.messageList.map((msg) => (
         <ChatMessage
         user_id={msg.userId}
