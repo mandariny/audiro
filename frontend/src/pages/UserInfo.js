@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from "axios";
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
+import EditNickname from "./EditNickname";
 
 import jwt from 'jwt-decode';
 
@@ -72,6 +73,7 @@ const UserInfo = () =>{
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [profile, setProfile] = useState();
+    const [isEdit, setEdit] = useState(false);
 
     useEffect(() => {
         axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
@@ -82,12 +84,16 @@ const UserInfo = () =>{
                  setProfile(res.data['img']);
             })
     }, []);
+    
+    const onClicked = () => {
+      console.log("hahahahaha");
+      setEdit(true);
+    };
 
     return (
         <div>
             <Logo/>
             <Nav/>
-        
             <StyleUserInfoContainer>
                 <StyleTitle>내 정보 수정</StyleTitle>
                 <StyleUserInfoImg src={profile}></StyleUserInfoImg>
@@ -101,9 +107,8 @@ const UserInfo = () =>{
                 </StyledUserInfoWrapper>
                 <StyledUserInfoWrapper>
                     <StyleUserInfoTitle>닉네임</StyleUserInfoTitle>
-                    <StyleUserInfoInput>{nickname}</StyleUserInfoInput>
+                    <StyleUserInfoText onClick={onClicked}>{isEdit? <EditNickname/> : nickname}</StyleUserInfoText>
                 </StyledUserInfoWrapper>
-
             </StyleUserInfoContainer>
         </div>
       )
