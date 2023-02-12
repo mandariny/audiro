@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
+@Builder
 @Slf4j
 @RequestMapping("/song/search")
 public class SongSearchController {
