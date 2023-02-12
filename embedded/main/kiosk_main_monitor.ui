@@ -228,7 +228,7 @@
                      </property>
                      <property name="font">
                       <font>
-                       <pointsize>10</pointsize>
+                       <pointsize>13</pointsize>
                       </font>
                      </property>
                      <property name="focusPolicy">
@@ -255,7 +255,7 @@ icon-size:30px;
 QToolBox::tab{
 border-radius:15px;
 text-align:left;
-font-size:20px;
+font-size:22px;
 }
 
 QToolBox::tab:selected{
@@ -275,7 +275,7 @@ background: #6522F2;
                       <number>0</number>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>2</number>
                      </property>
                      <property name="tabSpacing">
                       <number>30</number>
@@ -286,7 +286,7 @@ background: #6522F2;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>130</height>
+                        <height>96</height>
                        </rect>
                       </property>
                       <attribute name="icon">
@@ -294,7 +294,7 @@ background: #6522F2;
                         <normaloff>../resource/icons/empty.png</normaloff>../resource/icons/empty.png</iconset>
                       </attribute>
                       <attribute name="label">
-                       <string>멀캠:로의 인기차트                       </string>
+                       <string>   멀캠:로의 인기차트                       </string>
                       </attribute>
                       <layout class="QVBoxLayout" name="verticalLayout_26">
                        <property name="spacing">
@@ -320,7 +320,7 @@ background: #6522F2;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>130</height>
+                        <height>96</height>
                        </rect>
                       </property>
                       <property name="font">
@@ -328,8 +328,12 @@ background: #6522F2;
                         <pointsize>9</pointsize>
                        </font>
                       </property>
+                      <attribute name="icon">
+                       <iconset>
+                        <normaloff>../resource/icons/empty.png</normaloff>../resource/icons/empty.png</iconset>
+                      </attribute>
                       <attribute name="label">
-                       <string>음악 선물</string>
+                       <string>   음악 선물</string>
                       </attribute>
                       <layout class="QVBoxLayout" name="verticalLayout_107">
                        <property name="spacing">
@@ -423,11 +427,15 @@ background: #6522F2;
                         <x>0</x>
                         <y>0</y>
                         <width>244</width>
-                        <height>130</height>
+                        <height>96</height>
                        </rect>
                       </property>
+                      <attribute name="icon">
+                       <iconset>
+                        <normaloff>../resource/icons/empty.png</normaloff>../resource/icons/empty.png</iconset>
+                      </attribute>
                       <attribute name="label">
-                       <string>편지함</string>
+                       <string>   편지함</string>
                       </attribute>
                       <layout class="QVBoxLayout" name="verticalLayout_4">
                        <property name="spacing">
@@ -994,8 +1002,8 @@ background-color:#6522F2;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>3072</width>
-                            <height>463</height>
+                            <width>3085</width>
+                            <height>454</height>
                            </rect>
                           </property>
                           <layout class="QHBoxLayout" name="horizontalLayout_127">
@@ -8691,7 +8699,18 @@ border-radius: 20px;
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_49"/>
+                      <layout class="QHBoxLayout" name="horizontalLayout_49">
+                       <item alignment="Qt::AlignHCenter">
+                        <widget class="QLabel" name="label_2">
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="pixmap">
+                          <pixmap>../resource/qr.png</pixmap>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                     <item>
