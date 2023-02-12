@@ -2,6 +2,7 @@ package com.a402.audirochat.dto;
 
 import com.a402.audirochat.entity.ContentType;
 import com.a402.audirochat.exception.IdNullException;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,6 +31,8 @@ public class MessageDTO {
     private byte[] imageData;
 
     private String content;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     LocalDateTime sendTime;
 
 //    public void isReceiverValid(){
