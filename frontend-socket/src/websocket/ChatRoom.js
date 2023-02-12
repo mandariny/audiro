@@ -6,7 +6,7 @@ import axios from "axios";
 
 const BASE_URL = "ws://localhost:8080/ws-stomp";
 const REQUEST_URL = "http://localhost:8080/message";
-const user_id = "user1";
+const user_id = 1;
 const user_nickname = "pickapicka";
 
 const ChatRoom = () => {
@@ -80,7 +80,10 @@ const ChatRoom = () => {
         axios.get(REQUEST_URL, {params: {channelId: channel_id}})
             .then((res)=>{
                 setMessageList(res.data);
-                console.log(res.data);
+                // console.log(res.data);
+            })
+            .catch(error => {
+                console.log(error.response);
             })
 
         return () => disconnect();
