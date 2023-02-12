@@ -50,8 +50,12 @@ public class ChannelController {
     public ResponseEntity<?> createNewChannel(@RequestBody(required = true) MessageDTO messageDTO){
         try{
 //            messageDTO.isReceiverValid();
+            messageDTO.setSendTime();
+            log.info("채널 생성을 시작합니다.");
             String channelId = chatService.createChannel(messageDTO);
+            log.info("채널 생성 : " + channelId);
             chatService.saveMessage(channelId, messageDTO);
+            log.info("메세지 저장");
             return ResponseEntity.ok().body("success");
         }catch(Exception e){
             log.error(e.getMessage());

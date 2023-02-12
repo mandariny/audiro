@@ -39,6 +39,8 @@ public class ChatServiceImpl implements ChatService{
             userRepository.save(newUser);
             user = userRepository.findById(userId);
         }
+
+        log.info("유저 정보 : " + user.toString());
         return user;
     }
 
@@ -71,9 +73,9 @@ public class ChatServiceImpl implements ChatService{
                 .content(messageDTO.getContent())
                 .sendTime(messageDTO.getSendTime())
                 .build();
-        Optional<Channel> channel = channelRepository.findById(channelId);
 
-//        log.info("채널 정보 : " + channel.get().toString());
+        Optional<Channel> channel = getChannel(channelId);
+        log.info("채널 정보 확인 : " + channel.get());
 
         channel.get().addChannelMessage(message);
         channelRepository.save(channel.get());
@@ -115,20 +117,26 @@ public class ChatServiceImpl implements ChatService{
     @Transactional
     @Override
     public String createChannel(MessageDTO messageDTO) {
-        // 채널 생성
         Channel channel = new Channel();
+        log.info("채널 생성!!");
 
-        // user에 삽입
         Optional<User> user1 = getUser(messageDTO.getUserId());
         Optional<User> user2 = getUser(messageDTO.getReceiverId());
+        log.info("user에 채널 정보 저장");
 
         String nickname2 = userNicknameRepository.findUserNicknameById(messageDTO.getReceiverId());
+        log.info("상대방 닉네임 확인");
 
         user1.get().addChannels(channel, nickname2);
         user2.get().addChannels(channel, messageDTO.getUserNickname());
+        log.info("채널 인포 생성");
 
         userRepository.save(user1.get());
         userRepository.save(user2.get());
+        log.info("유저 정보 업데이트");
+
+        channelRepository.save(channel);
+        log.info("채널 정보 저장");
 
         return channel.getId();
     }
