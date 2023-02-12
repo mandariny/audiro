@@ -28,4 +28,7 @@ public class MessageDTO {
     public void isReceiverValid(){
         if(receiverId == null) throw new IdNullException();
     }
+    public void setSendTime(){
+        this.sendTime = LocalDateTime.now();
+    }
 }

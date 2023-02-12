@@ -44,6 +44,19 @@ public class ChatServiceTest {
     }
 
     @Test
+    @DisplayName("이미지 메세지 저장")
+    void saveImgMessageTest(){
+        MessageDTO messageDTO = MessageDTO.builder()
+                .userId("user1")
+                .userNickname("sohee")
+                .contentType(ContentType.IMAGE)
+                .content("https://cdn.discordapp.com/attachments/1056882470429138968/1069503701905059850/image.png")
+                .sendTime(LocalDateTime.now())
+                .build();
+        chatService.saveMessage("ch1", messageDTO);
+    }
+
+    @Test
     @DisplayName("getChannelThumbnail 테스트")
     void getChannelThumbnailTest(){
         List<ChannelThumbnailDTO> channelThumbnailDTOList = chatService.getChannelThumbnail("user1");

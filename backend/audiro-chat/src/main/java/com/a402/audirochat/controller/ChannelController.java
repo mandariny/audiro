@@ -37,6 +37,7 @@ public class ChannelController {
     public ResponseEntity<?> getAllMessages(@RequestParam String channelId){
         try{
             List<MessageDTO> messageDTOList = chatService.getChannelMessages(channelId);
+            log.info("메세지 내용 : " + messageDTOList.get(0).toString());
             return ResponseEntity.ok().body(messageDTOList);
         }catch(Exception e){
             log.error(e.getMessage());
@@ -62,6 +63,7 @@ public class ChannelController {
     @SendTo("/sub/{channel}")
     public MessageDTO sendMessage(@DestinationVariable("channel") String channelId, MessageDTO messageDTO){
         log.info("메세지를 받았습니다. " + messageDTO.getContent());
+        messageDTO.setSendTime();
         log.info(messageDTO.toString());
         log.info("channelId: "+channelId);
 
