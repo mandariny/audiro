@@ -15,6 +15,6 @@ public class ChannelThumbnailDTO {
     private String channelId;
     private String nickname;
     private String lastMessage;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd a hh:mm")
     private LocalDateTime lastMessageTime;
 }

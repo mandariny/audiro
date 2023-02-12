@@ -32,7 +32,7 @@ public class MessageDTO {
 
     private String content;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd a hh:mm")
     LocalDateTime sendTime;
 
 //    public void isReceiverValid(){
