@@ -21,10 +21,10 @@ import org.springframework.data.redis.core.RedisHash;
 public class User implements Serializable {
 
     @Id
-    private String Id;
+    private long Id;
     private List<ChannelInfo> channels = new ArrayList<>();
 
-    public User(String Id){
+    public User(long Id){
         this.Id = Id;
     }
 

@@ -31,7 +31,7 @@ public class ChatServiceImpl implements ChatService{
     private final ChannelRepository channelRepository;
     private final UserNicknameRepository userNicknameRepository;
 
-    private Optional<User> getUser(String userId){
+    private Optional<User> getUser(long userId){
         Optional<User> user = userRepository.findById(userId);
         if(!user.isPresent()){
             User newUser = new User(userId);
@@ -72,7 +72,7 @@ public class ChatServiceImpl implements ChatService{
     }
 
     @Override
-    public List<ChannelThumbnailDTO> getChannelThumbnail(String userId) {
+    public List<ChannelThumbnailDTO> getChannelThumbnail(long userId) {
 
         Optional<User> user = getUser(userId);
         List<ChannelThumbnailDTO> channelThumbnailDTOList = user.get().getChannels().stream()

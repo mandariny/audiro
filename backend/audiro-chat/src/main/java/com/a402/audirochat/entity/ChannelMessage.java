@@ -13,13 +13,13 @@ import lombok.*;
 @Builder
 public class ChannelMessage implements Serializable {
 
-    private String userId;
+    private long userId;
     private String userNickname;
     private ContentType contentType;
     private String content;
     LocalDateTime sendTime;
 
-    public ChannelMessage(String userId, String userNickname, ContentType type, String content){
+    public ChannelMessage(long userId, String userNickname, ContentType type, String content){
         this.userId = userId;
         this.userNickname = userNickname;
         this.contentType = type;

@@ -23,7 +23,7 @@ public class ChannelController {
     private final ChatService chatService;
 
     @GetMapping("/channel/list")
-    public ResponseEntity<?> getChanneThumbnailList(@RequestParam String userId){
+    public ResponseEntity<?> getChanneThumbnailList(@RequestParam long userId){
         try{
             List<ChannelThumbnailDTO> channelThumbnailList = chatService.getChannelThumbnail(userId);
             return ResponseEntity.ok().body(channelThumbnailList);
@@ -49,7 +49,7 @@ public class ChannelController {
     @Transactional
     public ResponseEntity<?> createNewChannel(@RequestBody(required = true) MessageDTO messageDTO){
         try{
-            messageDTO.isReceiverValid();
+//            messageDTO.isReceiverValid();
             String channelId = chatService.createChannel(messageDTO);
             chatService.saveMessage(channelId, messageDTO);
             return ResponseEntity.ok().body("success");

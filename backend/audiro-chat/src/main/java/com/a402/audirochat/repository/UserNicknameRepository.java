@@ -3,7 +3,7 @@ package com.a402.audirochat.repository;
 import com.a402.audirochat.entity.UserNickname;
 import org.springframework.data.repository.Repository;
 
-public interface UserNicknameRepository extends Repository<UserNickname, String> {
+public interface UserNicknameRepository extends Repository<UserNickname, Long> {
 
-    String findUserNicknameById(String id);
+    String findUserNicknameById(long id);
 }

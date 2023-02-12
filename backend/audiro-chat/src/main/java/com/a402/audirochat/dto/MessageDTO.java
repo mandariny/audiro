@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 public class MessageDTO {
 
     @NotNull
-    private String userId;
-    private String receiverId;
+    private long userId;
+    private long receiverId;
 
     private String userNickname;
 
@@ -25,9 +25,9 @@ public class MessageDTO {
     private String content;
     LocalDateTime sendTime;
 
-    public void isReceiverValid(){
-        if(receiverId == null) throw new IdNullException();
-    }
+//    public void isReceiverValid(){
+//        if(receiverId == null) throw new IdNullException();
+//    }
     public void setSendTime(){
         this.sendTime = LocalDateTime.now();
     }
