@@ -1,5 +1,6 @@
 package com.a402.audirochat.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import org.springframework.data.redis.core.RedisHash;
 @Getter
 @Setter
 @ToString
-public class User {
+public class User implements Serializable {
 
     @Id
     private String Id;

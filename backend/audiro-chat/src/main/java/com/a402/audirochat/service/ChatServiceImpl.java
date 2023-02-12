@@ -9,6 +9,9 @@ import com.a402.audirochat.repository.ChannelRepository;
 import com.a402.audirochat.repository.UserNicknameRepository;
 import com.a402.audirochat.repository.UserRepository;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
@@ -56,23 +59,34 @@ public class ChatServiceImpl implements ChatService{
         log.info("메세지를 저장했습니다. " + messageDTO.getContent());
     }
 
+    public class TimeComparator implements Comparator<ChannelThumbnailDTO>{
+        @Override
+        public int compare(ChannelThumbnailDTO t1, ChannelThumbnailDTO t2){
+            return t2.getLastMessageTime().compareTo(t1.getLastMessageTime());
+        }
+
+        @Override
+        public boolean equals(Object o){
+            return false;
+        }
+    }
+
     @Override
     public List<ChannelThumbnailDTO> getChannelThumbnail(String userId) {
 
         Optional<User> user = getUser(userId);
-
-        for(int i=0; i<5; i++){
-
-            log.info("채널 정보 : " + user.get().getChannels().get(i).getChannel().toString());
-        }
-
-        return user.get().getChannels().stream()
+        List<ChannelThumbnailDTO> channelThumbnailDTOList = user.get().getChannels().stream()
                 .map(c -> ChannelThumbnailDTO.builder()
                         .channelId(c.getChannel().getId())
                         .nickname(c.getMemberNickname())
-                        .lastMessage(c.getChannel().getLastMessage())
+                        .lastMessage(channelRepository.findById(c.getChannel().getId()).get().getLastMessage())
+                        .lastMessageTime(channelRepository.findById(c.getChannel().getId()).get().getLastMessageTime())
                         .build())
                 .collect(Collectors.toList());
+
+        channelThumbnailDTOList.sort(new TimeComparator());
+
+        return channelThumbnailDTOList;
     }
 
     @Override

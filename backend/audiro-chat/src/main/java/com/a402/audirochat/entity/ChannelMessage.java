@@ -1,5 +1,6 @@
 package com.a402.audirochat.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.*;
@@ -10,7 +11,7 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class ChannelMessage {
+public class ChannelMessage implements Serializable {
 
     private String userId;
     private String userNickname;
