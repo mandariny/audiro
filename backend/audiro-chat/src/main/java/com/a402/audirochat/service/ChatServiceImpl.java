@@ -5,6 +5,7 @@ import com.a402.audirochat.dto.MessageDTO;
 import com.a402.audirochat.entity.Channel;
 import com.a402.audirochat.entity.ChannelMessage;
 import com.a402.audirochat.entity.User;
+import com.a402.audirochat.exception.ChannelNotExistException;
 import com.a402.audirochat.repository.ChannelRepository;
 import com.a402.audirochat.repository.UserNicknameRepository;
 import com.a402.audirochat.repository.UserRepository;
@@ -41,6 +42,26 @@ public class ChatServiceImpl implements ChatService{
         return user;
     }
 
+    private Optional<Channel> getChannel(String channelId){
+        Optional<Channel> channel = channelRepository.findById(channelId);
+        if(!channel.isPresent()){
+            throw new ChannelNotExistException();
+        }
+        return channel;
+    }
+
+    private class TimeComparator implements Comparator<ChannelThumbnailDTO>{
+        @Override
+        public int compare(ChannelThumbnailDTO t1, ChannelThumbnailDTO t2){
+            return t2.getLastMessageTime().compareTo(t1.getLastMessageTime());
+        }
+
+        @Override
+        public boolean equals(Object o){
+            return false;
+        }
+    }
+
     @Override
     public void saveMessage(String channelId, MessageDTO messageDTO) {
         ChannelMessage message = ChannelMessage.builder()
@@ -59,21 +80,8 @@ public class ChatServiceImpl implements ChatService{
         log.info("메세지를 저장했습니다. " + messageDTO.getContent());
     }
 
-    public class TimeComparator implements Comparator<ChannelThumbnailDTO>{
-        @Override
-        public int compare(ChannelThumbnailDTO t1, ChannelThumbnailDTO t2){
-            return t2.getLastMessageTime().compareTo(t1.getLastMessageTime());
-        }
-
-        @Override
-        public boolean equals(Object o){
-            return false;
-        }
-    }
-
     @Override
     public List<ChannelThumbnailDTO> getChannelThumbnail(long userId) {
-
         Optional<User> user = getUser(userId);
         List<ChannelThumbnailDTO> channelThumbnailDTOList = user.get().getChannels().stream()
                 .map(c -> ChannelThumbnailDTO.builder()
@@ -92,7 +100,7 @@ public class ChatServiceImpl implements ChatService{
     @Override
     public List<MessageDTO> getChannelMessages(String channelId) {
 
-        Optional<Channel> channels = channelRepository.findById(channelId);
+        Optional<Channel> channels = getChannel(channelId);
         return channels.get().getMessages().stream()
                 .map(m -> MessageDTO.builder()
                         .userId(m.getUserId())
