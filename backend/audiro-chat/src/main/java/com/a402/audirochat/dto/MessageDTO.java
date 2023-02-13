@@ -28,11 +28,9 @@ public class MessageDTO {
     @NotNull
     private ContentType contentType;
 
-    private byte[] imageData;
-
     private String content;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd a hh:mm")
     LocalDateTime sendTime;
 
 //    public void isReceiverValid(){
@@ -40,5 +38,9 @@ public class MessageDTO {
 //    }
     public void setSendTime(){
         this.sendTime = LocalDateTime.now();
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

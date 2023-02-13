@@ -3,8 +3,11 @@ package com.a402.audirochat.controller;
 import com.a402.audirochat.dto.ChannelThumbnailDTO;
 import com.a402.audirochat.dto.MessageDTO;
 import com.a402.audirochat.service.ChatService;
+
+import java.io.IOException;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +16,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -47,17 +51,25 @@ public class ChannelController {
 
     @PostMapping("channel")
     @Transactional
-    public ResponseEntity<?> createNewChannel(@RequestBody(required = true) MessageDTO messageDTO){
+    public ResponseEntity<?> createNewChannel(@RequestParam("postcardImg") MultipartFile postcardImg, @RequestParam("postcard") String message){
         try{
-//            messageDTO.isReceiverValid();
+            ObjectMapper objectMapper = new ObjectMapper();
+            MessageDTO messageDTO = objectMapper.readValue(message, MessageDTO.class);
+            log.info("메세지를 받았습니다. " + messageDTO.toString());
             messageDTO.setSendTime();
             log.info("채널 생성을 시작합니다.");
             String channelId = chatService.createChannel(messageDTO);
-            log.info("채널 생성 : " + channelId);
-            chatService.saveMessage(channelId, messageDTO);
-            log.info("메세지 저장");
+//            log.info("채널 생성 : " + channelId);
+//            chatService.saveMessage(channelId, messageDTO);
+//            log.info("메세지 저장");
+            chatService.savePostcard(postcardImg, channelId, messageDTO);
             return ResponseEntity.ok().body("success");
-        }catch(Exception e){
+        }catch(IOException e) {
+            log.error("사진 저장 실패");
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body("사진 저장 실패");
+        }
+        catch (Exception e){
             log.error(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }

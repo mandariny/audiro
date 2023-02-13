@@ -11,6 +11,10 @@ import com.a402.audirochat.repository.ChannelRepository;
 import com.a402.audirochat.repository.UserNicknameRepository;
 import com.a402.audirochat.repository.UserRepository;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -20,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,6 +37,7 @@ public class ChatServiceImpl implements ChatService{
     private final UserRepository userRepository;
     private final ChannelRepository channelRepository;
     private final UserNicknameRepository userNicknameRepository;
+    private final String UPLOAD_DIR = "src/main/resources";
 
     private Optional<User> getUser(long userId){
         Optional<User> user = userRepository.findById(userId);
@@ -76,12 +82,6 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public void saveMessage(String channelId, MessageDTO messageDTO) {
-        if(messageDTO.getContentType() == ContentType.IMAGE){
-            // 이미지 저장
-
-            // 이미지 path를 content에 저장
-        }
-
         ChannelMessage message = ChannelMessage.builder()
                 .userId(messageDTO.getUserId())
                 .userNickname(messageDTO.getUserNickname())
@@ -96,6 +96,24 @@ public class ChatServiceImpl implements ChatService{
         channel.get().addChannelMessage(message);
         channelRepository.save(channel.get());
         log.info("메세지를 저장했습니다. " + messageDTO.getContent());
+    }
+
+    @Override
+    public void savePostcard(MultipartFile postcardImg, String channelId, MessageDTO messageDTO) throws IOException {
+        // 이미지 저장
+        byte[] bytes = postcardImg.getBytes();
+
+        String imageName = postcardImg.getOriginalFilename();
+        log.info("파일을 저장합니다 : "+ imageName);
+
+        Path path = Paths.get(UPLOAD_DIR + "/" + imageName);
+        log.info("저장 위치 : " + path.toString());
+        Files.write(path, bytes);
+        log.info("이미지 저장 완료");
+
+        // 메세지 저장
+        messageDTO.setContent(path.toString());
+        saveMessage(channelId, messageDTO);
     }
 
     @Override
