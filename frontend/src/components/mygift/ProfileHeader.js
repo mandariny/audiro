@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom'
 import DeleteModal from "../modal/DeleteModal";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import NicknameModal from "../modal/NicknameModal";
 
 import axios from "axios";
 import jwt from 'jwt-decode';
@@ -18,11 +19,16 @@ const StyledHeader = styled.div`
 `;
 
 const StyledMyGiftTitle = styled.div`
+    display: flex;
+    align-items: center;
     font-size: 17px;
     font-family: var(--font-nanumSquareEB);
     margin-bottom: 25px;
     margin-left: 10px;
     color: white;
+    >*{
+      text-decoration: none;
+    }
 `;
 
 const StyledMyGiftHeaderWrapper = styled.div`
@@ -66,7 +72,6 @@ const StyledProfileImg=styled.img`
 `;
 
 const ProfileHeader = (props) => {
-  const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const outside = useRef();
   const {giftid}=useParams();
@@ -85,15 +90,15 @@ const ProfileHeader = (props) => {
       })
   }, []);
 
+  const [NicknameOpen, setNicknameOpen] = useState(false);
 
   return (
     <div>
       <StyledHeader>
-        <StyledMyGiftTitle>반가워요, {props.nickname}님 👋 </StyledMyGiftTitle>
-
+        <StyledMyGiftTitle><Link to="/userinfo">반가워요, {props.nickname}님 👋</Link></StyledMyGiftTitle>
         <StyledMyGiftHeaderWrapper>
           <StyledMyGiftProfile>
-          <StyledProfileImg src={userImg}/>
+            <StyledProfileImg src={userImg}/>
           </StyledMyGiftProfile>
             <Link to="/gifts" style={{ textDecoration: 'none' }}>
                 <div>
@@ -102,16 +107,16 @@ const ProfileHeader = (props) => {
                 </div>
             </Link>
             <div>
-              <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
+              <StyledMyGiftListNumber>1</StyledMyGiftListNumber>
               <StyledMyGiftListTitle>방문한 지점</StyledMyGiftListTitle>
             </div>
-            <div onClick={()=>{ setModalOpen(true) }}>
-              <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
+            <Link to="/musicmate" style={{ textDecoration: 'none' }}>
+              <StyledMyGiftListNumber>{props.mmcnt}</StyledMyGiftListNumber>
               <StyledMyGiftListTitle>음악 메이트</StyledMyGiftListTitle>
-            </div>
+            </Link>
         </StyledMyGiftHeaderWrapper>
       </StyledHeader>
-      {modalOpen && <Modal className="gift-modal" setOpenModal={setModalOpen} />}
+      {NicknameOpen && <NicknameModal/> }
       </div>
   );
   

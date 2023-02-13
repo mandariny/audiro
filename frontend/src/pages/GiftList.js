@@ -91,14 +91,27 @@ const GiftList = (props) =>{
     console.log(jwt(token));
     const nickname = jwt(token)['nickName']; 
     console.log(nickname);
+    const userId = jwt(token)['userId'];
+    console.log(userId);
 
     const [dataList, setDataList] = useState([]);
     const [giftcnt, setGiftcnt] = useState(0);
+    const [mmcnt, setMMCnt] = useState(0);
+
     useEffect(() => {
         axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${nickname}`}, headers: {Auth: `${token}`}})
             .then((res) => {
                  setDataList(res.data);
                  setGiftcnt(res.data.length);
+                })
+    }, []);
+
+    useEffect(() => {
+        axios.get('http://i8a402.p.ssafy.io/api/musicmate', {params: {userId: `${userId}`}, headers: {Auth: `${token}`}})
+            .then((res) => {
+                 setMMCnt(res.data.length);
+                 console.log(res);
+                 console.log(res.data);
                 })
     }, []);
 
@@ -108,12 +121,12 @@ const GiftList = (props) =>{
         <div>
             <Logo/>
             <Nav/>
-            <ProfileHeader nickname={nickname} giftcnt={giftcnt}/>
+            <ProfileHeader nickname={nickname} giftcnt={giftcnt} mmcnt={mmcnt}/>
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
                     {dataList?.map(item => (
-                        <Gift nickname={nickname} giftcnt={giftcnt} key={item.id} id={item.id} src={item.giftImg}/>
+                        <Gift nickname={nickname} giftcnt={giftcnt} mmcnt={mmcnt} key={item.id} id={item.id} src={item.giftImg}/>
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>
