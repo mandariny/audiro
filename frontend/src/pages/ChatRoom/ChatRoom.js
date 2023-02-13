@@ -3,6 +3,11 @@ import {useParams} from "react-router-dom";
 import * as StompJs from "@stomp/stompjs";
 import ChatMessageList from './ChatMessageList';
 import axios from "axios";
+import Nav from "../../components/Nav";
+import styled from 'styled-components';
+import {FiSend} from "react-icons/fi";
+import { useCallback } from "react";
+import { useSelector } from 'react-redux';
 
 // 웹 소켓 연결할 endpoint
 const BASE_URL = "ws://localhost:8080/ws-stomp";
@@ -15,6 +20,44 @@ const user_id = 1;
 
 // 임의로 넣어둔 유저 닉네임
 const user_nickname = "pickapicka";
+
+
+const StyledInputWrapper = styled.div`
+    /* display: flex; */
+    position: fixed;
+    bottom: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    >*{
+        display: flex;
+        align-items: center;
+    }
+`;
+
+const StyledInput = styled.input`
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    color: white;
+    font-size: 16px;
+    font-family: var(--font-nanumSquareR);
+    background-color: rgba(65, 22, 162, 0.5);
+    padding: 10px;
+    height: 20px;
+    width: 260px;
+    :focus{
+        outline: none !important;
+        /* border-bottom: 1px solid white; */
+    }
+`;
+
+const StyledBtn = styled.div`
+    background-color: rgba(65, 22, 162, 0.5);
+    height: 20px;
+    padding: 10px;
+`;
 
 const ChatRoom = () => {
 
@@ -116,14 +159,15 @@ const ChatRoom = () => {
 
     return (
         <div>
+            <Nav/>
             {/* 메세지 리스트 컴포넌트 생성 */}
             <ChatMessageList messageList={messageList}/>
-            <form onSubmit={(event) => handleSubmit(event, message)}>
-                <div>
-                    <input type={'text'} name={'chatInput'} onChange={handleChange} value={message} />
-                </div>
-                <input type={'submit'} value={'전송'} />
-            </form>
+            <StyledInputWrapper>
+                <form onSubmit={(event) => handleSubmit(event, message)}>
+                    <StyledInput type={'text'} name={'chatInput'} onChange={handleChange} value={message} placeholder="새로운 사람과의 대화를 시작합니다."/>
+                    <StyledBtn><FiSend type={'submit'}></FiSend></StyledBtn>
+                </form>
+            </StyledInputWrapper>
         </div>
     );
 }

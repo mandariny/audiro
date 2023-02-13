@@ -15,12 +15,15 @@ const StyledChatListTitle = styled.div`
     font-family: var(--font-nanumSquareEB);
     margin-bottom: 25px;
     color: white;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 20px;
 `;
 
 const StyledChatWrapper = styled.div`
-    background-color: ;
+    background-color: rgba(65, 22, 162, 0.5);
+    margin-bottom: 10px;
+    margin-left : 20px;
+    margin-right: 20px;
 `;
 
 const ChatThumbnailList = (props) => {
@@ -48,9 +51,9 @@ const ChatThumbnailList = (props) => {
             <StyledChatListTitle>연희동 아자르님의 편지함</StyledChatListTitle>
             <StyledChatListContainer>
                 {/* 일단 ul로 각 컴포넌트 뿌리게만 해둠 */}
-                <ul>
+                <StyledChatWrapper>
                     {chatThumbnailList}
-                </ul>
+                </StyledChatWrapper>
             </StyledChatListContainer>
         </>
     )
