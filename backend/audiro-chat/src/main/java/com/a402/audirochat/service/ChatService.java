@@ -8,7 +8,7 @@ public interface ChatService {
 
     void saveMessage(String channelId, MessageDTO messageDTO);
 
-    List<ChannelThumbnailDTO> getChannelThumbnail(String userId);
+    List<ChannelThumbnailDTO> getChannelThumbnail(long userId);
 
     List<MessageDTO> getChannelMessages(String channelId);
 

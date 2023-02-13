@@ -1,5 +1,6 @@
 package com.a402.audirochat.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.*;
@@ -10,15 +11,15 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class ChannelMessage {
+public class ChannelMessage implements Serializable {
 
-    private String userId;
+    private long userId;
     private String userNickname;
     private ContentType contentType;
     private String content;
     LocalDateTime sendTime;
 
-    public ChannelMessage(String userId, String userNickname, ContentType type, String content){
+    public ChannelMessage(long userId, String userNickname, ContentType type, String content){
         this.userId = userId;
         this.userNickname = userNickname;
         this.contentType = type;

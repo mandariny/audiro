@@ -1,7 +1,10 @@
 package com.a402.audirochat.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,18 +20,19 @@ import org.springframework.data.redis.core.RedisHash;
 @Getter
 @Setter
 @ToString
-public class User {
+public class User implements Serializable {
 
     @Id
-    private String Id;
-    private List<ChannelInfo> channels = new ArrayList<>();
+    private long Id;
+//    private List<ChannelInfo> channels = new ArrayList<>();
+    // 대화 상태 id, 채널 정보
+    private Map<Long, ChannelInfo> channels = new HashMap<>();
 
-    public User(String Id){
+    public User(long Id){
         this.Id = Id;
     }
 
-    public void addChannels(Channel channel, String memberNickname){
-        this.channels.add(new ChannelInfo(channel, memberNickname));
+    public void addChannels(long memberId, Channel channel, String channelName){
+        this.channels.put(memberId, new ChannelInfo(channel, channelName));
     }
-
 }
