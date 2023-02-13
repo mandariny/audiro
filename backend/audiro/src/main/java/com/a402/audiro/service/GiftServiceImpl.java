@@ -4,6 +4,7 @@ import com.a402.audiro.dto.GiftDTO;
 import com.a402.audiro.dto.GiftEmojiDTO;
 import com.a402.audiro.dto.GiftThumbnailDTO;
 import com.a402.audiro.entity.Gift;
+import com.a402.audiro.entity.User;
 import com.a402.audiro.repository.GiftRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,23 +19,34 @@ import java.util.stream.Collectors;
 public class GiftServiceImpl implements GiftService{
 
     private final GiftRepository giftRepository;
+    private final UserService userService;
 
     @Override
     public List<GiftThumbnailDTO> getGiftList(String nickname){
         List<Gift> gift;
         List<GiftThumbnailDTO> giftDTOList;
 
-        log.warn("gift before");
-        gift = giftRepository.findByNickname(nickname);
-        log.warn("gift log: " +gift.get(0).toString());
+        userService.isValidNickname(nickname);
 
-        gift = giftRepository.findByNickname(nickname);
-        giftDTOList = gift.stream()
-                .map(g -> GiftThumbnailDTO.builder()
-                        .id(g.getId())
-                        .giftImg(g.getGiftImg())
-                        .build())
-                .collect(Collectors.toList());
+        if(userService.isSameUser(nickname)){
+            log.info("유저 본인의 페이지입니다.");
+            gift = giftRepository.findByNickname(nickname);
+            giftDTOList = gift.stream()
+                    .map(g -> GiftThumbnailDTO.builder()
+                            .id(g.getId())
+                            .giftImg(g.getGiftImg())
+                            .build())
+                    .collect(Collectors.toList());
+        }else{
+            log.info("다른 유저의 피드입니다.");
+            gift = giftRepository.findByNicknameAndIsOpen(nickname);
+            giftDTOList = gift.stream()
+                    .map(g -> GiftThumbnailDTO.builder()
+                            .id(g.getId())
+                            .giftImg(g.getGiftImg())
+                            .build())
+                    .collect(Collectors.toList());
+        }
 
         return giftDTOList;
     }
