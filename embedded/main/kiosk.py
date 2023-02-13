@@ -24,6 +24,9 @@ from urllib.error import URLError, HTTPError
 
 import requests
 
+from client import Client
+import logging
+
 # http get 요청
 # local_url -> 추후 서버 주소로 변경
 #local_url = "http://localhost:8080"
@@ -631,59 +634,54 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.count_emoji3.setText(str(emoji_cnt.get('emo3')))
         self.count_emoji4.setText(str(emoji_cnt.get('emo4')))
 
-        # self.play_music(res_json.get('songUrl'))
+        self.play_music(res_json.get('songUrl'))
 
     def playMusic1_post(self):
-        #self.gift_detail(1)
-        self.stackedPages.setCurrentIndex(3)
-        self.stackedPages2.setCurrentIndex(3)
-        gift_detail_url = local_url + "/api/gift/detail/"
         self.gift_id = 1
-        gift_detail_param = {'giftId': self.gift_id}
-
-        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
-        res_json = response.json()
-        emoji_cnt = res_json.get('emoji')
-
-        self.gift_detail_img.setPixmap(self.show_image(res_json.get('giftImg')))
-        self.gift_detail_song.setText(res_json.get('song'))
-        self.gift_detail_singer.setText(res_json.get('singer'))
-        self.count_emoji1.setText(str(emoji_cnt.get('emo1')))
-        self.count_emoji2.setText(str(emoji_cnt.get('emo2')))
-        self.count_emoji3.setText(str(emoji_cnt.get('emo3')))
-        self.count_emoji4.setText(str(emoji_cnt.get('emo4')))
-
-        self.play_music(res_json.get('songUrl'))
+        self.gift_detail(1)
 
 
     def playMusic2_post(self):
-        self.stackedPages.setCurrentIndex(3)
-        self.stackedPages2.setCurrentIndex(3)
-        print('\n마니또 2')
-        gift_detail_url = local_url + "/api/gift/detail/"
         self.gift_id = 2
-        gift_detail_param = {'giftId': self.gift_id}
-
-        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
-        res_json = response.json()
-        print('마니또 1 세부정보:')
-        print(res_json)
-        emoji_cnt = res_json.get('emoji')
-        print('이모지:')
-        print(emoji_cnt)
-        self.gift_detail_img.setPixmap(self.show_image(res_json.get('giftImg')))
-        self.gift_detail_song.setText(res_json.get('song'))
-        self.gift_detail_singer.setText(res_json.get('singer'))
-        self.count_emoji1.setText(str(emoji_cnt.get('emo1')))
-        self.count_emoji2.setText(str(emoji_cnt.get('emo2')))
-        self.count_emoji3.setText(str(emoji_cnt.get('emo3')))
-        self.count_emoji4.setText(str(emoji_cnt.get('emo4')))
-
-        # self.play_music(res_json.get('songUrl'))
+        self.gift_detail(2)
 
     def playMusic3_post(self):
-        self.stackedPages.setCurrentIndex(3)
-        self.stackedPages2.setCurrentIndex(3)
+        self.gift_id = 3
+        self.gift_detail(3)
+
+    def playMusic4_post(self):
+        self.gift_id = 4
+        self.gift_detail(4)
+
+    def playMusic5_post(self):
+        self.gift_id = 5
+        self.gift_detail(5)
+
+    def playMusic6_post(self):
+        self.gift_id = 6
+        self.gift_detail(6)
+
+    def playMusic7_post(self):
+        self.gift_id = 7
+        self.gift_detail(7)
+
+    def playMusic8_post(self):
+        self.gift_id = 8
+        self.gift_detail(8)
+
+    def playMusic9_post(self):
+        self.gift_id = 9
+        self.gift_detail(9)
+
+    def playMusic10_post(self):
+        self.gift_id = 10
+        self.gift_detail(10)
+
+    def scroll_post_left(self):
+        self.post_scroll_area.scroll(-10,0)
+
+    def scroll_post_right(self):
+        self.post_scroll_area.scroll(10,0)
 
     def backToChart(self):
         self.stackedPages.setCurrentIndex(0)
@@ -784,8 +782,43 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def draw(self):
         self.stackedPages2.setCurrentIndex(0)
 
+    # 로그인 웹 소켓 통신
+    def print_frame(frame):
+        # print(json.loads(frame.body))
+        print(frame.body)
+        print(frame.command)
+        print(frame.headers)
+        global token
+        token = frame.body
+        print("token : " + token)
+
     def login(self):
         self.stackedPages2.setCurrentIndex(4)
+        spot_id = self.spot_id;
+        ws_url = 'ws://localhost:8080/notifications/websocket'
+        global token
+        token = ''
+
+        LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+        # logging.basicConfig(level=logging.DEBUG, format=LOG_FORMAT)
+
+        # open transport
+        client = Client(ws_url)
+
+        client.connect()
+
+        # subscribe channel
+        client.subscribe("/sub/" + str(spot_id), callback=self.print_frame)
+
+        # time.sleep(300)
+
+        while token == '':
+            pass
+
+        client.disconnect()
+
+    def logout(self):
+        token = ''
 
     def postMusic(self):
         self.stackedPages2.setCurrentIndex(1)
