@@ -30,7 +30,7 @@ import requests
 local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsImlhdCI6MTY3NjI2OTY4MSwiZXhwIjoxNjc2Mjc1NjgxfQ.99-Y-oUVxJC0ouCxoq_IgqFbqnBI5hUXyL7t2JKKgQ8'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsImlhdCI6MTY3NjI3NjMzOCwiZXhwIjoxNjc2MjgyMzM4fQ.9FZXuX3rc3uMK026f2I03014MYW7he3x0e-ofUu2W0o'
 }
 
 
@@ -132,12 +132,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         )
 
         # 차트 정보 불러오기
-        song_list_url = local_url + "/api/song/chart/giftcnt"
+        song_list_url = local_url + "/api/song/chart/giftcnt/"
         song_list_param = {'spotId': spot_id}
         response = requests.get(song_list_url, headers=request_header, params=song_list_param)
+        print("asjkldfhlaksjdfhlaksdjfhlaksdjf")
         res_json = response.json()
-        print('차트 정보:' + res_json[0].get('song_title'))
-
         self.music_chart = res_json
 
         # 차트 이미지 넣기
@@ -738,52 +737,45 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.stackedPages.setCurrentIndex(currentPage + 1)
 
-    def press_emoji1(self):
+    def press_feedback(self, idx):
+        emoji_list = [self.count_emoji1, self.count_emoji2, self.count_emoji3, self.count_emoji4]
+
         gift_detail_url = local_url + "/api/gift/detail"
         gift_detail_param = {'giftId': self.gift_id}
         response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
         res_json = response.json()
 
-        print(res_json)
         emo = res_json.get('emoji')
-        print('이모지 버튼 1:')
-        print(emo)
+        cnt_emo = emo.get('emo'+str(idx))
+        emoji_list[idx-1].setText(str(cnt_emo + 1))
+
+        gift_feedback_url = local_url + "/api/gift/feedback"
+        gift_feedback_param = {'giftId': self.gift_id, 'idx': idx}
+        requests.get(gift_feedback_url, headers=request_header, params=gift_feedback_param)
+
+    def press_emoji1(self):
+        self.press_feedback(1)
+        """gift_detail_url = local_url + "/api/gift/detail"
+        gift_detail_param = {'giftId': self.gift_id}
+        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
+        res_json = response.json()
+    
+        emo = res_json.get('emoji')
         cnt_emo = emo.get('emo1')
-        print("\n이모지 카운트:" + str(cnt_emo))
         self.count_emoji1.setText(str(cnt_emo+1))
 
+        gift_feedback_url = local_url + "/api/gift/feedback"
+        gift_feedback_param = {'giftId': self.gift_id, 'idx': 1}
+        requests.get(gift_feedback_url, headers=request_header, params=gift_feedback_param)
+"""
     def press_emoji2(self):
-        gift_detail_url = local_url + "/api/gift/detail"
-        gift_detail_param = {'giftId': self.gift_id}
-        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
-        res_json = response.json()
-
-        print(res_json)
-        emo = res_json.get('emoji')
-        cnt_emo = emo.get('emo2')
-        self.count_emoji2.setText(str(cnt_emo + 1))
+        self.press_feedback(2)
 
     def press_emoji3(self):
-        gift_detail_url = local_url + "/api/gift/detail"
-        gift_detail_param = {'giftId': self.gift_id}
-        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
-        res_json = response.json()
-
-        print(res_json)
-        emo = res_json.get('emoji')
-        cnt_emo = emo.get('emo3')
-        self.count_emoji3.setText(str(cnt_emo + 1))
+        self.press_feedback(3)
 
     def press_emoji4(self):
-        gift_detail_url = local_url + "/api/gift/detail"
-        gift_detail_param = {'giftId': self.gift_id}
-        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
-        res_json = response.json()
-
-        print(res_json)
-        emo = res_json.get('emoji')
-        cnt_emo = emo.get('emo4')
-        self.count_emoji4.setText(str(cnt_emo + 1))
+        self.press_feedback(4)
 
     def reply(self):
         self.stackedPages.setCurrentIndex(3)
