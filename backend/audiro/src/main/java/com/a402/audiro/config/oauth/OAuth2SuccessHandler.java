@@ -15,16 +15,28 @@ import com.a402.audiro.entity.User;
 import com.a402.audiro.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.util.Optional;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
+import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -86,6 +98,18 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
 
         //Response에 토큰 넣기
         writeTokenResponse(response, jwtTokens);
+        RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+        String targetUri = determineTargetUrl(request, response, authentication) + "?auth="+jwtTokens.getAccessToken()+"&refresh="+jwtTokens.getRefreshToken();
+        log.info("redirect_uri : {}", targetUri);
+        redirectStrategy.sendRedirect(request, response, targetUri);
+        log.info("Redirect 완료");
+
+
+        Optional<String> spotIdfromCookie = CookieUtil.getCookie(request, "spot_id")
+                .map(Cookie::getValue);
+        String spotId = spotIdfromCookie.orElse("지점명 찾지 못함");
+        log.info("spotId : {}",spotId);
+
     }
 
     private void writeTokenResponse(HttpServletResponse response, JwtTokens token)
@@ -97,5 +121,14 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
         response.setContentType("application/json;charset=UTF-8");
         log.info("Response에 담긴 jwtToken : " + "{}", token);
 //
+    }
+
+    protected String determineTargetUrl(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+        Optional<String> redirectUri = CookieUtil.getCookie(request, "redirect_uri")
+                .map(Cookie::getValue);
+        String targetUri = redirectUri.orElse("http://i8a402.p.ssafy.io:80/home");
+
+        return UriComponentsBuilder.fromUriString(targetUri)
+                .build().toUriString();
     }
 }

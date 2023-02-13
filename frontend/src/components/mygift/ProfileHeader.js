@@ -7,6 +7,9 @@ import DeleteModal from "../modal/DeleteModal";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+import axios from "axios";
+import jwt from 'jwt-decode';
+
 const StyledHeader = styled.div`
     margin-top: 20px;
     margin-left: 10px;
@@ -31,8 +34,8 @@ const StyledMyGiftHeaderWrapper = styled.div`
 `;
 
 const StyledMyGiftProfile = styled.div`
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 100%;
     background-color: white;
     display: flex;
@@ -55,6 +58,13 @@ const StyledMyGiftListTitle = styled.div`
     color: white;
 `;
 
+const StyledProfileImg=styled.img`
+    background-color: white;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+`;
+
 const ProfileHeader = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -62,16 +72,32 @@ const ProfileHeader = (props) => {
   const {giftid}=useParams();
   console.log([deleteModalOpen, setDeleteModalOpen])
 
+  const token = localStorage.getItem('login-token');
+  console.log(jwt(token));
+  const userId = jwt(token)['userId']; 
+  console.log(userId);
+
+  const [userImg, setuserImg] = useState();
+  useEffect(() => {
+    axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
+      .then((res) => {
+        setuserImg(res.data.img);
+      })
+  }, []);
+
+
   return (
     <div>
       <StyledHeader>
         <StyledMyGiftTitle>반가워요, {props.nickname}님 👋 </StyledMyGiftTitle>
 
         <StyledMyGiftHeaderWrapper>
-          <StyledMyGiftProfile><BsHeadphones fill='black' size="30"/></StyledMyGiftProfile>
+          <StyledMyGiftProfile>
+          <StyledProfileImg src={userImg}/>
+          </StyledMyGiftProfile>
             <Link to="/gifts" style={{ textDecoration: 'none' }}>
                 <div>
-                <StyledMyGiftListNumber>20</StyledMyGiftListNumber>
+                <StyledMyGiftListNumber>{props.giftcnt}</StyledMyGiftListNumber>
                 <StyledMyGiftListTitle>나의 엽서</StyledMyGiftListTitle>
                 </div>
             </Link>

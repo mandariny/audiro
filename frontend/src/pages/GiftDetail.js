@@ -21,6 +21,8 @@ import ProfileHeader from "../components/mygift/ProfileHeader";
 
 import axios from "axios";
 
+import jwt from 'jwt-decode';
+
 const StyledGiftDetailContainer = styled.div`
     margin: 20px;
 `;
@@ -119,26 +121,32 @@ const StyledReactionNumber = styled.div`
 `;
 
 const GiftDetail = (props) => {
+  const token = localStorage.getItem('login-token');
+  console.log(jwt(token));
+  const nickname = jwt(token)['nickName']; 
+    
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
   const {giftid} = useParams();
+  const {giftcnt} = useParams();
   // console.log([deleteModalOpen, setDeleteModalOpen])
 
   const [dataDetail, setDataDetail] = useState({});
   const [dataEmoji, setDataEmoji] = useState({});
   useEffect(() => {
-      axios.get('http://localhost:8080/gift/detail', {params: {giftId: giftid}})
+      axios.get('http://i8a402.p.ssafy.io/api/gift/detail', {params: {giftId: giftid}, headers: {Auth: `${token}`}})
           .then((res) => {
               setDataDetail(res.data)
-              setDataEmoji(res.data["emoji"])})
-              // console.log(res.data["emoji"]))
+              setDataEmoji(res.data["emoji"])
+          }
+      )       
   }, []);
 
   return (
     <div>
       <Logo/>
       <Nav/>
-      <ProfileHeader nickname="okiii"/>
+      <ProfileHeader nickname={nickname} giftcnt={giftcnt} />
       <StyledGiftDetailContainer>
         <StyledGiftDetailBtnWrapper>
           <StyledDetailBtn>비공개</StyledDetailBtn>

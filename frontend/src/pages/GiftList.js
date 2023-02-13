@@ -12,6 +12,8 @@ import axios from 'axios';
 import ProfileHeader from "../components/mygift/ProfileHeader";
 import { useLocation } from "react-router";
 
+import jwt from 'jwt-decode';
+
 const StyledHeader = styled.div`
     margin-top: 20px;
     margin-left: 10px;
@@ -63,7 +65,7 @@ const StyledMyGiftListTitle = styled.div`
 const StyledMyGiftListWrapper=styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 `;
 
 const StyledMyGiftList = styled.div`
@@ -84,12 +86,20 @@ const StyledMateModal = styled.div`
 
 
 const GiftList = (props) =>{
+    
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
+    const nickname = jwt(token)['nickName']; 
+    console.log(nickname);
 
     const [dataList, setDataList] = useState([]);
+    const [giftcnt, setGiftcnt] = useState(0);
     useEffect(() => {
-        axios.get('http://localhost:8080/gift', {params: {nickname: 'gaok'}})
-            .then((res) => 
-                setDataList(res.data))
+        axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${nickname}`}, headers: {Auth: `${token}`}})
+            .then((res) => {
+                 setDataList(res.data);
+                 setGiftcnt(res.data.length);
+                })
     }, []);
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -98,12 +108,12 @@ const GiftList = (props) =>{
         <div>
             <Logo/>
             <Nav/>
-            <ProfileHeader nickname={props.nickname?"okiii":props.nickname} />
+            <ProfileHeader nickname={nickname} giftcnt={giftcnt}/>
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
                     {dataList?.map(item => (
-                        <Gift nickname={props.nickname} key={item.id} id={item.id} src={item.giftImg}/>
+                        <Gift nickname={nickname} giftcnt={giftcnt} key={item.id} id={item.id} src={item.giftImg}/>
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>

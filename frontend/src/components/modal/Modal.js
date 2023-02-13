@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {Navigate, useNavigate} from 'react-router-dom';
 
 import axios from "axios";
-
+import jwt from 'jwt-decode';
 
 const StyledModalBG = styled.div`
     position: absolute;
@@ -15,12 +15,14 @@ const StyledModalBG = styled.div`
 `;
 
 const StyledModalContainer = styled.div`
-    position: absolute;
-    left: 15%;
-    width: 200px;
-    border-radius: 20px;
-    background-color: #6522f2;
-    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(101, 34, 242);
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 80px;
+    margin-right: 80px;
 `;
 
 const StyledModalClose = styled.div`
@@ -37,7 +39,7 @@ const StyledModalClostBtn = styled.div`
 
 const StyledModalTitle = styled.div`
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     font-family: var(--font-nanumSquareR);
     margin-bottom: 30px;
@@ -64,10 +66,22 @@ const StyledModalListBtn = styled.div`
 function Modal({ setOpenModal }) {
 
   const [mateList, setMateList] = useState([]);
+
+  const token = localStorage.getItem('login-token');
+  console.log(jwt(token));
+  const userid = jwt(token)['userId']; 
+  console.log(userid);
+
+  const [musicmatecnt, setMusicmatecnt] = useState(0);
   useEffect(() => {
-      axios.get('http://localhost:8080/musicmate', {params: {userId: 2}})
+      axios.get('http://i8a402.p.ssafy.io/api/musicmate', {params: {userId: `${userid}`}, headers: {Auth: `${token}`}})
           .then((res) => 
-            setMateList(res.data))
+            {
+              setMateList(res.data);
+              console.log(res.data.length);
+              setMusicmatecnt(res.data.length);
+            }
+          )
   }, []);
 
   const navigate = useNavigate();
