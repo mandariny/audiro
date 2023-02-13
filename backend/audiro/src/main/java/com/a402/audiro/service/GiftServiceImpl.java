@@ -6,6 +6,7 @@ import com.a402.audiro.dto.GiftThumbnailDTO;
 import com.a402.audiro.entity.Gift;
 import com.a402.audiro.entity.User;
 import com.a402.audiro.exception.GiftNotExistException;
+import com.a402.audiro.exception.StateNotValidException;
 import com.a402.audiro.repository.GiftRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,8 @@ public class GiftServiceImpl implements GiftService{
 
     private final GiftRepository giftRepository;
     private final UserService userService;
+    private final int OPEN = 1;
+    private final int CLOSE = 0;
 
     @Override
     public List<GiftThumbnailDTO> getGiftList(String nickname){
@@ -110,5 +113,19 @@ public class GiftServiceImpl implements GiftService{
 
         if(gift == null) throw new GiftNotExistException();
         return gift;
+    }
+
+    private void isValidState(int state){
+        if(state != OPEN && state != CLOSE) throw new StateNotValidException();
+    }
+
+    @Override
+    public void changeOpenState(long giftId, int state) {
+        Gift gift = getGift(giftId);
+        isValidState(state);
+
+        gift.setOpen(state == OPEN);
+
+        giftRepository.save(gift);
     }
 }

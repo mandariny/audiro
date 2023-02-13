@@ -65,6 +65,17 @@ public class GiftController {
         }
     }
 
+    @GetMapping("/open")
+    public ResponseEntity<?> changeOpenState(@RequestParam long giftId, @RequestParam int state){
+        try{
+            giftService.changeOpenState(giftId, state);
+            return ResponseEntity.ok().body("success : 공개 여부 변경에 성공했습니다.");
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     @DeleteMapping
     public ResponseEntity<?> deleteGift(@RequestParam long giftId){
         try{

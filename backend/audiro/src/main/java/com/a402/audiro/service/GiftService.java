@@ -18,4 +18,6 @@ public interface GiftService {
     void addLike(long giftId);
 
     Gift getGift(long giftId);
+
+    void changeOpenState(long giftId, int state);
 }
