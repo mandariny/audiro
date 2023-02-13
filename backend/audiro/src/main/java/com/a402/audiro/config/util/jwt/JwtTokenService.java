@@ -31,7 +31,7 @@ public class JwtTokenService {
 
     //토큰 생성 메서드
     public String generateAccessJwt(long userId, String nickName, String role) {
-        long tokenPeriod = 1000L * 60L * 5L; //인증토큰의 만료시간 5분
+        long tokenPeriod = 1000L * 60L * 1000L; //인증토큰의 만료시간 5분
         Claims claims = Jwts.claims();
         claims.put("role", role);
         claims.put("userId", userId);
@@ -65,7 +65,7 @@ public class JwtTokenService {
         User userTemp = userRepository.findById(userId);
         userTemp.setRefreshToken(refreshToken);
         userRepository.save(userTemp);
-
+        log.info("DB에 refresh 토큰 저장");
         return refreshToken;
     }
 
@@ -77,7 +77,7 @@ public class JwtTokenService {
                 generateRefreshJwt(userId, nickName, role));
     }
 
-    //토큰 유효성 검증 메서드 - 토큰의 만료시간 체크는 빼고, 위조 여부만 판단한다.
+    //토큰 유효성 검증 메서드
     public boolean verifyToken(String token) {
         try {
             log.info("토큰 검증 시작");
@@ -86,33 +86,33 @@ public class JwtTokenService {
                     .parseClaimsJws(token).getBody();
             return true;
         } catch (ExpiredJwtException e) {
-            log.info("만료된 토큰 : {}", e.getMessage());
+            log.warn("만료된 토큰 : {}", e.getMessage());
             throw e;
         } catch (JwtException e){
-            log.info("잘못된 토큰 : {}", e.getMessage());
+            log.warn("잘못된 토큰 : {}", e.getMessage());
             throw e;
         }
     }
 
-    //토큰의 시간 만료 검증 메서드
-    public boolean isNotExpired(String token) {
-        log.info("토큰 만료 테스트 시작");
-        Jws<Claims> claims = Jwts.parser()
-                .setSigningKey(secretKey)
-                .parseClaimsJws(token);
-        return claims.getBody()
-                .getExpiration()
-                .after(new Date());
-    }
-
-
     //토큰 refresh 메서드
     public JwtTokens refreshAccessToken(String refreshToken) {
-        //리프레쉬 토큰에 담긴 사용자 정보
-        long id = getUserId(refreshToken);
-        String nickName = getUserNickName(refreshToken);
-        String role = getUserRole(refreshToken);
-        return generateToken(id, nickName, role);
+        try{
+            //리프레쉬 토큰에 담긴 사용자 정보
+            long id = getUserId(refreshToken);
+            log.info("요청한 사용자 id : {}",id);
+            User user = userRepository.findById(id);
+            String refreshTokenInDB = user.getRefreshToken();
+            if(!refreshToken.equals(refreshTokenInDB)){
+                log.warn("RefreshToken이 일치하지 않습니다.");
+                return null;
+            }
+            String nickName = getUserNickName(refreshToken);
+            String role = getUserRole(refreshToken);
+            return generateToken(id, nickName, role);
+        }
+        catch (Exception e){
+            throw e;
+        }
     }
 
     public long getUserId(String token) {
