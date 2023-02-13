@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ChatThumbnail = (props) => {
 
     return (
-        // <div onClick={clickHandler}>
+        // 해당 컴포넌트를 누르면 채팅방으로 이동함
         <div>
             <Link to={`/channel/${props.channel_id}`}>
             {"채널명 : " + props.channel_id}

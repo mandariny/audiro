@@ -14,6 +14,7 @@ const ChatMessage = (props) => {
         )
     }
 
+    // 이미지인 경우엔 http~~~하는 이미지 주소를 보여주게끔,,,
     const ImageMessage = (props) => {
         return(
             <div>
@@ -26,6 +27,7 @@ const ChatMessage = (props) => {
         )
     }
 
+    // 메세지인 경우와 이미지인 경우로 나누어서 표현
     if(props.content_type == 'MESSAGE'){
         return (
             <StringMessage

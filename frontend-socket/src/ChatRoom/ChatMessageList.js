@@ -2,7 +2,8 @@ import React from 'react';
 import ChatMessage from './ChatMessage';
 
 const ChatMessageList = (props) => {
-    // console.log("메세지 : " + props.messageList[0]);
+    // 맵으로 돌면서 컴포넌트 생성
+    // props로 정보 전달
     const chatMessageList = props.messageList && props.messageList.map((msg, index) => (
         <ChatMessage
         key={index}
