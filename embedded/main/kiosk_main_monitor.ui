@@ -228,7 +228,7 @@
                      </property>
                      <property name="font">
                       <font>
-                       <pointsize>13</pointsize>
+                       <pointsize>16</pointsize>
                       </font>
                      </property>
                      <property name="focusPolicy">
@@ -255,7 +255,7 @@ icon-size:30px;
 QToolBox::tab{
 border-radius:15px;
 text-align:left;
-font-size:22px;
+font-size:23px;
 }
 
 QToolBox::tab:selected{
@@ -275,7 +275,7 @@ background: #6522F2;
                       <number>0</number>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <property name="tabSpacing">
                       <number>30</number>
@@ -571,7 +571,7 @@ background: #6522F2;
                 </size>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page1">
                 <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1002,8 +1002,8 @@ background-color:#6522F2;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>3085</width>
-                            <height>454</height>
+                            <width>3072</width>
+                            <height>463</height>
                            </rect>
                           </property>
                           <layout class="QHBoxLayout" name="horizontalLayout_127">
@@ -1745,7 +1745,7 @@ border-radius: 15px;</string>
                                  <number>10</number>
                                 </property>
                                 <item>
-                                 <widget class="QSlider" name="horizontalSlider_17">
+                                 <widget class="QSlider" name="chart_music_slider">
                                   <property name="styleSheet">
                                    <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -1981,6 +1981,7 @@ QSlider::handle:vertical {
                          <property name="styleSheet">
                           <string notr="true">width:100px;
 height:50px;
+padding: 3px 15px;
 background: #6522F2;
 border-radius: 25px;</string>
                          </property>
@@ -2875,7 +2876,7 @@ border-radius: 15px;</string>
                               <number>10</number>
                              </property>
                              <item alignment="Qt::AlignVCenter">
-                              <widget class="QSlider" name="horizontalSlider_27">
+                              <widget class="QSlider" name="song_music_slider">
                                <property name="styleSheet">
                                 <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -3663,6 +3664,11 @@ color: #FFFFFF;
                            <height>0</height>
                           </size>
                          </property>
+                         <property name="styleSheet">
+                          <string notr="true">padding: 3px 8px;
+background: #6522F2;
+border-radius: 25px;</string>
+                         </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
@@ -3680,11 +3686,11 @@ color: #FFFFFF;
                             </property>
                             <property name="font">
                              <font>
-                              <pointsize>13</pointsize>
+                              <pointsize>15</pointsize>
                              </font>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">width:85px; height:35px;background-color:#6522f2; border-radius:15px;</string>
+                             <string notr="true">background-color:#6522f2; border-radius:15px;</string>
                             </property>
                             <property name="text">
                              <string>그만듣기</string>
@@ -3697,8 +3703,20 @@ color: #FFFFFF;
                       </layout>
                      </widget>
                     </item>
-                    <item>
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                      <widget class="QFrame" name="frame_25">
+                      <property name="minimumSize">
+                       <size>
+                        <width>500</width>
+                        <height>500</height>
+                       </size>
+                      </property>
+                      <property name="baseSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">background-color:#D9D9D9;</string>
                       </property>
@@ -3709,6 +3727,21 @@ color: #FFFFFF;
                        <enum>QFrame::Raised</enum>
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_16">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
                        <item alignment="Qt::AlignHCenter">
                         <widget class="QLabel" name="gift_detail_img">
                          <property name="font">
@@ -3722,7 +3755,10 @@ color: #FFFFFF;
                           <string notr="true">color: red;</string>
                          </property>
                          <property name="text">
-                          <string>ditto를 추천하는                    사람이 그린 엽서</string>
+                          <string/>
+                         </property>
+                         <property name="scaledContents">
+                          <bool>true</bool>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -3961,7 +3997,7 @@ color: #FFFFFF;
                               <number>10</number>
                              </property>
                              <item alignment="Qt::AlignVCenter">
-                              <widget class="QSlider" name="horizontalSlider_22">
+                              <widget class="QSlider" name="manito_music_slider">
                                <property name="styleSheet">
                                 <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -5206,7 +5242,7 @@ background-color:black;
                            <number>10</number>
                           </property>
                           <item alignment="Qt::AlignVCenter">
-                           <widget class="QSlider" name="horizontalSlider_24">
+                           <widget class="QSlider" name="manito_post_music_slider">
                             <property name="styleSheet">
                              <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -6043,7 +6079,7 @@ border-radius: 20px;
                               <number>10</number>
                              </property>
                              <item alignment="Qt::AlignVCenter">
-                              <widget class="QSlider" name="horizontalSlider_23">
+                              <widget class="QSlider" name="postcard_music_slider">
                                <property name="styleSheet">
                                 <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -7462,7 +7498,7 @@ background-color:black;
                               <number>10</number>
                              </property>
                              <item alignment="Qt::AlignVCenter">
-                              <widget class="QSlider" name="horizontalSlider_25">
+                              <widget class="QSlider" name="postcard_send_music_slider">
                                <property name="styleSheet">
                                 <string notr="true">QSlider::groove:horizontal {
     border: 1px solid #999999;
@@ -10365,8 +10401,8 @@ border-radius: 30px;</string>
    <slot>backToPosts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1015</x>
-     <y>195</y>
+     <x>1009</x>
+     <y>194</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10621,8 +10657,8 @@ border-radius: 30px;</string>
    <slot>reply()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>200</x>
-     <y>295</y>
+     <x>215</x>
+     <y>329</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10637,8 +10673,8 @@ border-radius: 30px;</string>
    <slot>postMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>175</x>
-     <y>328</y>
+     <x>190</x>
+     <y>362</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10653,8 +10689,8 @@ border-radius: 30px;</string>
    <slot>moveToReceivedMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>150</x>
-     <y>346</y>
+     <x>165</x>
+     <y>397</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10669,8 +10705,8 @@ border-radius: 30px;</string>
    <slot>moveToSendMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>143</x>
-     <y>379</y>
+     <x>158</x>
+     <y>430</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10685,8 +10721,8 @@ border-radius: 30px;</string>
    <slot>login()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>92</x>
-     <y>1038</y>
+     <x>203</x>
+     <y>1265</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10957,8 +10993,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>106</x>
-     <y>1194</y>
+     <x>63</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10973,8 +11009,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>1194</y>
+     <x>65</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10989,8 +11025,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>1194</y>
+     <x>66</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11005,8 +11041,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>267</x>
-     <y>1194</y>
+     <x>68</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11021,8 +11057,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>320</x>
-     <y>1194</y>
+     <x>69</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11037,8 +11073,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>374</x>
-     <y>1194</y>
+     <x>70</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11053,8 +11089,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>428</x>
-     <y>1194</y>
+     <x>72</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11069,8 +11105,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>481</x>
-     <y>1194</y>
+     <x>73</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11085,8 +11121,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>535</x>
-     <y>1195</y>
+     <x>75</x>
+     <y>1029</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11101,8 +11137,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1044</x>
-     <y>1205</y>
+     <x>203</x>
+     <y>1074</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11485,8 +11521,8 @@ border-radius: 30px;</string>
    <slot>post_manito()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1046</x>
-     <y>1910</y>
+     <x>243</x>
+     <y>1100</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>

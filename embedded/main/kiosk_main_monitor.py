@@ -21,8 +21,6 @@ from PyQt5.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFram
     QSizePolicy, QSlider, QStackedWidget, QTabWidget,
     QToolBox, QVBoxLayout, QWidget)
 
-import painter
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -104,7 +102,7 @@ class Ui_MainWindow(object):
         self.menu_toolBox.setEnabled(True)
         self.menu_toolBox.setMinimumSize(QSize(0, 300))
         font1 = QFont()
-        font1.setPointSize(13)
+        font1.setPointSize(16)
         self.menu_toolBox.setFont(font1)
         self.menu_toolBox.setFocusPolicy(Qt.NoFocus)
         self.menu_toolBox.setContextMenuPolicy(Qt.DefaultContextMenu)
@@ -119,7 +117,7 @@ class Ui_MainWindow(object):
 "QToolBox::tab{\n"
 "border-radius:15px;\n"
 "text-align:left;\n"
-"font-size:22px;\n"
+"font-size:23px;\n"
 "}\n"
 "\n"
 "QToolBox::tab:selected{\n"
@@ -427,7 +425,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3085, 454))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 3072, 463))
         self.horizontalLayout_127 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_127.setObjectName(u"horizontalLayout_127")
         self.chart_img_Button1 = QPushButton(self.scrollAreaWidgetContents)
@@ -720,9 +718,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_68 = QVBoxLayout(self.frame_11)
         self.verticalLayout_68.setObjectName(u"verticalLayout_68")
         self.verticalLayout_68.setContentsMargins(15, 10, 15, 10)
-        self.horizontalSlider_17 = QSlider(self.frame_11)
-        self.horizontalSlider_17.setObjectName(u"horizontalSlider_17")
-        self.horizontalSlider_17.setStyleSheet(u"QSlider::groove:horizontal {\n"
+        self.chart_music_slider = QSlider(self.frame_11)
+        self.chart_music_slider.setObjectName(u"chart_music_slider")
+        self.chart_music_slider.setStyleSheet(u"QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "     /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);\n"
@@ -736,11 +734,11 @@ class Ui_MainWindow(object):
 "    margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */\n"
 "    border-radius: 5px;\n"
 "}")
-        self.horizontalSlider_17.setValue(25)
-        self.horizontalSlider_17.setSliderPosition(25)
-        self.horizontalSlider_17.setOrientation(Qt.Horizontal)
+        self.chart_music_slider.setValue(25)
+        self.chart_music_slider.setSliderPosition(25)
+        self.chart_music_slider.setOrientation(Qt.Horizontal)
 
-        self.verticalLayout_68.addWidget(self.horizontalSlider_17)
+        self.verticalLayout_68.addWidget(self.chart_music_slider)
 
 
         self.horizontalLayout_76.addWidget(self.frame_11)
@@ -846,6 +844,7 @@ class Ui_MainWindow(object):
         self.pushButton_23.setFont(font4)
         self.pushButton_23.setStyleSheet(u"width:100px;\n"
 "height:50px;\n"
+"padding: 3px 15px;\n"
 "background: #6522F2;\n"
 "border-radius: 25px;")
 
@@ -1217,9 +1216,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_69 = QVBoxLayout(self.frame_124)
         self.verticalLayout_69.setObjectName(u"verticalLayout_69")
         self.verticalLayout_69.setContentsMargins(15, 10, 15, 10)
-        self.horizontalSlider_27 = QSlider(self.frame_124)
-        self.horizontalSlider_27.setObjectName(u"horizontalSlider_27")
-        self.horizontalSlider_27.setStyleSheet(u"QSlider::groove:horizontal {\n"
+        self.song_music_slider = QSlider(self.frame_124)
+        self.song_music_slider.setObjectName(u"song_music_slider")
+        self.song_music_slider.setStyleSheet(u"QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "     /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);\n"
@@ -1233,11 +1232,11 @@ class Ui_MainWindow(object):
 "    margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */\n"
 "    border-radius: 5px;\n"
 "}")
-        self.horizontalSlider_27.setValue(25)
-        self.horizontalSlider_27.setSliderPosition(25)
-        self.horizontalSlider_27.setOrientation(Qt.Horizontal)
+        self.song_music_slider.setValue(25)
+        self.song_music_slider.setSliderPosition(25)
+        self.song_music_slider.setOrientation(Qt.Horizontal)
 
-        self.verticalLayout_69.addWidget(self.horizontalSlider_27, 0, Qt.AlignVCenter)
+        self.verticalLayout_69.addWidget(self.song_music_slider, 0, Qt.AlignVCenter)
 
 
         self.verticalLayout_97.addWidget(self.frame_124, 0, Qt.AlignBottom)
@@ -1578,6 +1577,9 @@ class Ui_MainWindow(object):
         self.frame_67 = QFrame(self.frame_20)
         self.frame_67.setObjectName(u"frame_67")
         self.frame_67.setMinimumSize(QSize(0, 0))
+        self.frame_67.setStyleSheet(u"padding: 3px 8px;\n"
+"background: #6522F2;\n"
+"border-radius: 25px;")
         self.frame_67.setFrameShape(QFrame.StyledPanel)
         self.frame_67.setFrameShadow(QFrame.Raised)
         self.verticalLayout_27 = QVBoxLayout(self.frame_67)
@@ -1585,8 +1587,8 @@ class Ui_MainWindow(object):
         self.pushButton_65 = QPushButton(self.frame_67)
         self.pushButton_65.setObjectName(u"pushButton_65")
         self.pushButton_65.setMinimumSize(QSize(100, 0))
-        self.pushButton_65.setFont(font1)
-        self.pushButton_65.setStyleSheet(u"width:85px; height:35px;background-color:#6522f2; border-radius:15px;")
+        self.pushButton_65.setFont(font3)
+        self.pushButton_65.setStyleSheet(u"background-color:#6522f2; border-radius:15px;")
 
         self.verticalLayout_27.addWidget(self.pushButton_65)
 
@@ -1598,11 +1600,15 @@ class Ui_MainWindow(object):
 
         self.frame_25 = QFrame(self.frame_13)
         self.frame_25.setObjectName(u"frame_25")
+        self.frame_25.setMinimumSize(QSize(500, 500))
+        self.frame_25.setBaseSize(QSize(0, 0))
         self.frame_25.setStyleSheet(u"background-color:#D9D9D9;")
         self.frame_25.setFrameShape(QFrame.StyledPanel)
         self.frame_25.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_16 = QHBoxLayout(self.frame_25)
+        self.horizontalLayout_16.setSpacing(0)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
         self.gift_detail_img = QLabel(self.frame_25)
         self.gift_detail_img.setObjectName(u"gift_detail_img")
         font10 = QFont()
@@ -1610,13 +1616,14 @@ class Ui_MainWindow(object):
         font10.setBold(True)
         self.gift_detail_img.setFont(font10)
         self.gift_detail_img.setStyleSheet(u"color: red;")
+        self.gift_detail_img.setScaledContents(True)
         self.gift_detail_img.setAlignment(Qt.AlignCenter)
         self.gift_detail_img.setWordWrap(True)
 
         self.horizontalLayout_16.addWidget(self.gift_detail_img, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_25.addWidget(self.frame_25)
+        self.verticalLayout_25.addWidget(self.frame_25, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.frame_29 = QFrame(self.frame_13)
         self.frame_29.setObjectName(u"frame_29")
@@ -1716,9 +1723,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_70 = QVBoxLayout(self.frame_126)
         self.verticalLayout_70.setObjectName(u"verticalLayout_70")
         self.verticalLayout_70.setContentsMargins(15, 10, 15, 10)
-        self.horizontalSlider_22 = QSlider(self.frame_126)
-        self.horizontalSlider_22.setObjectName(u"horizontalSlider_22")
-        self.horizontalSlider_22.setStyleSheet(u"QSlider::groove:horizontal {\n"
+        self.manito_music_slider = QSlider(self.frame_126)
+        self.manito_music_slider.setObjectName(u"manito_music_slider")
+        self.manito_music_slider.setStyleSheet(u"QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "     /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);\n"
@@ -1732,11 +1739,11 @@ class Ui_MainWindow(object):
 "    margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */\n"
 "    border-radius: 5px;\n"
 "}")
-        self.horizontalSlider_22.setValue(25)
-        self.horizontalSlider_22.setSliderPosition(25)
-        self.horizontalSlider_22.setOrientation(Qt.Horizontal)
+        self.manito_music_slider.setValue(25)
+        self.manito_music_slider.setSliderPosition(25)
+        self.manito_music_slider.setOrientation(Qt.Horizontal)
 
-        self.verticalLayout_70.addWidget(self.horizontalSlider_22, 0, Qt.AlignVCenter)
+        self.verticalLayout_70.addWidget(self.manito_music_slider, 0, Qt.AlignVCenter)
 
 
         self.verticalLayout_15.addWidget(self.frame_126, 0, Qt.AlignBottom)
@@ -1927,9 +1934,7 @@ class Ui_MainWindow(object):
         self.radioButton_12.setObjectName(u"radioButton_12")
         self.radioButton_12.setGeometry(QRect(1, 99, 681, 50))
         self.radioButton_12.setMinimumSize(QSize(0, 50))
-        font13 = QFont()
-        font13.setPointSize(16)
-        self.radioButton_12.setFont(font13)
+        self.radioButton_12.setFont(font1)
         self.radioButton_12.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_12.setChecked(True)
         self.radioButton_12.setAutoExclusive(True)
@@ -1937,39 +1942,39 @@ class Ui_MainWindow(object):
         self.radioButton_13.setObjectName(u"radioButton_13")
         self.radioButton_13.setGeometry(QRect(1, 154, 681, 50))
         self.radioButton_13.setMinimumSize(QSize(0, 50))
-        self.radioButton_13.setFont(font13)
+        self.radioButton_13.setFont(font1)
         self.radioButton_13.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_14 = QRadioButton(self.frame_110)
         self.radioButton_14.setObjectName(u"radioButton_14")
         self.radioButton_14.setGeometry(QRect(1, 208, 681, 50))
         self.radioButton_14.setMinimumSize(QSize(0, 50))
-        self.radioButton_14.setFont(font13)
+        self.radioButton_14.setFont(font1)
         self.radioButton_14.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_15 = QRadioButton(self.frame_110)
         self.radioButton_15.setObjectName(u"radioButton_15")
         self.radioButton_15.setGeometry(QRect(1, 263, 681, 50))
         self.radioButton_15.setMinimumSize(QSize(0, 50))
-        self.radioButton_15.setFont(font13)
+        self.radioButton_15.setFont(font1)
         self.radioButton_15.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.label_10 = QLabel(self.frame_110)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setGeometry(QRect(611, 113, 56, 21))
-        self.label_10.setFont(font13)
+        self.label_10.setFont(font1)
         self.label_10.setAlignment(Qt.AlignCenter)
         self.label_29 = QLabel(self.frame_110)
         self.label_29.setObjectName(u"label_29")
         self.label_29.setGeometry(QRect(611, 166, 56, 21))
-        self.label_29.setFont(font13)
+        self.label_29.setFont(font1)
         self.label_29.setAlignment(Qt.AlignCenter)
         self.label_37 = QLabel(self.frame_110)
         self.label_37.setObjectName(u"label_37")
         self.label_37.setGeometry(QRect(611, 220, 56, 21))
-        self.label_37.setFont(font13)
+        self.label_37.setFont(font1)
         self.label_37.setAlignment(Qt.AlignCenter)
         self.label_38 = QLabel(self.frame_110)
         self.label_38.setObjectName(u"label_38")
         self.label_38.setGeometry(QRect(611, 276, 56, 21))
-        self.label_38.setFont(font13)
+        self.label_38.setFont(font1)
         self.label_38.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_89.addWidget(self.frame_110)
@@ -2022,7 +2027,7 @@ class Ui_MainWindow(object):
         self.radioButton_20.setObjectName(u"radioButton_20")
         self.radioButton_20.setGeometry(QRect(1, 99, 681, 50))
         self.radioButton_20.setMinimumSize(QSize(0, 50))
-        self.radioButton_20.setFont(font13)
+        self.radioButton_20.setFont(font1)
         self.radioButton_20.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_20.setChecked(True)
         self.radioButton_20.setAutoExclusive(True)
@@ -2030,39 +2035,39 @@ class Ui_MainWindow(object):
         self.radioButton_21.setObjectName(u"radioButton_21")
         self.radioButton_21.setGeometry(QRect(1, 154, 681, 50))
         self.radioButton_21.setMinimumSize(QSize(0, 50))
-        self.radioButton_21.setFont(font13)
+        self.radioButton_21.setFont(font1)
         self.radioButton_21.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_22 = QRadioButton(self.frame_113)
         self.radioButton_22.setObjectName(u"radioButton_22")
         self.radioButton_22.setGeometry(QRect(1, 208, 681, 50))
         self.radioButton_22.setMinimumSize(QSize(0, 50))
-        self.radioButton_22.setFont(font13)
+        self.radioButton_22.setFont(font1)
         self.radioButton_22.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_23 = QRadioButton(self.frame_113)
         self.radioButton_23.setObjectName(u"radioButton_23")
         self.radioButton_23.setGeometry(QRect(1, 263, 681, 50))
         self.radioButton_23.setMinimumSize(QSize(0, 50))
-        self.radioButton_23.setFont(font13)
+        self.radioButton_23.setFont(font1)
         self.radioButton_23.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.label_39 = QLabel(self.frame_113)
         self.label_39.setObjectName(u"label_39")
         self.label_39.setGeometry(QRect(611, 113, 56, 21))
-        self.label_39.setFont(font13)
+        self.label_39.setFont(font1)
         self.label_39.setAlignment(Qt.AlignCenter)
         self.label_40 = QLabel(self.frame_113)
         self.label_40.setObjectName(u"label_40")
         self.label_40.setGeometry(QRect(611, 166, 56, 21))
-        self.label_40.setFont(font13)
+        self.label_40.setFont(font1)
         self.label_40.setAlignment(Qt.AlignCenter)
         self.label_41 = QLabel(self.frame_113)
         self.label_41.setObjectName(u"label_41")
         self.label_41.setGeometry(QRect(611, 220, 56, 21))
-        self.label_41.setFont(font13)
+        self.label_41.setFont(font1)
         self.label_41.setAlignment(Qt.AlignCenter)
         self.label_55 = QLabel(self.frame_113)
         self.label_55.setObjectName(u"label_55")
         self.label_55.setGeometry(QRect(611, 276, 56, 21))
-        self.label_55.setFont(font13)
+        self.label_55.setFont(font1)
         self.label_55.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_91.addWidget(self.frame_113)
@@ -2207,9 +2212,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_90 = QVBoxLayout(self.frame_156)
         self.verticalLayout_90.setObjectName(u"verticalLayout_90")
         self.verticalLayout_90.setContentsMargins(15, 10, 15, 10)
-        self.horizontalSlider_24 = QSlider(self.frame_156)
-        self.horizontalSlider_24.setObjectName(u"horizontalSlider_24")
-        self.horizontalSlider_24.setStyleSheet(u"QSlider::groove:horizontal {\n"
+        self.manito_post_music_slider = QSlider(self.frame_156)
+        self.manito_post_music_slider.setObjectName(u"manito_post_music_slider")
+        self.manito_post_music_slider.setStyleSheet(u"QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "     /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);\n"
@@ -2223,11 +2228,11 @@ class Ui_MainWindow(object):
 "    margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */\n"
 "    border-radius: 5px;\n"
 "}")
-        self.horizontalSlider_24.setValue(25)
-        self.horizontalSlider_24.setSliderPosition(25)
-        self.horizontalSlider_24.setOrientation(Qt.Horizontal)
+        self.manito_post_music_slider.setValue(25)
+        self.manito_post_music_slider.setSliderPosition(25)
+        self.manito_post_music_slider.setOrientation(Qt.Horizontal)
 
-        self.verticalLayout_90.addWidget(self.horizontalSlider_24, 0, Qt.AlignVCenter)
+        self.verticalLayout_90.addWidget(self.manito_post_music_slider, 0, Qt.AlignVCenter)
 
 
         self.verticalLayout_21.addWidget(self.frame_156, 0, Qt.AlignBottom)
@@ -2322,10 +2327,10 @@ class Ui_MainWindow(object):
         self.pushButton_4 = QPushButton(self.frame_6)
         self.pushButton_4.setObjectName(u"pushButton_4")
         self.pushButton_4.setMinimumSize(QSize(0, 100))
-        font14 = QFont()
-        font14.setPointSize(18)
-        font14.setBold(True)
-        self.pushButton_4.setFont(font14)
+        font13 = QFont()
+        font13.setPointSize(18)
+        font13.setBold(True)
+        self.pushButton_4.setFont(font13)
         self.pushButton_4.setStyleSheet(u"*{color: black;background-color:#ffffff;\n"
 "border-radius: 20px;\n"
 "}")
@@ -2335,7 +2340,7 @@ class Ui_MainWindow(object):
         self.pushButton_7 = QPushButton(self.frame_6)
         self.pushButton_7.setObjectName(u"pushButton_7")
         self.pushButton_7.setMinimumSize(QSize(0, 100))
-        self.pushButton_7.setFont(font14)
+        self.pushButton_7.setFont(font13)
         self.pushButton_7.setStyleSheet(u"*{color: black;background-color:#ffffff;\n"
 "border-radius: 20px;\n"
 "}")
@@ -2450,10 +2455,10 @@ class Ui_MainWindow(object):
         self.pushButton_8.setObjectName(u"pushButton_8")
         self.pushButton_8.setMinimumSize(QSize(0, 50))
         self.pushButton_8.setMaximumSize(QSize(16777215, 16777215))
-        font15 = QFont()
-        font15.setPointSize(12)
-        font15.setBold(True)
-        self.pushButton_8.setFont(font15)
+        font14 = QFont()
+        font14.setPointSize(12)
+        font14.setBold(True)
+        self.pushButton_8.setFont(font14)
         self.pushButton_8.setLayoutDirection(Qt.RightToLeft)
         self.pushButton_8.setAutoFillBackground(False)
         self.pushButton_8.setStyleSheet(u"*{color:black;background-color: #d9d9d9;}")
@@ -2492,9 +2497,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setContentsMargins(15, -1, 15, -1)
         self.postcard_detail_img = QLabel(self.frame_24)
         self.postcard_detail_img.setObjectName(u"postcard_detail_img")
-        font16 = QFont()
-        font16.setPointSize(28)
-        self.postcard_detail_img.setFont(font16)
+        font15 = QFont()
+        font15.setPointSize(28)
+        self.postcard_detail_img.setFont(font15)
         self.postcard_detail_img.setLayoutDirection(Qt.LeftToRight)
         self.postcard_detail_img.setStyleSheet(u"background:#D9D9D9; color:red;")
         self.postcard_detail_img.setTextFormat(Qt.AutoText)
@@ -2602,9 +2607,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_92 = QVBoxLayout(self.frame_166)
         self.verticalLayout_92.setObjectName(u"verticalLayout_92")
         self.verticalLayout_92.setContentsMargins(15, 10, 15, 10)
-        self.horizontalSlider_23 = QSlider(self.frame_166)
-        self.horizontalSlider_23.setObjectName(u"horizontalSlider_23")
-        self.horizontalSlider_23.setStyleSheet(u"QSlider::groove:horizontal {\n"
+        self.postcard_music_slider = QSlider(self.frame_166)
+        self.postcard_music_slider.setObjectName(u"postcard_music_slider")
+        self.postcard_music_slider.setStyleSheet(u"QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "     /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);\n"
@@ -2618,11 +2623,11 @@ class Ui_MainWindow(object):
 "    margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */\n"
 "    border-radius: 5px;\n"
 "}")
-        self.horizontalSlider_23.setValue(25)
-        self.horizontalSlider_23.setSliderPosition(25)
-        self.horizontalSlider_23.setOrientation(Qt.Horizontal)
+        self.postcard_music_slider.setValue(25)
+        self.postcard_music_slider.setSliderPosition(25)
+        self.postcard_music_slider.setOrientation(Qt.Horizontal)
 
-        self.verticalLayout_92.addWidget(self.horizontalSlider_23, 0, Qt.AlignVCenter)
+        self.verticalLayout_92.addWidget(self.postcard_music_slider, 0, Qt.AlignVCenter)
 
 
         self.verticalLayout_23.addWidget(self.frame_166, 0, Qt.AlignBottom)
@@ -2709,9 +2714,9 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMinimumSize(QSize(100, 100))
         self.label_4.setMaximumSize(QSize(200, 200))
-        font17 = QFont()
-        font17.setPointSize(20)
-        self.label_4.setFont(font17)
+        font16 = QFont()
+        font16.setPointSize(20)
+        self.label_4.setFont(font16)
         self.label_4.setPixmap(QPixmap(u"../resource/qr.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setAlignment(Qt.AlignCenter)
@@ -2720,9 +2725,9 @@ class Ui_MainWindow(object):
 
         self.label_3 = QLabel(self.frame_21)
         self.label_3.setObjectName(u"label_3")
-        font18 = QFont()
-        font18.setPointSize(18)
-        self.label_3.setFont(font18)
+        font17 = QFont()
+        font17.setPointSize(18)
+        self.label_3.setFont(font17)
         self.label_3.setStyleSheet(u"*{color:#ffffff;}")
         self.label_3.setAlignment(Qt.AlignCenter)
 
@@ -2764,11 +2769,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_45.setObjectName(u"verticalLayout_45")
         self.label_15 = QLabel(self.frame_72)
         self.label_15.setObjectName(u"label_15")
-        font19 = QFont()
-        font19.setFamilies([u"Arial"])
-        font19.setPointSize(14)
-        font19.setBold(True)
-        self.label_15.setFont(font19)
+        font18 = QFont()
+        font18.setFamilies([u"Arial"])
+        font18.setPointSize(14)
+        font18.setBold(True)
+        self.label_15.setFont(font18)
         self.label_15.setStyleSheet(u"*{width: 312px;\n"
 "  height: 36px;\n"
 "  border-radius: 20px;\n"
@@ -2784,7 +2789,7 @@ class Ui_MainWindow(object):
         self.frame_71 = QFrame(self.frame_46)
         self.frame_71.setObjectName(u"frame_71")
         self.frame_71.setMinimumSize(QSize(140, 60))
-        self.frame_71.setFont(font13)
+        self.frame_71.setFont(font1)
         self.frame_71.setStyleSheet(u"")
         self.frame_71.setFrameShape(QFrame.StyledPanel)
         self.frame_71.setFrameShadow(QFrame.Raised)
@@ -2794,7 +2799,7 @@ class Ui_MainWindow(object):
         self.pushButton_9 = QPushButton(self.frame_71)
         self.pushButton_9.setObjectName(u"pushButton_9")
         self.pushButton_9.setMinimumSize(QSize(140, 60))
-        self.pushButton_9.setFont(font13)
+        self.pushButton_9.setFont(font1)
         self.pushButton_9.setStyleSheet(u"*{border-radius: 25px;\n"
 "  color: #ffffff;\n"
 "  background-color: #6522f2;}")
@@ -2879,7 +2884,7 @@ class Ui_MainWindow(object):
         self.radioButton_16.setObjectName(u"radioButton_16")
         self.radioButton_16.setGeometry(QRect(1, 99, 681, 50))
         self.radioButton_16.setMinimumSize(QSize(0, 50))
-        self.radioButton_16.setFont(font13)
+        self.radioButton_16.setFont(font1)
         self.radioButton_16.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_16.setChecked(True)
         self.radioButton_16.setAutoExclusive(True)
@@ -2887,39 +2892,39 @@ class Ui_MainWindow(object):
         self.radioButton_17.setObjectName(u"radioButton_17")
         self.radioButton_17.setGeometry(QRect(1, 154, 681, 50))
         self.radioButton_17.setMinimumSize(QSize(0, 50))
-        self.radioButton_17.setFont(font13)
+        self.radioButton_17.setFont(font1)
         self.radioButton_17.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_18 = QRadioButton(self.frame_128)
         self.radioButton_18.setObjectName(u"radioButton_18")
         self.radioButton_18.setGeometry(QRect(1, 208, 681, 50))
         self.radioButton_18.setMinimumSize(QSize(0, 50))
-        self.radioButton_18.setFont(font13)
+        self.radioButton_18.setFont(font1)
         self.radioButton_18.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_19 = QRadioButton(self.frame_128)
         self.radioButton_19.setObjectName(u"radioButton_19")
         self.radioButton_19.setGeometry(QRect(1, 263, 681, 50))
         self.radioButton_19.setMinimumSize(QSize(0, 50))
-        self.radioButton_19.setFont(font13)
+        self.radioButton_19.setFont(font1)
         self.radioButton_19.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.label_42 = QLabel(self.frame_128)
         self.label_42.setObjectName(u"label_42")
         self.label_42.setGeometry(QRect(611, 113, 56, 21))
-        self.label_42.setFont(font13)
+        self.label_42.setFont(font1)
         self.label_42.setAlignment(Qt.AlignCenter)
         self.label_43 = QLabel(self.frame_128)
         self.label_43.setObjectName(u"label_43")
         self.label_43.setGeometry(QRect(611, 166, 56, 21))
-        self.label_43.setFont(font13)
+        self.label_43.setFont(font1)
         self.label_43.setAlignment(Qt.AlignCenter)
         self.label_44 = QLabel(self.frame_128)
         self.label_44.setObjectName(u"label_44")
         self.label_44.setGeometry(QRect(611, 220, 56, 21))
-        self.label_44.setFont(font13)
+        self.label_44.setFont(font1)
         self.label_44.setAlignment(Qt.AlignCenter)
         self.label_45 = QLabel(self.frame_128)
         self.label_45.setObjectName(u"label_45")
         self.label_45.setGeometry(QRect(611, 276, 56, 21))
-        self.label_45.setFont(font13)
+        self.label_45.setFont(font1)
         self.label_45.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_20.addWidget(self.frame_128)
@@ -2972,7 +2977,7 @@ class Ui_MainWindow(object):
         self.radioButton_24.setObjectName(u"radioButton_24")
         self.radioButton_24.setGeometry(QRect(1, 99, 681, 50))
         self.radioButton_24.setMinimumSize(QSize(0, 50))
-        self.radioButton_24.setFont(font13)
+        self.radioButton_24.setFont(font1)
         self.radioButton_24.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_24.setChecked(True)
         self.radioButton_24.setAutoExclusive(True)
@@ -2980,39 +2985,39 @@ class Ui_MainWindow(object):
         self.radioButton_25.setObjectName(u"radioButton_25")
         self.radioButton_25.setGeometry(QRect(1, 154, 681, 50))
         self.radioButton_25.setMinimumSize(QSize(0, 50))
-        self.radioButton_25.setFont(font13)
+        self.radioButton_25.setFont(font1)
         self.radioButton_25.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_26 = QRadioButton(self.frame_148)
         self.radioButton_26.setObjectName(u"radioButton_26")
         self.radioButton_26.setGeometry(QRect(1, 208, 681, 50))
         self.radioButton_26.setMinimumSize(QSize(0, 50))
-        self.radioButton_26.setFont(font13)
+        self.radioButton_26.setFont(font1)
         self.radioButton_26.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.radioButton_27 = QRadioButton(self.frame_148)
         self.radioButton_27.setObjectName(u"radioButton_27")
         self.radioButton_27.setGeometry(QRect(1, 263, 681, 50))
         self.radioButton_27.setMinimumSize(QSize(0, 50))
-        self.radioButton_27.setFont(font13)
+        self.radioButton_27.setFont(font1)
         self.radioButton_27.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
         self.label_56 = QLabel(self.frame_148)
         self.label_56.setObjectName(u"label_56")
         self.label_56.setGeometry(QRect(611, 113, 56, 21))
-        self.label_56.setFont(font13)
+        self.label_56.setFont(font1)
         self.label_56.setAlignment(Qt.AlignCenter)
         self.label_57 = QLabel(self.frame_148)
         self.label_57.setObjectName(u"label_57")
         self.label_57.setGeometry(QRect(611, 166, 56, 21))
-        self.label_57.setFont(font13)
+        self.label_57.setFont(font1)
         self.label_57.setAlignment(Qt.AlignCenter)
         self.label_58 = QLabel(self.frame_148)
         self.label_58.setObjectName(u"label_58")
         self.label_58.setGeometry(QRect(611, 220, 56, 21))
-        self.label_58.setFont(font13)
+        self.label_58.setFont(font1)
         self.label_58.setAlignment(Qt.AlignCenter)
         self.label_59 = QLabel(self.frame_148)
         self.label_59.setObjectName(u"label_59")
         self.label_59.setGeometry(QRect(611, 276, 56, 21))
-        self.label_59.setFont(font13)
+        self.label_59.setFont(font1)
         self.label_59.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_24.addWidget(self.frame_148)
@@ -3048,7 +3053,7 @@ class Ui_MainWindow(object):
         self.label_18 = QLabel(self.frame_73)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setMinimumSize(QSize(0, 0))
-        self.label_18.setFont(font19)
+        self.label_18.setFont(font18)
         self.label_18.setStyleSheet(u"*{width: 312px;\n"
 "  height: 36px;\n"
 "  border-radius: 20px;\n"
@@ -3063,7 +3068,7 @@ class Ui_MainWindow(object):
 
         self.label_16 = QLabel(self.frame_36)
         self.label_16.setObjectName(u"label_16")
-        self.label_16.setFont(font16)
+        self.label_16.setFont(font15)
         self.label_16.setStyleSheet(u"background:#D9D9D9; color:red;")
         self.label_16.setTextFormat(Qt.AutoText)
         self.label_16.setAlignment(Qt.AlignCenter)
@@ -3167,9 +3172,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_80 = QVBoxLayout(self.frame_140)
         self.verticalLayout_80.setObjectName(u"verticalLayout_80")
         self.verticalLayout_80.setContentsMargins(15, 10, 15, 10)
-        self.horizontalSlider_25 = QSlider(self.frame_140)
-        self.horizontalSlider_25.setObjectName(u"horizontalSlider_25")
-        self.horizontalSlider_25.setStyleSheet(u"QSlider::groove:horizontal {\n"
+        self.postcard_send_music_slider = QSlider(self.frame_140)
+        self.postcard_send_music_slider.setObjectName(u"postcard_send_music_slider")
+        self.postcard_send_music_slider.setStyleSheet(u"QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "     /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #B1B1B1, stop:1 #c4c4c4);\n"
@@ -3183,11 +3188,11 @@ class Ui_MainWindow(object):
 "    margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */\n"
 "    border-radius: 5px;\n"
 "}")
-        self.horizontalSlider_25.setValue(25)
-        self.horizontalSlider_25.setSliderPosition(25)
-        self.horizontalSlider_25.setOrientation(Qt.Horizontal)
+        self.postcard_send_music_slider.setValue(25)
+        self.postcard_send_music_slider.setSliderPosition(25)
+        self.postcard_send_music_slider.setOrientation(Qt.Horizontal)
 
-        self.verticalLayout_80.addWidget(self.horizontalSlider_25, 0, Qt.AlignVCenter)
+        self.verticalLayout_80.addWidget(self.postcard_send_music_slider, 0, Qt.AlignVCenter)
 
 
         self.verticalLayout_71.addWidget(self.frame_140, 0, Qt.AlignBottom)
@@ -3277,7 +3282,7 @@ class Ui_MainWindow(object):
         self.label_19 = QLabel(self.frame_74)
         self.label_19.setObjectName(u"label_19")
         self.label_19.setMinimumSize(QSize(0, 0))
-        self.label_19.setFont(font19)
+        self.label_19.setFont(font18)
         self.label_19.setStyleSheet(u"*{width: 312px;\n"
 "  height: 36px;\n"
 "  border-radius: 20px;\n"
@@ -3380,10 +3385,10 @@ class Ui_MainWindow(object):
         self.pushButton_12.setObjectName(u"pushButton_12")
         self.pushButton_12.setMinimumSize(QSize(0, 50))
         self.pushButton_12.setMaximumSize(QSize(16777215, 16777215))
-        font20 = QFont()
-        font20.setPointSize(13)
-        font20.setBold(True)
-        self.pushButton_12.setFont(font20)
+        font19 = QFont()
+        font19.setPointSize(13)
+        font19.setBold(True)
+        self.pushButton_12.setFont(font19)
         self.pushButton_12.setLayoutDirection(Qt.RightToLeft)
         self.pushButton_12.setAutoFillBackground(False)
         self.pushButton_12.setStyleSheet(u"*{color:black;background-color: #d9d9d9;}")
@@ -3549,10 +3554,10 @@ class Ui_MainWindow(object):
         self.pushButton_37 = QPushButton(self.frame_55)
         self.pushButton_37.setObjectName(u"pushButton_37")
         self.pushButton_37.setMinimumSize(QSize(130, 55))
-        font21 = QFont()
-        font21.setPointSize(14)
-        font21.setBold(True)
-        self.pushButton_37.setFont(font21)
+        font20 = QFont()
+        font20.setPointSize(14)
+        font20.setBold(True)
+        self.pushButton_37.setFont(font20)
         self.pushButton_37.setStyleSheet(u"background-color:white; color:black;")
 
         self.horizontalLayout_6.addWidget(self.pushButton_37, 0, Qt.AlignRight|Qt.AlignBottom)
@@ -3562,9 +3567,9 @@ class Ui_MainWindow(object):
 
         self.frame_56 = QFrame(self.frame_16)
         self.frame_56.setObjectName(u"frame_56")
-        font22 = QFont()
-        font22.setPointSize(7)
-        self.frame_56.setFont(font22)
+        font21 = QFont()
+        font21.setPointSize(7)
+        self.frame_56.setFont(font21)
         self.frame_56.setFrameShape(QFrame.StyledPanel)
         self.frame_56.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_34 = QHBoxLayout(self.frame_56)
@@ -3579,9 +3584,9 @@ class Ui_MainWindow(object):
         sizePolicy1.setHeightForWidth(self.painter_widget.sizePolicy().hasHeightForWidth())
         self.painter_widget.setSizePolicy(sizePolicy1)
         self.painter_widget.setMinimumSize(QSize(0, 600))
-        font23 = QFont()
-        font23.setPointSize(5)
-        self.painter_widget.setFont(font23)
+        font22 = QFont()
+        font22.setPointSize(5)
+        self.painter_widget.setFont(font22)
         self.painter_widget.setStyleSheet(u"background-color:white;")
 
         self.horizontalLayout_34.addWidget(self.painter_widget)
@@ -3687,7 +3692,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_59.setContentsMargins(30, -1, 0, -1)
         self.pushButton_16 = QPushButton(self.frame_101)
         self.pushButton_16.setObjectName(u"pushButton_16")
-        self.pushButton_16.setFont(font14)
+        self.pushButton_16.setFont(font13)
 
         self.horizontalLayout_59.addWidget(self.pushButton_16, 0, Qt.AlignLeft)
 
@@ -3696,7 +3701,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
         self.pushButton_5.setSizePolicy(sizePolicy)
         self.pushButton_5.setMinimumSize(QSize(0, 0))
-        self.pushButton_5.setFont(font14)
+        self.pushButton_5.setFont(font13)
         self.pushButton_5.setLayoutDirection(Qt.LeftToRight)
         self.pushButton_5.setStyleSheet(u"*{color: black;background-color:#ffffff;\n"
 "}")
@@ -3781,9 +3786,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_62.setObjectName(u"verticalLayout_62")
         self.pushButton_24 = QPushButton(self.frame_85)
         self.pushButton_24.setObjectName(u"pushButton_24")
-        font24 = QFont()
-        font24.setPointSize(11)
-        self.pushButton_24.setFont(font24)
+        font23 = QFont()
+        font23.setPointSize(11)
+        self.pushButton_24.setFont(font23)
         self.pushButton_24.setStyleSheet(u"color:black;")
         self.pushButton_24.setFlat(True)
 
@@ -3826,7 +3831,9 @@ class Ui_MainWindow(object):
         self.label_26 = QLabel(self.frame_88)
         self.label_26.setObjectName(u"label_26")
         self.label_26.setMinimumSize(QSize(430, 0))
-        self.label_26.setFont(font1)
+        font24 = QFont()
+        font24.setPointSize(13)
+        self.label_26.setFont(font24)
         self.label_26.setScaledContents(False)
         self.label_26.setAlignment(Qt.AlignCenter)
         self.label_26.setWordWrap(True)
@@ -4165,7 +4172,7 @@ class Ui_MainWindow(object):
         self.pushButton_45 = QPushButton(self.frame_97)
         self.pushButton_45.setObjectName(u"pushButton_45")
         self.pushButton_45.setMinimumSize(QSize(130, 55))
-        self.pushButton_45.setFont(font21)
+        self.pushButton_45.setFont(font20)
         self.pushButton_45.setStyleSheet(u"background-color:white; color:black;")
 
         self.horizontalLayout_55.addWidget(self.pushButton_45, 0, Qt.AlignRight|Qt.AlignBottom)
@@ -4327,7 +4334,7 @@ class Ui_MainWindow(object):
         self.pushButton_63 = QPushButton(self.frame_103)
         self.pushButton_63.setObjectName(u"pushButton_63")
         self.pushButton_63.setMinimumSize(QSize(130, 55))
-        self.pushButton_63.setFont(font21)
+        self.pushButton_63.setFont(font20)
         self.pushButton_63.setStyleSheet(u"background-color:white; color:black;")
 
         self.horizontalLayout_60.addWidget(self.pushButton_63, 0, Qt.AlignRight|Qt.AlignBottom)
@@ -4489,7 +4496,7 @@ class Ui_MainWindow(object):
         self.pushButton_77 = QPushButton(self.frame_175)
         self.pushButton_77.setObjectName(u"pushButton_77")
         self.pushButton_77.setMinimumSize(QSize(130, 55))
-        self.pushButton_77.setFont(font21)
+        self.pushButton_77.setFont(font20)
         self.pushButton_77.setStyleSheet(u"background-color:white; color:black;")
 
         self.horizontalLayout_67.addWidget(self.pushButton_77, 0, Qt.AlignRight|Qt.AlignBottom)
@@ -4652,9 +4659,9 @@ class Ui_MainWindow(object):
         self.pushButton_101.clicked.connect(MainWindow.pause)
         self.pushButton_99.clicked.connect(MainWindow.pause)
 
-        self.menu_toolBox.setCurrentIndex(2)
+        self.menu_toolBox.setCurrentIndex(0)
         self.menu_toolBox.layout().setSpacing(30)
-        self.stackedPages.setCurrentIndex(0)
+        self.stackedPages.setCurrentIndex(3)
         self.stackedWidget_3.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(0)
@@ -4747,7 +4754,7 @@ class Ui_MainWindow(object):
         self.emoji_button3.setText("")
         self.emoji_button1.setText("")
         self.pushButton_65.setText(QCoreApplication.translate("MainWindow", u"\uadf8\ub9cc\ub4e3\uae30", None))
-        self.gift_detail_img.setText(QCoreApplication.translate("MainWindow", u"ditto\ub97c \ucd94\ucc9c\ud558\ub294                    \uc0ac\ub78c\uc774 \uadf8\ub9b0 \uc5fd\uc11c", None))
+        self.gift_detail_img.setText("")
         self.pushButton_98.setText("")
         self.gift_detail_song.setText(QCoreApplication.translate("MainWindow", u"Ditto", None))
         self.gift_detail_singer.setText(QCoreApplication.translate("MainWindow", u"New Jeans", None))
