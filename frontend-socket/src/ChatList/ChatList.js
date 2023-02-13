@@ -27,21 +27,26 @@ const ChatList = () => {
             brokerURL: BASE_URL,
             onConnect: () => {
                 console.log("소켓 연결 성공!");
-                subscribe();
+                if (channelList.length > 0 && channelList[0]) {
+                    subscribe();
+                }
             },
         });
         client.current.activate();
+        // console.log("=====클라이언트", client)
     };
 
     // connect 후 리스트 목록 구독
     const subscribe = () => {
         console.log("subscribe 시작");
+        console.log("subscribe 함수",typeof channelList, channelList)
         channelList.forEach((channel) => {
             // 리스트 forEach로 돌면서 구독
-            client.current.subscribe(`/sub/${channel.channelId}`, (data) => {
+            console.log("포이치")
+            client.current.subscribe(`/sub/${channel.channelId}`, async (data) => {
                 // sub이 발생할 경우 useState이용해 목록을 업뎃 -> 렌더링,,이 다시 될 줄 알았는데 새로고침하면 안먹음
-                const subChannel = async () => {
-                    console.log("sub 발생 : " + JSON.parse(data.body).content);
+                // const subChannel = async () => {
+                    console.log("sub 발생!! : " + JSON.parse(data.body).content);
                     const res = await axios.get(REQUEST_URL, {params: {userId: user_id}});
                     //     .then((res)=>{
                     //     setChannelList(res.data);
@@ -53,40 +58,38 @@ const ChatList = () => {
                     // setMessageList((message_list) => [
                     //     ...message_list, json_data
                     // ]);
-                }
-                subChannel();
+                // }
+                // subChannel();
             });
         });
     };
 
     // 마운트에서 내려갈 때 ? 종료
     const disconnect = () => {
+        if(!client.current.connected) return;
         console.log("소켓 통신 종료");
         client.current.deactivate();
     };
 
     // 마운트될 때 리스트를 가져옴
     useEffect(() => {
-        const getList = async () => {
-            const res = await axios.get(REQUEST_URL, {params: {userId: user_id}});
-            // .then((res)=>{
-            //     setChannelList(res.data);
-            //     console.log(res.data)
-            // })
+        axios.get(REQUEST_URL, {params: {userId: user_id}})
+        .then((res)=>{
             setChannelList(res.data);
-            // console.log(res.data);
-        }
-        getList();
-        connect();
-
-        return () => disconnect();
+        });
+        return () => {disconnect()}
     }, []);
+
+    useEffect(() => {
+        disconnect()
+        connect()
+    }, [channelList])
 
     // 소켓 연결 후 리스트 화면에 뿌리기
     return(
-        <div>
+        <>
             <ChatThumbnailList chatThumbnailList={channelList}/>
-        </div>
+        </>
     )
 }
 export default ChatList
