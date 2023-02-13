@@ -5,6 +5,7 @@ import com.a402.audiro.dto.GiftEmojiDTO;
 import com.a402.audiro.dto.GiftThumbnailDTO;
 import com.a402.audiro.entity.Gift;
 import com.a402.audiro.entity.User;
+import com.a402.audiro.exception.GiftNotExistException;
 import com.a402.audiro.repository.GiftRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -53,8 +54,7 @@ public class GiftServiceImpl implements GiftService{
 
     @Override
     public GiftDTO getGiftDetail(long giftId) {
-        Gift gift;
-        gift = giftRepository.findById(giftId);
+        Gift gift = getGift(giftId);
 
         return GiftDTO.builder()
                 .id(gift.getId())
@@ -79,7 +79,7 @@ public class GiftServiceImpl implements GiftService{
 
     @Override
     public void addFeedbackCnt(long giftId, int idx) {
-        Gift gift = giftRepository.findById(giftId);
+        Gift gift = getGift(giftId);
         switch (idx){
             case 1:
                 gift.addFeed1();
@@ -95,5 +95,20 @@ public class GiftServiceImpl implements GiftService{
                 break;
         }
         giftRepository.save(gift);
+    }
+
+    @Override
+    public void addLike(long giftId) {
+        Gift gift = getGift(giftId);
+        gift.addLike();
+        giftRepository.save(gift);
+    }
+
+    @Override
+    public Gift getGift(long giftId) {
+        Gift gift = giftRepository.findById(giftId);
+
+        if(gift == null) throw new GiftNotExistException();
+        return gift;
     }
 }
