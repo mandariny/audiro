@@ -2,7 +2,9 @@ import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './pages/Home';
 import GiftDetail from './pages/GiftDetail';
-import MessageList from './pages/MessageList';
+import ChatList from './pages/ChatList/ChatList'
+import ChatRoom from './pages/ChatRoom/ChatRoom'
+
 import './App.css';
 import GiftList from "./pages/GiftList";
 import Login from './pages/Login'
@@ -10,7 +12,7 @@ import Musicmate from "./pages/Musicmate";
 import Intro from './pages/Intro'
 
 import Others from "./pages/Others";
-import Messages from "./pages/Messages";
+
 
 function App() {
 
@@ -27,12 +29,12 @@ function App() {
           <Route path="/gifts" element={<GiftList/>}/>
           <Route path="/gifts/:giftid/:giftcnt" element={<GiftDetail/>}/>
           
-          <Route path="/messenger" element={<MessageList/>}/>
+          <Route path="/messenger" element={<ChatList/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/musicmate' element={<Musicmate/>}/> 
 
           <Route path='/others/:nickname' element={<Others/>}/>
-          <Route path='/messenger/:opponent' element={<Messages/>} />
+          <Route path='/messenger/:channel_id' element={<ChatRoom/>} />
       </Routes>
       </BrowserRouter>
     </div>
