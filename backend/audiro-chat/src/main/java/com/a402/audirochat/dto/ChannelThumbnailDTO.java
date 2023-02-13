@@ -1,8 +1,11 @@
 package com.a402.audirochat.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+
+import java.time.LocalDateTime;
 
 @Builder
 @AllArgsConstructor
@@ -12,4 +15,6 @@ public class ChannelThumbnailDTO {
     private String channelId;
     private String nickname;
     private String lastMessage;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    private LocalDateTime lastMessageTime;
 }

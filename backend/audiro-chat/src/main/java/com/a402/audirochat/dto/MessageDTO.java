@@ -2,11 +2,10 @@ package com.a402.audirochat.dto;
 
 import com.a402.audirochat.entity.ContentType;
 import com.a402.audirochat.exception.IdNullException;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 
@@ -14,20 +13,32 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@ToString
 public class MessageDTO {
 
     @NotNull
-    private String userId;
-    private String receiverId;
+    private long userId;
+
+    @NotNull
+    private long receiverId;
+
     @NotNull
     private String userNickname;
+
     @NotNull
     private ContentType contentType;
-    @NotNull
+
+    private byte[] imageData;
+
     private String content;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     LocalDateTime sendTime;
 
-    public void isReceiverValid(){
-        if(receiverId == null) throw new IdNullException();
+//    public void isReceiverValid(){
+//        if(receiverId == null) throw new IdNullException();
+//    }
+    public void setSendTime(){
+        this.sendTime = LocalDateTime.now();
     }
 }
