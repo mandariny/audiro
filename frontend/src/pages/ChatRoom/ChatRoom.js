@@ -16,7 +16,7 @@ const BASE_URL = "ws://localhost:8080/ws-stomp";
 const REQUEST_URL = "http://localhost:8080/message";
 
 // 임의로 넣어둔 userID
-const user_id = 1;
+const user_id = 2;
 
 // 임의로 넣어둔 유저 닉네임
 const user_nickname = "pickapicka";
@@ -148,7 +148,7 @@ const ChatRoom = () => {
         axios.get(REQUEST_URL, {params: {channelId: channel_id}})
             .then((res)=>{
                 setMessageList(res.data);
-                // console.log(res.data);
+                console.log(res.data);
             })
             .catch(error => {
                 console.log(error.response);

@@ -32,8 +32,8 @@ const StyledChatProfile = styled.div`
 `;
 
 const StyledChatWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: block;
+    width: 150px;
 `;
 
 const StyledChatNickname = styled.div`
@@ -47,6 +47,9 @@ const StyledChatMsg = styled.div`
     font-family: var(--font-nanumSquareL);
     color: white;
     margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 const StyledChatDate = styled.div`

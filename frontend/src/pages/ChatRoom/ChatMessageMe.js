@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const StyledChatContainer = styled.div`
     display: flex;
     margin-bottom: 20px;
+    justify-content: flex-end;
 `;
 
 const StyledChatProfile = styled.div`
@@ -11,7 +12,7 @@ const StyledChatProfile = styled.div`
     border-radius: 100%;
     width: 35px;
     height: 35px;
-    margin-right: 5px;
+    margin-left: 5px;
 `;
 
 const StyledChatWrapper = styled.div`
@@ -31,11 +32,11 @@ const StyledChatMsgYou = styled.div`
     font-family: var(--font-nanumSquareR);
     color: white;
     margin-top: 5px;
-    /* background-color: #6522F2; */
-    background-color: rgba(65, 22, 162, 0.8);
+    /* background-color: ; */
+    border: 2px solid rgba(65, 22, 162, 0.8);
     padding: 10px;
-    border-radius: 0px 10px 10px 10px;
-    margin-left: 30px;
+    border-radius: 10px 0px 10px 10px;
+    margin-left: 5px;
     max-width: 180px;
 `;
 
@@ -43,7 +44,6 @@ const StyledChatDate = styled.div`
     font-size: 10px;
     font-family: var(--font-nanumSquareL);
     color: #A7A1A1;
-    margin-top: 5px;
     text-align: end;
     margin-left: 5px;
 `;
@@ -51,30 +51,31 @@ const StyledChatDate = styled.div`
 const StyledChat = styled.div`
     display: flex;
     align-items: center;
+    justify-content: end;
 `;
 
 const StyledChat2 = styled.div`
     display: flex;
     align-items: end;
+    justify-content: end;
 `;
 
-const ChatMessage = (props) => {
+const ChatMessageMe = (props) => {
     console.log(props.receiver_id);
 
     const StringMessage = (props) => {
         return (
-            
             <StyledChatContainer>
                 <StyledChatWrapper>
                     <StyledChat>
-                        <StyledChatProfile></StyledChatProfile>
-                        <StyledChatNickname>{props.nickname}</StyledChatNickname>
+                        {/* <StyledChatNickname>{props.nickname}</StyledChatNickname> */}
+                        {/* <StyledChatProfile></StyledChatProfile> */}
                     </StyledChat>
                     <StyledChat2>
+                        <StyledChatDate>{props.send_time.split(" ")[1]+" "+props.send_time.split(" ")[2]}</StyledChatDate>
                         <StyledChatMsgYou>{props.content}</StyledChatMsgYou>
                         {/* {props.user_id} */}
                         {/* {props.content_type} */}
-                        <StyledChatDate>{props.send_time.split(" ")[1]+" "+props.send_time.split(" ")[2]}</StyledChatDate>
                     </StyledChat2>
                 </StyledChatWrapper>  
             </StyledChatContainer>
@@ -120,4 +121,4 @@ const ChatMessage = (props) => {
     )
 }
 
-export default ChatMessage;
+export default ChatMessageMe;

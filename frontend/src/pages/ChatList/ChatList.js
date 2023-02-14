@@ -11,7 +11,7 @@ const BASE_URL = "ws://localhost:8080/ws-stomp";
 // 채널 리스트를 요청하는 rest api path
 const REQUEST_URL = "http://localhost:8080/channel/list";
 // 임의로 넣어둔 사용자 ID
-const user_id = 1;
+const user_id = 2;
 // 임의로 넣어둔 사용자 닉네임
 const user_nickname = "pickapicka";
 

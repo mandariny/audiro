@@ -1,6 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import ChatMessage from './ChatMessage';
+import ChatMessageMe from './ChatMessageMe';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const StyledChatContainer = styled.div`
     display: flex;
@@ -9,7 +11,6 @@ const StyledChatContainer = styled.div`
     margin-right: 30px;
     overflow: auto;
     height: 500px;
-    /* margin-bottom: 50px; */
 `;
 
 const StyledChatRoomTitle = styled.div`
@@ -24,22 +25,24 @@ const StyledChatRoomTitle = styled.div`
     background-color: rgba(65, 22, 162, 0.5);
 `;
 
+const StyledChatDateWrapper = styled.span`
+    font-size: 12px;
+    font-family: var(--font-nanumSquareR);
+    background-color: rgba(65, 22, 162, 0.7);
+    text-align: center;
+    padding: 5px;
+    margin-right: 80px;
+    margin-left: 80px;
+    color: #A7A1A1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+`;
+
 const ChatMessageList = (props) => {
     // 맵으로 돌면서 컴포넌트 생성
     // props로 정보 전달
     console.log(props.userId);
-    const chatMessageList = props.messageList && props.messageList.map((msg, index) => (
-        msg.userId == 1 ?
-            <ChatMessage
-                key={index}
-                user_id={msg.userId}
-                nickname={msg.userNickname}
-                content_type={msg.contentType}
-                content={msg.content}
-                send_time={msg.sendTime}
-                />
-         : <></>
-    ));
 
     const scrollRef = useRef(null);
     const scrollToBottom = () => {
@@ -54,7 +57,39 @@ const ChatMessageList = (props) => {
         <>            
             <StyledChatRoomTitle>gaok님과의 편지</StyledChatRoomTitle>
             <StyledChatContainer>
-                {chatMessageList}
+                
+                {
+                    props.messageList && props.messageList.map((msg, index) => {
+                    console.log(props.messageList[0].sendTime.split(" ")[0])
+                    return(
+                        <> 
+                            {index!=0 && 
+                                props.messageList[index-1].sendTime.split(" ")[0]!==props.messageList[index].sendTime.split(" ")[0] && 
+                                <StyledChatDateWrapper>{props.messageList[index].sendTime.split(" ")[0]}</StyledChatDateWrapper>
+                            }
+                            {msg.userId == 1 ?
+                            <ChatMessageMe
+                                key={index}
+                                user_id={msg.userId}
+                                nickname={msg.userNickname}
+                                content_type={msg.contentType}
+                                content={msg.content}
+                                send_time={msg.sendTime}
+                            />
+                        :   <ChatMessage
+                                key={index}
+                                user_id={msg.userId}
+                                nickname={msg.userNickname}
+                                content_type={msg.contentType}
+                                content={msg.content}
+                                send_time={msg.sendTime}
+                            />
+                            }
+                        </>
+                    )
+                    
+                    })}
+
                 {/* <div ref={scrollRef}/> */}
             </StyledChatContainer>
         </>
