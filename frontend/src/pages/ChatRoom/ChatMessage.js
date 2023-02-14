@@ -32,7 +32,7 @@ const StyledChatMsgYou = styled.div`
     color: white;
     margin-top: 5px;
     /* background-color: #6522F2; */
-    background-color: rgba(65, 22, 162, 0.8);
+    background-color: #6522F2;
     padding: 10px;
     border-radius: 0px 10px 10px 10px;
     margin-left: 30px;

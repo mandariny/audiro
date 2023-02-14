@@ -20,7 +20,7 @@ public class ChannelMessage implements Serializable {
     private String content;
     LocalDateTime sendTime;
 
-    public ChannelMessage(long userId, long receiverId, String userNickname, ContentType type, String content){
+    public ChannelMessage(long userId, String userNickname, ContentType type, String content){
         this.userId = userId;
         this.receiverId = receiverId;
         this.userNickname = userNickname;

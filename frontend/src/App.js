@@ -37,7 +37,7 @@ function App() {
 
           <Route path='/others/:nickname' element={<Others/>}/>
 
-          <Route path='/messenger/:channel_id' element={<ChatRoom/>} />
+          <Route path='/messenger/:channel_id/:nickname' element={<ChatRoom/>} />
           <Route path='/userinfo' element={<UserInfo/>}/>
 
       </Routes>
