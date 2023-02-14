@@ -13,14 +13,13 @@ import { useSelector } from 'react-redux';
 const BASE_URL = "ws://localhost:8082/ws-stomp";
 
 // 지난 메세지 내역을 요청하기 위한 rest api path
-const REQUEST_URL = "http://localhost:8082/message";
+const REQUEST_URL = "http://i8a402.p.ssafy.io/chat/message";
 
 // 임의로 넣어둔 userID
-const user_id = 2;
+// const user_id = 2;
 
 // 임의로 넣어둔 유저 닉네임
-const user_nickname = "pickapicka";
-
+// const user_nickname = "pickapicka";
 
 const StyledInputWrapper = styled.div`
     /* display: flex; */
@@ -60,6 +59,11 @@ const StyledBtn = styled.div`
 `;
 
 const ChatRoom = () => {
+
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
+    const user_id = jwt(token)['userId']; 
+    const user_nickname = jwt(token)['nickname']; 
 
     // 메세지들을 관리하는 state
     const [messageList, setMessageList] = useState([]);

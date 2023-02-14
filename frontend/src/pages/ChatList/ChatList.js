@@ -9,13 +9,18 @@ import Nav from "../../components/Nav";
 // 웹 소켓 연결 endpoint
 const BASE_URL = "ws://localhost:8082/ws-stomp";
 // 채널 리스트를 요청하는 rest api path
-const REQUEST_URL = "http://localhost:8082/channel/list";
+const REQUEST_URL = "http://i8a402.p.ssafy.io/chat/channel/list";
 // 임의로 넣어둔 사용자 ID
-const user_id = 2;
+// let user_id = 2;
 // 임의로 넣어둔 사용자 닉네임
-const user_nickname = "pickapicka";
+// const user_nickname = "pickapicka";
 
 const ChatList = () => {
+
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
+    const user_id = jwt(token)['userId']; 
+    const user_nickname = jwt(token)['nickname']; 
 
     // 채팅 룸 리스트를 저장하는 state
     const [channelList, setChannelList] = useState([]);
@@ -90,7 +95,7 @@ const ChatList = () => {
     // 소켓 연결 후 리스트 화면에 뿌리기
     return(
         <div>
-            {/* <Logo/> */}
+            <Logo/>
             <Nav/>
             <ChatThumbnailList chatThumbnailList={channelList}/>
         </div>
