@@ -7,7 +7,9 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 public class PostcardDTO {
@@ -17,6 +19,7 @@ public class PostcardDTO {
     private String nickname;
 
     @NotBlank(message = "전화번호 입력은 필수입니다.")
+    @Pattern(regexp = "^[0-9]*$", message = "숫자만 입력해주세요.")
     private String phoneNumber;
 
     @NotBlank(message = "비밀번호 입력은 필수입니다.")
@@ -31,7 +34,6 @@ public class PostcardDTO {
     @NotNull(message = "지점 입력은 필수입니다.")
     private String spotName;
 
-    @NotNull(message = "엽서 입력은 필수입니다.")
     private String postcardImg;
     private LocalDateTime regTime;
     private String message;
@@ -45,5 +47,9 @@ public class PostcardDTO {
                         + "위의 문구를 입력하시면 편지를 받아보실 수 있습니다."
                 , this.nickname, this.spotName, this.passwd);
         this.regTime = LocalDateTime.now();
+    }
+
+    public void setPostcardImg(String postcardImg){
+        this.postcardImg = postcardImg;
     }
 }
