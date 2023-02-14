@@ -21,13 +21,12 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 @RequiredArgsConstructor
 @RestController()
-@RequestMapping("/chat")
 @CrossOrigin("*")
 public class ChannelController {
 
     private final ChatService chatService;
 
-    @GetMapping("/channel/list")
+    @GetMapping("/chat/channel/list")
     public ResponseEntity<?> getChanneThumbnailList(@RequestParam long userId){
         try{
             List<ChannelThumbnailDTO> channelThumbnailList = chatService.getChannelThumbnail(userId);
@@ -38,7 +37,7 @@ public class ChannelController {
         }
     }
 
-    @GetMapping("/message")
+    @GetMapping("/chat/message")
     public ResponseEntity<?> getAllMessages(@RequestParam String channelId){
         try{
             List<MessageDTO> messageDTOList = chatService.getChannelMessages(channelId);
@@ -50,7 +49,7 @@ public class ChannelController {
         }
     }
 
-    @PostMapping("/channel")
+    @PostMapping("/chat/channel")
     @Transactional
     public ResponseEntity<?> createNewChannel(@RequestParam("postcardImg") MultipartFile postcardImg, @RequestParam("postcard") String message){
         try{
