@@ -51,7 +51,7 @@ const ChatList = () => {
         channelList.forEach((channel) => {
             // 리스트 forEach로 돌면서 구독
             console.log("포이치")
-            client.current.subscribe(`/chat/sub/${channel.channelId}`, async (data) => {
+            client.current.subscribe(`/sub/${channel.channelId}`, async (data) => {
                 // sub이 발생할 경우 useState이용해 목록을 업뎃 -> 렌더링,,이 다시 될 줄 알았는데 새로고침하면 안먹음
                 // const subChannel = async () => {
                     console.log("sub 발생!! : " + JSON.parse(data.body).content);

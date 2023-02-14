@@ -95,7 +95,7 @@ const ChatRoom = () => {
     // 이 채팅방 채널을 구독함
     const subscribe = () => {
         console.log("subscribe 시작");
-        client.current.subscribe(`/chat/sub/${channel_id}`, (data) => {
+        client.current.subscribe(`/sub/${channel_id}`, (data) => {
             // sub된 메세지가 있을 경우 메세지 리스트에 추가함
             const json_data = JSON.parse(data.body);
             console.log(json_data);
