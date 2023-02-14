@@ -3,6 +3,7 @@ package com.a402.audiro.service;
 import com.a402.audiro.dto.UserInfoDTO;
 import com.a402.audiro.dto.UserLoginDTO;
 import com.a402.audiro.entity.User;
+import com.a402.audiro.exception.NickNameExistException;
 import com.a402.audiro.exception.UserNotExistException;
 import com.a402.audiro.repository.UserRepository;
 import java.util.List;
@@ -46,6 +47,16 @@ public class UserServiceImpl implements UserService {
             UserLoginDTO loginUser = (UserLoginDTO) SecurityContextHolder.getContext()
                     .getAuthentication().getPrincipal();
             long loginUserId = loginUser.getId();
+
+            //중복 검사
+            User temp = userRepository.findByNickname(newNickName);
+            if(temp != null){
+                if(temp.getId()!=loginUserId){
+                    log.info("닉네임 중복");
+                    throw new NickNameExistException();
+                }
+            }
+
             log.info("사용자 {}의 닉네임을 {}로 변경 시작", loginUserId,newNickName);
             User userEntity = userRepository.findById(loginUserId);
             userEntity.setNickname(newNickName);
