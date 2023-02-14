@@ -5,6 +5,7 @@ import ChatThumbnailList from './ChatThumbnailList'
 import axios from "axios";
 import Logo from "../../components/Logo";
 import Nav from "../../components/Nav";
+import jwt from 'jwt-decode';
 
 // 웹 소켓 연결 endpoint
 const BASE_URL = "ws://localhost:8082/ws-stomp";

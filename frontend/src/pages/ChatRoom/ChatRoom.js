@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import {FiSend} from "react-icons/fi";
 import { useCallback } from "react";
 import { useSelector } from 'react-redux';
+import jwt from 'jwt-decode';
 
 // 웹 소켓 연결할 endpoint
 const BASE_URL = "ws://localhost:8082/ws-stomp";
