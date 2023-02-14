@@ -56,9 +56,15 @@ const EditNickname = (props) =>{
             console.log(token);
             console.log(res);
     
+            console.log((res['headers'])['auth'])
+            const jwtToken=(res['headers'])['auth'];
+            
             console.log((res['headers'])['refresh'])
-            const jwtToken=(res['headers'])['refresh'];
+            const jwtToken2=(res['headers'])['refresh'];
+            
             localStorage.setItem('login-token', jwtToken);
+            localStorage.setItem('refresh-token', jwtToken2);
+            
             console.log('success');
             console.log(localStorage.getItem('login-token'))
         })
