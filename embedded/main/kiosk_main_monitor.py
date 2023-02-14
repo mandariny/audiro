@@ -21,8 +21,6 @@ from PyQt5.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFram
     QScrollArea, QSizePolicy, QSlider, QStackedWidget,
     QTabWidget, QToolBox, QVBoxLayout, QWidget)
 
-import painter
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1404,6 +1402,15 @@ class Ui_MainWindow(object):
         self.post_scroll_area = QScrollArea(self.frame_79)
         self.post_scroll_area.setObjectName(u"post_scroll_area")
         self.post_scroll_area.setMinimumSize(QSize(600, 600))
+        self.post_scroll_area.setStyleSheet(u"QScrollBar:horizontal{\n"
+"border:none;\n"
+"background-color:rgb(59,59,90);\n"
+"}\n"
+"QScrollBar::handle:horizontal{\n"
+"border-radius: 8px;\n"
+"background-color:#6522F2;\n"
+"}\n"
+"")
         self.post_scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.post_scroll_area.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
         self.post_scroll_area.setWidgetResizable(True)
@@ -3648,7 +3655,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_34 = QHBoxLayout(self.frame_56)
         self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
         self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget = painter.PainterWidget()
+        self.painter_widget = QWidget(self.frame_56)
         self.painter_widget.setObjectName(u"painter_widget")
         self.painter_widget.setEnabled(True)
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -4260,7 +4267,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_57 = QHBoxLayout(self.frame_99)
         self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
         self.horizontalLayout_57.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_2 = painter.PainterWidget()
+        self.painter_widget_2 = QWidget(self.frame_99)
         self.painter_widget_2.setObjectName(u"painter_widget_2")
         self.painter_widget_2.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_2.sizePolicy().hasHeightForWidth())
@@ -4422,7 +4429,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_63 = QHBoxLayout(self.frame_105)
         self.horizontalLayout_63.setObjectName(u"horizontalLayout_63")
         self.horizontalLayout_63.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_3 = painter.PainterWidget()
+        self.painter_widget_3 = QWidget(self.frame_105)
         self.painter_widget_3.setObjectName(u"painter_widget_3")
         self.painter_widget_3.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_3.sizePolicy().hasHeightForWidth())
@@ -4584,7 +4591,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_89 = QHBoxLayout(self.frame_177)
         self.horizontalLayout_89.setObjectName(u"horizontalLayout_89")
         self.horizontalLayout_89.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_4 = painter.PainterWidget()
+        self.painter_widget_4 = QWidget(self.frame_177)
         self.painter_widget_4.setObjectName(u"painter_widget_4")
         self.painter_widget_4.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_4.sizePolicy().hasHeightForWidth())
@@ -4741,10 +4748,11 @@ class Ui_MainWindow(object):
         self.post7.clicked.connect(MainWindow.playMusic7_post)
         self.leftButton_14.clicked.connect(MainWindow.scroll_post_left)
         self.rightButton_14.clicked.connect(MainWindow.scroll_post_right)
+        self.priorityBox.currentIndexChanged.connect(MainWindow.align_chart)
 
-        self.menu_toolBox.setCurrentIndex(2)
+        self.menu_toolBox.setCurrentIndex(0)
         self.menu_toolBox.layout().setSpacing(30)
-        self.stackedPages.setCurrentIndex(2)
+        self.stackedPages.setCurrentIndex(0)
         self.stackedWidget_3.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)

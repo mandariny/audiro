@@ -3,6 +3,7 @@ youtube_dl
 pafy
 python-vlc
 PySide6
+websocket
 
 /venv/Lib/site-packages/pafy/backend_youtube_dl.py
 

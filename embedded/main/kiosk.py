@@ -33,7 +33,7 @@ import logging
 local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzYzNTQ5MjAsImV4cCI6MTY3NjQxNDkyMH0.HVWRX_IHPYs1uPOICJRCgWih8WqHV-Oa4EBp1naDJrk'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzYzODI2MTksImV4cCI6MTY3NjQ0MjYxOX0.jUQivPZtELGUagd9xxLnNX1poMRyggns33QvFIoqLzI'
 }
 
 # 변수 처리해야함
@@ -128,6 +128,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         postcardImg = ""
         gift_id = 1
 
+        # 차트 이미지
+        self.chart_button_list = [self.chart_img_Button1, self.chart_img_Button2, self.chart_img_Button3,
+                             self.chart_img_Button4, self.chart_img_Button5, self.chart_img_Button6,
+                             self.chart_img_Button7, self.chart_img_Button8, self.chart_img_Button9,
+                             self.chart_img_Button10]
+
         # 차트 scroll 세팅
         QScroller.grabGesture(
             self.scrollArea.viewport(), QScroller.LeftMouseButtonGesture
@@ -138,60 +144,55 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         # 차트 정보 불러오기
         song_list_url = local_url + "/api/song/chart/giftcnt/"
-        song_list_param = {'spotId': spot_id}
-        response = requests.get(song_list_url, headers=request_header, params=song_list_param)
-        print("asjkldfhlaksjdfhlaksdjfhlaksdjf")
-        res_json = response.json()
-        self.music_chart = res_json
+        self.get_chart(song_list_url)
 
-        # 차트 이미지 넣기
-        chart_button_list = [self.chart_img_Button1, self.chart_img_Button2, self.chart_img_Button3, self.chart_img_Button4, self.chart_img_Button5, self.chart_img_Button6, self.chart_img_Button7, self.chart_img_Button8, self.chart_img_Button9, self.chart_img_Button10]
-        print('인기 차트 노래 정보:')
-        print(self.music_chart)
-
-        for i in range(len(self.music_chart)):
-            img_url = self.music_chart[0].get('song_img')   #index <- i
-            pixmap = self.show_image(img_url)
-            pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
-
-            icon = QIcon()
-            icon.addPixmap(pixmap)
-            ## 곡정보(제목,가수,재생시간) 변경
-            self.label_Artist_3.setText(self.music_chart[0].get('singer'))  # singer
-            self.label_Title_5.setText(self.music_chart[0].get('song_title'))  # song
-            chart_button_list[i].setIcon(icon)
-            chart_button_list[i].setIconSize(pixmap.rect().size())
-
-        self.play_music(self.music_chart[0].get('song_url'))
-        print('성공')
-        #try:
-
-        #except:
-           # print("에러")
-
-        # 마니또 목록 불러오기
+        """# 마니또 목록 불러오기
         manito_post_list = [
             self.post1,self.post2, self.post3, self.post4,
             self.post5, self.post6, self.post7, self.post8,
             self.post9, self.post10
         ]
 
-        manito_list_url = local_url + '/api/manito/'
+        manito_list_url = local_url + '/api/manito/1'
         response = requests.get(manito_list_url, headers=request_header, params=None)
         res_json = response.json()
         print('마니또 목록:')
         print(res_json[0])
-        """try:
-            self.music_post1.setPixmap(self.show_image(res_json[0].get('giftImg')))
-        except:
-            print('마니또 이미지 업로드 실패')"""
+
         for i in range(len(res_json)):
             pixmap = self.show_image(res_json[i].get('giftImg'))
             pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
             icon = QIcon()
             icon.addPixmap(pixmap)
             manito_post_list[i].setIcon(icon)
-            manito_post_list[i].setIconSize(pixmap.rect().size())
+            manito_post_list[i].setIconSize(pixmap.rect().size())"""
+
+        #self.scrollArea.horizontalScrollBar().valueChanged.connect(lambda: swipe_music())
+
+        # 스와이프로 차트 음악 넘겨 재생
+        def swipe_music():
+            value = self.scrollArea.horizontalScrollBar().value()
+
+            if value < 10:
+                self.play_music(self.music_chart[0])
+            elif value < 20:
+                self.play_music(self.music_chart[0])
+            elif value < 30:
+                self.play_music(self.music_chart[0])
+            elif value < 40:
+                self.play_music(self.music_chart[0])
+            elif value < 50:
+                self.play_music(self.music_chart[0])
+            elif value < 60:
+                self.play_music(self.music_chart[0])
+            elif value < 70:
+                self.play_music(self.music_chart[0])
+            elif value < 80:
+                self.play_music(self.music_chart[0])
+            elif value < 90:
+                self.play_music(self.music_chart[0])
+            else:
+                self.play_music(self.music_chart[0])
 
     def play_chart_scroll(self):
         value = self.scrollArea.horizontalScrollBar().value()
@@ -249,6 +250,39 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         x.start()           #쓰레드 클래스의 run 메서드를 동작시키는 부분
         self.chart_music_slider.setValue(num)
 
+    def get_chart(self, url):
+        # 차트 정보 불러오기
+        song_list_url = url
+        song_list_param = {'spotId': spot_id}
+        response = requests.get(song_list_url, headers=request_header, params=song_list_param)
+        self.music_chart.clear()
+        self.music_chart = response.json()
+
+        for i in range(len(self.music_chart)):
+            img_url = self.music_chart[i].get('song_img')
+            pixmap = self.show_image(img_url)
+            pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
+
+            icon = QIcon()
+            icon.addPixmap(pixmap)
+            ## 곡정보(제목,가수,재생시간) 변경
+            self.label_Artist_3.setText(self.music_chart[i].get('singer'))  # singer
+            self.label_Title_5.setText(self.music_chart[i].get('song_title'))  # song
+            self.chart_button_list[i].setIcon(icon)
+            self.chart_button_list[i].setIconSize(pixmap.rect().size())
+
+        self.play_music(self.music_chart[i].get('song_url'))
+
+    def align_chart(self, index):
+        if index == 0:
+            align_url = local_url + "/api/song/chart/giftcnt/"
+        elif index == 1:
+            align_url = local_url + "/api/song/chart/updatetime/"
+        else:
+            align_url = local_url + "/api/song/chart/random/"
+
+        self.get_chart(align_url)
+
     # 플레이어 함수들
     def new_music(self, url):
         self.video = pafy.new(url)  # pafy + youtube-dl 사용 direct link 변환
@@ -291,7 +325,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         pixmap.loadFromData(source)
 
         return pixmap
-
 
     def play_music(self, url):
         #self.video = pafy.new(self.music_chart[0].get('song_url'))  # pafy + youtube-dl 사용 direct link 변환
@@ -386,14 +419,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         song_gift_url = local_url + "/api/song/gifts/"
         song_gift_param = {'spotId': spot_id, 'songId': song_id}
 
-        print("\nchart1")
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print("노래세부정보:")
-        print(res_json)
+
         gift_list = res_json.get('giftList')
-        print("엽서목록:")
-        print(gift_list)
+
         self.music_post1.setPixmap(self.show_image(gift_list[0]))
         self.music_post2.setPixmap(self.show_image(gift_list[1]))
         self.music_post3.setPixmap(self.show_image(gift_list[2]))
@@ -416,7 +446,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
+
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -440,7 +470,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
+
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -464,7 +494,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
+
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -488,7 +518,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
+
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -512,7 +542,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
+
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -536,7 +566,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -560,7 +589,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -584,7 +612,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
@@ -608,7 +635,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-        print(res_json)
         gift_list = res_json.get('gifts')
         self.music_post1.pixmap(self.show_image(gift_list[0]))
         self.music_post2.pixmap(self.show_image(gift_list[1]))
