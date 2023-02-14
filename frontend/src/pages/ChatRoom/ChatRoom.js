@@ -117,7 +117,7 @@ const ChatRoom = () => {
         // contentType은 이미지 or 메세지인데 
         // 이미지 전송은 부스에서 엽서를 보낼 때에만 가능하니까 MESSAGE가 default
         client.current.publish({
-            destination: `/chat/pub/channel/${channel_id}`,
+            destination: `/pub/chat/channel/${channel_id}`,
             body: JSON.stringify({
                 userId: user_id,
                 userNickname: user_nickname,
