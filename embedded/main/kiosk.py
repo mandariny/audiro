@@ -33,9 +33,8 @@ import logging
 local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsImlhdCI6MTY3NjI3NjMzOCwiZXhwIjoxNjc2MjgyMzM4fQ.9FZXuX3rc3uMK026f2I03014MYW7he3x0e-ofUu2W0o'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzYzNTQ5MjAsImV4cCI6MTY3NjQxNDkyMH0.HVWRX_IHPYs1uPOICJRCgWih8WqHV-Oa4EBp1naDJrk'
 }
-
 
 # 변수 처리해야함
 hy_key = "AIzaSyC6_1JJhtq8uJgPDSLEAjA8OEBwQUa60vo"
@@ -133,6 +132,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         QScroller.grabGesture(
             self.scrollArea.viewport(), QScroller.LeftMouseButtonGesture
         )
+        QScroller.grabGesture(
+            self.post_scroll_area.viewport(), QScroller.LeftMouseButtonGesture
+        )
 
         # 차트 정보 불러오기
         song_list_url = local_url + "/api/song/chart/giftcnt/"
@@ -151,9 +153,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             img_url = self.music_chart[0].get('song_img')   #index <- i
             pixmap = self.show_image(img_url)
             pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
+
             icon = QIcon()
             icon.addPixmap(pixmap)
-
             ## 곡정보(제목,가수,재생시간) 변경
             self.label_Artist_3.setText(self.music_chart[0].get('singer'))  # singer
             self.label_Title_5.setText(self.music_chart[0].get('song_title'))  # song
@@ -168,21 +170,28 @@ class MyWindow(QMainWindow, Ui_MainWindow):
            # print("에러")
 
         # 마니또 목록 불러오기
-        manito_list_url = local_url + '/api/manito/1'
+        manito_post_list = [
+            self.post1,self.post2, self.post3, self.post4,
+            self.post5, self.post6, self.post7, self.post8,
+            self.post9, self.post10
+        ]
+
+        manito_list_url = local_url + '/api/manito/'
         response = requests.get(manito_list_url, headers=request_header, params=None)
         res_json = response.json()
         print('마니또 목록:')
         print(res_json[0])
-        try:
+        """try:
             self.music_post1.setPixmap(self.show_image(res_json[0].get('giftImg')))
         except:
-            print('마니또 이미지 업로드 실패')
-        """self.music_post1.pixmap(self.show_image(res_json[0].get('giftImg')))
-        self.music_post2.pixmap(self.show_image(res_json[0].get('giftImg')))
-        self.music_post3.pixmap(self.show_image(res_json[0].get('giftImg')))
-        self.music_post4.pixmap(self.show_image(res_json[0].get('giftImg')))
-        self.music_post5.pixmap(self.show_image(res_json[0].get('giftImg')))
-        self.music_post6.pixmap(self.show_image(res_json[0].get('giftImg')))"""
+            print('마니또 이미지 업로드 실패')"""
+        for i in range(len(res_json)):
+            pixmap = self.show_image(res_json[i].get('giftImg'))
+            pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
+            icon = QIcon()
+            icon.addPixmap(pixmap)
+            manito_post_list[i].setIcon(icon)
+            manito_post_list[i].setIconSize(pixmap.rect().size())
 
     def play_chart_scroll(self):
         value = self.scrollArea.horizontalScrollBar().value()
@@ -819,6 +828,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def logout(self):
         token = ''
+        app.exit()
 
     def postMusic(self):
         self.stackedPages2.setCurrentIndex(1)
@@ -861,30 +871,50 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.painter_widget.save("../resource/saved_images/feedbackImg.png")
         print("feedback saved!")
 
-        # POST
-        postcard_url = local_url + "/api/chat"
-        manito_data = {
-            'user_id': 'user_id',
-            'userNickname': 'user_nickname',
-            'gift_img': "../resource/saved_images/feedbackImg.png",
-            'receiver': "receiver"
+        # 채팅 서버로 피드백 전송
+        url = local_url + "/channel"
+
+        manito_data = manitoDTO = {'userId': 2, 'receiverId': 1, 'userNickname': 'sh', 'contentType': 'IMAGE'}
+        now_dir = os.getcwd()
+        image_path = f"{now_dir}/../resource/saved_images/feedbackImg.png"  # 이미지 경로
+        image_name = r"feedbackImg.png"  # 이미지 이름
+
+        files = {
+            "postcardImg": (image_name, open(image_path, "rb"), "image/jpeg")
         }
+
+        payload = {"postcard": json.dumps(manito_data)}
+
+        response = requests.post(url, data=payload, files=files)
+
+        print(response.status_code)
 
     def post_manito(self):
         self.stackedPages.setCurrentIndex(2)
         self.stackedPages2.setCurrentIndex(2)
         self.painter_widget_3.save("../resource/saved_images/manitoImg.png")
 
-        # POST
-        postcard_url = local_url + "/api/manito/"
-        manito_data = {
-            'user_id': 'user_id',
-            'song_id': 'songId',
-            'gift_tag': 'gift_tag',
-            'gift_img': "../resource/saved_images/manitoImg.png",
-            'spot_id': spot_id,
-            'before_manito_id': 'before_manito_id'
+        # 서버로 이미지와 마니또 정보 전송
+        url = local_url + "/api/manito"
+
+        manito_data = manitoDTO = {'userId': 2, 'songId': 1, 'spotId': 1, 'beforeManitoId': 1}
+        image_path = r"../resource/saved_images/manitoImg.png"  # 이미지 경로
+        image_name = "manitoImg.png"  # 이미지 이름
+
+        access_token = request_header
+        files = {
+            "giftImg": (image_name, open(image_path, "rb"), "image/jpeg")
         }
+        headers = {
+            'Auth': access_token
+        }
+
+        payload = {"manito": json.dumps(manito_data)}
+
+        response = requests.post(url, headers=headers, data=payload, files=files)
+
+        print(response.status_code)
+
 
     def save_postcard(self):
         self.painter_widget_4.save("../resource/saved_images/postcardImg.png")
@@ -996,5 +1026,4 @@ window.setFixedHeight(1920)
 window.showFullScreen()
 
 app.exec()
-
 

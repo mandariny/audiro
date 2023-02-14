@@ -275,7 +275,7 @@ background: #6522F2;
                       <number>0</number>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <property name="tabSpacing">
                       <number>30</number>
@@ -1045,7 +1045,7 @@ background-color:#6522F2;
                          <widget class="QWidget" name="scrollAreaWidgetContents">
                           <property name="geometry">
                            <rect>
-                            <x>0</x>
+                            <x>-596</x>
                             <y>0</y>
                             <width>3072</width>
                             <height>463</height>
@@ -3256,9 +3256,20 @@ color: #FFFFFF;
                         <widget class="QScrollArea" name="post_scroll_area">
                          <property name="minimumSize">
                           <size>
-                           <width>0</width>
-                           <height>550</height>
+                           <width>600</width>
+                           <height>600</height>
                           </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QScrollBar:horizontal{
+border:none;
+background-color:rgb(59,59,90);
+}
+QScrollBar::handle:horizontal{
+border-radius: 8px;
+background-color:#6522F2;
+}
+</string>
                          </property>
                          <property name="verticalScrollBarPolicy">
                           <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -3277,8 +3288,8 @@ color: #FFFFFF;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>1240</width>
-                            <height>531</height>
+                            <width>1410</width>
+                            <height>581</height>
                            </rect>
                           </property>
                           <layout class="QGridLayout" name="gridLayout_2">
@@ -3298,14 +3309,14 @@ color: #FFFFFF;
                             <number>20</number>
                            </property>
                            <property name="spacing">
-                            <number>50</number>
+                            <number>30</number>
                            </property>
                            <item row="1" column="0">
                             <widget class="QPushButton" name="post1">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3326,8 +3337,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post6">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3348,8 +3359,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post5">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3370,8 +3381,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post7">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3392,8 +3403,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post4">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3414,8 +3425,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post10">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3436,8 +3447,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post9">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3458,8 +3469,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post2">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3480,8 +3491,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post3">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">
@@ -3502,8 +3513,8 @@ color: #FFFFFF;
                             <widget class="QPushButton" name="post8">
                              <property name="minimumSize">
                               <size>
-                               <width>200</width>
-                               <height>200</height>
+                               <width>250</width>
+                               <height>250</height>
                               </size>
                              </property>
                              <property name="styleSheet">

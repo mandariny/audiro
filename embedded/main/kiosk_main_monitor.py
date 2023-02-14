@@ -8,18 +8,20 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
+from PyQt5.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
     QGridLayout, QHBoxLayout, QLabel, QLayout,
     QLineEdit, QMainWindow, QPushButton, QRadioButton,
     QScrollArea, QSizePolicy, QSlider, QStackedWidget,
     QTabWidget, QToolBox, QVBoxLayout, QWidget)
+
+import painter
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1401,22 +1403,22 @@ class Ui_MainWindow(object):
 
         self.post_scroll_area = QScrollArea(self.frame_79)
         self.post_scroll_area.setObjectName(u"post_scroll_area")
-        self.post_scroll_area.setMinimumSize(QSize(0, 550))
+        self.post_scroll_area.setMinimumSize(QSize(600, 600))
         self.post_scroll_area.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.post_scroll_area.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
         self.post_scroll_area.setWidgetResizable(True)
         self.post_scroll_area.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1240, 531))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1410, 581))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_2)
-        self.gridLayout_2.setSpacing(50)
+        self.gridLayout_2.setSpacing(30)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.gridLayout_2.setContentsMargins(20, 20, 20, 20)
         self.post1 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post1.setObjectName(u"post1")
-        self.post1.setMinimumSize(QSize(200, 200))
+        self.post1.setMinimumSize(QSize(250, 250))
         self.post1.setStyleSheet(u"background-color:white;")
         self.post1.setIconSize(QSize(20, 20))
 
@@ -1424,7 +1426,7 @@ class Ui_MainWindow(object):
 
         self.post6 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post6.setObjectName(u"post6")
-        self.post6.setMinimumSize(QSize(200, 200))
+        self.post6.setMinimumSize(QSize(250, 250))
         self.post6.setStyleSheet(u"background-color:white;")
         self.post6.setIconSize(QSize(20, 20))
 
@@ -1432,7 +1434,7 @@ class Ui_MainWindow(object):
 
         self.post5 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post5.setObjectName(u"post5")
-        self.post5.setMinimumSize(QSize(200, 200))
+        self.post5.setMinimumSize(QSize(250, 250))
         self.post5.setStyleSheet(u"background-color:white;")
         self.post5.setIconSize(QSize(20, 20))
 
@@ -1440,7 +1442,7 @@ class Ui_MainWindow(object):
 
         self.post7 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post7.setObjectName(u"post7")
-        self.post7.setMinimumSize(QSize(200, 200))
+        self.post7.setMinimumSize(QSize(250, 250))
         self.post7.setStyleSheet(u"background-color:white;")
         self.post7.setIconSize(QSize(20, 20))
 
@@ -1448,7 +1450,7 @@ class Ui_MainWindow(object):
 
         self.post4 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post4.setObjectName(u"post4")
-        self.post4.setMinimumSize(QSize(200, 200))
+        self.post4.setMinimumSize(QSize(250, 250))
         self.post4.setStyleSheet(u"background-color:white;")
         self.post4.setIconSize(QSize(20, 20))
 
@@ -1456,7 +1458,7 @@ class Ui_MainWindow(object):
 
         self.post10 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post10.setObjectName(u"post10")
-        self.post10.setMinimumSize(QSize(200, 200))
+        self.post10.setMinimumSize(QSize(250, 250))
         self.post10.setStyleSheet(u"background-color:white;")
         self.post10.setIconSize(QSize(20, 20))
 
@@ -1464,7 +1466,7 @@ class Ui_MainWindow(object):
 
         self.post9 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post9.setObjectName(u"post9")
-        self.post9.setMinimumSize(QSize(200, 200))
+        self.post9.setMinimumSize(QSize(250, 250))
         self.post9.setStyleSheet(u"background-color:white;")
         self.post9.setIconSize(QSize(20, 20))
 
@@ -1472,7 +1474,7 @@ class Ui_MainWindow(object):
 
         self.post2 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post2.setObjectName(u"post2")
-        self.post2.setMinimumSize(QSize(200, 200))
+        self.post2.setMinimumSize(QSize(250, 250))
         self.post2.setStyleSheet(u"background-color:white;")
         self.post2.setIconSize(QSize(20, 20))
 
@@ -1480,7 +1482,7 @@ class Ui_MainWindow(object):
 
         self.post3 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post3.setObjectName(u"post3")
-        self.post3.setMinimumSize(QSize(200, 200))
+        self.post3.setMinimumSize(QSize(250, 250))
         self.post3.setStyleSheet(u"background-color:white;")
         self.post3.setIconSize(QSize(20, 20))
 
@@ -1488,7 +1490,7 @@ class Ui_MainWindow(object):
 
         self.post8 = QPushButton(self.scrollAreaWidgetContents_2)
         self.post8.setObjectName(u"post8")
-        self.post8.setMinimumSize(QSize(200, 200))
+        self.post8.setMinimumSize(QSize(250, 250))
         self.post8.setStyleSheet(u"background-color:white;")
         self.post8.setIconSize(QSize(20, 20))
 
@@ -3646,7 +3648,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_34 = QHBoxLayout(self.frame_56)
         self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
         self.horizontalLayout_34.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget = QWidget(self.frame_56)
+        self.painter_widget = painter.PainterWidget()
         self.painter_widget.setObjectName(u"painter_widget")
         self.painter_widget.setEnabled(True)
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -4258,7 +4260,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_57 = QHBoxLayout(self.frame_99)
         self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
         self.horizontalLayout_57.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_2 = QWidget(self.frame_99)
+        self.painter_widget_2 = painter.PainterWidget()
         self.painter_widget_2.setObjectName(u"painter_widget_2")
         self.painter_widget_2.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_2.sizePolicy().hasHeightForWidth())
@@ -4420,7 +4422,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_63 = QHBoxLayout(self.frame_105)
         self.horizontalLayout_63.setObjectName(u"horizontalLayout_63")
         self.horizontalLayout_63.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_3 = QWidget(self.frame_105)
+        self.painter_widget_3 = painter.PainterWidget()
         self.painter_widget_3.setObjectName(u"painter_widget_3")
         self.painter_widget_3.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_3.sizePolicy().hasHeightForWidth())
@@ -4582,7 +4584,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_89 = QHBoxLayout(self.frame_177)
         self.horizontalLayout_89.setObjectName(u"horizontalLayout_89")
         self.horizontalLayout_89.setContentsMargins(-1, 0, -1, -1)
-        self.painter_widget_4 = QWidget(self.frame_177)
+        self.painter_widget_4 = painter.PainterWidget()
         self.painter_widget_4.setObjectName(u"painter_widget_4")
         self.painter_widget_4.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.painter_widget_4.sizePolicy().hasHeightForWidth())
