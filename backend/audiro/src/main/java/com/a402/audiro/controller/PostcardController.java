@@ -46,7 +46,7 @@ public class PostcardController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> sendPostcard(@RequestBody PostcardDTO postcardDTO){
+    public ResponseEntity<?> sendPostcard(@RequestBody @Valid PostcardDTO postcardDTO){
         try{
             postcardService.savePostcard(postcardDTO);
             smsService.sendMessage(postcardDTO);
