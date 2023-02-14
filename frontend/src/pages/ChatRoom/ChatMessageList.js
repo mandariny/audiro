@@ -28,7 +28,7 @@ const StyledChatRoomTitle = styled.div`
 const StyledChatDateWrapper = styled.span`
     font-size: 12px;
     font-family: var(--font-nanumSquareR);
-    background-color: rgba(65, 22, 162, 0.7);
+    background-color: rgb(65, 22, 162);
     text-align: center;
     padding: 5px;
     margin-right: 80px;
@@ -44,19 +44,18 @@ const ChatMessageList = (props) => {
     // props로 정보 전달
     console.log(props.userId);
 
-    const scrollRef = useRef(null);
+    const scrollRef = useRef();
     const scrollToBottom = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }
     useEffect(()=>{
-        scrollToBottom()
-    }, [])
-
+        scrollRef.current.scrollTop=scrollRef.current.scrollHeight;
+    });
 
     return(
         <>            
             <StyledChatRoomTitle>gaok님과의 편지</StyledChatRoomTitle>
-            <StyledChatContainer>
+            <StyledChatContainer ref={scrollRef}>
                 
                 {
                     props.messageList && props.messageList.map((msg, index) => {
@@ -89,9 +88,8 @@ const ChatMessageList = (props) => {
                     )
                     
                     })}
-
-                {/* <div ref={scrollRef}/> */}
             </StyledChatContainer>
+            {/* <div ref={scrollRef}/> */}
         </>
     )
 }
