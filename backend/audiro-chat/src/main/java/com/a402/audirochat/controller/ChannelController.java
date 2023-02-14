@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 @RequiredArgsConstructor
 @RestController()
-@RequestMapping("chat")
+@RequestMapping("/chat")
 @CrossOrigin("*")
 public class ChannelController {
 
@@ -50,7 +50,7 @@ public class ChannelController {
         }
     }
 
-    @PostMapping("channel")
+    @PostMapping("/channel")
     @Transactional
     public ResponseEntity<?> createNewChannel(@RequestParam("postcardImg") MultipartFile postcardImg, @RequestParam("postcard") String message){
         try{
