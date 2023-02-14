@@ -84,6 +84,7 @@ public class ChatServiceImpl implements ChatService{
     public void saveMessage(String channelId, MessageDTO messageDTO) {
         ChannelMessage message = ChannelMessage.builder()
                 .userId(messageDTO.getUserId())
+                .receiverId(messageDTO.getReceiverId())
                 .userNickname(messageDTO.getUserNickname())
                 .contentType(messageDTO.getContentType())
                 .content(messageDTO.getContent())
@@ -140,6 +141,7 @@ public class ChatServiceImpl implements ChatService{
         return channels.get().getMessages().stream()
                 .map(m -> MessageDTO.builder()
                         .userId(m.getUserId())
+                        .receiverId(m.getReceiverId())
                         .userNickname(m.getUserNickname())
                         .contentType(m.getContentType())
                         .content(m.getContent())

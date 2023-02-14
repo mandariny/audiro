@@ -25,7 +25,7 @@ public class User implements Serializable {
     @Id
     private long Id;
 //    private List<ChannelInfo> channels = new ArrayList<>();
-    // 대화 상태 id, 채널 정보
+    // 대화 상대 id, 채널 정보
     private Map<Long, ChannelInfo> channels = new HashMap<>();
 
     public User(long Id){

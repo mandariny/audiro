@@ -32,7 +32,7 @@ public class ChannelRepositoryTest {
     void addMessageToChannel(){
         Channel channel = new Channel();
         channel.setId("ch1");
-        ChannelMessage message = new ChannelMessage(1, "soheenic", ContentType.MESSAGE, "hihi");
+        ChannelMessage message = new ChannelMessage(1, 2, "soheenic", ContentType.MESSAGE, "hihi");
         channel.addChannelMessage(message);
 
         channelRepository.save(channel);
@@ -49,7 +49,7 @@ public class ChannelRepositoryTest {
     @DisplayName("Channel에 메세지를 추가해 update 하자")
     void updateChannel(){
         Optional<Channel> channel = channelRepository.findById("ch1");
-        ChannelMessage message = new ChannelMessage(2, "soheenic2", ContentType.MESSAGE, "hihi2");
+        ChannelMessage message = new ChannelMessage(2, 1, "soheenic2", ContentType.MESSAGE, "hihi2");
         channel.get().addChannelMessage(message);
 
         channelRepository.save(channel.get());
