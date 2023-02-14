@@ -681,12 +681,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_132.addWidget(self.label_102, 0, Qt.AlignLeft)
 
-        self.label_103 = QLabel(self.frame_117)
-        self.label_103.setObjectName(u"label_103")
-        self.label_103.setFont(font7)
-        self.label_103.setStyleSheet(u"border:none;")
+        self.song_liked = QLabel(self.frame_117)
+        self.song_liked.setObjectName(u"song_liked")
+        self.song_liked.setFont(font7)
+        self.song_liked.setStyleSheet(u"border:none;")
 
-        self.horizontalLayout_132.addWidget(self.label_103, 0, Qt.AlignRight)
+        self.horizontalLayout_132.addWidget(self.song_liked, 0, Qt.AlignRight)
 
 
         self.horizontalLayout_75.addWidget(self.frame_117)
@@ -830,7 +830,7 @@ class Ui_MainWindow(object):
         self.pushButton_35.setIcon(icon2)
         self.pushButton_35.setIconSize(QSize(30, 30))
 
-        self.verticalLayout_5.addWidget(self.pushButton_35, 0, Qt.AlignHCenter)
+        self.verticalLayout_5.addWidget(self.pushButton_35, 0, Qt.AlignHCenter|Qt.AlignBottom)
 
 
         self.horizontalLayout_5.addWidget(self.frame_5, 0, Qt.AlignRight)
@@ -1319,7 +1319,7 @@ class Ui_MainWindow(object):
         self.pushButton_47.setIcon(icon2)
         self.pushButton_47.setIconSize(QSize(30, 30))
 
-        self.verticalLayout_75.addWidget(self.pushButton_47)
+        self.verticalLayout_75.addWidget(self.pushButton_47, 0, Qt.AlignBottom)
 
 
         self.horizontalLayout.addWidget(self.frame_134)
@@ -1877,7 +1877,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setIcon(icon2)
         self.pushButton_2.setIconSize(QSize(30, 30))
 
-        self.verticalLayout_140.addWidget(self.pushButton_2)
+        self.verticalLayout_140.addWidget(self.pushButton_2, 0, Qt.AlignBottom)
 
 
         self.horizontalLayout_10.addWidget(self.frame_198, 0, Qt.AlignBottom)
@@ -2369,7 +2369,7 @@ class Ui_MainWindow(object):
         self.pushButton_10.setIcon(icon2)
         self.pushButton_10.setIconSize(QSize(30, 30))
 
-        self.verticalLayout_142.addWidget(self.pushButton_10)
+        self.verticalLayout_142.addWidget(self.pushButton_10, 0, Qt.AlignBottom)
 
 
         self.horizontalLayout_20.addWidget(self.frame_200, 0, Qt.AlignBottom)
@@ -2764,7 +2764,7 @@ class Ui_MainWindow(object):
         self.pushButton_11.setIcon(icon2)
         self.pushButton_11.setIconSize(QSize(30, 30))
 
-        self.verticalLayout_141.addWidget(self.pushButton_11)
+        self.verticalLayout_141.addWidget(self.pushButton_11, 0, Qt.AlignBottom)
 
 
         self.horizontalLayout_22.addWidget(self.frame_199, 0, Qt.AlignBottom)
@@ -3329,7 +3329,7 @@ class Ui_MainWindow(object):
         self.pushButton_17.setIcon(icon2)
         self.pushButton_17.setIconSize(QSize(30, 30))
 
-        self.verticalLayout_143.addWidget(self.pushButton_17)
+        self.verticalLayout_143.addWidget(self.pushButton_17, 0, Qt.AlignBottom)
 
 
         self.horizontalLayout_19.addWidget(self.frame_201, 0, Qt.AlignBottom)
@@ -4749,10 +4749,14 @@ class Ui_MainWindow(object):
         self.leftButton_14.clicked.connect(MainWindow.scroll_post_left)
         self.rightButton_14.clicked.connect(MainWindow.scroll_post_right)
         self.priorityBox.currentIndexChanged.connect(MainWindow.align_chart)
+        self.verticalSlider_33.valueChanged.connect(MainWindow.change_volume)
+        self.verticalSlider_32.valueChanged.connect(MainWindow.change_volume)
+        self.verticalSlider_30.valueChanged.connect(MainWindow.change_volume)
 
         self.menu_toolBox.setCurrentIndex(0)
         self.menu_toolBox.layout().setSpacing(30)
         self.stackedPages.setCurrentIndex(0)
+        self.priorityBox.setCurrentIndex(0)
         self.stackedWidget_3.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(0)
@@ -4799,7 +4803,7 @@ class Ui_MainWindow(object):
         self.label_101.setText(QCoreApplication.translate("MainWindow", u"60126", None))
         self.label_Title_5.setText(QCoreApplication.translate("MainWindow", u"Ditto", None))
         self.label_102.setText("")
-        self.label_103.setText(QCoreApplication.translate("MainWindow", u"60126", None))
+        self.song_liked.setText(QCoreApplication.translate("MainWindow", u"60126", None))
         self.label_Artist_3.setText(QCoreApplication.translate("MainWindow", u"New Jeans", None))
         self.label_184.setText(QCoreApplication.translate("MainWindow", u"0:00", None))
         self.label_185.setText(QCoreApplication.translate("MainWindow", u"3:34", None))

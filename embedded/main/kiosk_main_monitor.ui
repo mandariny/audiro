@@ -1654,7 +1654,7 @@ border-radius: 15px;</string>
                                  </widget>
                                 </item>
                                 <item alignment="Qt::AlignRight">
-                                 <widget class="QLabel" name="label_103">
+                                 <widget class="QLabel" name="song_liked">
                                   <property name="font">
                                    <font>
                                     <pointsize>12</pointsize>
@@ -1905,7 +1905,7 @@ QSlider::handle:vertical {
                             </layout>
                            </widget>
                           </item>
-                          <item alignment="Qt::AlignHCenter">
+                          <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
                            <widget class="QPushButton" name="pushButton_35">
                             <property name="styleSheet">
                              <string notr="true">*{width: 66px;
@@ -3054,7 +3054,7 @@ QSlider::handle:vertical {
                             </layout>
                            </widget>
                           </item>
-                          <item>
+                          <item alignment="Qt::AlignBottom">
                            <widget class="QPushButton" name="pushButton_47">
                             <property name="text">
                              <string/>
@@ -4290,7 +4290,7 @@ QSlider::handle:vertical {
                             </layout>
                            </widget>
                           </item>
-                          <item>
+                          <item alignment="Qt::AlignBottom">
                            <widget class="QPushButton" name="pushButton_2">
                             <property name="text">
                              <string/>
@@ -5544,7 +5544,7 @@ QSlider::handle:vertical {
                          </layout>
                         </widget>
                        </item>
-                       <item>
+                       <item alignment="Qt::AlignBottom">
                         <widget class="QPushButton" name="pushButton_10">
                          <property name="text">
                           <string/>
@@ -6381,7 +6381,7 @@ QSlider::handle:vertical {
                             </layout>
                            </widget>
                           </item>
-                          <item>
+                          <item alignment="Qt::AlignBottom">
                            <widget class="QPushButton" name="pushButton_11">
                             <property name="text">
                              <string/>
@@ -7800,7 +7800,7 @@ QSlider::handle:vertical {
                             </layout>
                            </widget>
                           </item>
-                          <item>
+                          <item alignment="Qt::AlignBottom">
                            <widget class="QPushButton" name="pushButton_17">
                             <property name="text">
                              <string/>
@@ -10444,8 +10444,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>402</x>
-     <y>99</y>
+     <x>1016</x>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
      <x>820</x>
@@ -10476,8 +10476,8 @@ border-radius: 30px;</string>
    <slot>moveToSendMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>139</y>
+     <x>442</x>
+     <y>660</y>
     </hint>
     <hint type="destinationlabel">
      <x>820</x>
@@ -10492,8 +10492,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>89</y>
+     <x>895</x>
+     <y>600</y>
     </hint>
     <hint type="destinationlabel">
      <x>820</x>
@@ -10508,8 +10508,8 @@ border-radius: 30px;</string>
    <slot>moveToReceivedMail()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>139</y>
+     <x>442</x>
+     <y>434</y>
     </hint>
     <hint type="destinationlabel">
      <x>820</x>
@@ -10588,8 +10588,8 @@ border-radius: 30px;</string>
    <slot>backToPosts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>1009</x>
+     <y>194</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10812,8 +10812,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>691</x>
+     <y>946</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10828,8 +10828,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>89</y>
+     <x>921</x>
+     <y>879</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11004,8 +11004,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>402</x>
-     <y>99</y>
+     <x>1016</x>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11660,8 +11660,8 @@ border-radius: 30px;</string>
    <slot>input_code()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>89</y>
+     <x>895</x>
+     <y>600</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11676,8 +11676,8 @@ border-radius: 30px;</string>
    <slot>change_volume()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>89</y>
+     <x>921</x>
+     <y>879</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11740,8 +11740,8 @@ border-radius: 30px;</string>
    <slot>press_emoji1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>469</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11756,8 +11756,8 @@ border-radius: 30px;</string>
    <slot>press_emoji2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>603</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11772,8 +11772,8 @@ border-radius: 30px;</string>
    <slot>press_emoji3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>737</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11788,8 +11788,8 @@ border-radius: 30px;</string>
    <slot>press_emoji4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>871</x>
+     <y>96</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11836,8 +11836,8 @@ border-radius: 30px;</string>
    <slot>change_volume(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>997</x>
+     <y>761</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11884,8 +11884,8 @@ border-radius: 30px;</string>
    <slot>show_volume_manito()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>1007</x>
+     <y>908</y>
     </hint>
     <hint type="destinationlabel">
      <x>1120</x>
@@ -11900,8 +11900,8 @@ border-radius: 30px;</string>
    <slot>show_volume_post()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>1017</x>
+     <y>918</y>
     </hint>
     <hint type="destinationlabel">
      <x>1108</x>
@@ -11916,8 +11916,8 @@ border-radius: 30px;</string>
    <slot>show_volume_received()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>1007</x>
+     <y>908</y>
     </hint>
     <hint type="destinationlabel">
      <x>1126</x>
@@ -11932,8 +11932,8 @@ border-radius: 30px;</string>
    <slot>show_volume_send()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>69</y>
+     <x>1007</x>
+     <y>908</y>
     </hint>
     <hint type="destinationlabel">
      <x>1099</x>
@@ -11948,8 +11948,8 @@ border-radius: 30px;</string>
    <slot>pause()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>314</x>
-     <y>304</y>
+     <x>343</x>
+     <y>975</y>
     </hint>
     <hint type="destinationlabel">
      <x>1112</x>
@@ -11964,8 +11964,8 @@ border-radius: 30px;</string>
    <slot>pause()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>314</x>
-     <y>460</y>
+     <x>333</x>
+     <y>931</y>
     </hint>
     <hint type="destinationlabel">
      <x>1126</x>
@@ -11980,8 +11980,8 @@ border-radius: 30px;</string>
    <slot>pause()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>313</x>
-     <y>450</y>
+     <x>342</x>
+     <y>921</y>
     </hint>
     <hint type="destinationlabel">
      <x>1132</x>
@@ -11996,8 +11996,8 @@ border-radius: 30px;</string>
    <slot>pause()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>314</x>
-     <y>304</y>
+     <x>343</x>
+     <y>922</y>
     </hint>
     <hint type="destinationlabel">
      <x>1110</x>
@@ -12178,6 +12178,54 @@ border-radius: 30px;</string>
     <hint type="destinationlabel">
      <x>1129</x>
      <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider_33</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_volume(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1005</x>
+     <y>763</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1134</x>
+     <y>786</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider_32</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_volume(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>994</x>
+     <y>762</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1120</x>
+     <y>795</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider_30</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_volume(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>995</x>
+     <y>781</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1141</x>
+     <y>819</y>
     </hint>
    </hints>
   </connection>
