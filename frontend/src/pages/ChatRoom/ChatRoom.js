@@ -95,7 +95,7 @@ const ChatRoom = () => {
     // 이 채팅방 채널을 구독함
     const subscribe = () => {
         console.log("subscribe 시작");
-        client.current.subscribe(`/sub/${channel_id}`, (data) => {
+        client.current.subscribe(`/chat/sub/${channel_id}`, (data) => {
             // sub된 메세지가 있을 경우 메세지 리스트에 추가함
             const json_data = JSON.parse(data.body);
             console.log(json_data);
@@ -117,7 +117,7 @@ const ChatRoom = () => {
         // contentType은 이미지 or 메세지인데 
         // 이미지 전송은 부스에서 엽서를 보낼 때에만 가능하니까 MESSAGE가 default
         client.current.publish({
-            destination: `/pub/channel/${channel_id}`,
+            destination: `/chat/pub/channel/${channel_id}`,
             body: JSON.stringify({
                 userId: user_id,
                 userNickname: user_nickname,
