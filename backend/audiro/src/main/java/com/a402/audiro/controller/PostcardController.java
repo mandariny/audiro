@@ -7,9 +7,12 @@ import com.a402.audiro.exception.PasswordDuplicationException;
 import com.a402.audiro.service.PostcardService;
 import com.a402.audiro.service.SmsService;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,7 +60,7 @@ public class PostcardController {
     }
 
     @PostMapping("/pw")
-    public ResponseEntity<?> passwordValidationCheck(@RequestBody PasswordDTO passwordDTO){
+    public ResponseEntity<?> passwordValidationCheck(@RequestBody @Valid PasswordDTO passwordDTO){
         try{
             postcardService.isValidPassword(passwordDTO.getPasswd());
             return ResponseEntity.ok().body("success: 사용 가능한 암호입니다.");
