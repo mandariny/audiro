@@ -3,7 +3,6 @@ import ChatMessage from './ChatMessage';
 import ChatMessageMe from './ChatMessageMe';
 import styled from 'styled-components';
 import { useState } from 'react';
-import {useParams} from "react-router-dom";
 
 const StyledChatContainer = styled.div`
     display: flex;
@@ -53,11 +52,9 @@ const ChatMessageList = (props) => {
         scrollRef.current.scrollTop=scrollRef.current.scrollHeight;
     });
 
-    const {nickname} = useParams();
-
     return(
         <>            
-            <StyledChatRoomTitle>{nickname}님과의 편지</StyledChatRoomTitle>
+            <StyledChatRoomTitle>gaok님과의 편지</StyledChatRoomTitle>
             <StyledChatContainer ref={scrollRef}>
                 
                 {
@@ -92,6 +89,7 @@ const ChatMessageList = (props) => {
                     
                     })}
             </StyledChatContainer>
+            {/* <div ref={scrollRef}/> */}
         </>
     )
 }
