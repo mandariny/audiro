@@ -20,7 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @RequiredArgsConstructor
-@RestController("chat")
+@RestController()
+@RequestMapping("chat")
 @CrossOrigin("*")
 public class ChannelController {
 

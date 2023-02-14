@@ -10,10 +10,10 @@ import { useCallback } from "react";
 import { useSelector } from 'react-redux';
 
 // 웹 소켓 연결할 endpoint
-const BASE_URL = "ws://localhost:8080/ws-stomp";
+const BASE_URL = "ws://localhost:8082/ws-stomp";
 
 // 지난 메세지 내역을 요청하기 위한 rest api path
-const REQUEST_URL = "http://localhost:8080/message";
+const REQUEST_URL = "http://localhost:8082/message";
 
 // 임의로 넣어둔 userID
 const user_id = 2;

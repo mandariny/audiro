@@ -7,9 +7,9 @@ import Logo from "../../components/Logo";
 import Nav from "../../components/Nav";
 
 // 웹 소켓 연결 endpoint
-const BASE_URL = "ws://localhost:8080/ws-stomp";
+const BASE_URL = "ws://localhost:8082/ws-stomp";
 // 채널 리스트를 요청하는 rest api path
-const REQUEST_URL = "http://localhost:8080/channel/list";
+const REQUEST_URL = "http://localhost:8082/channel/list";
 // 임의로 넣어둔 사용자 ID
 const user_id = 2;
 // 임의로 넣어둔 사용자 닉네임
