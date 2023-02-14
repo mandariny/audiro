@@ -64,6 +64,7 @@ public class ChannelController {
 //            log.info("메세지 저장");
             chatService.savePostcard(postcardImg, channelId, messageDTO);
             return ResponseEntity.ok().body("success");
+            
         }catch(IOException e) {
             log.error("사진 저장 실패");
             e.printStackTrace();
