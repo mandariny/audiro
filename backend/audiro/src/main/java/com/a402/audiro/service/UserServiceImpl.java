@@ -3,8 +3,10 @@ package com.a402.audiro.service;
 import com.a402.audiro.dto.UserInfoDTO;
 import com.a402.audiro.dto.UserLoginDTO;
 import com.a402.audiro.entity.User;
+import com.a402.audiro.exception.UserNotExistException;
 import com.a402.audiro.repository.UserRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -122,4 +124,18 @@ public class UserServiceImpl implements UserService {
 
         return userEntity;
     }
+
+    @Override
+    public boolean isSameUser(String nickname) {
+        User user = getUser();
+
+        return user.getNickname().equals(nickname);
+    }
+
+    @Override
+    public void isValidNickname(String nickname) {
+        User user = userRepository.findByNickname(nickname);
+        if(user == null) throw new UserNotExistException();
+    }
+
 }
