@@ -6,10 +6,6 @@ import com.a402.audiro.entity.User;
 import com.a402.audiro.exception.NickNameExistException;
 import com.a402.audiro.exception.UserNotExistException;
 import com.a402.audiro.repository.UserRepository;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -17,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Slf4j
@@ -91,27 +86,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUserImg(MultipartFile newImg) throws IOException {
+    public void updateUserImg(String newImg) {
         try {
-            //요청한 사람의 이미지
-            User loginUser = getUser();
+            UserLoginDTO loginUser = (UserLoginDTO) SecurityContextHolder.getContext()
+                    .getAuthentication().getPrincipal();
             long loginUserId = loginUser.getId();
             log.info("사용자 {}의 사진을 변경 시작", loginUserId);
-            //이미지 저장 경로
-            String UPLOADED_FOLDER = "C:\\Users\\SSAFY\\Desktop\\git-space2\\S08P12A402\\backend\\profile_images\\";
-            //이미지 확장자 추출
-            String imageName = newImg.getOriginalFilename();
-            String type = imageName.substring(imageName.lastIndexOf(".") + 1);
-            //이미지 저장 시작
-            byte[] bytes = newImg.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER +"\\"+loginUserId+"."+type);
-            Files.write(path, bytes);
-            log.info("이미지 저장 완료. 이미지 경로 : {}", path);
-            //DB에 파일 경로 업데이트
-            loginUser.setImg(path.toString());
-            userRepository.save(loginUser);
+            User userEntity = userRepository.findById(loginUserId);
+            userEntity.setImg(newImg);
+            userRepository.save(userEntity);
             log.info("사진 변경 완료");
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
             throw e;
         }

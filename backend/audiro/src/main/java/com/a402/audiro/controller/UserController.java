@@ -9,14 +9,11 @@ import com.a402.audiro.exception.NickNameExistException;
 import com.a402.audiro.service.UserService;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-@Slf4j
 @RestController
 @RequestMapping("api/user")
 @RequiredArgsConstructor
@@ -72,13 +69,12 @@ public class UserController {
     //본인의 이미지 사진 변경
     //이미지 업로드는 로직이 어떻게 될까...
     @PostMapping("/change-img")
-    public ResponseEntity<String> changeUserImg(@RequestParam("newImg") MultipartFile newImg){
+    public ResponseEntity<String> changeUserImg(String newImg){
         try{
-            log.info("이미지 변경 요청을 받았습니다.");
             userService.updateUserImg(newImg);
             return ResponseEntity.ok().body(SUCCESS);
         }catch (Exception e){
-            return ResponseEntity.badRequest().body("can't save img");
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }
