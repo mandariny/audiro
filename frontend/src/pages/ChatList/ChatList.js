@@ -31,7 +31,7 @@ const ChatList = () => {
 
     // 웹소켓 연결 + STOMP 사용
     const connect = () => {
-        client.current = new StompJs.Client({Auth: `${token}`},{
+        client.current = new StompJs.Client({
             brokerURL: BASE_URL,
             onConnect: () => {
                 console.log("소켓 연결 성공!");
@@ -39,6 +39,7 @@ const ChatList = () => {
                     subscribe();
                 }
             },
+            connectHeaders : {Auth: `${token}`},
         });
         client.current.activate();
         // console.log("=====클라이언트", client)
