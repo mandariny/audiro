@@ -64,6 +64,7 @@ public class MusicmateServiceImpl implements MusicmateService{
         Musicmate musicmate = Musicmate.builder()
                 .user(user)
                 .mateUser(mate)
+                .isMate(true)
                 .build();
 
         musicmateRepository.save(musicmate);
