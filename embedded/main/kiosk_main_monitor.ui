@@ -275,7 +275,7 @@ background: #6522F2;
                       <number>0</number>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>2</number>
                      </property>
                      <property name="tabSpacing">
                       <number>30</number>
@@ -622,7 +622,7 @@ border-radius: 25px;</string>
                 </size>
                </property>
                <property name="currentIndex">
-                <number>4</number>
+                <number>5</number>
                </property>
                <widget class="QWidget" name="page1">
                 <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -4532,7 +4532,10 @@ background-color:black;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_72">
-                              <item>
+                              <property name="spacing">
+                               <number>50</number>
+                              </property>
+                              <item alignment="Qt::AlignTop">
                                <widget class="QFrame" name="frame_179">
                                 <property name="minimumSize">
                                  <size>
@@ -4628,8 +4631,14 @@ background-color:black;
                               </item>
                               <item>
                                <widget class="QScrollArea" name="scrollArea_2">
+                                <property name="styleSheet">
+                                 <string notr="true">border:none;</string>
+                                </property>
                                 <property name="verticalScrollBarPolicy">
                                  <enum>Qt::ScrollBarAsNeeded</enum>
+                                </property>
+                                <property name="sizeAdjustPolicy">
+                                 <enum>QAbstractScrollArea::AdjustToContents</enum>
                                 </property>
                                 <property name="widgetResizable">
                                  <bool>true</bool>
@@ -4642,8 +4651,8 @@ background-color:black;
                                   <rect>
                                    <x>0</x>
                                    <y>0</y>
-                                   <width>664</width>
-                                   <height>559</height>
+                                   <width>666</width>
+                                   <height>517</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout">
@@ -4679,7 +4688,10 @@ background-color:black;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_98">
-                              <item>
+                              <property name="spacing">
+                               <number>50</number>
+                              </property>
+                              <item alignment="Qt::AlignTop">
                                <widget class="QFrame" name="frame_171">
                                 <property name="minimumSize">
                                  <size>
@@ -4780,6 +4792,12 @@ background-color:black;
                                   <pointsize>16</pointsize>
                                  </font>
                                 </property>
+                                <property name="styleSheet">
+                                 <string notr="true">border:none;</string>
+                                </property>
+                                <property name="sizeAdjustPolicy">
+                                 <enum>QAbstractScrollArea::AdjustToContents</enum>
+                                </property>
                                 <property name="widgetResizable">
                                  <bool>true</bool>
                                 </property>
@@ -4791,11 +4809,14 @@ background-color:black;
                                   <rect>
                                    <x>0</x>
                                    <y>0</y>
-                                   <width>664</width>
-                                   <height>559</height>
+                                   <width>666</width>
+                                   <height>517</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout_4">
+                                  <property name="sizeConstraint">
+                                   <enum>QLayout::SetNoConstraint</enum>
+                                  </property>
                                   <property name="leftMargin">
                                    <number>30</number>
                                   </property>
@@ -4857,7 +4878,7 @@ background-color:black;
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_80">
                        <item alignment="Qt::AlignHCenter">
-                        <widget class="QLabel" name="label_161">
+                        <widget class="QLabel" name="gift_reply_img">
                          <property name="font">
                           <font>
                            <pointsize>28</pointsize>
@@ -4964,7 +4985,7 @@ background-color:black;
                            <number>0</number>
                           </property>
                           <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-                           <widget class="QLabel" name="gift_detail_song_2">
+                           <widget class="QLabel" name="gift_reply_song">
                             <property name="font">
                              <font>
                               <pointsize>30</pointsize>
@@ -4996,7 +5017,7 @@ background-color:black;
                            <number>11</number>
                           </property>
                           <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-                           <widget class="QLabel" name="gift_detail_singer_2">
+                           <widget class="QLabel" name="gift_reply_singer">
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -5043,7 +5064,7 @@ background-color:black;
                            <number>0</number>
                           </property>
                           <item alignment="Qt::AlignLeft">
-                           <widget class="QLabel" name="label_160">
+                           <widget class="QLabel" name="gift_reply_playtime">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
@@ -5058,7 +5079,7 @@ background-color:black;
                            </widget>
                           </item>
                           <item alignment="Qt::AlignRight">
-                           <widget class="QLabel" name="label_165">
+                           <widget class="QLabel" name="gift_reply_fulltime">
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
@@ -6400,6 +6421,9 @@ background-color:black;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_99">
+                              <property name="spacing">
+                               <number>50</number>
+                              </property>
                               <item>
                                <widget class="QFrame" name="frame_172">
                                 <property name="minimumSize">
@@ -6496,8 +6520,14 @@ background-color:black;
                               </item>
                               <item>
                                <widget class="QScrollArea" name="scrollArea_4">
+                                <property name="styleSheet">
+                                 <string notr="true">border:none;</string>
+                                </property>
                                 <property name="verticalScrollBarPolicy">
                                  <enum>Qt::ScrollBarAsNeeded</enum>
+                                </property>
+                                <property name="sizeAdjustPolicy">
+                                 <enum>QAbstractScrollArea::AdjustToContents</enum>
                                 </property>
                                 <property name="widgetResizable">
                                  <bool>true</bool>
@@ -6510,8 +6540,8 @@ background-color:black;
                                   <rect>
                                    <x>0</x>
                                    <y>0</y>
-                                   <width>664</width>
-                                   <height>559</height>
+                                   <width>666</width>
+                                   <height>517</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout_5">
@@ -6547,6 +6577,9 @@ background-color:black;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QVBoxLayout" name="verticalLayout_100">
+                              <property name="spacing">
+                               <number>50</number>
+                              </property>
                               <item>
                                <widget class="QFrame" name="frame_174">
                                 <property name="minimumSize">
@@ -6643,6 +6676,9 @@ background-color:black;
                               </item>
                               <item>
                                <widget class="QScrollArea" name="scrollArea_5">
+                                <property name="styleSheet">
+                                 <string notr="true">border:none;</string>
+                                </property>
                                 <property name="verticalScrollBarPolicy">
                                  <enum>Qt::ScrollBarAsNeeded</enum>
                                 </property>
@@ -6657,8 +6693,8 @@ background-color:black;
                                   <rect>
                                    <x>0</x>
                                    <y>0</y>
-                                   <width>664</width>
-                                   <height>559</height>
+                                   <width>666</width>
+                                   <height>517</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout_6">
@@ -7558,7 +7594,7 @@ QSlider::handle:vertical {
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>9</number>
             </property>
             <widget class="QWidget" name="page_draw">
              <layout class="QVBoxLayout" name="verticalLayout_32">
@@ -9921,8 +9957,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>61</x>
-     <y>1041</y>
+     <x>62</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9937,8 +9973,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>63</x>
-     <y>1041</y>
+     <x>116</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9953,8 +9989,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>65</x>
-     <y>1041</y>
+     <x>170</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9969,8 +10005,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>66</x>
-     <y>1041</y>
+     <x>224</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9985,8 +10021,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>68</x>
-     <y>1041</y>
+     <x>278</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10001,8 +10037,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>1041</y>
+     <x>331</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10017,8 +10053,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>71</x>
-     <y>1041</y>
+     <x>385</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10033,8 +10069,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>73</x>
-     <y>1041</y>
+     <x>439</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10049,8 +10085,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>74</x>
-     <y>1041</y>
+     <x>493</x>
+     <y>1107</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10065,8 +10101,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>203</x>
-     <y>1086</y>
+     <x>1047</x>
+     <y>1158</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10145,8 +10181,8 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>848</x>
-     <y>439</y>
+     <x>921</x>
+     <y>879</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10209,8 +10245,8 @@ border-radius: 30px;</string>
    <slot>login()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>92</x>
-     <y>1038</y>
+     <x>203</x>
+     <y>1202</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10225,8 +10261,8 @@ border-radius: 30px;</string>
    <slot>reply()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>257</x>
-     <y>1339</y>
+     <x>337</x>
+     <y>1531</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10241,8 +10277,8 @@ border-radius: 30px;</string>
    <slot>send_feedback()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>1102</y>
+     <x>1047</x>
+     <y>1863</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10257,8 +10293,8 @@ border-radius: 30px;</string>
    <slot>backToPosts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>260</x>
-     <y>1188</y>
+     <x>337</x>
+     <y>1624</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10273,8 +10309,8 @@ border-radius: 30px;</string>
    <slot>postMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>260</x>
-     <y>1251</y>
+     <x>337</x>
+     <y>1438</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10321,8 +10357,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>61</x>
-     <y>1041</y>
+     <x>62</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10337,8 +10373,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>63</x>
-     <y>1041</y>
+     <x>116</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10353,8 +10389,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>65</x>
-     <y>1041</y>
+     <x>170</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10369,8 +10405,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>66</x>
-     <y>1041</y>
+     <x>224</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10385,8 +10421,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>68</x>
-     <y>1041</y>
+     <x>278</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10401,8 +10437,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>1041</y>
+     <x>331</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10417,8 +10453,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>71</x>
-     <y>1041</y>
+     <x>385</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10433,8 +10469,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>73</x>
-     <y>1041</y>
+     <x>439</x>
+     <y>1108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10449,8 +10485,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>74</x>
-     <y>1041</y>
+     <x>493</x>
+     <y>1107</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10465,8 +10501,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>203</x>
-     <y>1086</y>
+     <x>1047</x>
+     <y>1158</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10481,8 +10517,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>63</x>
-     <y>1029</y>
+     <x>64</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10497,8 +10533,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>65</x>
-     <y>1029</y>
+     <x>118</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10513,8 +10549,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>66</x>
-     <y>1029</y>
+     <x>171</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10529,8 +10565,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>68</x>
-     <y>1029</y>
+     <x>225</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10545,8 +10581,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>1029</y>
+     <x>279</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10561,8 +10597,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>70</x>
-     <y>1029</y>
+     <x>332</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10577,8 +10613,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>72</x>
-     <y>1029</y>
+     <x>386</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10593,8 +10629,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>73</x>
-     <y>1029</y>
+     <x>440</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10609,8 +10645,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>1029</y>
+     <x>493</x>
+     <y>1154</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10625,8 +10661,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>203</x>
-     <y>1074</y>
+     <x>1045</x>
+     <y>1205</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10641,8 +10677,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>63</x>
-     <y>1029</y>
+     <x>64</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10657,8 +10693,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>65</x>
-     <y>1029</y>
+     <x>118</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10673,8 +10709,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>66</x>
-     <y>1029</y>
+     <x>171</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10689,8 +10725,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>68</x>
-     <y>1029</y>
+     <x>225</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10705,8 +10741,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>1029</y>
+     <x>279</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10721,8 +10757,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>70</x>
-     <y>1029</y>
+     <x>332</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10737,8 +10773,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>72</x>
-     <y>1029</y>
+     <x>386</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10753,8 +10789,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>73</x>
-     <y>1029</y>
+     <x>440</x>
+     <y>1155</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10769,8 +10805,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>1029</y>
+     <x>493</x>
+     <y>1154</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10785,8 +10821,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>149</x>
-     <y>1066</y>
+     <x>991</x>
+     <y>1197</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10977,8 +11013,8 @@ border-radius: 30px;</string>
    <slot>change_volume()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>848</x>
-     <y>439</y>
+     <x>921</x>
+     <y>879</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10993,8 +11029,8 @@ border-radius: 30px;</string>
    <slot>save_postcard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>189</x>
-     <y>1071</y>
+     <x>1015</x>
+     <y>1881</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11009,8 +11045,8 @@ border-radius: 30px;</string>
    <slot>post_manito()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>243</x>
-     <y>1100</y>
+     <x>1047</x>
+     <y>1910</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11025,8 +11061,8 @@ border-radius: 30px;</string>
    <slot>backToChart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>1102</y>
+     <x>1047</x>
+     <y>1863</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11201,8 +11237,8 @@ border-radius: 30px;</string>
    <slot>show_volume_send()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>363</x>
-     <y>276</y>
+     <x>995</x>
+     <y>916</y>
     </hint>
     <hint type="destinationlabel">
      <x>1099</x>
@@ -11266,7 +11302,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>343</x>
-     <y>335</y>
+     <y>922</y>
     </hint>
     <hint type="destinationlabel">
      <x>1110</x>
@@ -11489,8 +11525,8 @@ border-radius: 30px;</string>
    <slot>change_volume(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>353</x>
-     <y>221</y>
+     <x>985</x>
+     <y>861</y>
     </hint>
     <hint type="destinationlabel">
      <x>1141</x>
@@ -11578,6 +11614,38 @@ border-radius: 30px;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_9</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>moveto_postcard()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>997</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1140</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verticalSlider_31</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_volume(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>789</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1155</x>
+     <y>766</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>scroll_chart_right()</slot>
@@ -11650,5 +11718,6 @@ border-radius: 30px;</string>
   <slot>search_song()</slot>
   <slot>search_singer()</slot>
   <slot>moveto_reply()</slot>
+  <slot>moveto_postcard()</slot>
  </slots>
 </ui>

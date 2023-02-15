@@ -10,6 +10,8 @@ from PyQt5.QtCore import *
 # 사용자 모듈 - painter 추가
 import painter
 
+from PyQt5.QtCore import QTime, QDateTime
+
 import json
 import sys
 import os
@@ -33,7 +35,7 @@ import logging
 local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzY0NjQ4MjcsImV4cCI6MTY3NjUyNDgyN30.vwB0D6RfmKX9iNCjvc61Z1Xcwx1UVtUQsSS8riJo53M'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzY0ODQ2MjksImV4cCI6MTY3NjU0NDYyOX0.EQLBRtIhfizuZWYVUXVewfMC3iZX-z7Xn5mnpvafhh4'
 }
 
 # 변수 처리해야함
@@ -124,6 +126,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.search_result = []
         self.search_buttons_made = []
         self.search_labels_made = []
+
+        self.selected_index = 0
 
         #유저 정보
         sendId = ""
@@ -324,12 +328,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         source = img.read()
         img.close()
-
         img = requests.get(url)
-
         pixmap = QPixmap()
         pixmap.loadFromData(source)
-
         return pixmap
 
     def play_music(self, url):
@@ -402,23 +403,21 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def playMusic_chart(self, id):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
-
         song_id = id
         song_gift_url = local_url + "/api/song/gifts/"
         song_gift_param = {'spotId': spot_id, 'songId': song_id}
 
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
-
         gift_list = res_json.get('giftList')
 
-        self.music_post1.setPixmap(self.show_image(gift_list[0]))
+        for i in range(len(gift_list)):
+            self.music_post1.setPixmap(self.show_image(gift_list[0]))
         self.music_post2.setPixmap(self.show_image(gift_list[1]))
         self.music_post3.setPixmap(self.show_image(gift_list[2]))
-        self.music_post4.setPixmap(self.show_image(gift_list[3]))
-        self.music_post5.setPixmap(self.show_image(gift_list[4]))
-        self.music_post6.setPixmap(self.show_image(gift_list[5]))
-
+        self.music_post4.setPixmap(self.show_image(gift_list[0]))
+        self.music_post5.setPixmap(self.show_image(gift_list[1]))
+        self.music_post6.setPixmap(self.show_image(gift_list[2]))
         self.song_title.setText(res_json.get('songTitle'))
         self.song_singer.setText(res_json.get('singer'))
         self.song_gift_cnt.setText(str(res_json.get('giftCnt')))
@@ -476,7 +475,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.count_emoji3.setText(str(emoji_cnt.get('emo3')))
         self.count_emoji4.setText(str(emoji_cnt.get('emo4')))
 
-        self.play_music(res_json.get('songUrl'))
+        self.play_music(res_json.get('song_url'))
 
     def playMusic1_post(self):
         self.gift_id = 1
@@ -590,6 +589,20 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def moveto_reply(self):
         self.stackedPages.setCurrentIndex(5)
         self.stackedPages2.setCurrentIndex(9)
+
+        #self.reply_song_img.setPixmap(self.show_image(self.search_result[self.selected_index].get('giftImg')))
+        self.gift_reply_song.setText(str(self.search_result[self.selected_index].get('song_title')))
+        self.gift_reply_singer.setText(str(self.search_result[self.selected_index].get('singer')))
+        #self.play_music(self.search_result[self.selected_index].get('song_url')) <= 추가 구현 필요
+
+    def moveto_postcard(self):
+        self.stackedPages.setCurrentIndex(11)
+        self.stackedPages2.setCurrentIndex(10)
+
+        # self.reply_song_img.setPixmap(self.show_image(self.search_result[self.selected_index].get('giftImg')))
+        self.gift_detail_song_4.setText(str(self.search_result[self.selected_index].get('song_title')))
+        self.gift_detail_singer_4.setText(str(self.search_result[self.selected_index].get('singer')))
+        # self.play_music(self.search_result[self.selected_index].get('song_url')) <= 추가 구현 필요
 
     def moveToNextStep(self):
         currentPage = self.stackedPages.currentIndex()
@@ -712,6 +725,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         else:
             self.player.resume()
 
+    def select_radio(self, index):
+        self.selected_index = index
+
     def show_search(self, scroll_area, grid, type):
         # 기존 검색 결과 비우기
         for i in range(len(self.search_buttons_made)):
@@ -738,6 +754,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                                        "border-bottom-left-radius: 10px; \n"
                                        "border-right:none;\n"
                                        "padding:10px;")
+
+            radio_button.clicked.connect(lambda: self.select_radio(i))
             grid.addWidget(radio_button, i, 0, 1, 1)
 
             # radio_label 추가 -> 가수/노래
@@ -752,7 +770,10 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             radio_label.setFont(QFont('Gulim', 16))
             radio_label.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
                                       "border-bottom-right-radius: 10px; \n"
-                                      "border-left:none;padding:10px;")
+                                      "border-left: none;"
+                                      "margin-right:10px;"
+                                      "padding:10px;")
+            radio_label.setMinimumWidth(150)
             radio_label.setAlignment(Qt.AlignCenter)
             grid.addWidget(radio_label, i, 1, 1, 1, Qt.AlignRight)
 
@@ -780,6 +801,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         response = requests.get(song_search_url, headers=request_header, params=song_search_param)
         self.search_result.clear()
         self.search_result = response.json()
+        print(self.search_result)
 
         self.show_search(scroll_area, grid, 0)
 
@@ -849,6 +871,13 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         print(response.status_code)
 
     def post_manito(self):
+        datetime = QDateTime.currentDateTime()
+        print(datetime.toString(Qt.DefaultLocaleShortDate))
+        time = QTime.currentTime()
+        print(time.toString())
+        print("!!!!")
+        print(str(time))
+        print(str(datetime))
         self.stackedPages.setCurrentIndex(2)
         self.stackedPages2.setCurrentIndex(2)
         self.painter_widget_3.save("../resource/saved_images/manitoImg.png")
@@ -857,7 +886,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         url = local_url + "/api/manito"
 
         manito_data = manitoDTO = {'userId': 2, 'songId': 1, 'spotId': 1, 'beforeManitoId': 1}
-        image_path = r"../resource/saved_images/manitoImg.png"  # 이미지 경로
+        image_path = r"../resource/saved_images/manitoImg.png"   # 이미지 경로
         image_name = "manitoImg.png"  # 이미지 이름
 
         access_token = request_header
@@ -891,7 +920,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.postcard_detail_img.pixmap(self.show_image(res_json.get('postcadImg')))
         self.postcard_detail_song.setText(res_json.get('song'))
         self.postcard_detail_singer.setText(res_json.get('singer'))
-        self.play_music(res_json.get('songUrl'))
+        self.play_music(res_json.get('song_url'))
 
     def send_message(self):
         phone_number = self.lineEdit_3.text()
