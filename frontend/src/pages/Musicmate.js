@@ -15,6 +15,18 @@ const StyledMMContainer = styled.div`
     align-items: center;
     flex-direction: column;
     margin: 20px;
+    overflow: auto;
+`;
+
+const StyledMMNone = styled.div`
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-family: var(--font-nanumSquareB);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 `;
 
 const Musicmate = () => {
@@ -40,9 +52,17 @@ const Musicmate = () => {
             <Logo/>
             <Nav/>
             <StyledMMContainer>
-            {data?.map(item => (
-                <MusicmateItem nickname={item.nickname} img={item.img} key={item.id} id={item.id}/>
-            ))}
+            {
+            data.length==0? 
+                <>
+                    <StyledMMNone>⛔ 뮤직메이트가 없습니다 ⛔</StyledMMNone> 
+                    <StyledMMNone>부스에 방문하여 뮤직메이트를 만들어보세요</StyledMMNone>
+                </>
+                :
+                data?.map(item => (
+                    <MusicmateItem nickname={item.nickname} img={item.img} key={item.id} id={item.id}/>
+                ))
+            }
             </StyledMMContainer>
         </div>
     );
