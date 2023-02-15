@@ -6,6 +6,7 @@ import axios from "axios";
 import Logo from "../../components/Logo";
 import Nav from "../../components/Nav";
 import jwt from 'jwt-decode';
+import styled from 'styled-components';
 
 // 웹 소켓 연결 endpoint
 const BASE_URL = "ws://i8a402.p.ssafy.io:8082/ws-stomp";
@@ -15,6 +16,17 @@ const REQUEST_URL = "http://i8a402.p.ssafy.io/chat/channel/list";
 // let user_id = 2;
 // 임의로 넣어둔 사용자 닉네임
 // const user_nickname = "pickapicka";
+
+const StyledMMNone = styled.div`
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-family: var(--font-nanumSquareR);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+`;
 
 const ChatList = () => {
 
@@ -99,7 +111,16 @@ const ChatList = () => {
         <div>
             <Logo/>
             <Nav/>
-            <ChatThumbnailList chatThumbnailList={channelList}/>
+            {
+                channelList.length==0 ? 
+                <>
+                    <StyledMMNone>⛔ 생성된 채팅방이 없습니다 ⛔</StyledMMNone> 
+                    <StyledMMNone>부스에 방문하여 새로운 사람과 채팅을 시작해보세요</StyledMMNone>
+                </>
+                :
+                <ChatThumbnailList chatThumbnailList={channelList}/>
+            }
+            
         </div>
     )
 }

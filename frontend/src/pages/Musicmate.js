@@ -22,7 +22,7 @@ const StyledMMNone = styled.div`
     text-align: center;
     color: white;
     font-size: 14px;
-    font-family: var(--font-nanumSquareB);
+    font-family: var(--font-nanumSquareR);
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;

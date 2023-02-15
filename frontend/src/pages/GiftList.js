@@ -66,6 +66,7 @@ const StyledMyGiftListWrapper=styled.div`
     display: flex;
     justify-content: center;
     align-items: center; 
+    overflow: auto;
 `;
 
 const StyledMyGiftList = styled.div`
@@ -82,7 +83,16 @@ const StyledMateModal = styled.div`
     position: absolute;
     top: 50%;
 `
-
+const StyledMMNone = styled.div`
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-family: var(--font-nanumSquareR);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+`;
 
 const GiftList = (props) =>{
     
@@ -122,7 +132,7 @@ const GiftList = (props) =>{
     //console.log("userId")
     //console.log(userId)
     
-    //console.log("�г��� Ȯ��")
+    //console.log("�г��� Ȯ��")
     
     //console.log(other_nickname);
     //console.log(nickname);
@@ -154,6 +164,13 @@ const GiftList = (props) =>{
             <Nav/>
             <ProfileHeader nickname={nickname} user_id={userId} giftcnt={giftcnt} mmcnt={mmcnt}/>
 
+            {
+            giftcnt==0? 
+                <>
+                    <StyledMMNone>⛔ 작성한 엽서가 없습니다 ⛔</StyledMMNone> 
+                    <StyledMMNone>부스에 방문하여 엽서를 만들어보세요</StyledMMNone>
+                </>
+                :
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
                     {dataList?.map(item => (
@@ -161,6 +178,7 @@ const GiftList = (props) =>{
                     ))}
                 </StyledMyGiftList>
             </StyledMyGiftListWrapper>
+            }
             <StyledMateModal>{modalOpen && <Modal setOpenModal={setModalOpen} />}</StyledMateModal>
         </div>
       )
