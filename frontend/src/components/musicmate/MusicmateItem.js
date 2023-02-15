@@ -56,6 +56,7 @@ const MusicmateItem = (props) => {
         axios.delete("http://i8a402.p.ssafy.io/api/musicmate", {params: {mateId: props.id}, headers: {Auth: `${token}`}})
         .then(response => {
           console.log(response.data);
+          window.location.reload();
         });
     }
 
