@@ -74,16 +74,17 @@ const StyledChatTitle = styled.div`
     font-size: 16px;
     font-family: var(--font-nanumSquareR);
     color: white;
-    margin-top: 5px;
     background-color: #F5336D;
     padding: 10px;
     border-radius: 0px 10px 10px 10px;
 `;
 
 const StyledChatImg = styled.div`
-    width: 70px;
-    height: 50px;
+    width: 150px;
+    height: 90px;
     background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
 `;
 
 const StyledChatImgText = styled.div`
@@ -92,8 +93,11 @@ const StyledChatImgText = styled.div`
     color: white;
     margin-top: 5px;
     background-color: #F5336D;
-    padding: 5px;
+    padding: 7px;
     border-radius: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 `;
 
 const ChatMessageMe = (props) => {
@@ -124,7 +128,7 @@ const ChatMessageMe = (props) => {
             <StyledChatContainer>
                 {/* <StyledChatProfile src={userImg}></StyledChatProfile> */}
                 <StyledChatWrapper>
-                    <StyledChatNickname>{props.nickname}</StyledChatNickname>
+                    {/* <StyledChatNickname>{props.nickname}</StyledChatNickname> */}
                     
                     <StyledChatImgContainer>
                         {/* <img alt="이미지 메세지" src={props.content}/> */}
@@ -135,7 +139,7 @@ const ChatMessageMe = (props) => {
                     
                     {/* {props.user_id} */}
                     {/* {props.content_type} */}
-                    <StyledChatDate>{props.send_time}</StyledChatDate>
+                    <StyledChatDate>{props.send_time.split(" ")[1]+" "+props.send_time.split(" ")[2]}</StyledChatDate>
                 </StyledChatWrapper>
             </StyledChatContainer>
         )
