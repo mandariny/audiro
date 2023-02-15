@@ -156,6 +156,14 @@ const GiftDetail = (props) => {
       )       
   }
 
+  const heartClicked = () => {
+    axios.get('http://i8a402.p.ssafy.io/api/gift/like', {params: {giftId: giftid}, headers: {Auth: `${token}`}})
+          .then((res) => {
+              console.log(res);
+          }
+      )       
+  }
+
   return (
     <div>
       <Logo/>
@@ -175,7 +183,7 @@ const GiftDetail = (props) => {
             <StyledSongDetail>-</StyledSongDetail>
             <StyledSongDetail>{dataDetail.song}</StyledSongDetail>
           </StyledSongWrapper>
-          <StyledHeartWrapper onClick={() => {setLike(like+1); }}>
+          <StyledHeartWrapper onClick={() => {setLike(like+1); heartClicked()}}>
             <StyledHeartDetail><FaHeart fill="red"/></StyledHeartDetail>
             <StyledHeartDetail>{like}</StyledHeartDetail>
           </StyledHeartWrapper>

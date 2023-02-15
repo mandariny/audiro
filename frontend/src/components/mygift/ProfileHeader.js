@@ -97,7 +97,7 @@ const ProfileHeader = (props) => {
   return (
     <div>
       <StyledHeader>
-        <StyledMyGiftTitle><Link to="/userinfo">{props.nickname}´ÔÀÇ ¿±¼­</Link></StyledMyGiftTitle>
+        <StyledMyGiftTitle><Link to="/userinfo">{props.nickname}ë‹˜ì˜ ì—½ì„œ ðŸ’Œ</Link></StyledMyGiftTitle>
         <StyledMyGiftHeaderWrapper>
           <StyledMyGiftProfile>
             <StyledProfileImg src={userImg}/>
@@ -105,16 +105,16 @@ const ProfileHeader = (props) => {
             <Link to={`/gifts/${props.nickname}`} style={{ textDecoration: 'none' }}>
                 <div>
                 <StyledMyGiftListNumber>{props.giftcnt}</StyledMyGiftListNumber>
-                <StyledMyGiftListTitle>³ªÀÇ ¿±¼­</StyledMyGiftListTitle>
+                <StyledMyGiftListTitle>ë‚˜ì˜ ì—½ì„œ</StyledMyGiftListTitle>
                 </div>
             </Link>
             <div>
               <StyledMyGiftListNumber>1</StyledMyGiftListNumber> 
-              <StyledMyGiftListTitle>¹æ¹®ÇÑ ÁöÁ¡</StyledMyGiftListTitle>
+              <StyledMyGiftListTitle>ë°©ë¬¸í•œ ì§€ì </StyledMyGiftListTitle>
             </div>
             <Link to="/musicmate" style={{ textDecoration: 'none' }}>
               <StyledMyGiftListNumber>{props.mmcnt}</StyledMyGiftListNumber>
-              <StyledMyGiftListTitle>¹ÂÁ÷¸ÞÀÌÆ®</StyledMyGiftListTitle>
+              <StyledMyGiftListTitle>ë®¤ì§ë©”ì´íŠ¸</StyledMyGiftListTitle>
             </Link>
         </StyledMyGiftHeaderWrapper>
       </StyledHeader>
