@@ -104,7 +104,7 @@ public class UserServiceImpl implements UserService {
             String type = imageName.substring(imageName.lastIndexOf(".") + 1);
             //이미지 저장 시작
             byte[] bytes = newImg.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER +"\\"+loginUserId+"."+type);
+            Path path = Paths.get(UPLOADED_FOLDER +loginUserId+"."+type);
             Files.write(path, bytes);
             log.info("이미지 저장 완료. 이미지 경로 : {}", path);
             //DB에 파일 경로 업데이트

@@ -45,7 +45,7 @@ const StyledInput = styled.input`
     background-color: rgba(65, 22, 162, 0.5);
     padding: 10px;
     height: 30px;
-    /* width: 260px; */
+    width: 100vw;
     :focus{
         outline: none !important;
         /* border-bottom: 1px solid white; */
@@ -175,7 +175,7 @@ const ChatRoom = () => {
             <StyledInputWrapper>
                 <form onSubmit={(event) => handleSubmit(event, message)}>
                     <StyledInput type={'text'} name={'chatInput'} onChange={handleChange} value={message} placeholder="새로운 사람과의 대화를 시작합니다."/>
-                    <StyledBtn><FiSend type={'submit'} onClick={(event) => handleSubmit(event, message)}></FiSend></StyledBtn>
+                    {/* <StyledBtn><FiSend type={'submit'} onClick={(event) => handleSubmit(event, message)}></FiSend></StyledBtn> */}
                 </form>
             </StyledInputWrapper>
         </div>
