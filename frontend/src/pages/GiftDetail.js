@@ -160,7 +160,7 @@ const GiftDetail = (props) => {
     <div>
       <Logo/>
       <Nav/>
-      <ProfileHeader nickname={nickname} giftcnt={giftcnt} mmcnt={mmcnt} />
+    
       <StyledGiftDetailContainer>
         <StyledGiftDetailBtnWrapper>
           <StyledDetailBtn>비공개</StyledDetailBtn>

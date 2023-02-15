@@ -17,7 +17,7 @@ const Nav=()=>{
         },
         {
             title: '나의 엽서',
-            link: `/gifts/${nickname}`
+            link: '/gifts'
         },
         {
             title: '편지함',

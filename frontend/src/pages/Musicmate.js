@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import MusicmateItem from '../components/musicmate/MusicmateItem';
 import Logo from "../components/Logo";
 import Nav from "../components/Nav";
+import { Link } from "react-router-dom";
 
 import axios from 'axios';
 import ProfileHeader from "../components/mygift/ProfileHeader";
@@ -40,7 +41,7 @@ const Musicmate = () => {
             <Nav/>
             <StyledMMContainer>
             {data?.map(item => (
-                <Link to={/gifts/item.nickname} style={{ textDecoration: 'none' }}>
+                <Link to={`/gifts/other/${item.nickname}/${item.id}`} style={{ textDecoration: 'none' }}>
                     <MusicmateItem nickname={item.nickname} img={item.img} key={item.id} id={item.id}/>
                 </Link>
             ))}

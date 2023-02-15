@@ -81,12 +81,12 @@ const ProfileHeader = (props) => {
   console.log(jwt(token));
   const userId = jwt(token)['userId']; 
   console.log(userId);
-  const nickname = jwt(token)['nickname']; 
+  const nickname = jwt(token)['nickName']; 
   console.log(nickname);
 
   const [userImg, setuserImg] = useState();
   useEffect(() => {
-    axios.get(`http://i8a402.p.ssafy.io/api/user/${userId}`, {headers: {Auth: `${token}`}})
+    axios.get(`http://i8a402.p.ssafy.io/api/user/${props.user_id}`, {headers: {Auth: `${token}`}})
       .then((res) => {
         setuserImg(res.data.img);
       })
@@ -97,24 +97,24 @@ const ProfileHeader = (props) => {
   return (
     <div>
       <StyledHeader>
-        <StyledMyGiftTitle><Link to="/userinfo">{props.nickname}ë‹˜ì˜ ì—½ì„œðŸŽ</Link></StyledMyGiftTitle>
+        <StyledMyGiftTitle><Link to="/userinfo">{props.nickname}´ÔÀÇ ¿±¼­</Link></StyledMyGiftTitle>
         <StyledMyGiftHeaderWrapper>
           <StyledMyGiftProfile>
             <StyledProfileImg src={userImg}/>
           </StyledMyGiftProfile>
-            <Link to={/gifts/nickname} style={{ textDecoration: 'none' }}>
+            <Link to={`/gifts/${props.nickname}`} style={{ textDecoration: 'none' }}>
                 <div>
                 <StyledMyGiftListNumber>{props.giftcnt}</StyledMyGiftListNumber>
-                <StyledMyGiftListTitle>ë‚˜ì˜ ì—½ì„œ</StyledMyGiftListTitle>
+                <StyledMyGiftListTitle>³ªÀÇ ¿±¼­</StyledMyGiftListTitle>
                 </div>
             </Link>
             <div>
-              <StyledMyGiftListNumber>1</StyledMyGiftListNumber>
-              <StyledMyGiftListTitle>ë°©ë¬¸í•œ ì§€ì </StyledMyGiftListTitle>
+              <StyledMyGiftListNumber>1</StyledMyGiftListNumber> 
+              <StyledMyGiftListTitle>¹æ¹®ÇÑ ÁöÁ¡</StyledMyGiftListTitle>
             </div>
             <Link to="/musicmate" style={{ textDecoration: 'none' }}>
               <StyledMyGiftListNumber>{props.mmcnt}</StyledMyGiftListNumber>
-              <StyledMyGiftListTitle>ìŒì•… ë©”ì´íŠ¸</StyledMyGiftListTitle>
+              <StyledMyGiftListTitle>¹ÂÁ÷¸ÞÀÌÆ®</StyledMyGiftListTitle>
             </Link>
         </StyledMyGiftHeaderWrapper>
       </StyledHeader>

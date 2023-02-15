@@ -90,15 +90,44 @@ const GiftList = (props) =>{
     console.log(jwt(token));
     let nickname = jwt(token)['nickName']; 
     console.log(nickname);
-    const userId = jwt(token)['userId'];
+    let userId = jwt(token)['userId'];
     console.log(userId);
 
     const [dataList, setDataList] = useState([]);
     const [giftcnt, setGiftcnt] = useState(0);
     const [mmcnt, setMMCnt] = useState(0);
 
-    const {other_nickname} = useParams();
-    if(other_nickname!==nickname) {nickname=other_nickname;}
+    //const [realNickName, setNickname] = useState();
+    //setNickname(nickname);
+
+    //const {other_nickname} = useParams();
+    //const {id} = useParams();
+    //if(other_nickname!=nickname) {
+    //    if(nickname===undefined) {
+    //      nickname=other_nickname;
+    //      userId=id;
+    //      console.log("dala")
+    //    }
+    //    else if(other_nickname===undefined) {
+    //      console.log("other_nickname undefined")
+    //    }
+    //    else {
+    //      nickname=other_nickname;
+    //      userId=id;
+    //      console.log("dala")
+    //    }
+    //}
+    
+    //if(userId===undefined) userId=jwt(token)['userId'];
+    //console.log("userId")
+    //console.log(userId)
+    
+    //console.log("닉네임 확인")
+    
+    //console.log(other_nickname);
+    //console.log(nickname);
+    //console.log(other_nickname===undefined);
+    //console.log(nickname===undefined);
 
     useEffect(() => {
         axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${nickname}`}, headers: {Auth: `${token}`}})
@@ -123,7 +152,7 @@ const GiftList = (props) =>{
         <div>
             <Logo/>
             <Nav/>
-            <ProfileHeader nickname={nickname} giftcnt={giftcnt} mmcnt={mmcnt}/>
+            <ProfileHeader nickname={nickname} user_id={userId} giftcnt={giftcnt} mmcnt={mmcnt}/>
 
             <StyledMyGiftListWrapper>
                 <StyledMyGiftList>
