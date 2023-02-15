@@ -21,7 +21,7 @@ const ChatList = () => {
     const token = localStorage.getItem('login-token');
     console.log(jwt(token));
     const user_id = jwt(token)['userId']; 
-    const user_nickname = jwt(token)['nickname']; 
+    const user_nickname = jwt(token)['nickName']; 
 
     // 채팅 룸 리스트를 저장하는 state
     const [channelList, setChannelList] = useState([]);
@@ -86,7 +86,7 @@ const ChatList = () => {
         .then((res)=>{
             setChannelList(res.data);
         });
-        return () => {disconnect()}
+        // return () => {disconnect()}
     }, []);
 
     useEffect(() => {

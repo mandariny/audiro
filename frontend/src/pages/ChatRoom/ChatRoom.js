@@ -7,6 +7,7 @@ import Nav from "../../components/Nav";
 import styled from 'styled-components';
 import {FiSend} from "react-icons/fi";
 import jwt from 'jwt-decode';
+import Logo from "../../components/Logo";
 
 // 웹 소켓 연결할 endpoint
 const BASE_URL = "ws://i8a402.p.ssafy.io:8082/ws-stomp";
@@ -43,8 +44,8 @@ const StyledInput = styled.input`
     font-family: var(--font-nanumSquareR);
     background-color: rgba(65, 22, 162, 0.5);
     padding: 10px;
-    height: 20px;
-    width: 260px;
+    height: 30px;
+    /* width: 260px; */
     :focus{
         outline: none !important;
         /* border-bottom: 1px solid white; */
@@ -114,10 +115,11 @@ const ChatRoom = () => {
         if(!client.current.connected) return;
 
         console.log(message);
-        console.log(user_nickname);
+
         // 채팅방 채널에 유저 아이디, 닉네임, 메세지 내용 전송 
         // contentType은 이미지 or 메세지인데 
         // 이미지 전송은 부스에서 엽서를 보낼 때에만 가능하니까 MESSAGE가 default
+        console.log(user_nickname);
         client.current.publish({
             destination: `/pub/channel/${channel_id}`,
             body: JSON.stringify({
@@ -151,13 +153,11 @@ const ChatRoom = () => {
     // 마운트될 때 웹 소켓 연결하고 메세지 목록 불러오기
     useEffect(() => {
         connect();
-        console.log("커넥트 이후,,,")  
-        console.log("유즈이펙트 안에서 채널 아이디: ", channel_id)      
+        console.log("유즈이펙트 안에서 채널 아이디: ", channel_id)
         axios.get(REQUEST_URL, {params: {channelId: channel_id}, headers: {Auth: `${token}`}})
             .then((res)=>{
                 setMessageList(res.data);
                 console.log(res.data);
-                //connect();
             })
             .catch(error => {
                 console.log(error.response);
@@ -168,13 +168,14 @@ const ChatRoom = () => {
 
     return (
         <div>
+            <Logo/>
             <Nav/>
             {/* 메세지 리스트 컴포넌트 생성 */}
             <ChatMessageList messageList={messageList}/>
             <StyledInputWrapper>
                 <form onSubmit={(event) => handleSubmit(event, message)}>
                     <StyledInput type={'text'} name={'chatInput'} onChange={handleChange} value={message} placeholder="새로운 사람과의 대화를 시작합니다."/>
-                    <StyledBtn><FiSend type={'submit'}></FiSend></StyledBtn>
+                    <StyledBtn><FiSend type={'submit'} onClick={(event) => handleSubmit(event, message)}></FiSend></StyledBtn>
                 </form>
             </StyledInputWrapper>
         </div>

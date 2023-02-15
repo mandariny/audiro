@@ -46,7 +46,7 @@ const ChatMessageList = (props) => {
     const token = localStorage.getItem('login-token');
     console.log(jwt(token));
     const userId = jwt(token)['userId'];
-    const userNickname = jwt(token)['nickname'];
+    const userNickname = jwt(token)['nickName'];
 
     console.log("test");
     console.log(props);
