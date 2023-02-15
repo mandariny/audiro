@@ -10,6 +10,6 @@ public interface UserViewRepository extends Repository<UserView, Long> {
     @Query(value = "select nickname from user_view where user_id=:user_id", nativeQuery = true)
     String findUserNicknameById(@Param("user_id") long id);
 
-    @Query(value = "select profile_img from user_view where user_id=:usuer_id", nativeQuery = true)
+    @Query(value = "select profile_img from user_view where user_id=:user_id", nativeQuery = true)
     String findProfileImgById(@Param("user_id") long id);
 }
