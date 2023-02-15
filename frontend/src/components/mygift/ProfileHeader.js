@@ -81,6 +81,8 @@ const ProfileHeader = (props) => {
   console.log(jwt(token));
   const userId = jwt(token)['userId']; 
   console.log(userId);
+  const nickname = jwt(token)['nickname']; 
+  console.log(nickname);
 
   const [userImg, setuserImg] = useState();
   useEffect(() => {
@@ -95,12 +97,12 @@ const ProfileHeader = (props) => {
   return (
     <div>
       <StyledHeader>
-        <StyledMyGiftTitle><Link to="/userinfo">반가워요, {props.nickname}님 👋</Link></StyledMyGiftTitle>
+        <StyledMyGiftTitle><Link to="/userinfo">{props.nickname}님의 엽서🎁</Link></StyledMyGiftTitle>
         <StyledMyGiftHeaderWrapper>
           <StyledMyGiftProfile>
             <StyledProfileImg src={userImg}/>
           </StyledMyGiftProfile>
-            <Link to="/gifts" style={{ textDecoration: 'none' }}>
+            <Link to={/gifts/nickname} style={{ textDecoration: 'none' }}>
                 <div>
                 <StyledMyGiftListNumber>{props.giftcnt}</StyledMyGiftListNumber>
                 <StyledMyGiftListTitle>나의 엽서</StyledMyGiftListTitle>

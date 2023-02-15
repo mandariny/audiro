@@ -10,7 +10,7 @@ import Gift from "../components/mygift/Gift";
 
 import axios from 'axios';
 import ProfileHeader from "../components/mygift/ProfileHeader";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 
 import jwt from 'jwt-decode';
 
@@ -84,12 +84,11 @@ const StyledMateModal = styled.div`
 `
 
 
-
 const GiftList = (props) =>{
     
     const token = localStorage.getItem('login-token');
     console.log(jwt(token));
-    const nickname = jwt(token)['nickName']; 
+    let nickname = jwt(token)['nickName']; 
     console.log(nickname);
     const userId = jwt(token)['userId'];
     console.log(userId);
@@ -97,6 +96,9 @@ const GiftList = (props) =>{
     const [dataList, setDataList] = useState([]);
     const [giftcnt, setGiftcnt] = useState(0);
     const [mmcnt, setMMCnt] = useState(0);
+
+    const {other_nickname} = useParams();
+    if(other_nickname!==nickname) {nickname=other_nickname;}
 
     useEffect(() => {
         axios.get('http://i8a402.p.ssafy.io/api/gift', {params: {nickname: `${nickname}`}, headers: {Auth: `${token}`}})
