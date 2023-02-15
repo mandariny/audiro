@@ -4,6 +4,7 @@ import ChatMessageMe from './ChatMessageMe';
 import styled from 'styled-components';
 import { useState } from 'react';
 import jwt from 'jwt-decode';
+import {useParams} from "react-router-dom";
 
 const StyledChatContainer = styled.div`
     display: flex;
@@ -55,6 +56,8 @@ const ChatMessageList = (props) => {
     // props로 정보 전달
     console.log(props.userId);
 
+    const {other_nickname} = useParams();
+
     const scrollRef = useRef();
     const scrollToBottom = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -65,7 +68,7 @@ const ChatMessageList = (props) => {
 
     return(
         <>            
-            <StyledChatRoomTitle>{props.nickname}님과의 편지</StyledChatRoomTitle>
+            <StyledChatRoomTitle>{other_nickname}님과의 편지</StyledChatRoomTitle>
             <StyledChatContainer ref={scrollRef}>
                 
                 {
