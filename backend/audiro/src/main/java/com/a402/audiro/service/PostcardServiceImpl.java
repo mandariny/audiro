@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +25,7 @@ public class PostcardServiceImpl implements PostcardService{
     private final UserService userService;
     private final SongService songService;
     private final SpotService spotService;
+    private final SmsService smsService;
 
     @Override
     public void isValidPassword(String password) {
@@ -32,6 +34,7 @@ public class PostcardServiceImpl implements PostcardService{
         if(postcard != null) throw new PasswordDuplicationException();
     }
 
+    @Transactional
     @Override
     public void savePostcard(PostcardDTO postcardDTO) {
         Song song = songService.isValidSong(postcardDTO.getSongId());
@@ -50,6 +53,8 @@ public class PostcardServiceImpl implements PostcardService{
                 .build();
 
         postcardRepository.save(postcard);
+
+        smsService.sendMessage(postcardDTO);
     }
 
     private Postcard getPostcard(long postcardId){
