@@ -41,9 +41,7 @@ const Musicmate = () => {
             <Nav/>
             <StyledMMContainer>
             {data?.map(item => (
-                <Link to={`/gifts/other/${item.nickname}/${item.id}`} style={{ textDecoration: 'none' }}>
-                    <MusicmateItem nickname={item.nickname} img={item.img} key={item.id} id={item.id}/>
-                </Link>
+                <MusicmateItem nickname={item.nickname} img={item.img} key={item.id} id={item.id}/>
             ))}
             </StyledMMContainer>
         </div>

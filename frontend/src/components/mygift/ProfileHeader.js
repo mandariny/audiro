@@ -102,7 +102,7 @@ const ProfileHeader = (props) => {
           <StyledMyGiftProfile>
             <StyledProfileImg src={userImg}/>
           </StyledMyGiftProfile>
-            <Link to={`/gifts/${props.nickname}`} style={{ textDecoration: 'none' }}>
+            <Link to="/gifts" style={{ textDecoration: 'none' }}>
                 <div>
                 <StyledMyGiftListNumber>{props.giftcnt}</StyledMyGiftListNumber>
                 <StyledMyGiftListTitle>나의 엽서</StyledMyGiftListTitle>
