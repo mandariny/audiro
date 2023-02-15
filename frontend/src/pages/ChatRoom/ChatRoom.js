@@ -149,12 +149,13 @@ const ChatRoom = () => {
 
     // 마운트될 때 웹 소켓 연결하고 메세지 목록 불러오기
     useEffect(() => {
-        connect();
+        // connect();
 
         axios.get(REQUEST_URL, {params: {channelId: channel_id}, headers: {Auth: `${token}`}})
             .then((res)=>{
                 setMessageList(res.data);
                 console.log(res.data);
+                connect();
             })
             .catch(error => {
                 console.log(error.response);

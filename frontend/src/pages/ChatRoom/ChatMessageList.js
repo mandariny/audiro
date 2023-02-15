@@ -47,6 +47,9 @@ const ChatMessageList = (props) => {
     const userId = jwt(token)['userId'];
     const userNickname = jwt(token)['nickname'];
 
+    console.log("test");
+    console.log(props);
+
     // 맵으로 돌면서 컴포넌트 생성
     // props로 정보 전달
     console.log(props.userId);

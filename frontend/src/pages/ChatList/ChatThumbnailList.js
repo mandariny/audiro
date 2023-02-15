@@ -32,7 +32,7 @@ const ChatThumbnailList = (props) => {
     const token = localStorage.getItem('login-token');
     console.log(jwt(token));
     const user_id = jwt(token)['userId']; 
-    const user_nickname = jwt(token)['nickname']; 
+    const user_nickname = jwt(token)['nickName']; 
     
     useEffect(()=>{
         
