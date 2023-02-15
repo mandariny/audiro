@@ -3,6 +3,7 @@ import ChatMessage from './ChatMessage';
 import ChatMessageMe from './ChatMessageMe';
 import styled from 'styled-components';
 import { useState } from 'react';
+import jwt from 'jwt-decode';
 
 const StyledChatContainer = styled.div`
     display: flex;

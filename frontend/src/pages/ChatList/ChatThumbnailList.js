@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import ChatThumbnail from './ChatThumbnail'
 import styled from 'styled-components';
+import jwt from 'jwt-decode';
 
 const StyledChatListContainer = styled.div`
     display: flex;
