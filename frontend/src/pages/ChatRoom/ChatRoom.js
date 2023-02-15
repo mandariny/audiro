@@ -87,6 +87,7 @@ const ChatRoom = () => {
                 // 연결에 성공하면 subscribe 함수를 콜함
                 subscribe();
             },
+            connectHeaders : {Auth: `${token}`},
         });
         // 웹 소켓 연결 활성화
         client.current.activate();
