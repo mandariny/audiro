@@ -152,6 +152,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUser(long userId) {
+        User user = userRepository.findById(userId);
+
+        if(user == null) {
+            log.info("존재하지 않는 유저입니다. : ", userId);
+            throw new UserNotExistException();
+        }
+        return user;
+    }
+
+    @Override
     public boolean isSameUser(String nickname) {
         User user = getUser();
 
