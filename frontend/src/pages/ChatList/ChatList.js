@@ -81,7 +81,7 @@ const ChatList = () => {
 
     // 마운트될 때 리스트를 가져옴
     useEffect(() => {
-        axios.get(REQUEST_URL, {params: {userId: user_id}})
+        axios.get(REQUEST_URL, {params: {userId: user_id},  headers: {Auth: `${token}`}})
         .then((res)=>{
             setChannelList(res.data);
         });
