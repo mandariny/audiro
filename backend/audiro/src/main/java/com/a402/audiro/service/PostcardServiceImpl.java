@@ -7,7 +7,9 @@ import com.a402.audiro.entity.Song;
 import com.a402.audiro.entity.Spot;
 import com.a402.audiro.entity.User;
 import com.a402.audiro.exception.PasswordDuplicationException;
+import com.a402.audiro.exception.PostcardNotExistException;
 import com.a402.audiro.repository.PostcardRepository;
+
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -50,9 +52,17 @@ public class PostcardServiceImpl implements PostcardService{
         postcardRepository.save(postcard);
     }
 
+    private Postcard getPostcard(long postcardId){
+        Postcard postcard = postcardRepository.findById(postcardId);
+
+        if(postcard == null) throw new PostcardNotExistException();
+
+        return postcard;
+    }
+
     @Override
     public PostcardDetailDTO getPostcardDetail(long postcardId) {
-        Postcard postcard = postcardRepository.findById(postcardId);
+        Postcard postcard = getPostcard(postcardId);
         log.info(postcard.toString());
 
         PostcardDetailDTO postcardDetailDTO = PostcardDetailDTO.builder()
