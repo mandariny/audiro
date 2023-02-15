@@ -33,7 +33,7 @@ import logging
 local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzY0MzIwODYsImV4cCI6MTY3NjQ5MjA4Nn0.eR3xHiJ-6wnXj03tR00M_SsBEeGBvHOM9a5roPjs8Qk'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzY0NjQ4MjcsImV4cCI6MTY3NjUyNDgyN30.vwB0D6RfmKX9iNCjvc61Z1Xcwx1UVtUQsSS8riJo53M'
 }
 
 # 변수 처리해야함
@@ -119,7 +119,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         #self.new_music(self.music_list[self.music_index])
         #self.player.add_callback(vlc.EventType.MediaPlayerEndReached, self.nextMusic)  ## 종료 됬을대 다음곡
 
+
+        # 검색 페이지 세팅
         self.search_result = []
+        self.search_buttons_made = []
+        self.search_labels_made = []
 
         #유저 정보
         sendId = ""
@@ -707,78 +711,97 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.player.pause()
         else:
             self.player.resume()
+
+    def show_search(self, scroll_area, grid, type):
+        # 기존 검색 결과 비우기
+        for i in range(len(self.search_buttons_made)):
+            grid.removeWidget(self.search_buttons_made[i])
+            self.search_buttons_made[i].deleteLater()
+            grid.removeWidget(self.search_labels_made[i])
+            self.search_labels_made[i].deleteLater()
+        self.search_buttons_made.clear()
+        self.search_labels_made.clear()
+
+        for i in range(len(self.search_result)):
+            # radio_button 추가 -> 노래/가수
+            radio_button = QRadioButton(scroll_area)
+            radio_button.setObjectName(u"radioButton_gift_song" + str(i))
+            self.search_buttons_made.append(radio_button)
+            radio_button.setMinimumSize(QSize(0, 50))
+            size_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+            size_policy.setHorizontalStretch(0)
+            size_policy.setVerticalStretch(0)
+            size_policy.setHeightForWidth(radio_button.sizePolicy().hasHeightForWidth())
+            radio_button.setSizePolicy(size_policy)
+            radio_button.setFont(QFont('Gulim', 16))
+            radio_button.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
+                                       "border-bottom-left-radius: 10px; \n"
+                                       "border-right:none;\n"
+                                       "padding:10px;")
+            grid.addWidget(radio_button, i, 0, 1, 1)
+
+            # radio_label 추가 -> 가수/노래
+            radio_label = QLabel(scroll_area)
+            radio_label.setObjectName(u"radio_label_gift_song" + str(i))
+            self.search_labels_made.append(radio_label)
+            size_policy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+            size_policy2.setHorizontalStretch(0)
+            size_policy2.setVerticalStretch(0)
+            size_policy2.setHeightForWidth(radio_label.sizePolicy().hasHeightForWidth())
+            radio_label.setSizePolicy(size_policy2)
+            radio_label.setFont(QFont('Gulim', 16))
+            radio_label.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
+                                      "border-bottom-right-radius: 10px; \n"
+                                      "border-left:none;padding:10px;")
+            radio_label.setAlignment(Qt.AlignCenter)
+            grid.addWidget(radio_label, i, 1, 1, 1, Qt.AlignRight)
+
+            if type == 0:   # 제목으로 검색
+                radio_button.setText(self.search_result[i].get('song_title'))
+                radio_label.setText(self.search_result[i].get('singer'))
+            else:           # 가수로 검색
+                radio_button.setText(self.search_result[i].get('singer'))
+                radio_label.setText(self.search_result[i].get('song_title'))
+
+
     def search_song(self):
         if self.stackedPages.currentIndex() == 10:
             text = self.lineEdit_postcard_song.text()
+            scroll_area = self.scrollAreaWidgetContents_5
+            grid =self.gridLayout_5
+
         elif self.stackedPages.currentIndex() == 4:
             text = self.lineEdit_gift_song.text()
-            for i in range(1,11):
-                print('start')
-                #self.globals()['radioButton_gift_song' + str(i)] = QRadioButton(self.scrollAreaWidgetContents_3)
-                radio_button = QRadioButton(self.scrollAreaWidgetContents_3)
-                print('1')
-                radio_button.setObjectName(u"radioButton_gift_song" + str(i))
-                print('2')
-                radio_button.setMinimumSize(QSize(0, 50))
-                print('3')
-                size_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-                size_policy.setHorizontalStretch(0)
-                size_policy.setVerticalStretch(0)
-                size_policy.setHeightForWidth(radio_button.sizePolicy().hasHeightForWidth())
-                radio_button.setSizePolicy(size_policy)
-                radio_button.setFont(QFont('Gulim', 16))
-                print('4')
-                radio_button.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-                                                          "border-bottom-left-radius: 10px; \n"
-                                                          "border-right:none;\n"
-                                                          "padding:10px;")
-                print('5')
-                self.gridLayout.addWidget(radio_button, i, 0, 1, 1)
-                print('6')
-
-                # radio_label 추가 - 가수이름
-
-                radio_label = QLabel(self.scrollAreaWidgetContents_3)
-                print('7')
-                radio_label.setObjectName(u"radio_label_gift_song" + str(i))
-                print('8')
-                size_policy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-                size_policy2.setHorizontalStretch(0)
-                size_policy2.setVerticalStretch(0)
-                size_policy2.setHeightForWidth(radio_label.sizePolicy().hasHeightForWidth())
-                radio_label.setSizePolicy(size_policy2)
-                radio_label.setFont(QFont('Gulim', 16))
-                print('9')
-                radio_label.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
-                                          "border-bottom-right-radius: 10px; \n"
-                                          "border-left:none;padding:10px;")
-                print('10')
-                radio_label.setAlignment(Qt.AlignCenter)
-                print('11')
-                self.gridLayout.addWidget(radio_label, i, 1, 1, 1, Qt.AlignRight)
-                print('12')
-                radio_button.setText("뉴")
-                radio_label.setText("dio")
+            scroll_area =self.scrollAreaWidgetContents_3
+            grid = self.gridLayout
 
         song_search_url = local_url + "/api/song/search/title/"
         song_search_param = {'keyword': text}
         response = requests.get(song_search_url, headers=request_header, params=song_search_param)
-        res_json = response.json()
-        print(res_json)
+        self.search_result.clear()
+        self.search_result = response.json()
+
+        self.show_search(scroll_area, grid, 0)
 
     def search_singer(self):
         if self.stackedPages.currentIndex() == 10:
             text = self.lineEdit_postcard_singer.text()
+            scroll_area = self.scrollAreaWidgetContents_6
+            grid = self.gridLayout_6
+            print("grid_6!!!!")
+
         elif self.stackedPages.currentIndex() == 4:
             text = self.lineEdit_gift_singer.text()
+            scroll_area = self.scrollAreaWidgetContents_4
+            grid = self.gridLayout_4
+
         song_search_url = local_url + "/api/song/search/singer/"
         song_search_param = {'keyword': text}
         response = requests.get(song_search_url, headers=request_header, params=song_search_param)
-        res_json = response.json()
-        print(res_json)
+        self.search_result.clear()
+        self.search_result = response.json()
 
-    def search_singer(self):
-        pass
+        self.show_search(scroll_area, grid, 1)
 
     def show_volume_chart(self):
         visible = self.volume_frame_chart.isVisible()

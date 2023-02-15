@@ -17,9 +17,9 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PyQt5.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QFrame,
     QGridLayout, QHBoxLayout, QLabel, QLayout,
-    QLineEdit, QMainWindow, QPushButton, QRadioButton,
-    QScrollArea, QSizePolicy, QSlider, QStackedWidget,
-    QTabWidget, QToolBox, QVBoxLayout, QWidget)
+    QLineEdit, QMainWindow, QPushButton, QScrollArea,
+    QSizePolicy, QSlider, QStackedWidget, QTabWidget,
+    QToolBox, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -2029,41 +2029,11 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 664, 556))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 664, 559))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setHorizontalSpacing(0)
         self.gridLayout.setContentsMargins(30, -1, 30, -1)
-        self.radio_label_gift_song = QLabel(self.scrollAreaWidgetContents_3)
-        self.radio_label_gift_song.setObjectName(u"radio_label_gift_song")
-        sizePolicy.setHeightForWidth(self.radio_label_gift_song.sizePolicy().hasHeightForWidth())
-        self.radio_label_gift_song.setSizePolicy(sizePolicy)
-        self.radio_label_gift_song.setFont(font1)
-        self.radio_label_gift_song.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px; \n"
-"border-left:none;padding:10px;")
-        self.radio_label_gift_song.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.radio_label_gift_song, 0, 1, 1, 1, Qt.AlignRight)
-
-        self.radioButton_gift_song = QRadioButton(self.scrollAreaWidgetContents_3)
-        self.radioButton_gift_song.setObjectName(u"radioButton_gift_song")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.radioButton_gift_song.sizePolicy().hasHeightForWidth())
-        self.radioButton_gift_song.setSizePolicy(sizePolicy1)
-        self.radioButton_gift_song.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_song.setFont(font1)
-        self.radioButton_gift_song.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-        self.radioButton_gift_song.setChecked(True)
-        self.radioButton_gift_song.setAutoExclusive(True)
-
-        self.gridLayout.addWidget(self.radioButton_gift_song, 0, 0, 1, 1)
-
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
 
         self.verticalLayout_72.addWidget(self.scrollArea_2)
@@ -2121,168 +2091,11 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 664, 556))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 664, 559))
         self.gridLayout_4 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setHorizontalSpacing(0)
         self.gridLayout_4.setContentsMargins(30, -1, 30, -1)
-        self.label_37 = QLabel(self.scrollAreaWidgetContents_4)
-        self.label_37.setObjectName(u"label_37")
-        self.label_37.setFont(font1)
-        self.label_37.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px; \n"
-"border-left:none;padding:10px;")
-        self.label_37.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_4.addWidget(self.label_37, 3, 1, 1, 1)
-
-        self.radioButton_gift_singer3 = QRadioButton(self.scrollAreaWidgetContents_4)
-        self.radioButton_gift_singer3.setObjectName(u"radioButton_gift_singer3")
-        self.radioButton_gift_singer3.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer3.setFont(font1)
-        self.radioButton_gift_singer3.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-
-        self.gridLayout_4.addWidget(self.radioButton_gift_singer3, 3, 0, 1, 1)
-
-        self.label_29 = QLabel(self.scrollAreaWidgetContents_4)
-        self.label_29.setObjectName(u"label_29")
-        self.label_29.setFont(font1)
-        self.label_29.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px; \n"
-"border-left:none;padding:10px;")
-        self.label_29.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_4.addWidget(self.label_29, 2, 1, 1, 1)
-
-        self.radioButton_gift_singer4 = QRadioButton(self.scrollAreaWidgetContents_4)
-        self.radioButton_gift_singer4.setObjectName(u"radioButton_gift_singer4")
-        self.radioButton_gift_singer4.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer4.setFont(font1)
-        self.radioButton_gift_singer4.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-
-        self.gridLayout_4.addWidget(self.radioButton_gift_singer4, 4, 0, 1, 1)
-
-        self.radioButton_gift_singer2 = QRadioButton(self.scrollAreaWidgetContents_4)
-        self.radioButton_gift_singer2.setObjectName(u"radioButton_gift_singer2")
-        self.radioButton_gift_singer2.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer2.setFont(font1)
-        self.radioButton_gift_singer2.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-
-        self.gridLayout_4.addWidget(self.radioButton_gift_singer2, 2, 0, 1, 1)
-
-        self.radioButton_gift_singer1 = QRadioButton(self.scrollAreaWidgetContents_4)
-        self.radioButton_gift_singer1.setObjectName(u"radioButton_gift_singer1")
-        sizePolicy1.setHeightForWidth(self.radioButton_gift_singer1.sizePolicy().hasHeightForWidth())
-        self.radioButton_gift_singer1.setSizePolicy(sizePolicy1)
-        self.radioButton_gift_singer1.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer1.setFont(font1)
-        self.radioButton_gift_singer1.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-        self.radioButton_gift_singer1.setChecked(True)
-        self.radioButton_gift_singer1.setAutoExclusive(False)
-
-        self.gridLayout_4.addWidget(self.radioButton_gift_singer1, 0, 0, 1, 1)
-
-        self.label_10 = QLabel(self.scrollAreaWidgetContents_4)
-        self.label_10.setObjectName(u"label_10")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
-        self.label_10.setSizePolicy(sizePolicy2)
-        self.label_10.setFont(font1)
-        self.label_10.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px; \n"
-"border-left:none;padding:10px;")
-        self.label_10.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_4.addWidget(self.label_10, 0, 1, 1, 1, Qt.AlignRight)
-
-        self.label_38 = QLabel(self.scrollAreaWidgetContents_4)
-        self.label_38.setObjectName(u"label_38")
-        self.label_38.setFont(font1)
-        self.label_38.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px; \n"
-"border-left:none;padding:10px;")
-        self.label_38.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_4.addWidget(self.label_38, 4, 1, 1, 1)
-
-        self.frame_33 = QFrame(self.scrollAreaWidgetContents_4)
-        self.frame_33.setObjectName(u"frame_33")
-        self.frame_33.setFrameShape(QFrame.StyledPanel)
-        self.frame_33.setFrameShadow(QFrame.Raised)
-        self.radioButton_gift_singer1_3 = QRadioButton(self.frame_33)
-        self.radioButton_gift_singer1_3.setObjectName(u"radioButton_gift_singer1_3")
-        self.radioButton_gift_singer1_3.setGeometry(QRect(0, 160, 546, 50))
-        sizePolicy1.setHeightForWidth(self.radioButton_gift_singer1_3.sizePolicy().hasHeightForWidth())
-        self.radioButton_gift_singer1_3.setSizePolicy(sizePolicy1)
-        self.radioButton_gift_singer1_3.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer1_3.setFont(font1)
-        self.radioButton_gift_singer1_3.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-        self.radioButton_gift_singer1_3.setChecked(False)
-        self.radioButton_gift_singer1_3.setAutoExclusive(True)
-        self.radioButton_gift_singer1_4 = QRadioButton(self.frame_33)
-        self.radioButton_gift_singer1_4.setObjectName(u"radioButton_gift_singer1_4")
-        self.radioButton_gift_singer1_4.setGeometry(QRect(0, 230, 546, 50))
-        sizePolicy1.setHeightForWidth(self.radioButton_gift_singer1_4.sizePolicy().hasHeightForWidth())
-        self.radioButton_gift_singer1_4.setSizePolicy(sizePolicy1)
-        self.radioButton_gift_singer1_4.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer1_4.setFont(font1)
-        self.radioButton_gift_singer1_4.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-        self.radioButton_gift_singer1_4.setChecked(False)
-        self.radioButton_gift_singer1_4.setAutoExclusive(True)
-        self.frame_34 = QFrame(self.frame_33)
-        self.frame_34.setObjectName(u"frame_34")
-        self.frame_34.setGeometry(QRect(10, 10, 501, 141))
-        self.frame_34.setFrameShape(QFrame.StyledPanel)
-        self.frame_34.setFrameShadow(QFrame.Raised)
-        self.radioButton_gift_singer1_5 = QRadioButton(self.frame_34)
-        self.radioButton_gift_singer1_5.setObjectName(u"radioButton_gift_singer1_5")
-        self.radioButton_gift_singer1_5.setGeometry(QRect(10, 0, 546, 50))
-        sizePolicy1.setHeightForWidth(self.radioButton_gift_singer1_5.sizePolicy().hasHeightForWidth())
-        self.radioButton_gift_singer1_5.setSizePolicy(sizePolicy1)
-        self.radioButton_gift_singer1_5.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer1_5.setFont(font1)
-        self.radioButton_gift_singer1_5.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-        self.radioButton_gift_singer1_5.setChecked(False)
-        self.radioButton_gift_singer1_5.setAutoExclusive(True)
-        self.radioButton_gift_singer1_6 = QRadioButton(self.frame_34)
-        self.radioButton_gift_singer1_6.setObjectName(u"radioButton_gift_singer1_6")
-        self.radioButton_gift_singer1_6.setGeometry(QRect(10, 70, 546, 50))
-        sizePolicy1.setHeightForWidth(self.radioButton_gift_singer1_6.sizePolicy().hasHeightForWidth())
-        self.radioButton_gift_singer1_6.setSizePolicy(sizePolicy1)
-        self.radioButton_gift_singer1_6.setMinimumSize(QSize(0, 50))
-        self.radioButton_gift_singer1_6.setFont(font1)
-        self.radioButton_gift_singer1_6.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
-"border-bottom-left-radius: 10px; \n"
-"border-right:none;\n"
-"padding:10px;")
-        self.radioButton_gift_singer1_6.setChecked(False)
-        self.radioButton_gift_singer1_6.setAutoExclusive(True)
-
-        self.gridLayout_4.addWidget(self.frame_33, 1, 0, 1, 1)
-
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_4)
 
         self.verticalLayout_98.addWidget(self.scrollArea_3)
@@ -3052,6 +2865,7 @@ class Ui_MainWindow(object):
 "QTabBar::tab{\n"
 "background-color:black;\n"
 "}")
+        self.tabWidget.setTabShape(QTabWidget.Rounded)
         self.tabWidget.setUsesScrollButtons(False)
         self.tabWidget.setDocumentMode(False)
         self.tabWidget.setTabBarAutoHide(False)
@@ -3063,9 +2877,10 @@ class Ui_MainWindow(object):
         self.frame_148.setObjectName(u"frame_148")
         self.frame_148.setFrameShape(QFrame.StyledPanel)
         self.frame_148.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_99 = QVBoxLayout(self.frame_148)
+        self.verticalLayout_99.setObjectName(u"verticalLayout_99")
         self.frame_172 = QFrame(self.frame_148)
         self.frame_172.setObjectName(u"frame_172")
-        self.frame_172.setGeometry(QRect(1, 10, 684, 50))
         self.frame_172.setMinimumSize(QSize(0, 50))
         self.frame_172.setStyleSheet(u"background-color:white;")
         self.frame_172.setFrameShape(QFrame.StyledPanel)
@@ -3093,57 +2908,25 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_86.addWidget(self.pushButton_22)
 
-        self.frame_152 = QFrame(self.frame_148)
-        self.frame_152.setObjectName(u"frame_152")
-        self.frame_152.setGeometry(QRect(1, 65, 684, 16))
-        self.frame_152.setFrameShape(QFrame.StyledPanel)
-        self.frame_152.setFrameShadow(QFrame.Raised)
-        self.radioButton_postcard_song1 = QRadioButton(self.frame_148)
-        self.radioButton_postcard_song1.setObjectName(u"radioButton_postcard_song1")
-        self.radioButton_postcard_song1.setGeometry(QRect(1, 99, 681, 50))
-        self.radioButton_postcard_song1.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_song1.setFont(font1)
-        self.radioButton_postcard_song1.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radioButton_postcard_song1.setChecked(True)
-        self.radioButton_postcard_song1.setAutoExclusive(True)
-        self.radioButton_postcard_song2 = QRadioButton(self.frame_148)
-        self.radioButton_postcard_song2.setObjectName(u"radioButton_postcard_song2")
-        self.radioButton_postcard_song2.setGeometry(QRect(1, 154, 681, 50))
-        self.radioButton_postcard_song2.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_song2.setFont(font1)
-        self.radioButton_postcard_song2.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radioButton_postcard_song3 = QRadioButton(self.frame_148)
-        self.radioButton_postcard_song3.setObjectName(u"radioButton_postcard_song3")
-        self.radioButton_postcard_song3.setGeometry(QRect(1, 208, 681, 50))
-        self.radioButton_postcard_song3.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_song3.setFont(font1)
-        self.radioButton_postcard_song3.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radioButton_postcard_song4 = QRadioButton(self.frame_148)
-        self.radioButton_postcard_song4.setObjectName(u"radioButton_postcard_song4")
-        self.radioButton_postcard_song4.setGeometry(QRect(1, 263, 681, 50))
-        self.radioButton_postcard_song4.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_song4.setFont(font1)
-        self.radioButton_postcard_song4.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radio_label_postcard_song1 = QLabel(self.frame_148)
-        self.radio_label_postcard_song1.setObjectName(u"radio_label_postcard_song1")
-        self.radio_label_postcard_song1.setGeometry(QRect(611, 113, 56, 21))
-        self.radio_label_postcard_song1.setFont(font1)
-        self.radio_label_postcard_song1.setAlignment(Qt.AlignCenter)
-        self.radio_label_postcard_song2 = QLabel(self.frame_148)
-        self.radio_label_postcard_song2.setObjectName(u"radio_label_postcard_song2")
-        self.radio_label_postcard_song2.setGeometry(QRect(611, 166, 56, 21))
-        self.radio_label_postcard_song2.setFont(font1)
-        self.radio_label_postcard_song2.setAlignment(Qt.AlignCenter)
-        self.radio_label_postcard_song3 = QLabel(self.frame_148)
-        self.radio_label_postcard_song3.setObjectName(u"radio_label_postcard_song3")
-        self.radio_label_postcard_song3.setGeometry(QRect(611, 220, 56, 21))
-        self.radio_label_postcard_song3.setFont(font1)
-        self.radio_label_postcard_song3.setAlignment(Qt.AlignCenter)
-        self.radio_label_postcard_song4 = QLabel(self.frame_148)
-        self.radio_label_postcard_song4.setObjectName(u"radio_label_postcard_song4")
-        self.radio_label_postcard_song4.setGeometry(QRect(611, 276, 56, 21))
-        self.radio_label_postcard_song4.setFont(font1)
-        self.radio_label_postcard_song4.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_99.addWidget(self.frame_172)
+
+        self.scrollArea_4 = QScrollArea(self.frame_148)
+        self.scrollArea_4.setObjectName(u"scrollArea_4")
+        self.scrollArea_4.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.scrollArea_4.setWidgetResizable(True)
+        self.scrollArea_4.setAlignment(Qt.AlignCenter)
+        self.scrollAreaWidgetContents_5 = QWidget()
+        self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 664, 559))
+        self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_5)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.gridLayout_5.setHorizontalSpacing(0)
+        self.gridLayout_5.setContentsMargins(30, -1, 30, -1)
+        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_5)
+
+        self.verticalLayout_99.addWidget(self.scrollArea_4)
+
 
         self.verticalLayout_24.addWidget(self.frame_148)
 
@@ -3156,9 +2939,10 @@ class Ui_MainWindow(object):
         self.frame_128.setObjectName(u"frame_128")
         self.frame_128.setFrameShape(QFrame.StyledPanel)
         self.frame_128.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_100 = QVBoxLayout(self.frame_128)
+        self.verticalLayout_100.setObjectName(u"verticalLayout_100")
         self.frame_174 = QFrame(self.frame_128)
         self.frame_174.setObjectName(u"frame_174")
-        self.frame_174.setGeometry(QRect(1, 10, 684, 50))
         self.frame_174.setMinimumSize(QSize(0, 50))
         self.frame_174.setStyleSheet(u"background-color:white;")
         self.frame_174.setFrameShape(QFrame.StyledPanel)
@@ -3186,57 +2970,25 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_88.addWidget(self.pushButton_67)
 
-        self.frame_129 = QFrame(self.frame_128)
-        self.frame_129.setObjectName(u"frame_129")
-        self.frame_129.setGeometry(QRect(1, 65, 684, 16))
-        self.frame_129.setFrameShape(QFrame.StyledPanel)
-        self.frame_129.setFrameShadow(QFrame.Raised)
-        self.radioButton_postcard_singer1 = QRadioButton(self.frame_128)
-        self.radioButton_postcard_singer1.setObjectName(u"radioButton_postcard_singer1")
-        self.radioButton_postcard_singer1.setGeometry(QRect(1, 99, 681, 50))
-        self.radioButton_postcard_singer1.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_singer1.setFont(font1)
-        self.radioButton_postcard_singer1.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radioButton_postcard_singer1.setChecked(True)
-        self.radioButton_postcard_singer1.setAutoExclusive(True)
-        self.radioButton_postcard_singer2 = QRadioButton(self.frame_128)
-        self.radioButton_postcard_singer2.setObjectName(u"radioButton_postcard_singer2")
-        self.radioButton_postcard_singer2.setGeometry(QRect(1, 154, 681, 50))
-        self.radioButton_postcard_singer2.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_singer2.setFont(font1)
-        self.radioButton_postcard_singer2.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radioButton_postcard_singer3 = QRadioButton(self.frame_128)
-        self.radioButton_postcard_singer3.setObjectName(u"radioButton_postcard_singer3")
-        self.radioButton_postcard_singer3.setGeometry(QRect(1, 208, 681, 50))
-        self.radioButton_postcard_singer3.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_singer3.setFont(font1)
-        self.radioButton_postcard_singer3.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radioButton_postcard_singer4 = QRadioButton(self.frame_128)
-        self.radioButton_postcard_singer4.setObjectName(u"radioButton_postcard_singer4")
-        self.radioButton_postcard_singer4.setGeometry(QRect(1, 263, 681, 50))
-        self.radioButton_postcard_singer4.setMinimumSize(QSize(0, 50))
-        self.radioButton_postcard_singer4.setFont(font1)
-        self.radioButton_postcard_singer4.setStyleSheet(u"border:2px solid #6522f2; border-radius: 10px; padding:10px;")
-        self.radio_label_postcard_singer1 = QLabel(self.frame_128)
-        self.radio_label_postcard_singer1.setObjectName(u"radio_label_postcard_singer1")
-        self.radio_label_postcard_singer1.setGeometry(QRect(611, 113, 56, 21))
-        self.radio_label_postcard_singer1.setFont(font1)
-        self.radio_label_postcard_singer1.setAlignment(Qt.AlignCenter)
-        self.radio_label_postcard_singer2 = QLabel(self.frame_128)
-        self.radio_label_postcard_singer2.setObjectName(u"radio_label_postcard_singer2")
-        self.radio_label_postcard_singer2.setGeometry(QRect(611, 166, 56, 21))
-        self.radio_label_postcard_singer2.setFont(font1)
-        self.radio_label_postcard_singer2.setAlignment(Qt.AlignCenter)
-        self.radio_label_postcard_singer3 = QLabel(self.frame_128)
-        self.radio_label_postcard_singer3.setObjectName(u"radio_label_postcard_singer3")
-        self.radio_label_postcard_singer3.setGeometry(QRect(611, 220, 56, 21))
-        self.radio_label_postcard_singer3.setFont(font1)
-        self.radio_label_postcard_singer3.setAlignment(Qt.AlignCenter)
-        self.radio_label_postcard_singer4 = QLabel(self.frame_128)
-        self.radio_label_postcard_singer4.setObjectName(u"radio_label_postcard_singer4")
-        self.radio_label_postcard_singer4.setGeometry(QRect(611, 276, 56, 21))
-        self.radio_label_postcard_singer4.setFont(font1)
-        self.radio_label_postcard_singer4.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_100.addWidget(self.frame_174)
+
+        self.scrollArea_5 = QScrollArea(self.frame_128)
+        self.scrollArea_5.setObjectName(u"scrollArea_5")
+        self.scrollArea_5.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.scrollArea_5.setWidgetResizable(True)
+        self.scrollArea_5.setAlignment(Qt.AlignCenter)
+        self.scrollAreaWidgetContents_6 = QWidget()
+        self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 664, 559))
+        self.gridLayout_6 = QGridLayout(self.scrollAreaWidgetContents_6)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setHorizontalSpacing(0)
+        self.gridLayout_6.setContentsMargins(30, -1, 30, -1)
+        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_6)
+
+        self.verticalLayout_100.addWidget(self.scrollArea_5)
+
 
         self.verticalLayout_20.addWidget(self.frame_128)
 
@@ -3248,7 +3000,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_19.addWidget(self.frame_26)
 
 
-        self.verticalLayout_22.addWidget(self.frame_22, 0, Qt.AlignTop)
+        self.verticalLayout_22.addWidget(self.frame_22)
 
         self.stackedPages.addWidget(self.page9)
         self.page10 = QWidget()
@@ -3796,8 +3548,11 @@ class Ui_MainWindow(object):
         self.painter_widget = QWidget(self.frame_56)
         self.painter_widget.setObjectName(u"painter_widget")
         self.painter_widget.setEnabled(True)
-        sizePolicy2.setHeightForWidth(self.painter_widget.sizePolicy().hasHeightForWidth())
-        self.painter_widget.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.painter_widget.sizePolicy().hasHeightForWidth())
+        self.painter_widget.setSizePolicy(sizePolicy1)
         self.painter_widget.setMinimumSize(QSize(0, 600))
         font22 = QFont()
         font22.setPointSize(5)
@@ -4405,8 +4160,8 @@ class Ui_MainWindow(object):
         self.painter_widget_2 = QWidget(self.frame_99)
         self.painter_widget_2.setObjectName(u"painter_widget_2")
         self.painter_widget_2.setEnabled(True)
-        sizePolicy2.setHeightForWidth(self.painter_widget_2.sizePolicy().hasHeightForWidth())
-        self.painter_widget_2.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.painter_widget_2.sizePolicy().hasHeightForWidth())
+        self.painter_widget_2.setSizePolicy(sizePolicy1)
         self.painter_widget_2.setMinimumSize(QSize(0, 600))
         self.painter_widget_2.setStyleSheet(u"background-color:white;")
 
@@ -4567,8 +4322,8 @@ class Ui_MainWindow(object):
         self.painter_widget_3 = QWidget(self.frame_105)
         self.painter_widget_3.setObjectName(u"painter_widget_3")
         self.painter_widget_3.setEnabled(True)
-        sizePolicy2.setHeightForWidth(self.painter_widget_3.sizePolicy().hasHeightForWidth())
-        self.painter_widget_3.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.painter_widget_3.sizePolicy().hasHeightForWidth())
+        self.painter_widget_3.setSizePolicy(sizePolicy1)
         self.painter_widget_3.setMinimumSize(QSize(0, 600))
         self.painter_widget_3.setStyleSheet(u"background-color:white;")
 
@@ -4729,8 +4484,8 @@ class Ui_MainWindow(object):
         self.painter_widget_4 = QWidget(self.frame_177)
         self.painter_widget_4.setObjectName(u"painter_widget_4")
         self.painter_widget_4.setEnabled(True)
-        sizePolicy2.setHeightForWidth(self.painter_widget_4.sizePolicy().hasHeightForWidth())
-        self.painter_widget_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.painter_widget_4.sizePolicy().hasHeightForWidth())
+        self.painter_widget_4.setSizePolicy(sizePolicy1)
         self.painter_widget_4.setMinimumSize(QSize(0, 600))
         self.painter_widget_4.setStyleSheet(u"background-color:white;")
 
@@ -4886,7 +4641,7 @@ class Ui_MainWindow(object):
         self.verticalSlider_30.valueChanged.connect(MainWindow.change_volume)
         self.pushButton_79.clicked.connect(MainWindow.search_song)
         self.pushButton_21.clicked.connect(MainWindow.search_singer)
-        self.pushButton_67.clicked.connect(MainWindow.search_song)
+        self.pushButton_67.clicked.connect(MainWindow.search_singer)
         self.pushButton_22.clicked.connect(MainWindow.search_song)
         self.verticalSlider_27.valueChanged.connect(MainWindow.change_volume)
 
@@ -4896,8 +4651,8 @@ class Ui_MainWindow(object):
         self.stackedPages.setCurrentIndex(4)
         self.priorityBox.setCurrentIndex(0)
         self.stackedWidget_3.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(1)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(1)
 
 
@@ -5003,24 +4758,10 @@ class Ui_MainWindow(object):
         self.lineEdit_gift_song.setText("")
         self.lineEdit_gift_song.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ditto", None))
         self.pushButton_79.setText("")
-        self.radio_label_gift_song.setText(QCoreApplication.translate("MainWindow", u"di", None))
-        self.radioButton_gift_song.setText(QCoreApplication.translate("MainWindow", u"\ub274", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"\ub178\ub798 \uc81c\ubaa9\uc73c\ub85c \uac80\uc0c9", None))
         self.lineEdit_gift_singer.setText("")
         self.lineEdit_gift_singer.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
         self.pushButton_21.setText("")
-        self.label_37.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radioButton_gift_singer3.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.label_29.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radioButton_gift_singer4.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_gift_singer2.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_gift_singer1.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.label_38.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radioButton_gift_singer1_3.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_gift_singer1_4.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_gift_singer1_5.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_gift_singer1_6.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"\uac00\uc218 \uc774\ub984\uc73c\ub85c \uac80\uc0c9", None))
         self.label_161.setText(QCoreApplication.translate("MainWindow", u"ditto \uc568\ubc94 \ucee4\ubc84", None))
         self.pushButton_102.setText("")
@@ -5051,26 +4792,10 @@ class Ui_MainWindow(object):
         self.lineEdit_postcard_song.setText("")
         self.lineEdit_postcard_song.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ditto", None))
         self.pushButton_22.setText("")
-        self.radioButton_postcard_song1.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_postcard_song2.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_postcard_song3.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_postcard_song4.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radio_label_postcard_song1.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radio_label_postcard_song2.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radio_label_postcard_song3.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radio_label_postcard_song4.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"\ub178\ub798 \uc81c\ubaa9\uc73c\ub85c \uac80\uc0c9", None))
         self.lineEdit_postcard_singer.setText("")
         self.lineEdit_postcard_singer.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
         self.pushButton_67.setText("")
-        self.radioButton_postcard_singer1.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_postcard_singer2.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_postcard_singer3.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radioButton_postcard_singer4.setText(QCoreApplication.translate("MainWindow", u"\ub274\uc9c4\uc2a4", None))
-        self.radio_label_postcard_singer1.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radio_label_postcard_singer2.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radio_label_postcard_singer3.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
-        self.radio_label_postcard_singer4.setText(QCoreApplication.translate("MainWindow", u"ditto", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"\uac00\uc218 \uc774\ub984\uc73c\ub85c \uac80\uc0c9", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"2\ub2e8\uacc4. \ud3b8\uc9c0\ub97c \uc791\uc131\ud574 \uc8fc\uc138\uc694.", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"ditto \uc568\ubc94 \ucee4\ubc84", None))
