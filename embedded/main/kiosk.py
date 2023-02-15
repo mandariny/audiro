@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QPixmap, QIcon, QColor
+from PyQt5.QtGui import QPixmap, QIcon, QColor, QFont
 from PyQt5.QtCore import Qt, QObject
 from kiosk_main_monitor import Ui_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -33,7 +33,7 @@ import logging
 local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzYzODI2MTksImV4cCI6MTY3NjQ0MjYxOX0.jUQivPZtELGUagd9xxLnNX1poMRyggns33QvFIoqLzI'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzY0MzIwODYsImV4cCI6MTY3NjQ5MjA4Nn0.eR3xHiJ-6wnXj03tR00M_SsBEeGBvHOM9a5roPjs8Qk'
 }
 
 # 변수 처리해야함
@@ -119,6 +119,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         #self.new_music(self.music_list[self.music_index])
         #self.player.add_callback(vlc.EventType.MediaPlayerEndReached, self.nextMusic)  ## 종료 됬을대 다음곡
 
+        self.search_result = []
+
         #유저 정보
         sendId = ""
         nickname = ""
@@ -145,6 +147,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # 차트 정보 불러오기
         song_list_url = local_url + "/api/song/chart/giftcnt/"
         self.get_chart(song_list_url)
+        self.play_music(self.music_chart[0].get('song_url'))
 
         """# 마니또 목록 불러오기
         manito_post_list = [
@@ -271,8 +274,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.chart_button_list[i].setIcon(icon)
             self.chart_button_list[i].setIconSize(pixmap.rect().size())
 
-        self.play_music(self.music_chart[i].get('song_url'))
-
     def align_chart(self, index):
         if index == 0:
             align_url = local_url + "/api/song/chart/giftcnt/"
@@ -282,6 +283,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             align_url = local_url + "/api/song/chart/random/"
 
         self.get_chart(align_url)
+        self.play_music(self.music_chart[0].get('song_url'))
 
     # 플레이어 함수들
     def new_music(self, url):
@@ -420,53 +422,33 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.play_music(res_json.get('songUrl'))
 
     def playMusic1_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(1)
 
     def playMusic2_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(2)
 
     def playMusic3_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(3)
 
     def playMusic4_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(4)
 
     def playMusic5_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(5)
 
     def playMusic6_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(6)
 
     def playMusic7_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(7)
 
     def playMusic8_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(8)
 
     def playMusic9_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(9)
 
     def playMusic10_chart(self):
-        self.stackedPages.setCurrentIndex(1)
-        self.stackedPages2.setCurrentIndex(8)
         self.playMusic_chart(10)
 
     def gift_detail(self, giftId):
@@ -532,17 +514,50 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.gift_id = 10
         self.gift_detail(10)
 
+    def scroll_chart_left(self):
+        # self.post_scroll_area.scroll(10,0)
+        value_now = self.scrollArea.horizontalScrollBar().value()
+        if value_now >= 100:
+            value_next = value_now - 100
+        else:
+            value_next = 0
+        self.scrollArea.horizontalScrollBar().setValue(value_next)
+
+    def scroll_chart_right(self):
+        # self.post_scroll_area.scroll(-10,0)
+        value_now = self.scrollArea.horizontalScrollBar().value()
+        value_max = self.scrollArea.horizontalScrollBar().maximum()
+        if value_now <= value_max - 100:
+            value_next = value_now + 100
+        else:
+            value_next = value_max
+        self.scrollArea.horizontalScrollBar().setValue(value_next)
+
     def scroll_post_left(self):
-        self.post_scroll_area.scroll(-10,0)
+        #self.post_scroll_area.scroll(10,0)
+        value_now = self.post_scroll_area.horizontalScrollBar().value()
+        if value_now >= 100:
+            value_next = value_now -100
+        else:
+            value_next = 0
+        self.post_scroll_area.horizontalScrollBar().setValue(value_next)
 
     def scroll_post_right(self):
-        self.post_scroll_area.scroll(10,0)
+        #self.post_scroll_area.scroll(-10,0)
+        value_now = self.post_scroll_area.horizontalScrollBar().value()
+        value_max = self.post_scroll_area.horizontalScrollBar().maximum()
+        if value_now <= value_max - 100:
+            value_next = value_now + 100
+        else:
+            value_next = value_max
+        self.post_scroll_area.horizontalScrollBar().setValue(value_next)
 
     def backToChart(self):
         self.stackedPages.setCurrentIndex(0)
         self.stackedPages2.setCurrentIndex(2)
         self.menu_toolBox.setCurrentIndex(0)
-        self.player.stop()
+        #self.player.stop()
+        self.play_music(self.music_chart[0].get('song_url'))
 
     def backToPosts(self):
         self.stackedPages.setCurrentIndex(2)
@@ -568,6 +583,10 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(9)
         self.stackedPages2.setCurrentIndex(2)
 
+    def moveto_reply(self):
+        self.stackedPages.setCurrentIndex(5)
+        self.stackedPages2.setCurrentIndex(9)
+
     def moveToNextStep(self):
         currentPage = self.stackedPages.currentIndex()
 
@@ -583,8 +602,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         elif self.stackedPages.currentIndex() == 3:
             self.stackedPages2.setCurrentIndex(5)
-        elif self.stackedPages.currentIndex() == 4:
-            self.stackedPages2.setCurrentIndex(9)
+
         elif self.stackedPages2.currentIndex() == 12:
             self.stackedPages2.setCurrentIndex(2)
 
@@ -689,6 +707,78 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.player.pause()
         else:
             self.player.resume()
+    def search_song(self):
+        if self.stackedPages.currentIndex() == 10:
+            text = self.lineEdit_postcard_song.text()
+        elif self.stackedPages.currentIndex() == 4:
+            text = self.lineEdit_gift_song.text()
+            for i in range(1,11):
+                print('start')
+                #self.globals()['radioButton_gift_song' + str(i)] = QRadioButton(self.scrollAreaWidgetContents_3)
+                radio_button = QRadioButton(self.scrollAreaWidgetContents_3)
+                print('1')
+                radio_button.setObjectName(u"radioButton_gift_song" + str(i))
+                print('2')
+                radio_button.setMinimumSize(QSize(0, 50))
+                print('3')
+                size_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+                size_policy.setHorizontalStretch(0)
+                size_policy.setVerticalStretch(0)
+                size_policy.setHeightForWidth(radio_button.sizePolicy().hasHeightForWidth())
+                radio_button.setSizePolicy(size_policy)
+                radio_button.setFont(QFont('Gulim', 16))
+                print('4')
+                radio_button.setStyleSheet(u"border:2px solid #6522f2; border-top-left-radius: 10px;\n"
+                                                          "border-bottom-left-radius: 10px; \n"
+                                                          "border-right:none;\n"
+                                                          "padding:10px;")
+                print('5')
+                self.gridLayout.addWidget(radio_button, i, 0, 1, 1)
+                print('6')
+
+                # radio_label 추가 - 가수이름
+
+                radio_label = QLabel(self.scrollAreaWidgetContents_3)
+                print('7')
+                radio_label.setObjectName(u"radio_label_gift_song" + str(i))
+                print('8')
+                size_policy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+                size_policy2.setHorizontalStretch(0)
+                size_policy2.setVerticalStretch(0)
+                size_policy2.setHeightForWidth(radio_label.sizePolicy().hasHeightForWidth())
+                radio_label.setSizePolicy(size_policy2)
+                radio_label.setFont(QFont('Gulim', 16))
+                print('9')
+                radio_label.setStyleSheet(u"border:2px solid #6522f2; border-top-right-radius: 10px;\n"
+                                          "border-bottom-right-radius: 10px; \n"
+                                          "border-left:none;padding:10px;")
+                print('10')
+                radio_label.setAlignment(Qt.AlignCenter)
+                print('11')
+                self.gridLayout.addWidget(radio_label, i, 1, 1, 1, Qt.AlignRight)
+                print('12')
+                radio_button.setText("뉴")
+                radio_label.setText("dio")
+
+        song_search_url = local_url + "/api/song/search/title/"
+        song_search_param = {'keyword': text}
+        response = requests.get(song_search_url, headers=request_header, params=song_search_param)
+        res_json = response.json()
+        print(res_json)
+
+    def search_singer(self):
+        if self.stackedPages.currentIndex() == 10:
+            text = self.lineEdit_postcard_singer.text()
+        elif self.stackedPages.currentIndex() == 4:
+            text = self.lineEdit_gift_singer.text()
+        song_search_url = local_url + "/api/song/search/singer/"
+        song_search_param = {'keyword': text}
+        response = requests.get(song_search_url, headers=request_header, params=song_search_param)
+        res_json = response.json()
+        print(res_json)
+
+    def search_singer(self):
+        pass
 
     def show_volume_chart(self):
         visible = self.volume_frame_chart.isVisible()
