@@ -95,7 +95,7 @@ public class ChatServiceImpl implements ChatService{
 
         channel.get().addChannelMessage(message);
         channelRepository.save(channel.get());
-        log.info("메세지를 저장했습니다. " + messageDTO.getContent());
+        log.info("메세지를 저장했습니다. " + message.toString());
     }
 
     @Override
@@ -135,8 +135,11 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public List<MessageDTO> getChannelMessages(String channelId) {
-
         Optional<Channel> channels = getChannel(channelId);
+
+        log.info("채널 메세지를 읽어옵니다. ", channelId);
+        log.info("채널의 메세지 길이 : ", channels.get().getMessages().size());
+
         return channels.get().getMessages().stream()
                 .map(m -> MessageDTO.builder()
                         .userId(m.getUserId())
