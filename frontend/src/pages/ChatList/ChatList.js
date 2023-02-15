@@ -8,7 +8,7 @@ import Nav from "../../components/Nav";
 import jwt from 'jwt-decode';
 
 // 웹 소켓 연결 endpoint
-const BASE_URL = "ws://localhost:8082/ws-stomp";
+const BASE_URL = "ws://i8a402.p.ssafy.io:8082/ws-stomp";
 // 채널 리스트를 요청하는 rest api path
 const REQUEST_URL = "http://i8a402.p.ssafy.io/chat/channel/list";
 // 임의로 넣어둔 사용자 ID

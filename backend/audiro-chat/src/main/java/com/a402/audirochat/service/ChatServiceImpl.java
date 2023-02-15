@@ -37,7 +37,7 @@ public class ChatServiceImpl implements ChatService{
     private final UserRepository userRepository;
     private final ChannelRepository channelRepository;
     private final UserNicknameRepository userNicknameRepository;
-    private final String UPLOAD_DIR = "src/main/resources";
+    private final String UPLOAD_DIR = "/home/ubuntu/app/S08P12A402/backend/audiro-chat/src/main/resources/";
 
     private Optional<User> getUser(long userId){
         Optional<User> user = userRepository.findById(userId);
