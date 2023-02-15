@@ -28,6 +28,10 @@ const StyledChatWrapper = styled.div`
 
 const ChatThumbnailList = (props) => {
     const [chatThumbnailList, setChatThumbnailList] = useState([]);
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
+    const user_id = jwt(token)['userId']; 
+    const user_nickname = jwt(token)['nickname']; 
     
     useEffect(()=>{
         
@@ -48,7 +52,7 @@ const ChatThumbnailList = (props) => {
 
     return(
         <>
-            <StyledChatListTitle>연희동 아자르님의 편지함</StyledChatListTitle>
+            <StyledChatListTitle>{user_nickname}님의 편지함</StyledChatListTitle>
             <StyledChatListContainer>
                 {/* 일단 ul로 각 컴포넌트 뿌리게만 해둠 */}
                 <StyledChatWrapper>

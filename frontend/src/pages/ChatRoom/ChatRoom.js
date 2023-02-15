@@ -6,9 +6,8 @@ import axios from "axios";
 import Nav from "../../components/Nav";
 import styled from 'styled-components';
 import {FiSend} from "react-icons/fi";
-import { useCallback } from "react";
-import { useSelector } from 'react-redux';
 import jwt from 'jwt-decode';
+import {useParams} from 'react-router-dom'
 
 // 웹 소켓 연결할 endpoint
 const BASE_URL = "ws://i8a402.p.ssafy.io:8082/ws-stomp";
@@ -65,6 +64,8 @@ const ChatRoom = () => {
     console.log(jwt(token));
     const user_id = jwt(token)['userId']; 
     const user_nickname = jwt(token)['nickname']; 
+
+    const {other_nickname} = useParams();
 
     // 메세지들을 관리하는 state
     const [messageList, setMessageList] = useState([]);
@@ -150,7 +151,7 @@ const ChatRoom = () => {
     useEffect(() => {
         connect();
 
-        axios.get(REQUEST_URL, {params: {channelId: channel_id}})
+        axios.get(REQUEST_URL, {params: {channelId: channel_id}, headers: {Auth: `${token}`}})
             .then((res)=>{
                 setMessageList(res.data);
                 console.log(res.data);

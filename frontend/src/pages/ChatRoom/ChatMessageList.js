@@ -40,6 +40,12 @@ const StyledChatDateWrapper = styled.span`
 `;
 
 const ChatMessageList = (props) => {
+
+    const token = localStorage.getItem('login-token');
+    console.log(jwt(token));
+    const userId = jwt(token)['userId'];
+    const userNickname = jwt(token)['nickname'];
+
     // 맵으로 돌면서 컴포넌트 생성
     // props로 정보 전달
     console.log(props.userId);
@@ -54,7 +60,7 @@ const ChatMessageList = (props) => {
 
     return(
         <>            
-            <StyledChatRoomTitle>gaok님과의 편지</StyledChatRoomTitle>
+            <StyledChatRoomTitle>{props.nickname}님과의 편지</StyledChatRoomTitle>
             <StyledChatContainer ref={scrollRef}>
                 
                 {
@@ -66,11 +72,11 @@ const ChatMessageList = (props) => {
                                 props.messageList[index-1].sendTime.split(" ")[0]!==props.messageList[index].sendTime.split(" ")[0] && 
                                 <StyledChatDateWrapper>{props.messageList[index].sendTime.split(" ")[0]}</StyledChatDateWrapper>
                             }
-                            {msg.userId == 1 ?
+                            {msg.userId == userId ?
                             <ChatMessageMe
                                 key={index}
-                                user_id={msg.userId}
-                                nickname={msg.userNickname}
+                                user_id={userId}
+                                nickname={userNickname}
                                 content_type={msg.contentType}
                                 content={msg.content}
                                 send_time={msg.sendTime}

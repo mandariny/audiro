@@ -55,7 +55,7 @@ const ChatList = () => {
                 // sub이 발생할 경우 useState이용해 목록을 업뎃 -> 렌더링,,이 다시 될 줄 알았는데 새로고침하면 안먹음
                 // const subChannel = async () => {
                     console.log("sub 발생!! : " + JSON.parse(data.body).content);
-                    const res = await axios.get(REQUEST_URL, {params: {userId: user_id}});
+                    const res = await axios.get(REQUEST_URL, {params: {userId: user_id}, headers: {Auth: `${token}`}});
                     //     .then((res)=>{
                     //     setChannelList(res.data);
                     // })
