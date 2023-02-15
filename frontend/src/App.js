@@ -28,7 +28,7 @@ function App() {
           <Route path='/intro' element={<Intro/>}/>
           <Route path='/home' element={<Home/>}/>
 
-          <Route path="/gifts" element={<GiftList/>}/>
+          <Route path="/gifts/:nickname" element={<GiftList/>}/>
           <Route path="/gifts/:giftid/:giftcnt/:mmcnt" element={<GiftDetail/>}/>
           
           <Route path="/messenger" element={<ChatList/>}/>
