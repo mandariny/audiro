@@ -60,6 +60,42 @@ const StyledChat2 = styled.div`
     justify-content: end;
 `;
 
+const StyledChatImgContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 20px 20px 20px;
+    border: 2px solid #F5336D;
+    margin-left: 30px;
+`;
+
+const StyledChatTitle = styled.div`
+    font-size: 16px;
+    font-family: var(--font-nanumSquareR);
+    color: white;
+    margin-top: 5px;
+    background-color: #F5336D;
+    padding: 10px;
+    border-radius: 0px 10px 10px 10px;
+`;
+
+const StyledChatImg = styled.div`
+    width: 70px;
+    height: 50px;
+    background-color: white;
+`;
+
+const StyledChatImgText = styled.div`
+    font-size: 16px;
+    font-family: var(--font-nanumSquareR);
+    color: white;
+    margin-top: 5px;
+    background-color: #F5336D;
+    padding: 5px;
+    border-radius: 10px 10px 10px 10px;
+`;
+
 const ChatMessageMe = (props) => {
     console.log(props.receiver_id);
 
