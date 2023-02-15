@@ -34,6 +34,7 @@ public class PostcardDTO {
     @NotNull(message = "지점 입력은 필수입니다.")
     private String spotName;
 
+    @NotNull(message = "엽서 입력은 필수입니다.")
     private String postcardImg;
     private LocalDateTime regTime;
     private String message;
@@ -49,7 +50,4 @@ public class PostcardDTO {
         this.regTime = LocalDateTime.now();
     }
 
-    public void setPostcardImg(String postcardImg){
-        this.postcardImg = postcardImg;
-    }
 }

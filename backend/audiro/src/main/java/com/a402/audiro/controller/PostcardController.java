@@ -48,13 +48,9 @@ public class PostcardController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> sendPostcard(@RequestParam("postcardImg") MultipartFile postcardImg, @RequestParam("postcard") String postcard){
+    public ResponseEntity<?> sendPostcard(@RequestBody @Valid PostcardDTO postcardDTO){
         try{
-            ObjectMapper objectMapper = new ObjectMapper();
-            @Valid
-            PostcardDTO postcardDTO = objectMapper.readValue(postcard, PostcardDTO.class);
-
-            postcardService.savePostcard(postcardImg, postcardDTO);
+            postcardService.savePostcard(postcardDTO);
             smsService.sendMessage(postcardDTO);
 
             return ResponseEntity.ok().body("sucess: 메세지를 성공적으로 전송했습니다.");
