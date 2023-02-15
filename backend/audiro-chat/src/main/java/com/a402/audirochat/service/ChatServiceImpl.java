@@ -82,6 +82,8 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public void saveMessage(String channelId, MessageDTO messageDTO) {
+        log.info("save message의 닉네임 : " + messageDTO.getUserNickname());
+    
         ChannelMessage message = ChannelMessage.builder()
                 .userId(messageDTO.getUserId())
                 .userNickname(messageDTO.getUserNickname())
@@ -137,10 +139,11 @@ public class ChatServiceImpl implements ChatService{
     public List<MessageDTO> getChannelMessages(String channelId) {
         Optional<Channel> channels = getChannel(channelId);
 
-        log.info("채널 메세지를 읽어옵니다. ", channelId);
-        log.info("채널의 메세지 길이 : ", channels.get().getMessages().size());
+        log.info("채널 메세지를 읽어옵니다. " + channelId);
+        log.info("채널의 메세지 길이 : " + channels.get().getMessages().size());
+        log.info("닉네임 : "+ channels.get().getMessages().get(0).getUserNickname());
 
-        return channels.get().getMessages().stream()
+        List<MessageDTO> messageDTOList = channels.get().getMessages().stream()
                 .map(m -> MessageDTO.builder()
                         .userId(m.getUserId())
                         .userNickname(m.getUserNickname())
@@ -149,6 +152,10 @@ public class ChatServiceImpl implements ChatService{
                         .sendTime(m.getSendTime())
                         .build())
                 .collect(Collectors.toList());
+        
+        log.info("하하하 : " + messageDTOList.get(messageDTOList.size() - 1).toString());
+        
+        return messageDTOList;
     }
 
     @Transactional

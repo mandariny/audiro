@@ -62,7 +62,7 @@ const ChatRoom = () => {
     const token = localStorage.getItem('login-token');
     console.log(jwt(token));
     const user_id = jwt(token)['userId']; 
-    const user_nickname = jwt(token)['nickname']; 
+    const user_nickname = jwt(token)['nickName']; 
 
     const {other_nickname} = useParams();
 
@@ -73,6 +73,7 @@ const ChatRoom = () => {
 
     // path에서 채팅방 아이디 받아옴
     const {channel_id} = useParams();
+    console.log("파람즈...", other_nickname, channel_id)
 
     // 소켓 연결 클라이언트 관리
     const client = useRef({});
@@ -113,7 +114,7 @@ const ChatRoom = () => {
         if(!client.current.connected) return;
 
         console.log(message);
-
+        console.log(user_nickname);
         // 채팅방 채널에 유저 아이디, 닉네임, 메세지 내용 전송 
         // contentType은 이미지 or 메세지인데 
         // 이미지 전송은 부스에서 엽서를 보낼 때에만 가능하니까 MESSAGE가 default
@@ -149,13 +150,14 @@ const ChatRoom = () => {
 
     // 마운트될 때 웹 소켓 연결하고 메세지 목록 불러오기
     useEffect(() => {
-        // connect();
-
+        connect();
+        console.log("커넥트 이후,,,")  
+        console.log("유즈이펙트 안에서 채널 아이디: ", channel_id)      
         axios.get(REQUEST_URL, {params: {channelId: channel_id}, headers: {Auth: `${token}`}})
             .then((res)=>{
                 setMessageList(res.data);
                 console.log(res.data);
-                connect();
+                //connect();
             })
             .catch(error => {
                 console.log(error.response);

@@ -41,6 +41,7 @@ const StyledChatDateWrapper = styled.span`
 `;
 
 const ChatMessageList = (props) => {
+    console.log(props.messageList, "메세지 리스트!!!");
 
     const token = localStorage.getItem('login-token');
     console.log(jwt(token));
@@ -68,7 +69,7 @@ const ChatMessageList = (props) => {
             <StyledChatContainer ref={scrollRef}>
                 
                 {
-                    props.messageList && props.messageList.map((msg, index) => {
+                    props.messageList.length>0 && props.messageList?.map((msg, index) => {
                     console.log(props.messageList[0].sendTime.split(" ")[0])
                     return(
                         <> 
