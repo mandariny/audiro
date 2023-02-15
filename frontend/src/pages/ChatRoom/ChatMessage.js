@@ -72,8 +72,6 @@ const ChatMessage = (props) => {
                     </StyledChat>
                     <StyledChat2>
                         <StyledChatMsgYou>{props.content}</StyledChatMsgYou>
-                        {/* {props.user_id} */}
-                        {/* {props.content_type} */}
                         <StyledChatDate>{props.send_time.split(" ")[1]+" "+props.send_time.split(" ")[2]}</StyledChatDate>
                     </StyledChat2>
                 </StyledChatWrapper>  

@@ -8,7 +8,7 @@ import Nav from "../../components/Nav";
 import jwt from 'jwt-decode';
 
 // 웹 소켓 연결 endpoint
-const BASE_URL = "ws://localhost:8082/ws-stomp";
+const BASE_URL = "ws://i8a402.p.ssafy.io:8082/ws-stomp";
 // 채널 리스트를 요청하는 rest api path
 const REQUEST_URL = "http://i8a402.p.ssafy.io/chat/channel/list";
 // 임의로 넣어둔 사용자 ID
@@ -39,6 +39,7 @@ const ChatList = () => {
                     subscribe();
                 }
             },
+            connectHeaders : {Auth: `${token}`},
         });
         client.current.activate();
         // console.log("=====클라이언트", client)
@@ -55,7 +56,7 @@ const ChatList = () => {
                 // sub이 발생할 경우 useState이용해 목록을 업뎃 -> 렌더링,,이 다시 될 줄 알았는데 새로고침하면 안먹음
                 // const subChannel = async () => {
                     console.log("sub 발생!! : " + JSON.parse(data.body).content);
-                    const res = await axios.get(REQUEST_URL, {params: {userId: user_id}});
+                    const res = await axios.get(REQUEST_URL, {params: {userId: user_id}, headers: {Auth: `${token}`}});
                     //     .then((res)=>{
                     //     setChannelList(res.data);
                     // })
@@ -81,7 +82,7 @@ const ChatList = () => {
 
     // 마운트될 때 리스트를 가져옴
     useEffect(() => {
-        axios.get(REQUEST_URL, {params: {userId: user_id}})
+        axios.get(REQUEST_URL, {params: {userId: user_id},  headers: {Auth: `${token}`}})
         .then((res)=>{
             setChannelList(res.data);
         });

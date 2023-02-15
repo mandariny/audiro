@@ -6,12 +6,10 @@ import axios from "axios";
 import Nav from "../../components/Nav";
 import styled from 'styled-components';
 import {FiSend} from "react-icons/fi";
-import { useCallback } from "react";
-import { useSelector } from 'react-redux';
 import jwt from 'jwt-decode';
 
 // 웹 소켓 연결할 endpoint
-const BASE_URL = "ws://localhost:8082/ws-stomp";
+const BASE_URL = "ws://i8a402.p.ssafy.io:8082/ws-stomp";
 
 // 지난 메세지 내역을 요청하기 위한 rest api path
 const REQUEST_URL = "http://i8a402.p.ssafy.io/chat/message";
@@ -66,6 +64,8 @@ const ChatRoom = () => {
     const user_id = jwt(token)['userId']; 
     const user_nickname = jwt(token)['nickname']; 
 
+    const {other_nickname} = useParams();
+
     // 메세지들을 관리하는 state
     const [messageList, setMessageList] = useState([]);
     // 새로 작성하는 메세지를 관리하는 state -> 이 메세지를 전송하고, 전송 후엔 사라짐
@@ -87,6 +87,7 @@ const ChatRoom = () => {
                 // 연결에 성공하면 subscribe 함수를 콜함
                 subscribe();
             },
+            connectHeaders : {Auth: `${token}`},
         });
         // 웹 소켓 연결 활성화
         client.current.activate();
@@ -148,12 +149,13 @@ const ChatRoom = () => {
 
     // 마운트될 때 웹 소켓 연결하고 메세지 목록 불러오기
     useEffect(() => {
-        connect();
+        // connect();
 
-        axios.get(REQUEST_URL, {params: {channelId: channel_id}})
+        axios.get(REQUEST_URL, {params: {channelId: channel_id}, headers: {Auth: `${token}`}})
             .then((res)=>{
                 setMessageList(res.data);
                 console.log(res.data);
+                connect();
             })
             .catch(error => {
                 console.log(error.response);
