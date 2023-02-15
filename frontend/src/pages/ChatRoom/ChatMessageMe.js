@@ -122,7 +122,7 @@ const ChatMessageMe = (props) => {
     const ImageMessage = (props) => {
         return(
             <StyledChatContainer>
-                <StyledChatProfile src={userImg}></StyledChatProfile>
+                {/* <StyledChatProfile src={userImg}></StyledChatProfile> */}
                 <StyledChatWrapper>
                     <StyledChatNickname>{props.nickname}</StyledChatNickname>
                     
