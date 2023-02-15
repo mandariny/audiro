@@ -7,7 +7,6 @@ import Nav from "../../components/Nav";
 import styled from 'styled-components';
 import {FiSend} from "react-icons/fi";
 import jwt from 'jwt-decode';
-import {useParams} from 'react-router-dom'
 
 // 웹 소켓 연결할 endpoint
 const BASE_URL = "ws://i8a402.p.ssafy.io:8082/ws-stomp";
