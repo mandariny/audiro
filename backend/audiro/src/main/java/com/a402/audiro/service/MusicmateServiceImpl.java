@@ -51,8 +51,13 @@ public class MusicmateServiceImpl implements MusicmateService{
 
     @Override
     public void followMusicmate(long mateId) {
+        log.info("followMusicmate 시작");
+        
         User user = userService.getUser();
         User mate = userService.getUser(mateId);
+
+        log.info("내 정보 : ", user.toString());
+        log.info("메이트 정보 : ", mate.toString());
 
         isAlreadyMusicmate(user, mate);
 
@@ -62,10 +67,12 @@ public class MusicmateServiceImpl implements MusicmateService{
                 .build();
 
         musicmateRepository.save(musicmate);
+
+        log.info("뮤직메이트 팔로우 성공");
     }
 
     @Override
-    public void isAlreadyMusicmate(User user, User mate) {
+    public void isAlreadyMusicmate(User user, User mate){
         Musicmate musicmate = musicmateRepository.findByUserIdAndMateId(user.getId(), mate.getId());
         if(musicmate != null) throw new MusicmateAlreadyExistException();
     }
@@ -82,9 +89,13 @@ public class MusicmateServiceImpl implements MusicmateService{
         User user = userService.getUser();
         User mate = userService.getUser(mateId);
 
+        log.info("내 정보 : ", user.toString());
+        log.info("메이트 정보 : ", mate.toString());
+
         Musicmate musicmate = getMusicmate(user, mate);
 
         musicmateRepository.delete(musicmate);
+        log.info("뮤직메이트 언팔로우 성공");
     }
 
 }

@@ -140,7 +140,10 @@ public class UserServiceImpl implements UserService {
     public User getUser(long userId) {
         User user = userRepository.findById(userId);
 
-        if(user == null) throw new UserNotExistException();
+        if(user == null) {
+            log.info("존재하지 않는 유저입니다. : ", userId);
+            throw new UserNotExistException();
+        }
         return user;
     }
 

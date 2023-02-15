@@ -33,9 +33,10 @@ public class MusicmateController {
         }
     }
 
-    @PostMapping("/{mateId}")
-    public ResponseEntity<?> followMusicmate(@PathVariable long mateId){
+    @GetMapping("/follow")
+    public ResponseEntity<?> followMusicmate(@RequestParam("mateId") long mateId){
         try{
+            log.info("해당 유저를 팔로우합니다. : " + mateId);
             musicmateService.followMusicmate(mateId);
             return ResponseEntity.ok().body("success : 뮤직메이트를 팔로우합니다.");
         }catch(Exception e){
@@ -44,8 +45,8 @@ public class MusicmateController {
         }
     }
 
-    @DeleteMapping("/{mateId}")
-    public ResponseEntity<?> unfollowMusicmate(@PathVariable long mateId){
+    @DeleteMapping
+    public ResponseEntity<?> unfollowMusicmate(@RequestParam("mateId") long mateId){
         try{
             musicmateService.unfollowMusicmate(mateId);
             return ResponseEntity.ok().body("success : 뮤직메이트를 언팔로우합니다.");
