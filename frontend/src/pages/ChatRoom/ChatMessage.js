@@ -116,7 +116,14 @@ const ChatMessage = (props) => {
             setuserImg(res.data.img);
           })
       }, []);
-    
+
+
+    const addMusicmate = () => {
+        axios.get(`http://i8a402.p.ssafy.io/api/musicmate/follow/${props.nickname}`, {headers: {Auth: `${token}`}})
+          .then((res) => {
+            console.log(res);
+          })
+    }
 
     const StringMessage = (props) => {
         return (
@@ -147,7 +154,7 @@ const ChatMessage = (props) => {
                         {/* <img alt="이미지 메세지" src={props.content}/> */}
                         <StyledChatTitle>내 엽서에 대한 답장이 도착했어요!</StyledChatTitle>
                         <StyledChatImg></StyledChatImg>
-                        <StyledChatImgText>음악메이트 신청하기</StyledChatImgText>
+                        <StyledChatImgText onClick={addMusicmate}>음악메이트 신청하기</StyledChatImgText>
                     </StyledChatImgContainer>
                     
                     {/* {props.user_id} */}

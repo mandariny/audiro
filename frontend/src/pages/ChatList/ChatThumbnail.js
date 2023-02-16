@@ -88,6 +88,8 @@ const ChatThumbnail = (props) => {
     }
 
     last_time=temp;
+    console.log("프로필 사진")
+    console.log(props.profile_img)
 
     return (
         // 해당 컴포넌트를 누르면 채팅방으로 이동함

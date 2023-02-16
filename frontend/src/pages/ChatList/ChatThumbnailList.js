@@ -49,6 +49,8 @@ const ChatThumbnailList = (props) => {
                 />
         ));
         setChatThumbnailList(chatList)
+        console.log("hahahaha")
+        console.log(chatList[0].profileImg)
     }, [props.chatThumbnailList])
 
     return(
