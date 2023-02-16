@@ -9,8 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service
 @RequiredArgsConstructor
+@Service
 public class SpotServiceImpl implements SpotService{
 
     private final SpotRepository spotRepository;
@@ -32,6 +32,8 @@ public class SpotServiceImpl implements SpotService{
         if(token == null || token.equals("")){
             throw new SpotNotExistException();
         }
+
+        log.info("토큰 : {}", token);
 
         return JwtDTO.builder().token(token).build();
     }
