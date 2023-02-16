@@ -23,7 +23,7 @@ const StyledChatList = styled.div`
     display: flex;
 `;
 
-const StyledChatProfile = styled.div`
+const StyledChatProfile = styled.img`
     background-color: white;
     border-radius: 100%;
     width: 35px;
@@ -95,7 +95,7 @@ const ChatThumbnail = (props) => {
             <Link to={`/messenger/${props.channel_id}/${props.nickname}`}>
                 <StyledChatListWrapper>
                 <StyledChatList>
-                    <StyledChatProfile></StyledChatProfile>
+                    <StyledChatProfile src={props.profile_img}></StyledChatProfile>
                     {/* {"채널명 : " + props.channel_id} */}
                     <StyledChatWrapper>
                         <StyledChatNickname>{props.nickname}</StyledChatNickname>
