@@ -57,6 +57,8 @@ public class GiftServiceImpl implements GiftService{
 
     @Override
     public GiftDTO getGiftDetail(long giftId) {
+        log.info("기프트를 조회합니다.");
+
         Gift gift = getGift(giftId);
 
         return GiftDTO.builder()

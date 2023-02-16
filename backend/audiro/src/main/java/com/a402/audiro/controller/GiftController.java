@@ -34,6 +34,7 @@ public class GiftController {
 
     @GetMapping("/detail")
     public ResponseEntity<?> getGiftDetail(@RequestParam long giftId){
+        log.info("기프트 컨트롤러 호출");
         try{
             GiftDTO giftDTO = giftService.getGiftDetail(giftId);
             return ResponseEntity.ok().body(giftDTO);
