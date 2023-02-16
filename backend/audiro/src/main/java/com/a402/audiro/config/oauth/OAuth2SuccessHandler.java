@@ -114,7 +114,9 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
         log.info("spotId : {}",spotId);
 
         log.info("핸들러 - 토큰 발급 ! {}", jwtTokens.getAccessToken());
-        spotService.saveToken(Long.parseLong(spotId), jwtTokens.getAccessToken());
+
+        if(!spotId.equals("지점 찾지 못함"))
+            spotService.saveToken(Long.parseLong(spotId), jwtTokens.getAccessToken());
 
     }
 
