@@ -119,7 +119,7 @@ const ChatMessage = (props) => {
 
 
     const addMusicmate = () => {
-        axios.get(`http://i8a402.p.ssafy.io/api/musicmate/follow/${props.nickname}`, {headers: {Auth: `${token}`}})
+        axios.get(`http://i8a402.p.ssafy.io/api/musicmate/follow`, {params: {mateId: `${props.user_id}`}, headers: {Auth: `${token}`}})
           .then((res) => {
             console.log(res);
           })
