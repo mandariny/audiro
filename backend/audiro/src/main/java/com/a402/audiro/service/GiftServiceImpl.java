@@ -66,6 +66,7 @@ public class GiftServiceImpl implements GiftService{
                 .singer(gift.getSong().getSinger())
                 .songUrl(gift.getSong().getSongUrl())
                 .regDate(gift.getRegTime())
+                .giftLike(gift.getLike())
                 .emoji(GiftEmojiDTO.builder()
                         .emo1(gift.getFeed1())
                         .emo2(gift.getFeed2())
