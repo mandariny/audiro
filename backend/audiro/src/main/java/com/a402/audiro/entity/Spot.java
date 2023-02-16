@@ -2,7 +2,9 @@ package com.a402.audiro.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
@@ -11,6 +13,8 @@ import javax.persistence.*;
 @DynamicInsert
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
 public class Spot {
 
@@ -22,6 +26,8 @@ public class Spot {
     private String spotName;
     @Column(name = "spot_addr")
     private String spotAddr;
+    @Column (name = "token")
+    private String token;
 
     @Override
     public String toString() {
