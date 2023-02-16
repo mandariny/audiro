@@ -46,7 +46,6 @@ const ChatThumbnailList = (props) => {
                 last_message={channel.lastMessage}
                 last_time={channel.lastMessageTime}
                 />
-            
         ));
         setChatThumbnailList(chatList)
     }, [props.chatThumbnailList])
