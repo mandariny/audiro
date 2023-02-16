@@ -40,8 +40,7 @@ const StyledDetailBtn = styled.div`
 `;
 
 const StyledDetailImg = styled.div`
-    /* display: flex; */
-    height: 200px;
+    display: flex;
     background-color: white;
     justify-content: center;
 `;

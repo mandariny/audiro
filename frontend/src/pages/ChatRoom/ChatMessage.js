@@ -122,6 +122,7 @@ const ChatMessage = (props) => {
         axios.get(`http://i8a402.p.ssafy.io/api/musicmate/follow`, {params: {mateId: `${props.user_id}`}, headers: {Auth: `${token}`}})
           .then((res) => {
             console.log(res);
+            
           })
     }
 
