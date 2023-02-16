@@ -126,7 +126,7 @@ public class ChatServiceImpl implements ChatService{
 //                        .build())
 //                .collect(Collectors.toList());
 //
-//        channelThumbnailDTOList.sort(new TimeComparator());
+
         Map<Long, ChannelInfo> channels = user.get().getChannels();
         List<ChannelThumbnailDTO> channelThumbnailDTOList = channels.keySet().stream()
                 .map(k -> ChannelThumbnailDTO.builder()
@@ -137,6 +137,7 @@ public class ChatServiceImpl implements ChatService{
                         .lastMessageTime(channelRepository.findById(channels.get(k).getChannel().getId()).get().getLastMessageTime())
                         .build())
                 .collect(Collectors.toList());
+        channelThumbnailDTOList.sort(new TimeComparator());
 
         return channelThumbnailDTOList;
     }

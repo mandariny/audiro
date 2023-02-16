@@ -24,12 +24,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class ManitoServiceImpl implements ManitoService{
 
     private final GiftRepository giftRepository;
-    private final UserRepository userRepository;
-    private final SongRepository songRepository;
-    private final SpotRepository spotRepository;
     private final SongMetaRepository songMetaRepository;
-
     private final UserService userService;
+    private final SongService songService;
+    private final SpotService spotService;
+    private final GiftService giftService;
 
     @Override
     public List<GiftThumbnailDTO> getManitoList(long spotId) {
@@ -62,15 +61,15 @@ public class ManitoServiceImpl implements ManitoService{
             manitoDTO.setUserId(userId); //유저 정보 반영
 
             // 기존 마니토를 밀어냄
-            Gift beforeManito = giftRepository.findById(manitoDTO.getBeforeManitoId());
+            Gift beforeManito = giftService.getGift(manitoDTO.getBeforeManitoId());
             beforeManito.setManito(Boolean.FALSE);
             giftRepository.save(beforeManito);
             log.info("삭제된 마니또 : {}",beforeManito);
 
             // 새로운 마니토를 추가함
-            User user = userRepository.findById(manitoDTO.getUserId());
-            Song song = songRepository.findById(manitoDTO.getSongId());
-            Spot spot = spotRepository.findById(manitoDTO.getSpotId());
+            User user = userService.getUser(manitoDTO.getUserId());
+            Song song = songService.isValidSong(manitoDTO.getSongId());
+            Spot spot = spotService.isValidSpot(manitoDTO.getSpotId());
 
             Gift manito = Gift.builder()
                     .user(user)
@@ -79,6 +78,7 @@ public class ManitoServiceImpl implements ManitoService{
                     .giftImg(manitoDTO.getGiftImg())
                     .giftTag(manitoDTO.getGiftTag())
                     .isManito(Boolean.TRUE)
+                    .isOpen(Boolean.TRUE)
                     .build();
             log.info("등록될 마니또 : {}",manito);
             giftRepository.save(manito);
