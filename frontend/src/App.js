@@ -15,6 +15,7 @@ import Intro from './pages/Intro'
 
 import UserInfo from "./pages/UserInfo";
 import Main from "./pages/Main"
+import IntroSpot from "./pages/IntroSpot";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <Routes>
           <Route exact path="/" element={<Intro/>}/>
           <Route path='/intro' element={<Intro/>}/>
+          <Route path='/introspot' element={<IntroSpot/>}/>
           <Route path='/home' element={<Main/>}/>
           
           <Route path="/gifts" element={<GiftList/>}/>
