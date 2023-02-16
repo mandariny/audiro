@@ -26,7 +26,7 @@ public class SpotServiceImpl implements SpotService{
 
     @Override
     public JwtDTO isTokenExist(long id) {
-        Spot spot = spotRepository.findById(id);
+        Spot spot = isValidSpot(id);
         String token = spot.getToken();
 
         if(token == null || token.equals("")){
@@ -41,7 +41,7 @@ public class SpotServiceImpl implements SpotService{
     @Override
     public void eraseToken(long id) {
         log.info("토큰을 삭제합니다....");
-        Spot spot = spotRepository.findById(id);
+        Spot spot = isValidSpot(id);
         spot.setToken("");
         spotRepository.save(spot);
     }
@@ -49,7 +49,7 @@ public class SpotServiceImpl implements SpotService{
     @Override
     public void saveToken(long id, String token) {
         log.info("토큰을 저장합니다 : " + token);
-        Spot spot = spotRepository.findById(id);
+        Spot spot = isValidSpot(id);
         spot.setToken(token);
         spotRepository.save(spot);
     }
