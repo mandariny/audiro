@@ -149,7 +149,6 @@ const ChatMessage = (props) => {
             <StyledChatContainer>
                 <StyledChatProfile src={userImg}></StyledChatProfile>
                 <StyledChatWrapper>
-                    <StyledChatNickname>{props.nickname}</StyledChatNickname>
                     <StyledChatImgContainer>
                         {/* <img alt="이미지 메세지" src={props.content}/> */}
                         <StyledChatTitle>내 엽서에 대한 답장이 도착했어요!</StyledChatTitle>
