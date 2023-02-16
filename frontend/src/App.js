@@ -9,6 +9,7 @@ import './App.css';
 import GiftList from "./pages/GiftList";
 import GiftListOther from "./pages/GiftListOther";
 import Login from './pages/Login'
+import LoginSpot from './pages/LoginSpot'
 import Musicmate from "./pages/Musicmate";
 import Intro from './pages/Intro'
 
@@ -33,6 +34,7 @@ function App() {
           
           <Route path="/messenger" element={<ChatList/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/loginspot' element={<LoginSpot/>}/>
           <Route path='/musicmate' element={<Musicmate/>}/> 
 
           <Route path='/messenger/:channel_id/:other_nickname' element={<ChatRoom/>} />
