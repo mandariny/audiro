@@ -23,6 +23,7 @@ const StyledGiftDetailBtnWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;  
+    margin-top: 30px;
 `;
 
 const StyledDetailBtn = styled.div`
@@ -39,9 +40,10 @@ const StyledDetailBtn = styled.div`
 `;
 
 const StyledDetailImg = styled.div`
-    display: flex;
+    /* display: flex; */
     height: 200px;
     background-color: white;
+    justify-content: center;
 `;
 
 const StyledDetailBottomWrapper = styled.div`
@@ -175,6 +177,7 @@ const GiftDetail = (props) => {
           {props.nickname==nickname? <StyledDetailBtn>비공개</StyledDetailBtn>:<></>}
           {props.nickname==nickname? <StyledDetailBtn onClick={()=> {setDeleteModalOpen(true)}}>삭제하기</StyledDetailBtn>: <></>}
         </StyledGiftDetailBtnWrapper>
+
         <StyledDetailImg><img src={dataDetail.giftImg} width="350"/></StyledDetailImg>
 
         <StyledDetailBottomWrapper>
