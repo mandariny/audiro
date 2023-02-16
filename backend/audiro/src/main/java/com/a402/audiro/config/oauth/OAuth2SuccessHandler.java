@@ -14,6 +14,7 @@ import com.a402.audiro.controller.SpotLoginController;
 import com.a402.audiro.dto.UserOAuth2DTO;
 import com.a402.audiro.entity.User;
 import com.a402.audiro.repository.UserRepository;
+import com.a402.audiro.service.SpotService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.Optional;
@@ -46,7 +47,7 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
     private final JwtTokenService jwtTokenService;
     private final OAuth2DTOMapper OAuth2DTOMapper;
     private final ObjectMapper objectMapper;
-    private final SpotLoginController spotLoginController;
+    private final SpotService spotService;
 
     @Autowired
     private UserRepository userRepository;
@@ -112,7 +113,8 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler{
         String spotId = spotIdfromCookie.orElse("지점 찾지 못함");
         log.info("spotId : {}",spotId);
 
-        spotLoginController.sendMessageToSpot(spotId, jwtTokens.getAccessToken());
+        log.info("핸들러 - 토큰 발급 ! {}", jwtTokens.getAccessToken());
+        spotService.saveToken(Long.parseLong(spotId), jwtTokens.getAccessToken());
 
     }
 
