@@ -30,6 +30,7 @@ public class ChannelController {
     public ResponseEntity<?> getChanneThumbnailList(@RequestParam long userId){
         try{
             List<ChannelThumbnailDTO> channelThumbnailList = chatService.getChannelThumbnail(userId);
+            log.info("채팅 컨트롤러 - 프로필 이미지 : " + channelThumbnailList.get(0).getProfileImg());
             return ResponseEntity.ok().body(channelThumbnailList);
         }catch(Exception e){
             log.error(e.getMessage());
