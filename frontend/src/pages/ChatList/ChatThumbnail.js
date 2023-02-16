@@ -101,7 +101,7 @@ const ChatThumbnail = (props) => {
                     {/* {"채널명 : " + props.channel_id} */}
                     <StyledChatWrapper>
                         <StyledChatNickname>{props.nickname}</StyledChatNickname>
-                        <StyledChatMsg>{props.last_message}</StyledChatMsg>
+                        <StyledChatMsg>{str[1]+str[2]}</StyledChatMsg>
                     </StyledChatWrapper>
                 </StyledChatList>
                 <StyledChatDate>{last_time}</StyledChatDate>
