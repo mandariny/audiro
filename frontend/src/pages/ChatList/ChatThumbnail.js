@@ -104,7 +104,7 @@ const ChatThumbnail = (props) => {
                         <StyledChatMsg>{props.last_message}</StyledChatMsg>
                     </StyledChatWrapper>
                 </StyledChatList>
-                <StyledChatDate>{last_time}</StyledChatDate>
+                <StyledChatDate>{str[1]+str[2]}</StyledChatDate>
                 </StyledChatListWrapper>
             </Link>
         </StyledChatContainer>

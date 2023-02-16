@@ -119,7 +119,7 @@ const ChatMessage = (props) => {
 
 
     const addMusicmate = () => {
-        axios.get(`http://i8a402.p.ssafy.io/api/musicmate/follow/${props.nickname}`, {headers: {Auth: `${token}`}})
+        axios.get(`http://i8a402.p.ssafy.io/api/musicmate/follow`, {params: {mateId: `${props.user_id}`}, headers: {Auth: `${token}`}})
           .then((res) => {
             console.log(res);
           })
@@ -149,7 +149,6 @@ const ChatMessage = (props) => {
             <StyledChatContainer>
                 <StyledChatProfile src={userImg}></StyledChatProfile>
                 <StyledChatWrapper>
-                    <StyledChatNickname>{props.nickname}</StyledChatNickname>
                     <StyledChatImgContainer>
                         {/* <img alt="이미지 메세지" src={props.content}/> */}
                         <StyledChatTitle>내 엽서에 대한 답장이 도착했어요!</StyledChatTitle>
