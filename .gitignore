@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 *.properties
 *.yml
+=======
+embedded/venv
+>>>>>>> dc48cb34ae895e1cda9b73976b64aa4b2a47453d

@@ -1,0 +1,12 @@
+PyQt5
+youtube_dl
+pafy
+python-vlc
+PySide6
+requests
+websocket
+
+/venv/Lib/site-packages/pafy/backend_youtube_dl.py
+
+#self._likes = self._ydl_info['like_count']
+#self._dislikes = self._ydl_info['dislike_count']
