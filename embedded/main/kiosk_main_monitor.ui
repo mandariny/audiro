@@ -228,7 +228,7 @@
                      </property>
                      <property name="font">
                       <font>
-                       <pointsize>16</pointsize>
+                       <pointsize>15</pointsize>
                       </font>
                      </property>
                      <property name="focusPolicy">
@@ -255,7 +255,7 @@ icon-size:30px;
 QToolBox::tab{
 border-radius:15px;
 text-align:left;
-font-size:23px;
+font-size:20px;
 }
 
 QToolBox::tab:selected{
@@ -275,7 +275,7 @@ background: #6522F2;
                       <number>0</number>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <property name="tabSpacing">
                       <number>30</number>
@@ -622,7 +622,7 @@ border-radius: 25px;</string>
                 </size>
                </property>
                <property name="currentIndex">
-                <number>8</number>
+                <number>4</number>
                </property>
                <widget class="QWidget" name="page1">
                 <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -665,204 +665,6 @@ border-radius: 25px;</string>
                     <property name="bottomMargin">
                      <number>0</number>
                     </property>
-                    <item alignment="Qt::AlignTop">
-                     <widget class="QFrame" name="Tags">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_4">
-                       <property name="spacing">
-                        <number>20</number>
-                       </property>
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>0</number>
-                       </property>
-                       <item>
-                        <widget class="QPushButton" name="tag1">
-                         <property name="minimumSize">
-                          <size>
-                           <width>0</width>
-                           <height>40</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <pointsize>14</pointsize>
-                          </font>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">*{width: 66px;
-  height: 30px;
-  border-radius: 15px;
-  color: #ffffff;
-  background-color: #6522f2;}
-</string>
-                         </property>
-                         <property name="text">
-                          <string>출근</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="tag2">
-                         <property name="minimumSize">
-                          <size>
-                           <width>0</width>
-                           <height>40</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <pointsize>14</pointsize>
-                          </font>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">*{width: 66px;
-  height: 30px;
-  border-radius: 15px;
-  color: #ffffff;
-  background-color: #6522f2;}
-</string>
-                         </property>
-                         <property name="text">
-                          <string>퇴근</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="tag3">
-                         <property name="minimumSize">
-                          <size>
-                           <width>0</width>
-                           <height>40</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <pointsize>14</pointsize>
-                          </font>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">*{width: 66px;
-  height: 30px;
-  border-radius: 15px;
-  color: #ffffff;
-  background-color: #6522f2;}
-</string>
-                         </property>
-                         <property name="text">
-                          <string>신남</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="tag4">
-                         <property name="minimumSize">
-                          <size>
-                           <width>0</width>
-                           <height>40</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <pointsize>14</pointsize>
-                          </font>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">*{width: 66px;
-  height: 30px;
-  border-radius: 15px;
-  color: #ffffff;
-  background-color: #6522f2;}
-</string>
-                         </property>
-                         <property name="text">
-                          <string>우울</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="tag5">
-                         <property name="minimumSize">
-                          <size>
-                           <width>0</width>
-                           <height>40</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <pointsize>14</pointsize>
-                          </font>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">*{width: 66px;
-  height: 30px;
-  border-radius: 15px;
-  color: #ffffff;
-  background-color: #6522f2;}
-</string>
-                         </property>
-                         <property name="text">
-                          <string>운동</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="tag6">
-                         <property name="minimumSize">
-                          <size>
-                           <width>0</width>
-                           <height>40</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <pointsize>14</pointsize>
-                          </font>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">*{width: 66px;
-  height: 30px;
-  border-radius: 15px;
-  color: #ffffff;
-  background-color: #6522f2;}
-</string>
-                         </property>
-                         <property name="text">
-                          <string>휴식</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
                     <item>
                      <widget class="QFrame" name="frame_7">
                       <property name="minimumSize">
@@ -900,7 +702,7 @@ border-radius: 25px;</string>
                         <widget class="QComboBox" name="priorityBox">
                          <property name="minimumSize">
                           <size>
-                           <width>90</width>
+                           <width>120</width>
                            <height>50</height>
                           </size>
                          </property>
@@ -911,11 +713,16 @@ border-radius: 25px;</string>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">*{width: 66px;
+                          <string notr="true">*{text-align:center;
   border-radius: 15px;
   color: #ffffff;
-  background-color: #6522f2;}
+  background-color: #6522f2;
+padding-left:24px;
+}
 </string>
+                         </property>
+                         <property name="currentText">
+                          <string>추천순</string>
                          </property>
                          <property name="currentIndex">
                           <number>0</number>
@@ -1906,6 +1713,11 @@ QSlider::handle:horizontal {
                                  <width>0</width>
                                  <height>150</height>
                                 </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
                                </property>
                                <property name="styleSheet">
                                 <string notr="true">border-radius: 10px;
@@ -4836,8 +4648,8 @@ background-color:black;
                                   <rect>
                                    <x>0</x>
                                    <y>0</y>
-                                   <width>100</width>
-                                   <height>30</height>
+                                   <width>666</width>
+                                   <height>514</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout_4">
@@ -4917,7 +4729,7 @@ background-color:black;
                           <string notr="true">color: red;</string>
                          </property>
                          <property name="text">
-                          <string>ditto 앨범 커버</string>
+                          <string/>
                          </property>
                          <property name="scaledContents">
                           <bool>true</bool>
@@ -6884,7 +6696,7 @@ background-color:black;
                        <string notr="true">background:#D9D9D9; color:red;</string>
                       </property>
                       <property name="text">
-                       <string>ditto 앨범 커버</string>
+                       <string/>
                       </property>
                       <property name="textFormat">
                        <enum>Qt::AutoText</enum>
@@ -9930,7 +9742,7 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>456</x>
+     <x>1016</x>
      <y>206</y>
     </hint>
     <hint type="destinationlabel">
@@ -9946,8 +9758,8 @@ border-radius: 30px;</string>
    <slot>backToChart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>310</x>
-     <y>71</y>
+     <x>994</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel">
      <x>820</x>
@@ -10010,8 +9822,8 @@ border-radius: 30px;</string>
    <slot>scroll_chart_right()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>350</x>
-     <y>97</y>
+     <x>1034</x>
+     <y>479</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10026,8 +9838,8 @@ border-radius: 30px;</string>
    <slot>scroll_chart_left()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>294</x>
-     <y>97</y>
+     <x>349</x>
+     <y>479</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10042,8 +9854,8 @@ border-radius: 30px;</string>
    <slot>nextMemos()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>358</x>
-     <y>84</y>
+     <x>1034</x>
+     <y>440</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10059,7 +9871,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>302</x>
-     <y>84</y>
+     <y>440</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10138,8 +9950,8 @@ border-radius: 30px;</string>
    <slot>send_message()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>835</x>
-     <y>503</y>
+     <x>908</x>
+     <y>623</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10475,7 +10287,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>1045</x>
-     <y>297</y>
+     <y>936</y>
     </hint>
     <hint type="destinationlabel">
      <x>1122</x>
@@ -10491,7 +10303,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>1043</x>
-     <y>272</y>
+     <y>923</y>
     </hint>
     <hint type="destinationlabel">
      <x>1118</x>
@@ -10554,8 +10366,8 @@ border-radius: 30px;</string>
    <slot>show_volume_send()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>363</x>
-     <y>268</y>
+     <x>1007</x>
+     <y>916</y>
     </hint>
     <hint type="destinationlabel">
      <x>1099</x>
@@ -10618,8 +10430,8 @@ border-radius: 30px;</string>
    <slot>pause()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>314</x>
-     <y>304</y>
+     <x>343</x>
+     <y>975</y>
     </hint>
     <hint type="destinationlabel">
      <x>1110</x>
@@ -10762,8 +10574,8 @@ border-radius: 30px;</string>
    <slot>scroll_post_left()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>346</x>
-     <y>473</y>
+     <x>331</x>
+     <y>476</y>
     </hint>
     <hint type="destinationlabel">
      <x>1130</x>
@@ -10794,8 +10606,8 @@ border-radius: 30px;</string>
    <slot>align_chart(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>89</y>
+     <x>414</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>1129</x>
@@ -10842,8 +10654,8 @@ border-radius: 30px;</string>
    <slot>change_volume(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>353</x>
-     <y>121</y>
+     <x>997</x>
+     <y>853</y>
     </hint>
     <hint type="destinationlabel">
      <x>1141</x>
@@ -10874,8 +10686,8 @@ border-radius: 30px;</string>
    <slot>search_singer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>382</x>
-     <y>327</y>
+     <x>411</x>
+     <y>316</y>
     </hint>
     <hint type="destinationlabel">
      <x>1113</x>
@@ -10890,8 +10702,8 @@ border-radius: 30px;</string>
    <slot>search_singer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>382</x>
-     <y>125</y>
+     <x>411</x>
+     <y>311</y>
     </hint>
     <hint type="destinationlabel">
      <x>1109</x>
@@ -10906,8 +10718,8 @@ border-radius: 30px;</string>
    <slot>search_song()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>382</x>
-     <y>125</y>
+     <x>986</x>
+     <y>336</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -10923,7 +10735,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>1033</x>
-     <y>125</y>
+     <y>864</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10938,7 +10750,7 @@ border-radius: 30px;</string>
    <slot>moveto_postcard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>456</x>
+     <x>1016</x>
      <y>206</y>
     </hint>
     <hint type="destinationlabel">
@@ -10955,7 +10767,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>1023</x>
-     <y>150</y>
+     <y>891</y>
     </hint>
     <hint type="destinationlabel">
      <x>1155</x>
@@ -10970,8 +10782,8 @@ border-radius: 30px;</string>
    <slot>check_pw_validation()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>838</x>
-     <y>376</y>
+     <x>911</x>
+     <y>496</y>
     </hint>
     <hint type="destinationlabel">
      <x>1116</x>
@@ -10986,8 +10798,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>105</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11002,8 +10814,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>267</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11018,8 +10830,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>428</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11034,8 +10846,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11050,8 +10862,8 @@ border-radius: 30px;</string>
    <slot>reply()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>337</x>
-     <y>1531</y>
+     <x>120</x>
+     <y>1111</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11066,8 +10878,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>1136</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11082,8 +10894,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>374</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11098,8 +10910,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>482</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11114,8 +10926,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11130,8 +10942,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>320</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11146,8 +10958,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1158</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11162,8 +10974,8 @@ border-radius: 30px;</string>
    <slot>send_feedback()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1863</y>
+     <x>160</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11178,8 +10990,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>105</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11194,8 +11006,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>267</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11210,8 +11022,8 @@ border-radius: 30px;</string>
    <slot>postMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>337</x>
-     <y>1438</y>
+     <x>120</x>
+     <y>1111</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11226,8 +11038,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>320</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11242,8 +11054,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>374</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11258,8 +11070,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>213</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11274,8 +11086,8 @@ border-radius: 30px;</string>
    <slot>backToPosts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>337</x>
-     <y>1624</y>
+     <x>120</x>
+     <y>1111</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11290,8 +11102,8 @@ border-radius: 30px;</string>
    <slot>searchMusic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>511</x>
-     <y>1503</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11306,8 +11118,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11322,8 +11134,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>375</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11338,8 +11150,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>429</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11354,8 +11166,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>268</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11370,8 +11182,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>107</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11386,8 +11198,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>482</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11402,8 +11214,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>214</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11418,8 +11230,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>482</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11434,8 +11246,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>1136</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11450,8 +11262,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>1183</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11466,8 +11278,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1045</x>
-     <y>1205</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11482,8 +11294,8 @@ border-radius: 30px;</string>
    <slot>colorChange1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>107</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11498,8 +11310,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>428</x>
-     <y>1137</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11514,8 +11326,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1158</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11530,8 +11342,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>160</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11546,8 +11358,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>321</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11562,8 +11374,8 @@ border-radius: 30px;</string>
    <slot>colorChange7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>429</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11578,8 +11390,8 @@ border-radius: 30px;</string>
    <slot>colorChange5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>321</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11594,8 +11406,8 @@ border-radius: 30px;</string>
    <slot>colorChange2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>160</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11610,8 +11422,8 @@ border-radius: 30px;</string>
    <slot>painterClear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1045</x>
-     <y>1205</y>
+     <x>150</x>
+     <y>1066</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11626,8 +11438,8 @@ border-radius: 30px;</string>
    <slot>colorChange9()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>1183</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11642,8 +11454,8 @@ border-radius: 30px;</string>
    <slot>colorChange3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>214</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11658,8 +11470,8 @@ border-radius: 30px;</string>
    <slot>colorChange4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>268</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11674,8 +11486,8 @@ border-radius: 30px;</string>
    <slot>colorChange6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>375</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11690,8 +11502,8 @@ border-radius: 30px;</string>
    <slot>colorChange8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>482</x>
-     <y>1184</y>
+     <x>120</x>
+     <y>1041</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11706,8 +11518,8 @@ border-radius: 30px;</string>
    <slot>backToChart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1863</y>
+     <x>160</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11722,8 +11534,8 @@ border-radius: 30px;</string>
    <slot>save_postcard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1910</y>
+     <x>190</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11738,8 +11550,8 @@ border-radius: 30px;</string>
    <slot>post_manito()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1910</y>
+     <x>190</x>
+     <y>1071</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>

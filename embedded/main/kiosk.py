@@ -108,14 +108,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # 4: 그림판(버튼으로 연동해야되는 그림판)
         # 5: 키보드
 
-        #self.painter_widget.set_color(QColor(rgb(255,255,255)))
-
-        #그림판 선언
-        #self.painter_widget = PainterWidget()
-        #self.stackedPages2.addWidget(self.painter_widget)
-        #self.stackedPages2.setCurrentIndex(4) # 내가 원하는 위젯 뿌리기 - 다음에는 ui 파일도 올려줘...
-
-        #키보드 선언
 
         #플레이어 선언
         pafy.set_api_key(sh_key)
@@ -136,15 +128,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.postcard_img = "" # postcard 이미지 파일명
 
-        #self.selected_index = 1
-
-        #유저 정보
-        sendId = ""
-        nickname = ""
-        passwd = ""
-
-        self.song_id = 1
-        self.new_song_id = 1
+        self.song_id = 1    # 현재 재생중인 노래 id
+        self.new_song_id = 1    # 현재 선택한 노래 id
 
         # 차트 이미지
         self.chart_button_list = [self.chart_img_Button1, self.chart_img_Button2, self.chart_img_Button3,
@@ -168,96 +153,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         # 마니또 목록 불러오기
         self.show_manito_list()
-        #self.scrollArea.horizontalScrollBar().valueChanged.connect(self.swipe_music())
-
-
-    # 스와이프로 차트 음악 넘겨 재생
-    def swipe_music(self):
-        value = self.scrollArea.horizontalScrollBar().value()
-        print(value)
-        if value < 10:
-            self.play_music(self.music_chart[0].get("song_url"))
-        elif value < 20:
-            self.play_music(self.music_chart[1].get("song_url"))
-        elif value < 30:
-            self.play_music(self.music_chart[2].get("song_url"))
-        elif value < 40:
-            self.play_music(self.music_chart[3].get("song_url"))
-        elif value < 50:
-            self.play_music(self.music_chart[4].get("song_url"))
-        elif value < 60:
-            self.play_music(self.music_chart[5].get("song_url"))
-        elif value < 70:
-            self.play_music(self.music_chart[6].get("song_url"))
-        elif value < 80:
-            self.play_music(self.music_chart[7].get("song_url"))
-        elif value < 90:
-            self.play_music(self.music_chart[8].get("song_url"))
-        else:
-            self.play_music(self.music_chart[9].get("song_url"))
-
-    def play_chart_scroll(self):
-        value = self.scrollArea.horizontalScrollBar().value()
-        #position_ratio = value / 1
-        if value < 0.1:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.2:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.3:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.4:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.5:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.6:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.7:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.8:
-            self.play_music(self.music_chart[0].get('song_url'))
-        elif value < 0.9:
-            self.play_music(self.music_chart[0].get('song_url'))
-        else:
-            self.play_music(self.music_chart[0].get('song_url'))
-
-        self.scrollArea.horizontalScrollBar().valueChanged.connect(lambda: swipe_music())
-
-        # 스와이프로 차트 음악 넘겨 재생
-        def swipe_music():
-            value = self.scrollArea.horizontalScrollBar().value()
-
-            if value < 10:
-                self.play_music(self.music_chart[0])
-            elif value < 20:
-                self.play_music(self.music_chart[0])
-            elif value < 30:
-                self.play_music(self.music_chart[0])
-            elif value < 40:
-                self.play_music(self.music_chart[0])
-            elif value < 50:
-                self.play_music(self.music_chart[0])
-            elif value < 60:
-                self.play_music(self.music_chart[0])
-            elif value < 70:
-                self.play_music(self.music_chart[0])
-            elif value < 80:
-                self.play_music(self.music_chart[0])
-            elif value < 90:
-                self.play_music(self.music_chart[0])
-            else:
-                self.play_music(self.music_chart[0])
-
-    def move_slider(self, num):
-        x = Thread(self)    #self는 WindowClass의 인스턴스, Thread 클래스에서 parent로 전달
-        x.start()           #쓰레드 클래스의 run 메서드를 동작시키는 부분
-        self.chart_music_slider.setValue(num)
 
     def get_chart(self, url):
         # 차트 정보 불러오기
         song_list_url = url
         song_list_param = {'spotId': spot_id}
         response = requests.get(song_list_url, headers=request_header, params=song_list_param)
-        print("response:")
         print(response)
         self.music_chart.clear()
         self.music_chart = response.json()
@@ -286,31 +187,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.get_chart(align_url)
         self.music_index = 0
-        #self.play_music(self.music_chart[0].get('song_url'))
         self.play_music()
 
     # 플레이어 함수들
-    def new_music(self, url):
-        self.video = pafy.new(url)  # pafy + youtube-dl 사용 direct link 변환
-        audio_url = self.video.getbestaudio(preftype="m4a").url  # direct link에서 음성만 추출
-        self.player.set_uri(audio_url)
-
-        ## 곡변경 시 슬라이더 초기설정 (0과 초기볼륨 설정)
-        #self.horizontalSlider_20.setValue(0)
-        #self.verticalSlider_19.setValue(70)
-        self.player.set_volume(70)
-
-        # 이미지 선처리
-        img = urllib.request.urlopen("https://img.youtube.com/vi/" + url.split('=', 1)[1] + "/0.jpg").read()
-        qix = QPixmap()
-        qix.loadFromData(img)
-
-        ## 곡정보(제목,가수,재생시간) 변경 - UI 파일 내놔!!
-        self.label_Artist_3.setText(self.video.author)  # 0-diito
-        self.label_Title_5.setText(self.video.title)
-        self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
-        self.player.play()
-
     def show_image(self, url):
         try:
             # 403 방지
@@ -470,7 +349,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         manito_list_url = local_url + '/api/manito/' + str(spot_id)
         response = requests.get(manito_list_url, headers=request_header, params=None)
         res_json = response.json()
-        print(f'manito_list:\n{res_json}')
 
         for i in range(len(res_json)):
             if i>=10: break
@@ -485,11 +363,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def gift_detail(self):
         gift_detail_url = local_url + "/api/gift/detail/"
         gift_detail_param = {'giftId': self.song_id}
-        print(f"넘어온 마니또 id:{self.song_id}")
         response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
         res_json = response.json()
         emoji_cnt = res_json.get('emoji')
-        print(emoji_cnt)
 
         self.gift_detail_img.setPixmap(self.show_image(res_json.get('giftImg')))
 
@@ -506,52 +382,42 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def playMusic1_post(self):
         self.song_id = int(self.post1.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic2_post(self):
         self.song_id = int(self.post2.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic3_post(self):
         self.song_id = int(self.post3.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic4_post(self):
         self.song_id = int(self.post4.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic5_post(self):
         self.song_id = int(self.post5.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic6_post(self):
         self.song_id = int(self.post6.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic7_post(self):
         self.song_id = int(self.post7.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic8_post(self):
         self.song_id = int(self.post8.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic9_post(self):
         self.song_id = int(self.post9.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def playMusic10_post(self):
         self.song_id = int(self.post10.text())
-        print(f'마니또 id : {self.song_id}')
         self.gift_detail()
 
     def scroll_chart_left(self):
@@ -629,36 +495,21 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(5)
         self.stackedPages2.setCurrentIndex(9)
 
-        print("search result:")
-        print(self.search_result)
-        song = self.search_result[self.music_index].get('song_title')
-        singer = self.search_result[self.music_index].get('singer')
-        self.manito_painter_data.setText(song + ' - ' + singer)
-
-        print(len(self.music_chart))
-        print("song id: ")
-        print(self.song_id)
         for i in range(len(self.music_chart)):
             if self.music_chart[i].get("song_id") == self.song_id:
                 self.music_index = i;
-                print("music index:")
-                print(i)
                 break;
-        print("끝")
         self.reply_song_img.setPixmap(self.show_image(self.music_chart[self.music_index].get('song_img')))
-        print("1")
         self.gift_reply_song.setText(self.music_chart[self.music_index].get('song_title'))
-        print("2")
         self.gift_reply_singer.setText(self.music_chart[self.music_index].get('singer'))
+        song = self.search_result[self.music_index].get('song_title')
+        singer = self.search_result[self.music_index].get('singer')
+        self.manito_painter_data.setText(song + ' - ' + singer)
         self.play_music()
 
     def moveto_postcard(self):
         self.stackedPages.setCurrentIndex(11)
         self.stackedPages2.setCurrentIndex(10)
-
-        song = self.search_result[self.music_index].get('song_title')
-        singer = self.search_result[self.music_index].get('singer')
-        self.postcard_painter_data.setText(song + ' - ' + singer)
 
         for i in range(len(self.music_chart)):
             if self.music_chart[i].get("song_id") == self.song_id:
@@ -668,6 +519,10 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.reply_song_img.setPixmap(self.show_image(self.music_chart[self.music_index].get('song_img')))
         self.gift_detail_song_4.setText(self.music_chart[self.music_index].get('song_title'))
         self.gift_detail_singer_4.setText(self.music_chart[self.music_index].get('singer'))
+        song = self.search_result[self.music_index].get('song_title')
+        singer = self.search_result[self.music_index].get('singer')
+        self.postcard_painter_data.setText(song + ' - ' + singer)
+
         self.play_music()
 
     def moveToNextStep(self):
@@ -763,6 +618,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def logout(self):
         req_url = 'http://i8a402.p.ssafy.io/api/spot/token/logout?spotId=1'
         response = requests.get(req_url, headers=request_header)
+        self.stackedPages.setCurrentIndex(0)
+        self.stackedPages2.setCurrentIndex(2)
         print(response)
 
     def postMusic(self):
