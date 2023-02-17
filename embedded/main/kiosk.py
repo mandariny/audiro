@@ -11,6 +11,7 @@ from PyQt5.QtCore import *
 import painter
 
 from PyQt5.QtCore import QTime, QDateTime
+import datetime
 
 import json
 import sys
@@ -26,6 +27,8 @@ from urllib.error import URLError, HTTPError
 
 import requests
 
+import asyncio
+
 from client import Client
 import logging
 
@@ -35,7 +38,7 @@ import logging
 local_url = "http://i8a402.p.ssafy.io:80"
 
 request_header = {
-    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzY0ODQ2MjksImV4cCI6MTY3NjU0NDYyOX0.EQLBRtIhfizuZWYVUXVewfMC3iZX-z7Xn5mnpvafhh4'
+    'Auth': 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcklkIjoxOSwibmlja05hbWUiOiLsgqzsmqnsnpAxOSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzY1NDcyOTgsImV4cCI6MTY3NjYwNzI5OH0.9aynjtOKMfAYJ852xJNt4j3JsMe_hLzQHudiKwCg9XQ'
 }
 
 # 변수 처리해야함
@@ -48,9 +51,12 @@ omg = "https://www.youtube.com/watch?v=-p1ftgMVWOc"
 one_page = "https://www.youtube.com/watch?v=_78CYlWmigI"
 love_dive = "https://www.youtube.com/watch?v=Y8JFxS1HlDo"
 
-song_id = 1
+"""song_id = 1 # 현재 노래 id"""
 
+#selected_index = 0  # 검색 페이지에서 선택한 노래 인덱스
 spot_id = 1    # 기기 번호
+gift_id = 1     # gift id
+
 
 # 가상 키보드 불러오기
 os.environ["QT_IM_MODULE"] = "qtvirtualkeyboard"
@@ -113,7 +119,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         #플레이어 선언
         pafy.set_api_key(sh_key)
-        self.music_index = 0
+
         self.music_list = [ditto, hype_boy,love_dive,omg, one_page]
         self.music_chart = []
         self.player = VLC()
@@ -121,22 +127,24 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         #self.new_music(self.music_list[self.music_index])
         #self.player.add_callback(vlc.EventType.MediaPlayerEndReached, self.nextMusic)  ## 종료 됬을대 다음곡
 
+        self.music_index = 0  # 차트에서 현재 노래 인덱스
 
         # 검색 페이지 세팅
         self.search_result = []
         self.search_buttons_made = []
         self.search_labels_made = []
 
-        self.selected_index = 0
+        self.postcard_img = "" # postcard 이미지 파일명
+
+        #self.selected_index = 1
 
         #유저 정보
         sendId = ""
         nickname = ""
         passwd = ""
 
-        songId = 0
-        postcardImg = ""
-        gift_id = 1
+        self.song_id = 1
+        self.new_song_id = 1
 
         # 차트 이미지
         self.chart_button_list = [self.chart_img_Button1, self.chart_img_Button2, self.chart_img_Button3,
@@ -155,30 +163,13 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # 차트 정보 불러오기
         song_list_url = local_url + "/api/song/chart/giftcnt/"
         self.get_chart(song_list_url)
-        self.play_music(self.music_chart[0].get('song_url'))
+        self.music_index = 0
+        self.play_music()
 
-        """# 마니또 목록 불러오기
-        manito_post_list = [
-            self.post1,self.post2, self.post3, self.post4,
-            self.post5, self.post6, self.post7, self.post8,
-            self.post9, self.post10
-        ]
-
-        manito_list_url = local_url + '/api/manito/1'
-        response = requests.get(manito_list_url, headers=request_header, params=None)
-        res_json = response.json()
-        print('마니또 목록:')
-        print(res_json[0])
-
-        for i in range(len(res_json)):
-            pixmap = self.show_image(res_json[i].get('giftImg'))
-            pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
-            icon = QIcon()
-            icon.addPixmap(pixmap)
-            manito_post_list[i].setIcon(icon)
-            manito_post_list[i].setIconSize(pixmap.rect().size())"""
-
+        # 마니또 목록 불러오기
+        self.show_manito_list()
         #self.scrollArea.horizontalScrollBar().valueChanged.connect(self.swipe_music())
+
 
     # 스와이프로 차트 음악 넘겨 재생
     def swipe_music(self):
@@ -266,6 +257,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         song_list_url = url
         song_list_param = {'spotId': spot_id}
         response = requests.get(song_list_url, headers=request_header, params=song_list_param)
+        print("response:")
+        print(response)
         self.music_chart.clear()
         self.music_chart = response.json()
 
@@ -279,6 +272,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             ## 곡정보(제목,가수,재생시간) 변경
             self.label_Artist_3.setText(self.music_chart[i].get('singer'))  # singer
             self.label_Title_5.setText(self.music_chart[i].get('song_title'))  # song
+            self.song_liked.setText(str(self.music_chart[i].get('song_liked')))
             self.chart_button_list[i].setIcon(icon)
             self.chart_button_list[i].setIconSize(pixmap.rect().size())
 
@@ -291,7 +285,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             align_url = local_url + "/api/song/chart/random/"
 
         self.get_chart(align_url)
-        self.play_music(self.music_chart[0].get('song_url'))
+        self.music_index = 0
+        #self.play_music(self.music_chart[0].get('song_url'))
+        self.play_music()
 
     # 플레이어 함수들
     def new_music(self, url):
@@ -333,7 +329,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         pixmap.loadFromData(source)
         return pixmap
 
-    def play_music(self, url):
+    def play_music(self):
+        url = self.music_chart[self.music_index].get("song_url")
         #self.video = pafy.new(self.music_chart[0].get('song_url'))  # pafy + youtube-dl 사용 direct link 변환
         #self.video = pafy.new(ditto)  # pafy + youtube-dl 사용 direct link 변환
         self.video = pafy.new(url)
@@ -346,29 +343,29 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.player.set_volume(70)
 
         # 이미지 선처리
-        img_url = self.music_chart[0].get('song_img')
+        img_url = self.music_chart[self.music_index].get('song_img')
         pixmap = self.show_image(img_url)
         pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
         icon = QIcon()
         icon.addPixmap(pixmap)
 
         ## 곡정보(제목,가수,재생시간) 변경 - UI 파일 내놔!!
-        self.label_Artist_3.setText(self.music_chart[0].get('singer'))  # singer
-        self.label_Title_5.setText(self.music_chart[0].get('song_title'))   # song
-        self.song_liked.setText(str(self.music_chart[0].get('song_liked')))     # 좋아요
+        self.label_Artist_3.setText(self.music_chart[self.music_index].get('singer'))  # singer
+        self.label_Title_5.setText(self.music_chart[self.music_index].get('song_title'))   # song
+        self.song_liked.setText(str(self.music_chart[self.music_index].get('song_liked')))     # 좋아요
         self.chart_img_Button1.setIcon(icon)
         self.chart_img_Button1.setIconSize(pixmap.rect().size())
         self.label_185.setText(str(int(self.video.length / 60)) + ":" + str(self.video.length % 60))
         self.player.play()
 
-        # 슬라이더 위치 설정
+        """# 슬라이더 위치 설정
         self.chart_music_slider.setSliderPosition(int(self.player.get_position()))
         self.song_music_slider.setSliderPosition(int(self.player.get_position()))
         self.manito_music_slider.setSliderPosition(int(self.player.get_position()))
         self.manito_post_music_slider.setSliderPosition(int(self.player.get_position()))
         self.postcard_music_slider.setSliderPosition(int(self.player.get_position()))
         self.postcard_send_music_slider.setSliderPosition(int(self.player.get_position()))
-        #self.move_slider(0)
+        #self.move_slider(0)"""
 
     def nextMusic(self):
         pass
@@ -403,16 +400,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def playMusic_chart(self, id):
         self.stackedPages.setCurrentIndex(1)
         self.stackedPages2.setCurrentIndex(8)
-        song_id = id
+        self.song_id = id
         song_gift_url = local_url + "/api/song/gifts/"
-        song_gift_param = {'spotId': spot_id, 'songId': song_id}
-
+        song_gift_param = {'spotId': spot_id, 'songId': 1}
         response = requests.get(song_gift_url, headers=request_header, params=song_gift_param)
         res_json = response.json()
         gift_list = res_json.get('giftList')
 
-        for i in range(len(gift_list)):
-            self.music_post1.setPixmap(self.show_image(gift_list[0]))
+        self.music_post1.setPixmap(self.show_image(gift_list[0]))
         self.music_post2.setPixmap(self.show_image(gift_list[1]))
         self.music_post3.setPixmap(self.show_image(gift_list[2]))
         self.music_post4.setPixmap(self.show_image(gift_list[0]))
@@ -422,100 +417,142 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.song_singer.setText(res_json.get('singer'))
         self.song_gift_cnt.setText(str(res_json.get('giftCnt')))
         self.song_liked_cnt.setText(str(res_json.get('songLiked')))
-        self.play_music(res_json.get('songUrl'))
+        self.play_music()
 
     def playMusic1_chart(self):
-        self.playMusic_chart(1)
+        self.music_index = 0
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic2_chart(self):
-        self.playMusic_chart(2)
+        self.music_index = 1
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic3_chart(self):
-        self.playMusic_chart(3)
+        self.music_index = 2
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic4_chart(self):
-        self.playMusic_chart(4)
+        self.music_index = 3
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic5_chart(self):
-        self.playMusic_chart(5)
+        self.music_index = 4
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic6_chart(self):
-        self.playMusic_chart(6)
+        music_index = 5
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic7_chart(self):
-        self.playMusic_chart(7)
+        self.music_index = 6
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic8_chart(self):
-        self.playMusic_chart(8)
+        self.music_index = 7
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic9_chart(self):
-        self.playMusic_chart(9)
+        self.music_index = 8
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
     def playMusic10_chart(self):
-        self.playMusic_chart(10)
+        self.music_index = 9
+        self.playMusic_chart(self.music_chart[self.music_index].get("song_id"))
 
-    def gift_detail(self, giftId):
-        self.stackedPages.setCurrentIndex(3)
-        self.stackedPages2.setCurrentIndex(3)
-        print("id received")
-        gift_detail_url = local_url + "/api/gift/detail/"
-        gift_detail_param = {'giftId': giftId}
+    def show_manito_list(self):
+        # 마니또 목록 불러오기
+        manito_post_list = [
+            self.post1, self.post2, self.post3, self.post4,
+            self.post5, self.post6, self.post7, self.post8,
+            self.post9, self.post10
+        ]
 
-        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
-        print("!!!!!!!!!!!!!!")
+        manito_list_url = local_url + '/api/manito/' + str(spot_id)
+        response = requests.get(manito_list_url, headers=request_header, params=None)
         res_json = response.json()
-        print("????????????????")
+        print(f'manito_list:\n{res_json}')
+
+        for i in range(len(res_json)):
+            if i>=10: break
+            pixmap = self.show_image(res_json[i].get('giftImg'))
+            pixmap = pixmap.scaled(300, 300, Qt.IgnoreAspectRatio)
+            icon = QIcon()
+            icon.addPixmap(pixmap)
+            manito_post_list[i].setIcon(icon)
+            manito_post_list[i].setIconSize(pixmap.rect().size())
+            manito_post_list[i].setText(str(res_json[i].get('id')))
+
+    def gift_detail(self):
+        gift_detail_url = local_url + "/api/gift/detail/"
+        gift_detail_param = {'giftId': self.song_id}
+        print(f"넘어온 마니또 id:{self.song_id}")
+        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
+        res_json = response.json()
         emoji_cnt = res_json.get('emoji')
-        print("zzzzzzzzzzzzzz")
+        print(emoji_cnt)
+
         self.gift_detail_img.setPixmap(self.show_image(res_json.get('giftImg')))
+
         self.gift_detail_song.setText(res_json.get('song'))
         self.gift_detail_singer.setText(res_json.get('singer'))
         self.count_emoji1.setText(str(emoji_cnt.get('emo1')))
         self.count_emoji2.setText(str(emoji_cnt.get('emo2')))
         self.count_emoji3.setText(str(emoji_cnt.get('emo3')))
         self.count_emoji4.setText(str(emoji_cnt.get('emo4')))
+        self.play_music()
 
-        self.play_music(res_json.get('song_url'))
+        self.stackedPages.setCurrentIndex(3)
+        self.stackedPages2.setCurrentIndex(3)
 
     def playMusic1_post(self):
-        self.gift_id = 1
-        self.gift_detail(1)
+        self.song_id = int(self.post1.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic2_post(self):
-        self.gift_id = 2
-        self.gift_detail(2)
+        self.song_id = int(self.post2.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic3_post(self):
-        self.gift_id = 3
-        self.gift_detail(3)
+        self.song_id = int(self.post3.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic4_post(self):
-        self.gift_id = 4
-        self.gift_detail(4)
+        self.song_id = int(self.post4.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic5_post(self):
-        self.gift_id = 5
-        self.gift_detail(5)
+        self.song_id = int(self.post5.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic6_post(self):
-        self.gift_id = 6
-        self.gift_detail(6)
+        self.song_id = int(self.post6.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic7_post(self):
-        self.gift_id = 7
-        self.gift_detail(7)
+        self.song_id = int(self.post7.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic8_post(self):
-        self.gift_id = 8
-        self.gift_detail(8)
+        self.song_id = int(self.post8.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic9_post(self):
-        self.gift_id = 9
-        self.gift_detail(9)
+        self.song_id = int(self.post9.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def playMusic10_post(self):
-        self.gift_id = 10
-        self.gift_detail(10)
+        self.song_id = int(self.post10.text())
+        print(f'마니또 id : {self.song_id}')
+        self.gift_detail()
 
     def scroll_chart_left(self):
         # self.post_scroll_area.scroll(10,0)
@@ -560,12 +597,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages2.setCurrentIndex(2)
         self.menu_toolBox.setCurrentIndex(0)
         #self.player.stop()
-        self.play_music(self.music_chart[0].get('song_url'))
+        self.music_index = 0
+        self.play_music()
 
     def backToPosts(self):
         self.stackedPages.setCurrentIndex(2)
         self.stackedPages2.setCurrentIndex(2)
         self.menu_toolBox.setCurrentIndex(1)
+        self.music_index = 0
         self.player.stop()
 
     def changeMenu(self, ind):
@@ -590,19 +629,46 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages.setCurrentIndex(5)
         self.stackedPages2.setCurrentIndex(9)
 
-        #self.reply_song_img.setPixmap(self.show_image(self.search_result[self.selected_index].get('giftImg')))
-        self.gift_reply_song.setText(str(self.search_result[self.selected_index].get('song_title')))
-        self.gift_reply_singer.setText(str(self.search_result[self.selected_index].get('singer')))
-        #self.play_music(self.search_result[self.selected_index].get('song_url')) <= 추가 구현 필요
+        print("search result:")
+        print(self.search_result)
+        song = self.search_result[self.music_index].get('song_title')
+        singer = self.search_result[self.music_index].get('singer')
+        self.manito_painter_data.setText(song + ' - ' + singer)
+
+        print(len(self.music_chart))
+        print("song id: ")
+        print(self.song_id)
+        for i in range(len(self.music_chart)):
+            if self.music_chart[i].get("song_id") == self.song_id:
+                self.music_index = i;
+                print("music index:")
+                print(i)
+                break;
+        print("끝")
+        self.reply_song_img.setPixmap(self.show_image(self.music_chart[self.music_index].get('song_img')))
+        print("1")
+        self.gift_reply_song.setText(self.music_chart[self.music_index].get('song_title'))
+        print("2")
+        self.gift_reply_singer.setText(self.music_chart[self.music_index].get('singer'))
+        self.play_music()
 
     def moveto_postcard(self):
         self.stackedPages.setCurrentIndex(11)
         self.stackedPages2.setCurrentIndex(10)
 
-        # self.reply_song_img.setPixmap(self.show_image(self.search_result[self.selected_index].get('giftImg')))
-        self.gift_detail_song_4.setText(str(self.search_result[self.selected_index].get('song_title')))
-        self.gift_detail_singer_4.setText(str(self.search_result[self.selected_index].get('singer')))
-        # self.play_music(self.search_result[self.selected_index].get('song_url')) <= 추가 구현 필요
+        song = self.search_result[self.music_index].get('song_title')
+        singer = self.search_result[self.music_index].get('singer')
+        self.postcard_painter_data.setText(song + ' - ' + singer)
+
+        for i in range(len(self.music_chart)):
+            if self.music_chart[i].get("song_id") == self.song_id:
+                self.music_index = i;
+                break;
+
+        self.reply_song_img.setPixmap(self.show_image(self.music_chart[self.music_index].get('song_img')))
+        self.gift_detail_song_4.setText(self.music_chart[self.music_index].get('song_title'))
+        self.gift_detail_singer_4.setText(self.music_chart[self.music_index].get('singer'))
+        self.play_music()
 
     def moveToNextStep(self):
         currentPage = self.stackedPages.currentIndex()
@@ -629,33 +695,19 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         emoji_list = [self.count_emoji1, self.count_emoji2, self.count_emoji3, self.count_emoji4]
 
         gift_detail_url = local_url + "/api/gift/detail"
-        gift_detail_param = {'giftId': self.gift_id}
+        gift_detail_param = {'giftId': self.song_id}
         response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
         res_json = response.json()
-
         emo = res_json.get('emoji')
         cnt_emo = emo.get('emo'+str(idx))
         emoji_list[idx-1].setText(str(cnt_emo + 1))
 
         gift_feedback_url = local_url + "/api/gift/feedback"
-        gift_feedback_param = {'giftId': self.gift_id, 'idx': idx}
+        gift_feedback_param = {'giftId': self.song_id, 'idx': idx}
         requests.get(gift_feedback_url, headers=request_header, params=gift_feedback_param)
 
     def press_emoji1(self):
         self.press_feedback(1)
-        """gift_detail_url = local_url + "/api/gift/detail"
-        gift_detail_param = {'giftId': self.gift_id}
-        response = requests.get(gift_detail_url, headers=request_header, params=gift_detail_param)
-        res_json = response.json()
-    
-        emo = res_json.get('emoji')
-        cnt_emo = emo.get('emo1')
-        self.count_emoji1.setText(str(cnt_emo+1))
-
-        gift_feedback_url = local_url + "/api/gift/feedback"
-        gift_feedback_param = {'giftId': self.gift_id, 'idx': 1}
-        requests.get(gift_feedback_url, headers=request_header, params=gift_feedback_param)
-"""
     def press_emoji2(self):
         self.press_feedback(2)
 
@@ -673,43 +725,45 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.stackedPages2.setCurrentIndex(0)
 
     # 로그인 웹 소켓 통신
-    def print_frame(frame):
-        # print(json.loads(frame.body))
-        print(frame.body)
-        print(frame.command)
-        print(frame.headers)
-        global token
-        token = frame.body
-        print("token : " + token)
-
     def login(self):
-        self.stackedPages2.setCurrentIndex(4)
-        spot_id = self.spot_id;
-        ws_url = 'ws://localhost:8080/notifications/websocket'
-        global token
+        print("로그인")
+        req_url = 'http://i8a402.p.ssafy.io/api/spot/token?spotId=1'
         token = ''
+        idx = 0
 
-        LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
-        # logging.basicConfig(level=logging.DEBUG, format=LOG_FORMAT)
+        while True:
+            if token != '' or idx > 3:
+                break
 
-        # open transport
-        client = Client(ws_url)
+            print('실행')
 
-        client.connect()
+            try:
+                response = requests.get(req_url)
+                token = response.json().get('token')
+                print(token)
 
-        # subscribe channel
-        client.subscribe("/sub/" + str(spot_id), callback=self.print_frame)
+            except:
+                print('토큰 받아오기 실패 !!')
 
-        # time.sleep(300)
+            idx += 1
+            time.sleep(5)
+        if token != '':
+            if self.stackedPages.currentIndex() == 9:
+                self.stackedPages.setCurrentIndex(10)
+            else:
+                self.stackedPages2.setCurrentIndex(4)
+        else:
+            if self.stackedPages.currentIndex() == 9:
+                self.stackedPages.setCurrentIndex(6)
+            else:
+                self.stackedPages.setCurrentIndex(2)
+                self.stackedPages2.setCurrentIndex(2)
 
-        while token == '':
-            pass
-
-        client.disconnect()
 
     def logout(self):
-        token = ''
-        app.exit()
+        req_url = 'http://i8a402.p.ssafy.io/api/spot/token/logout?spotId=1'
+        response = requests.get(req_url, headers=request_header)
+        print(response)
 
     def postMusic(self):
         self.stackedPages2.setCurrentIndex(1)
@@ -726,7 +780,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.player.resume()
 
     def select_radio(self, index):
-        self.selected_index = index
+        self.new_song_id = index
+        for i in range(len(self.music_chart)):
+            if self.music_chart[i].get("song_id") == index:
+                self.music_index = i
+                break;
 
     def show_search(self, scroll_area, grid, type):
         # 기존 검색 결과 비우기
@@ -742,6 +800,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             # radio_button 추가 -> 노래/가수
             radio_button = QRadioButton(scroll_area)
             radio_button.setObjectName(u"radioButton_gift_song" + str(i))
+            #radio_button.setObjectName(str(self.search_result[i].get('song_id')))
             self.search_buttons_made.append(radio_button)
             radio_button.setMinimumSize(QSize(0, 50))
             size_policy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
@@ -755,7 +814,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                                        "border-right:none;\n"
                                        "padding:10px;")
 
-            radio_button.clicked.connect(lambda: self.select_radio(i))
+            radio_button.clicked.connect(lambda: self.select_radio(self.search_result[i].get('song_id')))
+
             grid.addWidget(radio_button, i, 0, 1, 1)
 
             # radio_label 추가 -> 가수/노래
@@ -801,7 +861,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         response = requests.get(song_search_url, headers=request_header, params=song_search_param)
         self.search_result.clear()
         self.search_result = response.json()
-        print(self.search_result)
 
         self.show_search(scroll_area, grid, 0)
 
@@ -810,7 +869,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             text = self.lineEdit_postcard_singer.text()
             scroll_area = self.scrollAreaWidgetContents_6
             grid = self.gridLayout_6
-            print("grid_6!!!!")
 
         elif self.stackedPages.currentIndex() == 4:
             text = self.lineEdit_gift_singer.text()
@@ -849,19 +907,20 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def send_feedback(self):
         self.stackedPages2.setCurrentIndex(5)
-        self.painter_widget.save("../resource/saved_images/feedbackImg.png")
-        print("feedback saved!")
+        date_time = datetime.datetime.now().strftime('%y%m%d_%H%M%S')
+        file_name = date_time + '.png'
+        self.painter_widget.save("../resource/saved_images/" + file_name)
 
         # 채팅 서버로 피드백 전송
         url = local_url + "/channel"
 
         manito_data = manitoDTO = {'userId': 2, 'receiverId': 1, 'userNickname': 'sh', 'contentType': 'IMAGE'}
         now_dir = os.getcwd()
-        image_path = f"{now_dir}/../resource/saved_images/feedbackImg.png"  # 이미지 경로
-        image_name = r"feedbackImg.png"  # 이미지 이름
+        image_path = f"{now_dir}/../resource/saved_images/" + file_name  # 이미지 경로
+        image_name = file_name  # 이미지 이름
 
         files = {
-            "postcardImg": (image_name, open(image_path, "rb"), "image/jpeg")
+            "postcardImg": (image_name, open(image_path, "rb"), "image/png")
         }
 
         payload = {"postcard": json.dumps(manito_data)}
@@ -870,72 +929,99 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         print(response.status_code)
 
+
     def post_manito(self):
-        datetime = QDateTime.currentDateTime()
-        print(datetime.toString(Qt.DefaultLocaleShortDate))
-        time = QTime.currentTime()
-        print(time.toString())
-        print("!!!!")
-        print(str(time))
-        print(str(datetime))
         self.stackedPages.setCurrentIndex(2)
         self.stackedPages2.setCurrentIndex(2)
-        self.painter_widget_3.save("../resource/saved_images/manitoImg.png")
+        date_time = datetime.datetime.now().strftime('%y%m%d_%H%M%S')
+        file_name = date_time + '.png'
+        self.painter_widget_3.save("../resource/saved_images/" + file_name)
 
         # 서버로 이미지와 마니또 정보 전송
         url = local_url + "/api/manito"
 
-        manito_data = manitoDTO = {'userId': 2, 'songId': 1, 'spotId': 1, 'beforeManitoId': 1}
-        image_path = r"../resource/saved_images/manitoImg.png"   # 이미지 경로
-        image_name = "manitoImg.png"  # 이미지 이름
+        manito_data = manitoDTO = {'userId': 2, 'songId': self.new_song_id, 'spotId': spot_id, 'beforeManitoId': self.song_id}
+        image_path = r"../resource/saved_images/" + file_name   # 이미지 경로
+        image_name = file_name  # 이미지 이름
+
 
         access_token = request_header
         files = {
-            "giftImg": (image_name, open(image_path, "rb"), "image/jpeg")
+            "giftImg": (image_name, open(image_path, "rb"), "image/png")
         }
         headers = {
             'Auth': access_token
         }
 
         payload = {"manito": json.dumps(manito_data)}
-
-        response = requests.post(url, headers=headers, data=payload, files=files)
-
+        response = requests.post(url, headers=request_header, data=payload, files=files)
         print(response.status_code)
-
+        self.song_id = self.new_song_id
+        self.show_manito_list()
 
     def save_postcard(self):
-        self.painter_widget_4.save("../resource/saved_images/postcardImg.png")
-        print("postcard saved!")
-        self.sent_postcard_image.setPixmap(QPixmap("../resource/saved_images/postcardImg.png"))
+        date_time = datetime.datetime.now().strftime('%y%m%d_%H%M%S')
+        file_name = date_time + '.png'
+        self.painter_widget_4.save("../resource/saved_images/" + file_name)
+        self.postcard_img = file_name
+
+        self.sent_postcard_image.setPixmap(QPixmap("../resource/saved_images/"+file_name))
+        self.pw_is_valid = 0
         self.stackedPages.setCurrentIndex(12)
         self.stackedPages2.setCurrentIndex(7)
 
+
     def input_code(self):
         self.stackedPages.setCurrentIndex(8)
-        postcard_detail_url = local_url + '/postcard/'
-        postcard_detail_param = {'postcardId': 'postcardId'}
-        response = requests.get(postcard_detail_url, headers=request_header, params=postcard_detail_param)
+        postcard_detail_url = local_url + '/api/postcard/detail'
+        postcard_data = {'passwd': self.lineEdit.text()}
+        response = requests.post(postcard_detail_url, headers=request_header, json=postcard_data)
+
         res_json = response.json()
-        self.postcard_detail_img.pixmap(self.show_image(res_json.get('postcadImg')))
-        self.postcard_detail_song.setText(res_json.get('song'))
-        self.postcard_detail_singer.setText(res_json.get('singer'))
-        self.play_music(res_json.get('song_url'))
+        self.postcard_detail_img.setPixmap(QPixmap(res_json.get('postcardImg')))
+        self.gift_detail_song_3.setText(res_json.get('songTitle'))
+        self.gift_detail_singer_3.setText(res_json.get('singer'))
+        self.song_id = res_json.get('id')
+
+        self.video = pafy.new(res_json.get('songUrl'))
+        audio_url = self.video.getbestaudio(preftype="m4a").url  # direct link에서 음성만 추출
+        self.player.set_uri(audio_url)
+        self.player.set_volume(70)
+
+        self.player.play()
+
+    def check_pw_validation(self):
+        pw_url = local_url + '/api/postcard/pw'
+        pw_data = {'passwd': self.input_password.text()}
+        response = requests.post(pw_url, headers=request_header, json=pw_data)
+
+        self.passwd = self.input_password.text()
+        self.pw_is_valid = 1
 
     def send_message(self):
-        phone_number = self.lineEdit_3.text()
-        add_postcard_url = local_url + "/api/postcard"
-        add_postcard_data = {
-            'sendId': self.sendId,
-            'nickname': self.nickname,
-            'phoneNumber': self.phone_number,
-            'passwd': self.passwd,
-            'songId': self.songId,
-            'spotId': self.spotId,
-            'postcardImg': "../resource/saved_images/postcardImg.png"
-        }
-        pd = json.dumps(add_postcard_data)
-        response = requests.post(add_postcard_url, headers=request_header, data=pd)
+        if self.pw_is_valid == 0:
+            QMessageBox.information(self, "알림", "중복확인을 해주세요")
+        else:
+            phone_number = self.input_phone_number.text()
+            add_postcard_url = local_url + "/api/postcard"
+
+            postcard_data = postcardDTO = {
+                'nickname': '승호신',
+                'phoneNumber': phone_number,
+                'passwd': self.passwd,
+                'songId': self.song_id,
+                'spotId': spot_id,
+                'spotName': '멀캠12층',
+                'postcardImg': f"../resource/saved_images/{self.postcard_img}"
+            }
+            image_path = r"../resource/saved_images/" + self.postcard_img  # 이미지 경로
+            image_name = self.postcard_img  # 이미지 이름
+
+            # access_token['Content-type'] = 'application/json'
+            response = requests.post(add_postcard_url, headers=request_header, json=postcard_data)
+            print(response.status_code)
+            self.stackedPages.setCurrentIndex(13)
+            self.stackedPages2.setCurrentIndex(2)
 
     def volumeChange(self):
         pass

@@ -622,7 +622,7 @@ border-radius: 25px;</string>
                 </size>
                </property>
                <property name="currentIndex">
-                <number>5</number>
+                <number>8</number>
                </property>
                <widget class="QWidget" name="page1">
                 <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -667,6 +667,9 @@ border-radius: 25px;</string>
                     </property>
                     <item alignment="Qt::AlignTop">
                      <widget class="QFrame" name="Tags">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
@@ -1699,6 +1702,9 @@ border-radius: 15px;</string>
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_118">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
                             </property>
@@ -1768,6 +1774,9 @@ border-radius: 15px;</string>
                              </property>
                              <item>
                               <widget class="QFrame" name="frame_11">
+                               <property name="enabled">
+                                <bool>false</bool>
+                               </property>
                                <property name="maximumSize">
                                 <size>
                                  <width>16777215</width>
@@ -2133,6 +2142,9 @@ border-radius: 25px;</string>
                           </property>
                           <item>
                            <widget class="QPushButton" name="leftButton_11">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="font">
                              <font>
                               <pointsize>16</pointsize>
@@ -2563,6 +2575,9 @@ border-radius: 25px;</string>
                           </property>
                           <item>
                            <widget class="QPushButton" name="leftButton_13">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="font">
                              <font>
                               <pointsize>16</pointsize>
@@ -2893,6 +2908,9 @@ border-radius: 15px;</string>
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_123">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
                             </property>
@@ -2941,6 +2959,9 @@ border-radius: 15px;</string>
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_124">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -4135,6 +4156,9 @@ border-radius: 25px;</string>
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_115">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
                             </property>
@@ -4192,6 +4216,9 @@ border-radius: 25px;</string>
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_126">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -4652,7 +4679,7 @@ background-color:black;
                                    <x>0</x>
                                    <y>0</y>
                                    <width>666</width>
-                                   <height>517</height>
+                                   <height>514</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout">
@@ -4809,8 +4836,8 @@ background-color:black;
                                   <rect>
                                    <x>0</x>
                                    <y>0</y>
-                                   <width>666</width>
-                                   <height>517</height>
+                                   <width>100</width>
+                                   <height>30</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout_4">
@@ -4891,6 +4918,9 @@ background-color:black;
                          </property>
                          <property name="text">
                           <string>ditto 앨범 커버</string>
+                         </property>
+                         <property name="scaledContents">
+                          <bool>true</bool>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -5044,6 +5074,9 @@ background-color:black;
                        </item>
                        <item alignment="Qt::AlignBottom">
                         <widget class="QFrame" name="frame_155">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
@@ -5101,6 +5134,9 @@ background-color:black;
                        </item>
                        <item alignment="Qt::AlignBottom">
                         <widget class="QFrame" name="frame_156">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="maximumSize">
                           <size>
                            <width>16777215</width>
@@ -5713,8 +5749,14 @@ border-radius: 20px;
                        <property name="rightMargin">
                         <number>15</number>
                        </property>
-                       <item>
+                       <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                         <widget class="QLabel" name="postcard_detail_img">
+                         <property name="minimumSize">
+                          <size>
+                           <width>600</width>
+                           <height>500</height>
+                          </size>
+                         </property>
                          <property name="font">
                           <font>
                            <pointsize>28</pointsize>
@@ -5727,10 +5769,13 @@ border-radius: 20px;
                           <string notr="true">background:#D9D9D9; color:red;</string>
                          </property>
                          <property name="text">
-                          <string>편지 내용                                                   (다른 사람이 나에게 작성한 엽서)</string>
+                          <string/>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::AutoText</enum>
+                         </property>
+                         <property name="scaledContents">
+                          <bool>true</bool>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -5881,6 +5926,9 @@ border-radius: 20px;
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_165">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
                             </property>
@@ -5938,6 +5986,9 @@ border-radius: 20px;
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_166">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -6114,101 +6165,129 @@ QSlider::handle:vertical {
                </widget>
                <widget class="QWidget" name="page8">
                 <layout class="QVBoxLayout" name="verticalLayout_18">
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QFrame" name="frame_21">
-                   <property name="minimumSize">
-                    <size>
-                     <width>700</width>
-                     <height>500</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">*{background-color: #6522f2;}</string>
-                   </property>
+                 <item alignment="Qt::AlignVCenter">
+                  <widget class="QFrame" name="frame_35">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_17">
-                    <property name="leftMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>100</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>0</number>
-                    </property>
-                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                     <widget class="QLabel" name="label_4">
+                   <layout class="QVBoxLayout" name="verticalLayout_104">
+                    <item alignment="Qt::AlignRight">
+                     <widget class="QPushButton" name="pushButton_15">
                       <property name="minimumSize">
                        <size>
-                        <width>100</width>
-                        <height>100</height>
+                        <width>120</width>
+                        <height>50</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>15</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">padding: 3px 8px;
+background: #6522F2;
+;</string>
+                      </property>
+                      <property name="text">
+                       <string>로그인하기</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignVCenter">
+                     <widget class="QFrame" name="frame_21">
+                      <property name="minimumSize">
+                       <size>
+                        <width>700</width>
+                        <height>500</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>200</width>
-                        <height>200</height>
+                        <width>16777215</width>
+                        <height>16777215</height>
                        </size>
                       </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>20</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="pixmap">
-                       <pixmap>../resource/qr.png</pixmap>
-                      </property>
-                      <property name="scaledContents">
-                       <bool>true</bool>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_3">
-                      <property name="font">
-                       <font>
-                        <pointsize>18</pointsize>
-                       </font>
-                      </property>
                       <property name="styleSheet">
-                       <string notr="true">*{color:#ffffff;}</string>
+                       <string notr="true">*{background-color: #6522f2;}</string>
                       </property>
-                      <property name="text">
-                       <string>편지 보내기를 원하시면 로그인을 해주세요.</string>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
                       </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
                       </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_17">
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>100</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                        <widget class="QLabel" name="qr2">
+                         <property name="minimumSize">
+                          <size>
+                           <width>100</width>
+                           <height>100</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>200</width>
+                           <height>200</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <pointsize>20</pointsize>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="pixmap">
+                          <pixmap>../resource/QR_img.png</pixmap>
+                         </property>
+                         <property name="scaledContents">
+                          <bool>true</bool>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="label_3">
+                         <property name="font">
+                          <font>
+                           <pointsize>18</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">*{color:#ffffff;}</string>
+                         </property>
+                         <property name="text">
+                          <string>편지 보내기를 원하시면 로그인을 해주세요.</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                    </layout>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter">
-                  <widget class="QPushButton" name="pushButton_15">
-                   <property name="text">
-                    <string>로그인</string>
-                   </property>
                   </widget>
                  </item>
                 </layout>
@@ -6541,7 +6620,7 @@ background-color:black;
                                    <x>0</x>
                                    <y>0</y>
                                    <width>666</width>
-                                   <height>517</height>
+                                   <height>514</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout_5">
@@ -6693,8 +6772,8 @@ background-color:black;
                                   <rect>
                                    <x>0</x>
                                    <y>0</y>
-                                   <width>666</width>
-                                   <height>517</height>
+                                   <width>100</width>
+                                   <height>30</height>
                                   </rect>
                                  </property>
                                  <layout class="QGridLayout" name="gridLayout_6">
@@ -6788,8 +6867,14 @@ background-color:black;
                       </layout>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QLabel" name="label_16">
+                    <item alignment="Qt::AlignTop">
+                     <widget class="QLabel" name="reply_song_img">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>500</height>
+                       </size>
+                      </property>
                       <property name="font">
                        <font>
                         <pointsize>28</pointsize>
@@ -6804,6 +6889,9 @@ background-color:black;
                       <property name="textFormat">
                        <enum>Qt::AutoText</enum>
                       </property>
+                      <property name="scaledContents">
+                       <bool>true</bool>
+                      </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
                       </property>
@@ -6812,7 +6900,7 @@ background-color:black;
                       </property>
                      </widget>
                     </item>
-                    <item>
+                    <item alignment="Qt::AlignBottom">
                      <widget class="QFrame" name="frame_31">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -6950,6 +7038,9 @@ background-color:black;
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_138">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
                             </property>
@@ -7007,6 +7098,9 @@ background-color:black;
                           </item>
                           <item alignment="Qt::AlignBottom">
                            <widget class="QFrame" name="frame_140">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -7183,8 +7277,14 @@ QSlider::handle:vertical {
                </widget>
                <widget class="QWidget" name="page11">
                 <layout class="QVBoxLayout" name="verticalLayout_29">
-                 <item>
+                 <item alignment="Qt::AlignTop">
                   <widget class="QFrame" name="frame_50">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -7192,6 +7292,9 @@ QSlider::handle:vertical {
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_50">
+                    <property name="spacing">
+                     <number>100</number>
+                    </property>
                     <item alignment="Qt::AlignLeft|Qt::AlignTop">
                      <widget class="QFrame" name="frame_74">
                       <property name="minimumSize">
@@ -7248,7 +7351,7 @@ QSlider::handle:vertical {
                       </layout>
                      </widget>
                     </item>
-                    <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                      <widget class="QFrame" name="frame_52">
                       <property name="minimumSize">
                        <size>
@@ -7353,21 +7456,59 @@ QSlider::handle:vertical {
                              </font>
                             </property>
                             <property name="text">
-                             <string>전화번호를 입력해주세요.(-는 빼고 입력해주세요)</string>
+                             <string>인증 코드를 입력해주세요.(특수문자는 빼고 입력해주세요.)</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="lineEdit_3">
-                            <property name="minimumSize">
-                             <size>
-                              <width>300</width>
-                              <height>50</height>
-                             </size>
+                           <widget class="QFrame" name="frame_33">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
                             </property>
-                            <property name="styleSheet">
-                             <string notr="true">*{background-color:#ffffff;}</string>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
                             </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_26">
+                             <property name="spacing">
+                              <number>10</number>
+                             </property>
+                             <item>
+                              <widget class="QLineEdit" name="input_password">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>350</width>
+                                 <height>50</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">*{color:black; background-color:#ffffff;}</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="pushButton_20">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>50</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <pointsize>14</pointsize>
+                                 <weight>75</weight>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">*{color:black;background-color: #d9d9d9;}</string>
+                               </property>
+                               <property name="text">
+                                <string>중복확인</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
                            </widget>
                           </item>
                          </layout>
@@ -7399,7 +7540,7 @@ QSlider::handle:vertical {
                              <string notr="true">*{color:#ffffff;}</string>
                             </property>
                             <property name="text">
-                             <string>인증 코드를 입력해주세요.(특수문자는 빼고 입력해주세요.)</string>
+                             <string>전화번호를 입력해주세요.(-는 빼고 입력해주세요)</string>
                             </property>
                            </widget>
                           </item>
@@ -7434,15 +7575,15 @@ QSlider::handle:vertical {
                               <number>0</number>
                              </property>
                              <item>
-                              <widget class="QLineEdit" name="lineEdit_2">
+                              <widget class="QLineEdit" name="input_phone_number">
                                <property name="minimumSize">
                                 <size>
-                                 <width>350</width>
+                                 <width>420</width>
                                  <height>50</height>
                                 </size>
                                </property>
                                <property name="styleSheet">
-                                <string notr="true">*{background-color:#ffffff;}</string>
+                                <string notr="true">*{color:black; background-color:#ffffff;}</string>
                                </property>
                               </widget>
                              </item>
@@ -7594,7 +7735,7 @@ QSlider::handle:vertical {
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>9</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="page_draw">
              <layout class="QVBoxLayout" name="verticalLayout_32">
@@ -8210,33 +8351,41 @@ border-radius: 20px;
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_36">
-                 <item alignment="Qt::AlignBottom">
-                  <widget class="QFrame" name="frame_85">
-                   <property name="styleSheet">
-                    <string notr="true">border:none;</string>
-                   </property>
+                 <item>
+                  <widget class="QFrame" name="frame_34">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_62">
-                    <item alignment="Qt::AlignLeft">
+                   <layout class="QHBoxLayout" name="horizontalLayout_27">
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item alignment="Qt::AlignRight">
                      <widget class="QPushButton" name="pushButton_24">
+                      <property name="minimumSize">
+                       <size>
+                        <width>120</width>
+                        <height>50</height>
+                       </size>
+                      </property>
                       <property name="font">
                        <font>
-                        <pointsize>11</pointsize>
+                        <pointsize>15</pointsize>
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">color:black;</string>
+                       <string notr="true">padding: 3px 8px;
+background: #6522F2;
+;</string>
                       </property>
                       <property name="text">
-                       <string>로그인</string>
-                      </property>
-                      <property name="flat">
-                       <bool>true</bool>
+                       <string>로그인하기</string>
                       </property>
                      </widget>
                     </item>
@@ -8275,14 +8424,20 @@ border-radius: 20px;
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_49">
+                      <layout class="QVBoxLayout" name="verticalLayout_62">
+                       <property name="topMargin">
+                        <number>20</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>20</number>
+                       </property>
                        <item alignment="Qt::AlignHCenter">
-                        <widget class="QLabel" name="label_2">
+                        <widget class="QLabel" name="qr1">
                          <property name="text">
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>../resource/qr.png</pixmap>
+                          <pixmap>../resource/QR_img.png</pixmap>
                          </property>
                         </widget>
                        </item>
@@ -8314,7 +8469,7 @@ border-radius: 20px;
                          </property>
                          <property name="font">
                           <font>
-                           <pointsize>13</pointsize>
+                           <pointsize>17</pointsize>
                           </font>
                          </property>
                          <property name="text">
@@ -8741,32 +8896,7 @@ border-radius: 20px;
              </layout>
             </widget>
             <widget class="QWidget" name="page_4">
-             <layout class="QVBoxLayout" name="verticalLayout_39">
-              <item>
-               <widget class="QFrame" name="frame_170">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_104">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                </layout>
-               </widget>
-              </item>
-             </layout>
+             <layout class="QVBoxLayout" name="verticalLayout_39"/>
             </widget>
             <widget class="QWidget" name="page_5">
              <property name="styleSheet">
@@ -8788,7 +8918,7 @@ border-radius: 20px;
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_79">
-                 <item>
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QFrame" name="frame_95">
                    <property name="minimumSize">
                     <size>
@@ -9168,7 +9298,7 @@ border-radius: 30px;</string>
                      <number>11</number>
                     </property>
                     <item alignment="Qt::AlignLeft|Qt::AlignBottom">
-                     <widget class="QLabel" name="label_35">
+                     <widget class="QLabel" name="manito_painter_data">
                       <property name="font">
                        <font>
                         <pointsize>17</pointsize>
@@ -9499,7 +9629,7 @@ border-radius: 30px;</string>
                      <number>11</number>
                     </property>
                     <item alignment="Qt::AlignLeft|Qt::AlignBottom">
-                     <widget class="QLabel" name="label_36">
+                     <widget class="QLabel" name="postcard_painter_data">
                       <property name="font">
                        <font>
                         <pointsize>17</pointsize>
@@ -9761,6 +9891,9 @@ border-radius: 30px;</string>
               </item>
              </layout>
             </widget>
+            <widget class="QWidget" name="page_13">
+             <layout class="QVBoxLayout" name="verticalLayout_101"/>
+            </widget>
            </widget>
           </item>
          </layout>
@@ -9797,7 +9930,7 @@ border-radius: 30px;</string>
    <slot>moveToNextStep()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1016</x>
+     <x>456</x>
      <y>206</y>
     </hint>
     <hint type="destinationlabel">
@@ -9813,8 +9946,8 @@ border-radius: 30px;</string>
    <slot>backToChart()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>964</x>
-     <y>101</y>
+     <x>310</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>820</x>
@@ -9877,8 +10010,8 @@ border-radius: 30px;</string>
    <slot>scroll_chart_right()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1034</x>
-     <y>476</y>
+     <x>350</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9893,8 +10026,8 @@ border-radius: 30px;</string>
    <slot>scroll_chart_left()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>349</x>
-     <y>476</y>
+     <x>294</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9909,8 +10042,8 @@ border-radius: 30px;</string>
    <slot>nextMemos()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1034</x>
-     <y>437</y>
+     <x>358</x>
+     <y>84</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9926,7 +10059,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>302</x>
-     <y>437</y>
+     <y>84</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -9938,7 +10071,7 @@ border-radius: 30px;</string>
    <sender>pushButton_65</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>moveto_reply()</slot>
+   <slot>backToPosts()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>1009</x>
@@ -9951,174 +10084,14 @@ border-radius: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_28</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>62</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1063</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_31</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>116</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1104</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_32</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>170</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1147</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_33</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange4()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>224</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1187</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_34</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>278</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1220</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_52</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange6()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>331</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1257</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_51</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange7()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>385</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1296</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_38</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange8()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>439</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1331</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_25</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange9()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>493</x>
-     <y>1107</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1368</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_37</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>painterClear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1158</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>959</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>post1</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>playMusic1_post()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>501</x>
-     <y>324</y>
+     <x>533</x>
+     <y>310</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -10133,8 +10106,8 @@ border-radius: 30px;</string>
    <slot>playMusic2_post()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>658</x>
-     <y>335</y>
+     <x>813</x>
+     <y>310</y>
     </hint>
     <hint type="destinationlabel">
      <x>494</x>
@@ -10149,8 +10122,8 @@ border-radius: 30px;</string>
    <slot>playMusic3_post()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1000</x>
-     <y>315</y>
+     <x>1093</x>
+     <y>310</y>
     </hint>
     <hint type="destinationlabel">
      <x>798</x>
@@ -10159,30 +10132,14 @@ border-radius: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_15</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>moveToNextStep()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>691</x>
-     <y>946</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>699</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_12</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>moveToNextStep()</slot>
+   <slot>send_message()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>879</y>
+     <x>835</x>
+     <y>503</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -10239,102 +10196,6 @@ border-radius: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_24</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>login()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>203</x>
-     <y>1202</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1214</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_6</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>reply()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>337</x>
-     <y>1531</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1040</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_53</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>send_feedback()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1863</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1797</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_13</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>backToPosts()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>337</x>
-     <y>1624</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1495</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_14</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>postMusic()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>337</x>
-     <y>1438</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1312</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_5</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>searchMusic()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>511</x>
-     <y>1503</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1484</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_19</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -10347,486 +10208,6 @@ border-radius: 30px;</string>
     <hint type="destinationlabel">
      <x>1097</x>
      <y>171</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_36</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>62</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1083</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_39</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>116</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1133</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_41</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>170</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1175</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_42</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange4()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>224</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1214</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_43</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>278</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1244</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_54</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange6()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>331</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1277</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_55</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange7()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>385</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_44</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange8()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>439</x>
-     <y>1108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1358</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_26</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange9()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>493</x>
-     <y>1107</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1399</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_45</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>painterClear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1158</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>990</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_46</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>64</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1159</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_50</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>118</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1192</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_57</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>171</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1227</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_58</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange4()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>225</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1262</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_59</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>279</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1302</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_60</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange6()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>332</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1337</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_61</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange7()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>386</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1380</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_62</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange8()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>440</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1420</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_27</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange9()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>493</x>
-     <y>1154</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1457</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_63</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>painterClear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1045</x>
-     <y>1205</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1097</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_68</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>64</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1188</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_69</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>118</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1223</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_70</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>171</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1252</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_71</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange4()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>225</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1291</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_72</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>279</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1327</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_73</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange6()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>332</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1366</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_74</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange7()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>386</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1404</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_75</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange8()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>440</x>
-     <y>1155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1433</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_76</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>colorChange9()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>493</x>
-     <y>1154</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1467</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_77</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>painterClear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>991</x>
-     <y>1197</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1119</y>
     </hint>
    </hints>
   </connection>
@@ -11007,70 +10388,6 @@ border-radius: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_12</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>change_volume()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>921</x>
-     <y>879</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>844</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_78</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>save_postcard()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1015</x>
-     <y>1881</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1871</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_64</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>post_manito()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1910</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1907</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_56</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>backToChart()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1047</x>
-     <y>1863</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1097</x>
-     <y>1806</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>emoji_button1</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -11158,7 +10475,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>1045</x>
-     <y>936</y>
+     <y>297</y>
     </hint>
     <hint type="destinationlabel">
      <x>1122</x>
@@ -11174,7 +10491,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>1043</x>
-     <y>915</y>
+     <y>272</y>
     </hint>
     <hint type="destinationlabel">
      <x>1118</x>
@@ -11237,8 +10554,8 @@ border-radius: 30px;</string>
    <slot>show_volume_send()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>995</x>
-     <y>916</y>
+     <x>363</x>
+     <y>268</y>
     </hint>
     <hint type="destinationlabel">
      <x>1099</x>
@@ -11286,7 +10603,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>342</x>
-     <y>921</y>
+     <y>1005</y>
     </hint>
     <hint type="destinationlabel">
      <x>1132</x>
@@ -11301,8 +10618,8 @@ border-radius: 30px;</string>
    <slot>pause()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>343</x>
-     <y>922</y>
+     <x>314</x>
+     <y>304</y>
     </hint>
     <hint type="destinationlabel">
      <x>1110</x>
@@ -11349,8 +10666,8 @@ border-radius: 30px;</string>
    <slot>playMusic5_post()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1745</x>
-     <y>405</y>
+     <x>1653</x>
+     <y>310</y>
     </hint>
     <hint type="destinationlabel">
      <x>1140</x>
@@ -11365,8 +10682,8 @@ border-radius: 30px;</string>
    <slot>playMusic10_post()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1745</x>
-     <y>716</y>
+     <x>1653</x>
+     <y>590</y>
     </hint>
     <hint type="destinationlabel">
      <x>1133</x>
@@ -11477,8 +10794,8 @@ border-radius: 30px;</string>
    <slot>align_chart(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>361</x>
-     <y>172</y>
+     <x>362</x>
+     <y>89</y>
     </hint>
     <hint type="destinationlabel">
      <x>1129</x>
@@ -11525,8 +10842,8 @@ border-radius: 30px;</string>
    <slot>change_volume(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>985</x>
-     <y>861</y>
+     <x>353</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>1141</x>
@@ -11541,8 +10858,8 @@ border-radius: 30px;</string>
    <slot>search_song()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>975</x>
-     <y>314</y>
+     <x>986</x>
+     <y>328</y>
     </hint>
     <hint type="destinationlabel">
      <x>1129</x>
@@ -11557,8 +10874,8 @@ border-radius: 30px;</string>
    <slot>search_singer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>980</x>
-     <y>310</y>
+     <x>382</x>
+     <y>327</y>
     </hint>
     <hint type="destinationlabel">
      <x>1113</x>
@@ -11573,8 +10890,8 @@ border-radius: 30px;</string>
    <slot>search_singer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>986</x>
-     <y>333</y>
+     <x>382</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>1109</x>
@@ -11589,8 +10906,8 @@ border-radius: 30px;</string>
    <slot>search_song()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>970</x>
-     <y>311</y>
+     <x>382</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -11606,7 +10923,7 @@ border-radius: 30px;</string>
    <hints>
     <hint type="sourcelabel">
      <x>1033</x>
-     <y>768</y>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>1097</x>
@@ -11621,8 +10938,8 @@ border-radius: 30px;</string>
    <slot>moveto_postcard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>997</x>
-     <y>176</y>
+     <x>456</x>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
      <x>1140</x>
@@ -11637,12 +10954,828 @@ border-radius: 30px;</string>
    <slot>change_volume(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1021</x>
-     <y>789</y>
+     <x>1023</x>
+     <y>150</y>
     </hint>
     <hint type="destinationlabel">
      <x>1155</x>
      <y>766</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_20</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>check_pw_validation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>838</x>
+     <y>376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1116</x>
+     <y>465</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_28</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>105</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1063</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_33</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>267</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_51</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange7()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>428</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_32</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>213</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>reply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>1531</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1040</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_25</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange9()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>1136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_52</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange6()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_38</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange8()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_31</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>159</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1104</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_34</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>320</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1220</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_37</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>painterClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1047</x>
+     <y>1158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>959</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_53</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>send_feedback()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1047</x>
+     <y>1863</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1797</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_36</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>105</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1083</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_42</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>267</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_14</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>postMusic()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>1438</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1312</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_43</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>320</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_54</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange6()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1277</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_41</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>213</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_13</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToPosts()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>1624</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1495</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>searchMusic()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>511</x>
+     <y>1503</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1484</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_39</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>159</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1133</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_60</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange6()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_61</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange7()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>429</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1380</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_58</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_46</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1159</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_44</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange8()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1358</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_57</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_62</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange8()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1420</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_26</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange9()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>1136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_27</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange9()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>1183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1457</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_63</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>painterClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1045</x>
+     <y>1205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1097</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_68</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1188</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_55</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange7()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>428</x>
+     <y>1137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_45</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>painterClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1047</x>
+     <y>1158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>990</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_50</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_59</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>321</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_74</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange7()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>429</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1404</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_72</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>321</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_69</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_77</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>painterClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1045</x>
+     <y>1205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_76</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange9()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>1183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1467</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_70</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_71</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_73</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange6()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_75</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorChange8()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1433</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_56</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToChart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1047</x>
+     <y>1863</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1806</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_78</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>save_postcard()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1047</x>
+     <y>1910</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1871</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_64</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>post_manito()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1047</x>
+     <y>1910</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>1907</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_24</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>login()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>922</x>
+     <y>1184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1130</x>
+     <y>1205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_15</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>login()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>994</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1150</x>
+     <y>233</y>
     </hint>
    </hints>
   </connection>
@@ -11719,5 +11852,7 @@ border-radius: 30px;</string>
   <slot>search_singer()</slot>
   <slot>moveto_reply()</slot>
   <slot>moveto_postcard()</slot>
+  <slot>check_pw_validation()</slot>
+  <slot>start_login()</slot>
  </slots>
 </ui>
