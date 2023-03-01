@@ -30,17 +30,19 @@ public class GiftLikeTest {
 
     @DisplayName("기프트 좋아요 수 10번 증가")
     @Test
-    void add1000Like() throws InterruptedException{
-        Gift gift = giftService.getGift(1);
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
-        CountDownLatch countDownLatch = new CountDownLatch(5);
-        for(int i=0; i<5; i++){
+    void add10Like() throws InterruptedException{
+        final int CNT = 10;
+        final int GIFT_Id = 1;
+        Gift gift = giftService.getGift(GIFT_Id);
+        ExecutorService executorService = Executors.newFixedThreadPool(CNT);
+        CountDownLatch countDownLatch = new CountDownLatch(CNT);
+        for(int i=0; i<CNT; i++){
             executorService.execute(()->{
-                giftService.addLike(1);
+                giftService.addLike(GIFT_Id);
+                countDownLatch.countDown();
             });
-            countDownLatch.countDown();
         }
         countDownLatch.await();
-        Assertions.assertThat(gift.getLike() + 5).as("좋아요가 5 증가해야 함").isEqualTo(giftService.getGift(1).getLike());
+        Assertions.assertThat(gift.getLike() + CNT).as("좋아요가 " + CNT + " 증가해야 함").isEqualTo(giftService.getGift(GIFT_Id).getLike());
     }
 }
