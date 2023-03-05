@@ -32,10 +32,39 @@
 
 ## 프로젝트 설계
 ### 시스템 아키텍
-### 요구사항 명세서
+### 기능 명세서
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/Audiro-System%20Architecture.jpg?raw=true" width=500>
+
 ### 와이어프레임
-### ERD
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/%EA%B8%B0%EB%8A%A5%EB%AA%85%EC%84%B8%EC%84%9C.jpg?raw=true" width=500>
+
+> 키오스크
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84-%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC.jpg?raw=true" width=500>
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84-%EC%9B%B9.jpg?raw=true" width=500>
+
+> 웹
+
+### [ERD](https://www.erdcloud.com/d/CoFy4Csr4yipdPoPE)
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/ERD.jpg?raw=true" width=500>
+
 ### API 명세서
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/%EB%AA%85%EC%84%B8%EC%84%9C1.jpg?raw=true" width=200>
+
+> 분류
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/%EB%AA%85%EC%84%B8%EC%84%9C2.jpg?raw=true" width=500>
+
+> 항목
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/%EB%AA%85%EC%84%B8%EC%84%9C3.jpg?raw=true" width=500>
+
+> 세부 내용
 
 ## 개발 과정
 [노션에서 확인하기](https://www.notion.so/A402-2d611e98012743b9ada73afc8e9f9e79?pvs=4)
