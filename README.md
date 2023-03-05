@@ -19,8 +19,14 @@
 - 리팩토링 진행중
 
 ## 3. 주요 기능 소개
-### 노래 추천
-### 엽서 보내기
+### 키오스크-웹 연동
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/service_gif/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC-%EB%A1%9C%EA%B7%B8%EC%9D%B8.gif?raw=true" width=400>
+
+### 엽서 작성
+
+<img src="https://github.com/mandariny/audiro/blob/master/docs/service_gif/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC-%EC%97%BD%EC%84%9C%EC%9E%91%EC%84%B1.gif?raw=true" width=400>
+
 ### 메신저
 ### 엽서 조회
 
