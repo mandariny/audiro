@@ -35,7 +35,14 @@
 
 ### 엽서 조회
 
-## 4. 기술 스택
+## 4. 서비스의 특장점
+- 추천하고 싶은 음악과 함께 그림 엽서를 남길 수 있음
+- 키오스크를 통해 만든 타인과의 커넥션을 웹에서 이어갈 수 있음
+- 웹 로그인으로 키오스크 로그인을 가능하게 해 연동성을 높임
+- MSA 아키텍처 적용으로 서비스를 분리해 안정성을 높임
+- MatterMost와 연동해 에러를 관리함으로써 빠른 이슈 대응이 가능하게 함
+
+## 5. 기술 스택
 ### BE
 - Spring Boot
 - Spring Data JPA
@@ -65,7 +72,7 @@
 - GitLab
 - Jira
 
-## 5. 프로젝트 설계
+## 6. 프로젝트 설계
 ### 시스템 아키텍처
 
 <img src="https://github.com/mandariny/audiro/blob/master/docs/Audiro-System%20Architecture.jpg?raw=true" width=500>
@@ -102,5 +109,5 @@
 
 > 세부 내용 예시
 
-## 개발 과정
+## 7. 개발 과정
 [노션에서 확인하기](https://www.notion.so/A402-2d611e98012743b9ada73afc8e9f9e79?pvs=4)
