@@ -2,6 +2,8 @@
 
 ## 0. 프로젝트 개요
 
+- 음악을 통해 나와 음악취향이 비슷한 다른 사람을 연결해주는 공간 플랫폼
+
 - 저희 어디로 팀은 유튜브에서 '어떤 노래 듣고 계세요?'와 같은 컨텐츠가 유행하는 것에서 착안해 특정 공간에서 가장 많이 듣는 노래, 다른 사람이 추천한 노래, 자신이 듣고 있는 추천하고 싶은 노래를 공유하는 서비스를 개발했습니다. 
 
 - 웹 IoT 서비스로 기기를 이용해 노래와 함께 자신의 감상을 그림 엽서로 남길 수 있습니다. 또한 자신과 음악 취향이 맞는 사람에게 답장을 남기고 메신저로 연락하며 새로운 커넥션을 만들어갈 수 있습니다.
@@ -23,18 +25,45 @@
 
 <img src="https://github.com/mandariny/audiro/blob/master/docs/service_gif/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC-%EB%A1%9C%EA%B7%B8%EC%9D%B8.gif?raw=true" width=400>
 
-### 엽서 작성
+### 엽서 작성 및 노래 추천
 
 <img src="https://github.com/mandariny/audiro/blob/master/docs/service_gif/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC-%EC%97%BD%EC%84%9C%EC%9E%91%EC%84%B1.gif?raw=true" width=400>
 
-### 메신저
+### 엽서 답장 및 메신저
+
+### 특정인에게 그림 엽서 남기기
+
 ### 엽서 조회
 
 ## 4. 기술 스택
 ### BE
+- Spring Boot
+- Spring Data JPA
+- Spring Security, JWT
+- WebSocket, STOMP
+- Swagger
+
 ### FE
+- React.js
+- Figma
+- Styled Components
+
 ### Embedded
-### 협엽 
+- Raspberry PI
+- Python
+- PyQT
+
+### Database
+- MySQL
+- Redis
+
+### ETC
+- AWS EC2
+- Nginx
+
+### 협엽
+- GitLab
+- Jira
 
 ## 5. 프로젝트 설계
 ### 시스템 아키텍처
