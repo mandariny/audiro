@@ -104,7 +104,7 @@ public class GiftServiceImpl implements GiftService{
     }
 
     @Override
-    public void addLike(long giftId) {
+    public synchronized void addLike(long giftId) {
         Gift gift = getGift(giftId);
         gift.addLike();
         giftRepository.save(gift);

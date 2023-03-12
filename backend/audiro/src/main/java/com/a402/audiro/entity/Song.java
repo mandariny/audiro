@@ -26,17 +26,6 @@ public class Song {
     @Column(name = "song_url")
     private String songUrl;
 
-    @Override
-    public String toString() {
-        return "Song{" +
-                "userId=" + id +
-                ", songImg='" + songImg + '\'' +
-                ", songTitle='" + songTitle + '\'' +
-                ", singer='" + singer + '\'' +
-                ", songUrl='" + songUrl + '\'' +
-                '}';
-    }
-
     public long getId() {
         return id;
     }

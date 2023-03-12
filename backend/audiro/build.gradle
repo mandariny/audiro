@@ -27,7 +27,7 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'mysql:mysql-connector-java'
-	implementation 'net.nurigo:sdk:4.2.7'
+
 	implementation("org.springframework.retry:spring-retry")
 	implementation("org.springframework:spring-aspects")
 
@@ -47,13 +47,13 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-
 	//Swagger
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
-
 	// Naver SMS
 	// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
 	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
+	// For SMS
+	implementation 'net.nurigo:sdk:4.2.7'
 
 }
 tasks.named('test') {

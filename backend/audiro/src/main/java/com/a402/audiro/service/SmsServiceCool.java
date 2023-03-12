@@ -2,6 +2,8 @@ package com.a402.audiro.service;
 
 import com.a402.audiro.dto.PostcardDTO;
 import javax.annotation.PostConstruct;
+
+import com.a402.audiro.exception.SendingSmsFailed;
 import lombok.extern.slf4j.Slf4j;
 import net.nurigo.sdk.NurigoApp;
 import net.nurigo.sdk.message.model.Message;
@@ -9,14 +11,13 @@ import net.nurigo.sdk.message.request.SingleMessageSendingRequest;
 import net.nurigo.sdk.message.response.SingleMessageSentResponse;
 import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
 @PropertySource("classpath:sms-key-setting.properties")
-public class SmsServiceImpl implements SmsService{
+public class SmsServiceCool implements SmsService{
 
     @Value("${api.key}")
     private String apiKey;
@@ -44,6 +45,8 @@ public class SmsServiceImpl implements SmsService{
         message.setText(postcardDTO.getMessage());
 
         SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
+
+        if(response.getStatusCode() != "4000") throw new SendingSmsFailed(this.getClass().getName(), response.getStatusCode());
 
         log.info(response.toString());
         log.info(response.component8());

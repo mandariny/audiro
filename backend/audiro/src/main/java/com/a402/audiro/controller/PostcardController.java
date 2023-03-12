@@ -6,7 +6,6 @@ import com.a402.audiro.dto.PostcardDetailDTO;
 import com.a402.audiro.exception.PasswordDuplicationException;
 import com.a402.audiro.service.PostcardService;
 import com.a402.audiro.service.SmsService;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,7 +29,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class PostcardController {
 
     private final PostcardService postcardService;
-    private final SmsService smsService;
 
     @PostMapping("/detail")
     public ResponseEntity<?> getPostcardDetail(@RequestBody @Valid PasswordDTO passwordDTO){
@@ -49,7 +46,6 @@ public class PostcardController {
     @PostMapping
     public ResponseEntity<?> sendPostcard(@RequestBody @Valid PostcardDTO postcardDTO){
         try{
-
             postcardService.savePostcard(postcardDTO);
 
             return ResponseEntity.ok().body("sucess: 메세지를 성공적으로 전송했습니다.");

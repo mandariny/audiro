@@ -63,26 +63,6 @@ public class Gift {
     @Column(name = "is_manito")
     private boolean isManito;
 
-    @Override
-    public String toString() {
-        return "Gift{" +
-                "id=" + id +
-                ", user=" + user +
-                ", spot=" + spot +
-                ", song=" + song +
-                ", giftImg='" + giftImg + '\'' +
-                ", isOpen=" + isOpen +
-                ", giftTag=" + giftTag +
-                ", regTime=" + regTime +
-                ", like=" + like +
-                ", feed1=" + feed1 +
-                ", feed2=" + feed2 +
-                ", feed3=" + feed3 +
-                ", feed4=" + feed4 +
-                ", isManito=" + isManito +
-                '}';
-    }
-
     public long getId() {
         return id;
     }
