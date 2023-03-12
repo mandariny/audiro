@@ -37,18 +37,6 @@ public class SongMeta {
     @Column(name = "update_time")
     private LocalDateTime updateTime;
 
-    @Override
-    public String toString() {
-        return "SongMeta{" +
-                "id=" + id +
-                ", song=" + song +
-                ", spot=" + spot +
-                ", liked=" + liked +
-                ", cnt=" + cnt +
-                ", updateTime=" + updateTime +
-                '}';
-    }
-
     public long getId() {
         return id;
     }

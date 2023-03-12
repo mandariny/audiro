@@ -5,6 +5,7 @@ import com.a402.audiro.dto.NaverSmsRequestDTO;
 import com.a402.audiro.dto.NaverSmsResponseDTO;
 import com.a402.audiro.dto.PostcardDTO;
 import com.a402.audiro.exception.NaverSmsException;
+import com.a402.audiro.exception.SendingSmsFailed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -106,11 +107,13 @@ public class SmsServiceNaver implements SmsService{
         restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
         NaverSmsResponseDTO response = restTemplate.postForObject(new URI("https://sens.apigw.ntruss.com/sms/v2/services/"+ serviceId +"/messages"), httpBody, NaverSmsResponseDTO.class);
 
+        if(response.getStatusCode() != "202") throw new SendingSmsFailed(this.getClass().getName(), response.getStatusCode());
+
         return response;
     }
 
     @Override
-    public void sendMessage(PostcardDTO postcardDTO) {
+    public void sendMessage(PostcardDTO postcardDTO){
         postcardDTO.init();
 
         log.info("Naver API를 이용해 SMS 발송을 시작합니다.");
@@ -123,6 +126,9 @@ public class SmsServiceNaver implements SmsService{
             NaverSmsResponseDTO smsResponseDTO = sendSMS(smsMessageDTO);
             log.info("메세지 전송에 성공했습니다 : " + smsResponseDTO.getStatusName());
 
+        }catch(SendingSmsFailed e){
+            log.error(e.getMessage());
+            throw e;
         }catch(Exception e){
             log.error(e.getMessage());
             throw new NaverSmsException(e.getMessage());

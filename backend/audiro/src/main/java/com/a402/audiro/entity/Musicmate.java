@@ -50,14 +50,4 @@ public class Musicmate {
     }
     public void setBlock(boolean block) { isBlock = block;}
 
-    @Override
-    public String toString(){
-        return "Musicmate{" +
-                "id=" + id +
-                ", user=" + user +
-                ", mate=" + mateUser +
-                ", isMate=" + isMate +
-                ", isBlock=" + isBlock+
-                '}';
-    }
 }

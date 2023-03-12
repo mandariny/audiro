@@ -29,15 +29,6 @@ public class Spot {
     @Column (name = "token")
     private String token;
 
-    @Override
-    public String toString() {
-        return "Spot{" +
-                "spotId=" + id +
-                ", spotName='" + spotName + '\'' +
-                ", spotAddr='" + spotAddr + '\'' +
-                '}';
-    }
-
     public long getId() {
         return id;
     }
