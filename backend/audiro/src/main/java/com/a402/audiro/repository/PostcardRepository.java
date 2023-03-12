@@ -7,9 +7,12 @@ import org.springframework.data.repository.query.Param;
 
 public interface PostcardRepository extends Repository<Postcard, Long> {
     @Query(value = "select * from Postcard where password = :password", nativeQuery = true)
-    Postcard findByPasswrod(@Param("password") String pw);
+    Postcard findByPassword(@Param("password") String pw);
 
     Postcard findById(long id);
 
     void save(Postcard postcard);
+
+    @Query(value = "select * from Postcard where password = :password", nativeQuery = true)
+    void deleteByPassword(@Param("password") String pw);
 }

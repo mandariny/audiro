@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -33,7 +32,6 @@ import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
-@Primary
 @Service
 public class SmsServiceNaver implements SmsService{
 
@@ -105,9 +103,10 @@ public class SmsServiceNaver implements SmsService{
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
+
         NaverSmsResponseDTO response = restTemplate.postForObject(new URI("https://sens.apigw.ntruss.com/sms/v2/services/"+ serviceId +"/messages"), httpBody, NaverSmsResponseDTO.class);
 
-        if(response.getStatusCode() != "202") throw new SendingSmsFailed(this.getClass().getName(), response.getStatusCode());
+        if(!response.getStatusCode().equals("202")) throw new SendingSmsFailed(this.getClass().getName(), response.getStatusCode());
 
         return response;
     }
@@ -125,12 +124,10 @@ public class SmsServiceNaver implements SmsService{
         try{
             NaverSmsResponseDTO smsResponseDTO = sendSMS(smsMessageDTO);
             log.info("메세지 전송에 성공했습니다 : " + smsResponseDTO.getStatusName());
-
         }catch(SendingSmsFailed e){
             log.error(e.getMessage());
             throw e;
         }catch(Exception e){
-            log.error(e.getMessage());
             throw new NaverSmsException(e.getMessage());
         }
 
