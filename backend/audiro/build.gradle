@@ -55,6 +55,8 @@ dependencies {
 	// For SMS
 	implementation 'net.nurigo:sdk:4.2.7'
 
+	implementation 'com.h2database:h2'
+
 }
 tasks.named('test') {
 	useJUnitPlatform()

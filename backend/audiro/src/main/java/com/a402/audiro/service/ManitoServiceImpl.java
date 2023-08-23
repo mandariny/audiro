@@ -131,7 +131,7 @@ public class ManitoServiceImpl implements ManitoService{
             Files.write(path, bytes);
             log.info("이미지 저장 완료. 이미지 경로 : {}", path);
             //마니또 이미지 경로 및 마니또 객체 정보 저장
-            manitoDTO.setGiftImg("http://i8a402.p.ssafy.io/gift_images/"+manitoDTO.getSpotId().toString()+"/"+imageName);
+            manitoDTO.setGiftImg("http://localhost.io/gift_images/"+manitoDTO.getSpotId().toString()+"/"+imageName);
             addManito(manitoDTO);
         }catch (Exception e){
             log.info("사진 저장 실패");
